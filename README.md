@@ -47,44 +47,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 ## 🧰 Toolkit
 
-<table>
-<tr>
-<td><b>Languages</b></td>
-<td><img src="https://skillicons.dev/icons?i=python,js,bash&theme=dark" alt="Python, JavaScript, Bash"/></td>
-</tr>
-<tr>
-<td><b>ML and vision</b></td>
-<td><img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn,opencv&theme=dark" alt="PyTorch, TensorFlow, scikit-learn, OpenCV"/></td>
-</tr>
-<tr>
-<td><b>Apps and APIs</b></td>
-<td><img src="https://skillicons.dev/icons?i=fastapi,react,nextjs,nodejs,express,mongodb&theme=dark" alt="FastAPI, React, Next.js, Node.js, Express, MongoDB"/></td>
-</tr>
-<tr>
-<td><b>Tooling</b></td>
-<td><img src="https://skillicons.dev/icons?i=git,github,githubactions,linux,vscode&theme=dark" alt="Git, GitHub, GitHub Actions, Linux, VS Code"/></td>
-</tr>
-<tr>
-<td><b>GenAI</b></td>
-<td>
-<img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="LangGraph"/>
-<img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face"/>
-<img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square" alt="Qdrant"/>
-<img src="https://img.shields.io/badge/Qwen2.5--VL-7C3AED?style=flat-square" alt="Qwen2.5-VL"/>
-<img src="https://img.shields.io/badge/Whisper-10A37F?style=flat-square" alt="Whisper"/>
-<img src="https://img.shields.io/badge/YOLO-111F68?style=flat-square" alt="YOLO"/>
-</td>
-</tr>
-<tr>
-<td><b>Medical imaging</b></td>
-<td>
-<img src="https://img.shields.io/badge/SynthSeg-38BDF8?style=flat-square" alt="SynthSeg"/>
-<img src="https://img.shields.io/badge/BiomedParse-2DD4BF?style=flat-square" alt="BiomedParse"/>
-<img src="https://img.shields.io/badge/ANTsPy-A78BFA?style=flat-square" alt="ANTsPy"/>
-<img src="https://img.shields.io/badge/OpenSlide-FB7185?style=flat-square" alt="OpenSlide"/>
-</td>
-</tr>
-</table>
+<img src="./profile/toolkit.svg" width="100%" alt="Toolkit. Languages: Python, TypeScript, JavaScript, Bash. ML and vision: PyTorch, TensorFlow, scikit-learn, OpenCV, YOLO, NumPy, Pandas. GenAI and agents: LangGraph, Hugging Face, Qdrant, Qwen2.5-VL, Whisper, Cohere. Medical imaging: SynthSeg, BiomedParse, ANTsPy, OpenSlide. Apps and APIs: FastAPI, React, Next.js, Node.js, Express, MongoDB. Tooling: Git, GitHub, GitHub Actions, Docker, Linux, Jupyter, Kaggle."/>
 
 ## 🚀 Latest work
 

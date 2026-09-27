@@ -44,6 +44,19 @@ ACHIEVEMENTS = [
     ("TOP", "40", "IIT Delhi", "Innov8 Challenge", ""),
     ("TOP", "1.5K", "Amazon", "ML Challenge", ""),
 ]
+# Toolkit card: (lane, [(tool, simple-icons slug or "")]). Icon paths live in scripts/toolkit_icons.json.
+TOOLKIT = [
+    ("Languages", [("Python", "python"), ("TypeScript", "typescript"), ("JavaScript", "javascript"), ("Bash", "gnubash")]),
+    ("ML & Vision", [("PyTorch", "pytorch"), ("TensorFlow", "tensorflow"), ("scikit-learn", "scikitlearn"), ("OpenCV", "opencv"),
+                     ("YOLO", "ultralytics"), ("NumPy", "numpy"), ("Pandas", "pandas")]),
+    ("GenAI & Agents", [("LangGraph", "langchain"), ("Hugging Face", "huggingface"), ("Qdrant", "qdrant"), ("Qwen2.5-VL", ""),
+                        ("Whisper", "openai"), ("Cohere", "")]),
+    ("Medical imaging", [("SynthSeg", ""), ("BiomedParse", ""), ("ANTsPy", ""), ("OpenSlide", "")]),
+    ("Apps & APIs", [("FastAPI", "fastapi"), ("React", "react"), ("Next.js", "nextdotjs"), ("Node.js", "nodedotjs"),
+                     ("Express", "express"), ("MongoDB", "mongodb")]),
+    ("Tooling", [("Git", "git"), ("GitHub", "github"), ("Actions", "githubactions"), ("Docker", "docker"),
+                 ("Linux", "linux"), ("Jupyter", "jupyter"), ("Kaggle", "kaggle")]),
+]
 # ──────────────────────────────────────────────────────────────────────────────────────
 
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
@@ -408,11 +421,69 @@ def render_achievements() -> str:
     return frame(W, H, "02", "Mission record", "\n".join(out), css, label, NEON[4])
 
 
+def render_toolkit() -> str:
+    """Tech arsenal: one colour-coded lane per domain, a data pulse running along each circuit trace,
+    tools as glowing chips with their logos, and a scan beam sweeping every lane."""
+    icons = json.loads((ROOT / "scripts" / "toolkit_icons.json").read_text(encoding="utf-8"))
+    lane_cols = [NEON[4], NEON[1], NEON[2], NEON[0], NEON[3], NEON[5]]
+    W, lane_h, top = 900, 56, 76
+    H = top + lane_h * len(TOOLKIT) + 22
+    tx0, tx1 = 204, W - 28
+    n_tools = sum(len(t) for _, t in TOOLKIT)
+    out = [f'<line x1="44" y1="{top + 22}" x2="44" y2="{top + 22 + lane_h * (len(TOOLKIT) - 1)}" stroke="{C["line"]}" stroke-width="2"/>',
+           f'<line x1="44" y1="{top + 22}" x2="44" y2="{top + 22 + lane_h * (len(TOOLKIT) - 1)}" stroke="url(#bus)" stroke-width="2" class="bus"/>']
+    defs = [f'<linearGradient id="bus" x1="0" y1="0" x2="0" y2="1">'
+            + "".join(f'<stop offset="{i / (len(TOOLKIT) - 1):.2f}" stop-color="{c}"/>' for i, c in enumerate(lane_cols)) + "</linearGradient>"]
+    for i, (lane, tools) in enumerate(TOOLKIT):
+        col = lane_cols[i % len(lane_cols)]
+        cy = top + 22 + i * lane_h
+        defs.append(f'<linearGradient id="sh{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
+                    f'<stop offset=".5" stop-color="{col}" stop-opacity=".22"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient>')
+        hexp = " ".join(f"{polar(44, cy, 13, a)[0]:.1f},{polar(44, cy, 13, a)[1]:.1f}" for a in range(30, 390, 60))
+        out.append(f"""<g class="chip" style="animation-delay:{.15 + i * .1:.2f}s">
+  <circle cx="44" cy="{cy}" r="20" fill="none" stroke="{col}" stroke-opacity=".5" stroke-dasharray="2 5" class="{'spin' if i % 2 else 'spin-r'}"/>
+  <polygon points="{hexp}" fill="{C['bg0']}" stroke="{col}" stroke-width="1.6"{GLOW}/>
+  <text x="44" y="{cy + 4}" text-anchor="middle" class="hexn" style="fill:{col}">{i + 1:02d}</text>
+  <text x="74" y="{cy - 2}" class="lbl" style="fill:{C['text']}">{esc(lane.upper())}</text>
+  <text x="74" y="{cy + 14}" class="small">{len(tools)} tools</text>
+</g>""")
+        out.append(f'<line x1="{tx0 - 12}" y1="{cy}" x2="{tx1}" y2="{cy}" stroke="{col}" stroke-opacity=".22"/>')
+        out.append(f'<line x1="{tx0 - 12}" y1="{cy}" x2="{tx1}" y2="{cy}" stroke="{col}" stroke-width="2.4" stroke-linecap="round"'
+                   f' class="pulse" style="animation-delay:{-i * .9:.1f}s"{GLOW}/>')
+        widths = [36 + 7.5 * len(name) for name, _ in tools]
+        gap = min(10.0, (tx1 - tx0 - sum(widths)) / max(1, len(tools) - 1))
+        x = float(tx0)
+        for j, ((name, slug), w) in enumerate(zip(tools, widths)):
+            if slug and slug in icons:
+                glyph = (f'<g transform="translate({x + 10:.1f},{cy - 8}) scale(.6667)" class="ico" style="animation-delay:{(i * 7 + j) * .37 % 4:.2f}s">'
+                         f'<path d="{icons[slug]}" fill="{col}"/></g>')
+            else:  # no public logo: a small scan-target glyph
+                glyph = (f'<g class="ico" style="animation-delay:{(i * 7 + j) * .37 % 4:.2f}s"><circle cx="{x + 18:.1f}" cy="{cy}" r="6" fill="none" stroke="{col}" stroke-width="1.6"/>'
+                         f'<circle cx="{x + 18:.1f}" cy="{cy}" r="2" fill="{col}"/></g>')
+            out.append(f'<g class="chip" style="animation-delay:{.35 + i * .1 + j * .06:.2f}s">'
+                       f'<rect x="{x:.1f}" y="{cy - 15}" width="{w:.1f}" height="30" rx="8" fill="{C["panel"]}" stroke="{col}" stroke-opacity=".55"/>'
+                       f'{glyph}<text x="{x + 32:.1f}" y="{cy + 4.5}" style="font-size:12.5px;fill:{C["text"]}">{esc(name)}</text></g>')
+            x += w + gap
+        out.append(f'<rect x="{tx0 - 12}" y="{cy - 17}" width="130" height="34" fill="url(#sh{i})" class="beam" style="animation-delay:{i * .8:.1f}s"/>')
+    css = (f".hexn {{ font: 700 10.5px {MONO}; }}"
+           " .chip { animation: chipin .7s cubic-bezier(.2,.8,.2,1) both; }"
+           " @keyframes chipin { from { opacity: 0; transform: translateY(8px); } }"
+           " .pulse { stroke-dasharray: 46 1400; animation: flow 4.5s linear infinite; }"
+           " @keyframes flow { from { stroke-dashoffset: 46; } to { stroke-dashoffset: -760; } }"
+           " .beam { animation: beam 6s cubic-bezier(.5,0,.5,1) infinite; opacity: 0; }"
+           f" @keyframes beam {{ 0% {{ transform: translateX(0); opacity: 0; }} 15% {{ opacity: 1; }} 85% {{ opacity: 1; }} 100% {{ transform: translateX({tx1 - tx0 - 100}px); opacity: 0; }} }}"
+           " .ico { animation: ico 4s ease-in-out infinite; } @keyframes ico { 50% { opacity: .55; } }"
+           " .bus { stroke-dasharray: 30 300; animation: busf 3s linear infinite; } @keyframes busf { from { stroke-dashoffset: 30; } to { stroke-dashoffset: -300; } }")
+    body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
+    label = "Toolkit: " + "; ".join(f"{lane}: " + ", ".join(n for n, _ in tools) for lane, tools in TOOLKIT)
+    return frame(W, H, "03", f"Arsenal · {n_tools} tools · {len(TOOLKIT)} domains", body, css, label, NEON[7])
+
+
 def render_skyline(days: list[tuple[dt.date, int]]) -> str:
     """Isometric city of the contribution calendar: one tower per day, height and colour by count."""
     W, H = 900, 390
     if not days:
-        return frame(W, H, "03", "Contribution skyline", '<text x="44" y="120" class="note">No contribution data yet.</text>')
+        return frame(W, H, "04", "Contribution skyline", '<text x="44" y="120" class="note">No contribution data yet.</text>')
     first = days[0][0]
     sunday0 = first - dt.timedelta(days=(first.weekday() + 1) % 7)
     ux, uy, vx, vy = 11.2, 1.5, 6.2, 9.6       # week axis u, weekday axis v
@@ -490,7 +561,7 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
     css = (".rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }"
            " @keyframes rise { from { opacity: 0; transform: translateY(18px); } }"
            f" .beam {{ animation: beam 6s linear infinite; }} @keyframes beam {{ from {{ transform: translate(0,0); }} to {{ transform: translate({ex:.1f}px,{ey:.1f}px); }} }}")
-    return frame(W, H, "03", "Contribution skyline · 12 months", body, css,
+    return frame(W, H, "04", "Contribution skyline · 12 months", body, css,
                  f"Isometric contribution calendar: {total} contributions over {active} active days", NEON[2])
 
 
@@ -595,7 +666,7 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
 <line x1="608" y1="64" x2="608" y2="{by1+26}" stroke="{C['line']}"/>
 {''.join(bars)}
 {''.join(notes)}"""
-    return frame(W, H, "04", "Signal activity", body, css,
+    return frame(W, H, "05", "Signal activity", body, css,
                  f"Weekly contributions over 12 months, peak {peak}; most active on {best or 'no day yet'}", NEON[1])
 
 
@@ -663,7 +734,7 @@ def render_clock(hours: list[int]) -> str:
            " @keyframes bloom { from { opacity: 0; transform: scale(.4); } }"
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
            " @keyframes growx { from { transform: scaleX(0); } }")
-    return frame(W, H, "05", "Commit clock", body, css,
+    return frame(W, H, "06", "Commit clock", body, css,
                  f"Commits by hour of day (IST): {total} commits, busiest hour {peak_h:02d}:00" if total else "Commit clock", NEON[3])
 
 
@@ -709,7 +780,7 @@ def render_languages(mix: list[tuple[str, str, float]]) -> str:
            f" .orbit {{ transform-origin: {cx}px {cy}px; animation: spin 14s linear infinite; }}"
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
            " @keyframes growx { from { transform: scaleX(0); } }")
-    return frame(W, H, "06", "Language matrix", body, css,
+    return frame(W, H, "07", "Language matrix", body, css,
                  "Languages: " + ", ".join(f"{n} {p:.1f}%" for n, _, p in mix), NEON[5])
 
 
@@ -719,7 +790,7 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
     x0, x1, ay = 44, W - 70, 184
     items = sorted((r for r in repos if r.get("createdAt")), key=lambda r: r["createdAt"])
     if not items:
-        return frame(W, H, "07", "Mission log", '<text x="44" y="120" class="note">Repositories appear here once public.</text>')
+        return frame(W, H, "08", "Mission log", '<text x="44" y="120" class="note">Repositories appear here once public.</text>')
     ts = [dt.datetime.fromisoformat(r["createdAt"].replace("Z", "+00:00")) for r in items]
     t0 = min(ts) - dt.timedelta(days=12)
     t1 = NOW
@@ -787,7 +858,7 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
     css = (f".repo {{ font: 12px {MONO}; fill: {C['text']}; }} .pop {{ animation: fade .6s ease both; }}"
            " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.2s ease-out infinite; }"
            " @keyframes ping { from { transform: scale(.5); opacity: .9; } to { transform: scale(2.2); opacity: 0; } }")
-    return frame(W, H, "07", "Mission log · repository launches", body, css,
+    return frame(W, H, "08", "Mission log · repository launches", body, css,
                  "Timeline of repository creation: " + ", ".join(f"{r['name']} {t:%b %Y}" for r, t in zip(items, ts)), NEON[6])
 
 
@@ -917,6 +988,7 @@ def main() -> None:
     cards = {
         "hud.svg": render_hud(user, repos, days, cur, longest),
         "achievements.svg": render_achievements(),
+        "toolkit.svg": render_toolkit(),
         "skyline.svg": render_skyline(days),
         "activity.svg": render_activity(days),
         "clock.svg": render_clock(commit_hours(user)),
