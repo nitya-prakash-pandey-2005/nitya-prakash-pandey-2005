@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="176" viewBox="0 0 440 176" role="img" aria-label="OpenCV-Basics: ">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#1F1D37"/></linearGradient>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
+  <linearGradient id="spark" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FB7185" stop-opacity=".3"/><stop offset="1" stop-color="#FB7185"/></linearGradient>
+  <linearGradient id="sfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FB7185" stop-opacity=".3"/><stop offset="1" stop-color="#FB7185" stop-opacity="0"/></linearGradient>
+  <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FB7185" stop-opacity="0"/><stop offset=".5" stop-color="#FB7185" stop-opacity=".16"/><stop offset="1" stop-color="#FB7185" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="card"><rect width="440" height="176" rx="14"/></clipPath>
+</defs>
+<style>
+  text { font-family: -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
+  .tag { font: 600 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.6px; fill: #FB7185; }
+  .st { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.2px; fill: #8A97B4; }
+  .nm { font-size: 19px; font-weight: 700; fill: #E8EEF9; letter-spacing: -.2px; }
+  .ds { font-size: 12.5px; fill: #B9C5DD; }
+  .m { font: 11.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; fill: #B9C5DD; }
+  .sweep { animation: sweep 5s cubic-bezier(.5,0,.5,1) 3.0s infinite; }
+  @keyframes sweep { from { transform: translateX(-160px); } to { transform: translateX(480px); } }
+  .led { animation: led 1.8s ease-in-out infinite; } @keyframes led { 50% { opacity: .25; } }
+  .ring { transform-box: fill-box; transform-origin: center; animation: ring 2.4s ease-out infinite; }
+  @keyframes ring { from { transform: scale(.6); opacity: .9; } to { transform: scale(2.6); opacity: 0; } }
+  .draw { stroke-dasharray: 144; animation: draw 2.2s cubic-bezier(.5,0,.2,1) .3s both; }
+  @keyframes draw { from { stroke-dashoffset: 144; } }
+  .in { animation: in .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes in { from { opacity: 0; transform: translateY(6px); } }
+  .d1 { animation-delay: .15s; } .d2 { animation-delay: .3s; } .d3 { animation-delay: .45s; }
+  .fade { animation: fade 1s ease 1.8s both; } @keyframes fade { from { opacity: 0; } }
+  .spin { transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .sweep { display: none; } }
+</style>
+<g clip-path="url(#card)">
+  <rect width="440" height="176" fill="url(#bg)"/>
+  <rect width="440" height="176" fill="url(#grid)"/>
+  <rect x="0" y="0" width="140" height="176" fill="url(#scan)" class="sweep"/>
+  <rect x="0" y="0" width="440" height="3" fill="#FB7185" opacity=".85"/>
+</g>
+<rect x=".5" y=".5" width="439" height="175" rx="13.5" fill="none" stroke="#FB7185" stroke-opacity=".35"/>
+<g fill="none" stroke="#FB7185" stroke-width="1.5" stroke-opacity=".85"><path d="M8,20 L8,8 L20,8"/><path d="M432,20 L432,8 L420,8"/><path d="M8,156 L8,168 L20,168"/><path d="M432,156 L432,168 L420,168"/></g>
+<g class="in">
+  <text x="22" y="34" class="tag">P-06 · ◉ LATEST</text>
+  <circle cx="294.0" cy="30" r="4" fill="#FBBF24" class="led"/>
+  <circle cx="294.0" cy="30" r="4" fill="none" stroke="#FBBF24" class="ring"/>
+  <text x="418" y="34" class="st" text-anchor="end">IDLE · 4 months</text>
+</g>
+<text x="22" y="66" class="nm in d1">OpenCV-Basics</text>
+<g class="in d2"><text x="22" y="88" class="ds">Mission brief pending: description coming soon.</text></g>
+<g class="in d3"><circle cx="27" cy="150" r="5" fill="#0284C7"/><text x="37" y="154" class="m">Python</text><text x="89.2" y="154" class="m"><tspan style="fill:#FB7185">★</tspan> 0</text><text x="118.4" y="154" class="m"><tspan style="fill:#FB7185">⑂</tspan> 0</text><text x="147.6" y="154" class="m"><tspan style="fill:#FB7185">◆</tspan> 1 commits</text></g>
+<text x="384" y="124" class="st" text-anchor="end" style="font-size:9.5px">COMMITS · 16 WK</text>
+<line x1="262" y1="154" x2="384" y2="154" stroke="#1C2A48"/>
+<path d="M262.0,154.0 C263.4,154.0 267.4,154.0 270.1,154.0 C272.8,154.0 275.6,154.0 278.3,154.0 C281.0,154.0 283.7,154.0 286.4,154.0 C289.1,154.0 291.8,154.0 294.5,154.0 C297.2,154.0 300.0,154.0 302.7,154.0 C305.4,154.0 308.1,154.0 310.8,154.0 C313.5,154.0 316.2,154.0 318.9,154.0 C321.6,154.0 324.4,154.0 327.1,154.0 C329.8,154.0 332.5,154.0 335.2,154.0 C337.9,154.0 340.6,154.0 343.3,154.0 C346.0,154.0 348.8,154.0 351.5,154.0 C354.2,154.0 356.9,154.0 359.6,154.0 C362.3,154.0 365.0,154.0 367.7,154.0 C370.4,154.0 373.2,154.0 375.9,154.0 C378.6,154.0 382.6,154.0 384.0,154.0 L384,154 L262,154 Z" fill="url(#sfill)" class="fade"/>
+<path d="M262.0,154.0 C263.4,154.0 267.4,154.0 270.1,154.0 C272.8,154.0 275.6,154.0 278.3,154.0 C281.0,154.0 283.7,154.0 286.4,154.0 C289.1,154.0 291.8,154.0 294.5,154.0 C297.2,154.0 300.0,154.0 302.7,154.0 C305.4,154.0 308.1,154.0 310.8,154.0 C313.5,154.0 316.2,154.0 318.9,154.0 C321.6,154.0 324.4,154.0 327.1,154.0 C329.8,154.0 332.5,154.0 335.2,154.0 C337.9,154.0 340.6,154.0 343.3,154.0 C346.0,154.0 348.8,154.0 351.5,154.0 C354.2,154.0 356.9,154.0 359.6,154.0 C362.3,154.0 365.0,154.0 367.7,154.0 C370.4,154.0 373.2,154.0 375.9,154.0 C378.6,154.0 382.6,154.0 384.0,154.0" fill="none" stroke="url(#spark)" stroke-width="2" stroke-linecap="round" class="draw" filter="url(#glow)"/>
+<circle cx="384.0" cy="154.0" r="3" fill="#FFFFFF" class="fade"/>
+<circle cx="410" cy="150" r="9" fill="none" stroke="#FB7185" stroke-opacity=".6" stroke-dasharray="2 3" class="spin"/>
+<path d="M407,146 L413,150 L407,154" fill="none" stroke="#FB7185" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
