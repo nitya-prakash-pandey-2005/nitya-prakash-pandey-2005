@@ -277,6 +277,19 @@ def tick_ring(cx: float, cy: float, r: float, n: int, major: int, length: float 
     return f'<path d="{"".join(ticks)}" stroke="{color or C["dim"]}" stroke-opacity="{.55 if color else 1}" stroke-width="1" class="{cls}"/>'
 
 
+def count_up(uid: str, x: float, y: float, value: int, cls: str = "val", anchor: str = "start", delay: float = .4,
+             size: float = 24, width: float = 110, suffix: str = "", style: str = "") -> tuple[str, str]:
+    """Number that rolls up from 0 to `value` (the real value is the resting frame, so it shows
+    even with motion disabled). Returns (clipPath def, markup)."""
+    steps, gap = 7, size * 1.25
+    texts = "".join(f'<text x="{x:.1f}" y="{y - gap * k:.1f}" class="{cls}" text-anchor="{anchor}" style="{style}">'
+                    f'{fmt(round(value * (1 - k / (steps - 1))))}{suffix}</text>' for k in range(steps))
+    x0 = x if anchor == "start" else x - width / 2 if anchor == "middle" else x - width
+    clip = f'<clipPath id="{uid}"><rect x="{x0:.1f}" y="{y - size:.1f}" width="{width}" height="{size * 1.3:.1f}"/></clipPath>'
+    return clip, (f'<g clip-path="url(#{uid})"><g class="cup" style="--h:{gap * (steps - 1):.0f}px;animation-delay:{delay:.2f}s">'
+                  f'{texts}</g></g>')
+
+
 def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "", label: str = "", accent: str = "") -> str:
     """Shared HUD panel: navy glass, faint grid, corner brackets, a slow scan line and a header rule."""
     stamp = NOW.astimezone(TIMEZONE).strftime("%d %b %Y").upper()
@@ -313,6 +326,8 @@ def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "",
   .spin-r {{ transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }}
   @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
   @keyframes fade {{ from {{ opacity: 0; }} }}
+  .cup {{ animation: cup 1.8s cubic-bezier(.3,.7,.2,1) both; }}
+  @keyframes cup {{ from {{ transform: translateY(var(--h)); }} }}
   {extra_css}
   @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .scan {{ display: none; }} }}
 </style>
@@ -699,7 +714,7 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
         col, row = (d - sunday0).days // 7, (d.weekday() + 1) % 7
         cells.append((col, row, n, d))
     ncols = max(c for c, *_ in cells) + 1
-    floor, towers = [], []
+    floor, towers, tops = [], [], []
     for col, row, n, d in sorted(cells, key=lambda t: (t[1] - t[0], t[1])):  # back to front
         p0, p1, p2, p3 = pt(col, row), pt(col + 1, row), pt(col + 1, row + 1), pt(col, row + 1)
         if not n:
@@ -713,7 +728,9 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
   <polygon points="{poly([p0, p3, q3, q0])}" fill="{mix_hex(top, C['bg0'], .55)}"/>
   <polygon points="{poly([p3, p2, q2, q3])}" fill="{mix_hex(top, C['bg0'], .3)}"/>
   <polygon points="{poly([q0, q1, q2, q3])}" fill="{top}"/>
+  <polygon points="{poly([q0, q1, q2, q3])}" fill="#FFFFFF" class="twk" style="animation-delay:{(col * 7 + row * 3) % 50 / 10 + 1.5:.1f}s"/>
 </g>""")
+        tops.append((h, n, (q0[0] + q2[0]) / 2, (q0[1] + q2[1]) / 2, top))
     # month labels along the front edge
     months, seen = [], set()
     for col, row, n, d in cells:
@@ -732,15 +749,23 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
     active = sum(1 for _, n in days if n)
     best_d, best_n = max(days, key=lambda t: t[1])
     this_month = sum(n for d, n in days if (d.year, d.month) == (days[-1][0].year, days[-1][0].month))
-    stats = [("TOTAL", fmt(total)), ("ACTIVE DAYS", fmt(active)),
-             ("BEST DAY", f"{best_n}" if best_n else "–"), ("THIS MONTH", fmt(this_month))]
-    side = []
+    stats = [("TOTAL", total), ("ACTIVE DAYS", active), ("BEST DAY", best_n), ("THIS MONTH", this_month)]
+    side, sdefs = [], []
     for i, (k, v) in enumerate(stats):
         y = 96 + i * 52
         side.append(f'<text x="742" y="{y}" class="lbl">{k}</text>')
-        side.append(f'<text x="742" y="{y + 26}" class="val">{esc(v)}</text>')
+        clip, mark = count_up(f"sk{i}", 742, y + 26, v, delay=.6 + i * .15, width=130)
+        sdefs.append(clip)
+        side.append(mark)
         if k == "BEST DAY" and best_n:
-            side.append(f'<text x="{742 + 16 + 15 * len(v)}" y="{y + 25}" class="small">{best_d:%d %b}</text>')
+            side.append(f'<text x="{742 + 16 + 15 * len(fmt(v))}" y="{y + 25}" class="small">{best_d:%d %b}</text>')
+    fx = []  # beacon over the best day and sparks off the tallest towers
+    for rank, (h, n, tx, ty, tcol) in enumerate(sorted(tops, key=lambda t: -t[0])[:6]):
+        if rank == 0:
+            fx.append(f'<rect x="{tx - 4:.1f}" y="{ty - 96:.1f}" width="8" height="96" fill="url(#beacon)" class="beacon"/>')
+            fx.append(f'<ellipse cx="{tx:.1f}" cy="{ty:.1f}" rx="9" ry="4" fill="none" stroke="#FFFFFF" stroke-width="1.5" class="bping"/>')
+        for k in range(2):
+            fx.append(f'<circle cx="{tx + (k * 6 - 3):.1f}" cy="{ty - 4:.1f}" r="{1.6 + k * .5:.1f}" fill="{tcol}" class="spk" style="animation-delay:{1.8 + rank * .5 + k * 1.3:.1f}s"/>')
     lx, ly = 742, 330
     side.append(f'<text x="{lx}" y="{ly}" class="small">less</text>')
     for i, col in enumerate(SEQ):
@@ -748,16 +773,25 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
     side.append(f'<text x="{lx + 34 + 4 * 18 + 4}" y="{ly}" class="small">more</text>')
     side.append(f'<text x="{lx}" y="{ly + 22}" class="small" style="fill:{C["dim"]}">height = √ contributions</text>')
 
-    body = f"""<defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[2]}" stop-opacity="0"/><stop offset="1" stop-color="{NEON[2]}" stop-opacity=".4"/></linearGradient></defs>
+    body = f"""<defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[2]}" stop-opacity="0"/><stop offset="1" stop-color="{NEON[2]}" stop-opacity=".4"/></linearGradient>
+<linearGradient id="beacon" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".75"/><stop offset="1" stop-color="{SEQ[3]}" stop-opacity="0"/></linearGradient>{''.join(sdefs)}</defs>
 <g fill="{C['tile']}" stroke="{C['line']}" stroke-width=".6">{''.join(floor)}</g>
 <polygon points="{beam}" fill="url(#beam)" class="beam"/>
 {''.join(towers)}
+{''.join(fx)}
 {''.join(months)}
 <line x1="720" y1="74" x2="720" y2="{H - 30}" stroke="{C['line']}"/>
 {''.join(side)}"""
     css = (".rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }"
            " @keyframes rise { from { opacity: 0; transform: translateY(18px); } }"
-           f" .beam {{ animation: beam 6s linear infinite; }} @keyframes beam {{ from {{ transform: translate(0,0); }} to {{ transform: translate({ex:.1f}px,{ey:.1f}px); }} }}")
+           f" .beam {{ animation: beam 6s linear infinite; }} @keyframes beam {{ from {{ transform: translate(0,0); }} to {{ transform: translate({ex:.1f}px,{ey:.1f}px); }} }}"
+           " .twk { opacity: 0; animation: twk 5s ease-in-out infinite; } @keyframes twk { 0%, 80%, 100% { opacity: 0; } 88% { opacity: .55; } }"
+           " .beacon { transform-box: fill-box; transform-origin: bottom; animation: beacon 2.4s ease-in-out 1.6s infinite both; }"
+           " @keyframes beacon { 0%, 100% { opacity: .35; transform: scaleY(.8); } 50% { opacity: 1; transform: scaleY(1); } }"
+           " .bping { transform-box: fill-box; transform-origin: center; animation: bping 2.4s ease-out 1.6s infinite both; }"
+           " @keyframes bping { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }"
+           " .spk { opacity: 0; animation: spk 3s ease-out infinite; }"
+           " @keyframes spk { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-60px); } }")
     return frame(W, H, "04", "Contribution skyline · 12 months", body, css,
                  f"Isometric contribution calendar: {total} contributions over {active} active days", NEON[2])
 
@@ -832,6 +866,8 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
         bars.append(f'<rect x="{x}" y="{by1 - bh}" width="{bw}" height="{bh}" rx="4" fill="{C["panel"]}"/>')
         wd_col = [NEON[0], NEON[6], NEON[3], NEON[4], NEON[7], NEON[5], NEON[2]][i]
         bars.append(f'<rect x="{x}" y="{by1 - h:.1f}" width="{bw}" height="{h:.1f}" rx="4" fill="{wd_col}" fill-opacity="{1 if hot else .72}" class="grow"{GLOW if hot else ""}/>')
+        bars.append(f'<clipPath id="wd{i}"><rect x="{x}" y="{by1 - h:.1f}" width="{bw}" height="{h:.1f}" rx="4"/></clipPath>'
+                    f'<g clip-path="url(#wd{i})"><rect x="{x}" y="{by1}" width="{bw}" height="26" fill="url(#shim)" class="shim" style="animation-delay:{1.6 + i * .25:.2f}s"/></g>')
         if hot:
             bars.append(f'<text x="{x + bw/2}" y="{by1 - h - 8:.1f}" class="small" text-anchor="middle" style="fill:{C["text"]}">{fmt(n)}</text>')
         bars.append(f'<text x="{x + bw/2}" y="{by1+22}" class="small" text-anchor="middle">{names[i]}</text>')
@@ -850,16 +886,24 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
         " @keyframes ping { from { transform: scale(.5); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }"
         " .grow { transform-box: fill-box; transform-origin: bottom; animation: grow 1s cubic-bezier(.2,.7,.2,1) .6s both; }"
         " @keyframes grow { from { transform: scaleY(0); } }"
+        f" .comet {{ stroke-dasharray: 16 {length + 40}; animation: comet 4.5s linear 2.6s infinite both; opacity: 0; }}"
+        f" @keyframes comet {{ 0% {{ stroke-dashoffset: 16; opacity: 1; }} 100% {{ stroke-dashoffset: -{length}; opacity: 1; }} }}"
+        f" .vscan {{ animation: vscan 7s ease-in-out 2.4s infinite both; opacity: 0; }}"
+        f" @keyframes vscan {{ 0% {{ transform: translateX(0); opacity: 0; }} 10%, 90% {{ opacity: .55; }} 100% {{ transform: translateX({gx1 - gx0}px); opacity: 0; }} }}"
+        f" .shim {{ animation: shim 3.2s ease-in-out infinite; }} @keyframes shim {{ 0% {{ transform: translateY(0); }} 60%, 100% {{ transform: translateY(-{bh + 30}px); }} }}"
     )
     body = f"""<defs>
   <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[0]}"/><stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient>
   <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[1]}" stop-opacity=".35"/><stop offset="1" stop-color="{NEON[0]}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="shim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".45"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
 </defs>
 <text x="{gx0}" y="72" class="lbl">WEEKLY CONTRIBUTIONS</text>
 <text x="{bx0}" y="72" class="lbl">BY WEEKDAY</text>
 {''.join(g)}
 <path d="{area}" fill="url(#fill)" class="area"/>
 <path d="{line}" fill="none" stroke="url(#stroke)" stroke-width="2" stroke-linecap="round" class="line" filter="url(#glow)"/>
+<path d="{line}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" class="comet" filter="url(#glow)"/>
+<line x1="{gx0}" y1="{gy0 - 6}" x2="{gx0}" y2="{gy1}" stroke="{NEON[1]}" stroke-opacity=".55" class="vscan"/>
 <line x1="608" y1="64" x2="608" y2="{by1+26}" stroke="{C['line']}"/>
 {''.join(bars)}
 {''.join(notes)}"""
@@ -896,8 +940,12 @@ def render_clock(hours: list[int]) -> str:
         hot = h == peak_h
         out.append(f'<path d="{sector(cx, cy, r0 + 2, rr, h * 15 + 1.6, h * 15 + 13.4)}" fill="{band_of(h)}" fill-opacity="{1 if hot else .8}"'
                    f' class="bloom" style="animation-delay:{0.2 + h * 0.04:.2f}s"{GLOW if hot else ""}><title>{h:02d}:00–{h:02d}:59 · {n} commits</title></path>')
+        if hot:
+            out.append(f'<path d="{sector(cx, cy, r0 + 2, rr + 6, h * 15 + .5, h * 15 + 14.5)}" fill="none" stroke="{band_of(h)}" stroke-width="1.5" class="hotp"/>')
     out.append(f'<circle cx="{cx}" cy="{cy}" r="{r0 - 4}" fill="{C["bg0"]}" stroke="{C["line"]}"/>')
-    out.append(f'<text x="{cx}" y="{cy + 2}" class="val" text-anchor="middle" style="font-size:20px">{fmt(total)}</text>')
+    cclip, cmark = count_up("ck", cx, cy + 2, total, anchor="middle", delay=.5, size=20, width=70, style="font-size:20px")
+    out.append(f'<defs>{cclip}</defs>{cmark}')
+    out.append(f'<g class="orbit2"><circle cx="{cx}" cy="{cy - r1 - 14}" r="3.5" fill="{NEON[3]}"{GLOW}/></g>')
     out.append(f'<text x="{cx}" y="{cy + 18}" class="small" text-anchor="middle">commits</text>')
 
     # time-of-day split
@@ -914,7 +962,10 @@ def render_clock(hours: list[int]) -> str:
         out.append(f'<text x="{x0 + 16}" y="{y}" class="lbl" style="fill:{C["text"] if hot else C["muted"]}">{name} <tspan style="fill:{C["dim"]}">{span}</tspan></text>')
         out.append(f'<text x="{W - 40}" y="{y}" class="small" text-anchor="end" style="fill:{C["text"]}">{pct:.0f}%  <tspan style="fill:{C["muted"]}">{n}</tspan></text>')
         out.append(f'<rect x="{x0}" y="{y + 10}" width="{W - 40 - x0}" height="8" rx="4" fill="{C["panel"]}" stroke="{C["line"]}" stroke-width=".6"/>')
-        out.append(f'<rect x="{x0}" y="{y + 10}" width="{max(4, (W - 40 - x0) * n / bmx):.1f}" height="8" rx="4" fill="{BAND[name]}" fill-opacity="{1 if hot else .8}" class="grow" style="animation-delay:{.5 + i * .12:.2f}s"{GLOW if hot else ""}/>')
+        bw_ = max(4, (W - 40 - x0) * n / bmx)
+        out.append(f'<rect x="{x0}" y="{y + 10}" width="{bw_:.1f}" height="8" rx="4" fill="{BAND[name]}" fill-opacity="{1 if hot else .8}" class="grow" style="animation-delay:{.5 + i * .12:.2f}s"{GLOW if hot else ""}/>')
+        out.append(f'<clipPath id="bb{i}"><rect x="{x0}" y="{y + 10}" width="{bw_:.1f}" height="8" rx="4"/></clipPath>'
+                   f'<g clip-path="url(#bb{i})"><rect x="{x0 - 60}" y="{y + 10}" width="60" height="8" fill="url(#bshim)" class="bshim" style="--w:{bw_ + 60:.0f}px;animation-delay:{1.4 + i * .35:.2f}s"/></g>')
     if total:
         kind = {"NIGHT": "a night owl", "MORNING": "an early bird", "AFTERNOON": "an afternoon builder", "EVENING": "an evening coder"}[bands[counts.index(bmx)][0]]
         msg = f'Busiest hour <tspan class="strong">{peak_h:02d}:00 IST</tspan> · verdict: <tspan class="strong">{kind}</tspan>'
@@ -923,14 +974,19 @@ def render_clock(hours: list[int]) -> str:
     out.append(f'<text x="{x0}" y="{H - 34}" class="note">{msg}</text>')
     out.append(f'<text x="{x0}" y="{H - 16}" class="small" style="fill:{C["dim"]}">last 100 commits per repository, default branches</text>')
     body = (f'<defs><linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C["cyan"]}" stop-opacity="0"/>'
-            f'<stop offset="1" stop-color="{C["cyan"]}" stop-opacity=".22"/></linearGradient></defs>'
+            f'<stop offset="1" stop-color="{C["cyan"]}" stop-opacity=".22"/></linearGradient>'
+            '<linearGradient id="bshim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>'
+            '<stop offset=".5" stop-color="#FFFFFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>'
             f'<text x="470" y="74" class="lbl">TIME OF DAY</text>' + "\n".join(out))
     css = (f".radar {{ transform-origin: {cx}px {cy}px; animation: radar 5s linear infinite; }}"
            " @keyframes radar { to { transform: rotate(360deg); } }"
            f" .bloom {{ transform-origin: {cx}px {cy}px; animation: bloom .9s cubic-bezier(.2,.8,.2,1) both; }}"
            " @keyframes bloom { from { opacity: 0; transform: scale(.4); } }"
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
-           " @keyframes growx { from { transform: scaleX(0); } }")
+           " @keyframes growx { from { transform: scaleX(0); } }"
+           " .hotp { animation: hotp 1.8s ease-in-out 1.4s infinite both; } @keyframes hotp { 0%, 100% { opacity: .1; } 50% { opacity: 1; } }"
+           f" .orbit2 {{ transform-origin: {cx}px {cy}px; animation: spin 12s linear infinite; }}"
+           " .bshim { animation: bshim 3.5s ease-in-out infinite; } @keyframes bshim { 0% { transform: translateX(0); } 60%, 100% { transform: translateX(var(--w)); } }")
     return frame(W, H, "06", "Commit clock", body, css,
                  f"Commits by hour of day (IST): {total} commits, busiest hour {peak_h:02d}:00" if total else "Commit clock", NEON[3])
 
@@ -947,15 +1003,20 @@ def render_languages(mix: list[tuple[str, str, float]]) -> str:
     a = 0.0
     gap = 1.6  # degrees ≈ 2-3px surface gap between segments
     segs = []
-    for name, col, pct in mix:
+    cycle = 1.3 * max(1, len(mix))
+    for k, (name, col, pct) in enumerate(mix):
         sweep = 360 * pct / 100
         if sweep > gap + .4:
-            segs.append(f'<path d="{sector(cx, cy, ri, ro, a + gap / 2, a + sweep - gap / 2)}" fill="{col}"><title>{esc(name)} {pct:.1f}%</title></path>')
+            mid = math.radians(a + sweep / 2)
+            segs.append(f'<path d="{sector(cx, cy, ri, ro, a + gap / 2, a + sweep - gap / 2)}" fill="{col}" class="seg"'
+                        f' style="--dx:{7 * math.sin(mid):.1f}px;--dy:{-7 * math.cos(mid):.1f}px;animation-duration:{cycle:.1f}s;animation-delay:{2 + k * 1.3:.1f}s">'
+                        f'<title>{esc(name)} {pct:.1f}%</title></path>')
         a += sweep
     out.append(f'<g mask="url(#reveal)">{"".join(segs)}</g>')
     if mix:
         name, _, pct = mix[0]
-        out.append(f'<text x="{cx}" y="{cy - 4}" class="val" text-anchor="middle">{pct:.0f}%</text>')
+        lclip, lmark = count_up("lg", cx, cy - 4, round(pct), anchor="middle", delay=.6, width=90, suffix="%")
+        out.append(f'<defs>{lclip}</defs>{lmark}')
         out.append(f'<text x="{cx}" y="{cy + 16}" class="small" text-anchor="middle">{esc(name.upper())}</text>')
     # ranked list: legend + direct values
     x0, x1 = 400, W - 40
@@ -967,16 +1028,21 @@ def render_languages(mix: list[tuple[str, str, float]]) -> str:
         out.append(f'<text x="{x1}" y="{y}" class="small" text-anchor="end" style="fill:{C["text"]}">{pct:.1f}%</text>')
         out.append(f'<rect x="{x0 + 20}" y="{y + 8}" width="{x1 - x0 - 20}" height="3" rx="1.5" fill="{C["panel"]}"/>')
         out.append(f'<rect x="{x0 + 20}" y="{y + 8}" width="{max(2, wbar - 20):.1f}" height="3" rx="1.5" fill="{col}" class="grow" style="animation-delay:{.4 + i * .1:.2f}s"/>')
+        out.append(f'<circle cx="{x0 + 20}" cy="{y + 9.5}" r="3" fill="#FFFFFF" class="pkt" style="--w:{max(2, wbar - 20):.0f}px;animation-delay:{1.6 + i * .45:.2f}s"{GLOW}/>')
     if not mix:
         out.append(f'<text x="{x0}" y="130" class="note">Language data appears after your first repository with code.</text>')
     circ = 2 * math.pi * (ro + ri) / 2
-    body = (f'<defs><mask id="reveal"><circle cx="{cx}" cy="{cy}" r="{(ro + ri) / 2}" fill="none" stroke="#fff" stroke-width="{ro - ri + 6}"'
+    body = (f'<defs><mask id="reveal"><circle cx="{cx}" cy="{cy}" r="{(ro + ri) / 2}" fill="none" stroke="#fff" stroke-width="{ro - ri + 22}"'
             f' stroke-dasharray="{circ:.1f}" transform="rotate(-90 {cx} {cy})" class="wipe"/></mask></defs>'
             f'<text x="{x0}" y="72" class="lbl">SHARE OF CODE · BYTES × REPOS</text>' + "\n".join(out))
     css = (f".wipe {{ animation: wipe 1.6s cubic-bezier(.5,0,.2,1) .2s both; }} @keyframes wipe {{ from {{ stroke-dashoffset: {circ:.1f}; }} }}"
            f" .orbit {{ transform-origin: {cx}px {cy}px; animation: spin 14s linear infinite; }}"
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
-           " @keyframes growx { from { transform: scaleX(0); } }")
+           " @keyframes growx { from { transform: scaleX(0); } }"
+           " .seg { animation: seg 6s ease-in-out infinite both; }"
+           " @keyframes seg { 0%, 14%, 100% { transform: translate(0, 0); } 6%, 9% { transform: translate(var(--dx), var(--dy)); } }"
+           " .pkt { opacity: 0; animation: pkt 2.8s ease-in-out infinite; }"
+           " @keyframes pkt { 0% { opacity: 0; transform: translateX(0); } 10% { opacity: 1; } 75% { opacity: 1; transform: translateX(var(--w)); } 100% { opacity: 0; transform: translateX(var(--w)); } }")
     return frame(W, H, "07", "Language matrix", body, css,
                  "Languages: " + ", ".join(f"{n} {p:.1f}%" for n, _, p in mix), NEON[5])
 
@@ -999,7 +1065,10 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
     out = [f'<line x1="{x0}" y1="{ay}" x2="{x1}" y2="{ay}" stroke="url(#axis)" stroke-width="2"/>',
            f'<circle cx="{x1}" cy="{ay}" r="5" fill="{C["text"]}"/>',
            f'<circle cx="{x1}" cy="{ay}" r="10" fill="none" stroke="{C["text"]}" class="ping"/>',
-           f'<text x="{x1 + 16}" y="{ay + 4}" class="small" style="fill:{C["text"]}">NOW</text>']
+           f'<text x="{x1 + 16}" y="{ay + 4}" class="small" style="fill:{C["text"]}">NOW</text>',
+           f'<g class="comet"><rect x="{x0 - 90}" y="{ay - 1.5}" width="90" height="3" rx="1.5" fill="url(#trail)"/>'
+           f'<circle cx="{x0}" cy="{ay}" r="4.5" fill="#FFFFFF"{GLOW}/></g>']
+    t_comet = 7.0
     # month ticks
     m = dt.datetime(t0.year, t0.month, 1, tzinfo=dt.timezone.utc)
     months = []
@@ -1040,6 +1109,7 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
         out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s"><title>{esc(r['name'])} · created {t:%d %b %Y} · {esc(lang or 'no language')}</title>
   <line x1="{x:.1f}" y1="{ay + (-7 if up else 7)}" x2="{x:.1f}" y2="{ly + (6 if up else -14)}" stroke="{col}" stroke-opacity=".55"/>
   <circle cx="{x:.1f}" cy="{ay}" r="5.5" fill="{C['bg0']}" stroke="{col}" stroke-width="2.4"/>
+  <circle cx="{x:.1f}" cy="{ay}" r="5.5" fill="none" stroke="{col}" stroke-width="2" class="nping" style="animation-delay:{(x - x0) / (x1 - x0) * t_comet:.2f}s"/>
   <rect x="{lx0:.1f}" y="{ly - 15}" width="{wlab:.1f}" height="21" rx="4" fill="{C['panel']}" stroke="{col}" stroke-opacity=".6"/>
   <circle cx="{lx0 + 9:.1f}" cy="{ly - 4.5}" r="3" fill="{col}"/>
   <text x="{lx0 + 17:.1f}" y="{ly}" class="repo">{esc(r['name'])}</text>
@@ -1051,8 +1121,13 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
         leg.append(f'<rect x="{lx}" y="{H - 34}" width="10" height="10" rx="2.5" fill="{col}"/><text x="{lx + 16}" y="{H - 25}" class="small">{esc(name)}</text>')
         lx += 16 + 7 * len(name) + 22
     body = (f'<defs><linearGradient id="axis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[6]}" stop-opacity=".15"/>'
-            f'<stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient></defs>' + "\n".join(out) + "".join(leg))
+            f'<stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient>'
+            f'<linearGradient id="trail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[1]}" stop-opacity="0"/>'
+            f'<stop offset="1" stop-color="#FFFFFF" stop-opacity=".9"/></linearGradient></defs>' + "\n".join(out) + "".join(leg))
     css = (f".repo {{ font: 12px {MONO}; fill: {C['text']}; }} .pop {{ animation: fade .6s ease both; }}"
+           f" .comet {{ animation: tcomet {t_comet}s linear infinite; }} @keyframes tcomet {{ from {{ transform: translateX(0); }} to {{ transform: translateX({x1 - x0}px); }} }}"
+           f" .nping {{ transform-box: fill-box; transform-origin: center; animation: nping {t_comet}s ease-out infinite; opacity: 0; }}"
+           " @keyframes nping { 0% { transform: scale(1); opacity: 1; } 12% { transform: scale(3.4); opacity: 0; } 100% { opacity: 0; } }"
            " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.2s ease-out infinite; }"
            " @keyframes ping { from { transform: scale(.5); opacity: .9; } to { transform: scale(2.2); opacity: 0; } }")
     return frame(W, H, "08", "Mission log · repository launches", body, css,
