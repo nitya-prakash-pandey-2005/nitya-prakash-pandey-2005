@@ -873,36 +873,139 @@ def ago(ts: str) -> str:
     return "just now"
 
 
-def shield(text: str, color: str) -> str:
-    t = text.replace("-", "--").replace("_", "__")
-    return f"https://img.shields.io/badge/{urllib.parse.quote(t)}-{color.lstrip('#')}?style=flat-square"
-
-
-def projects_block(repos: list[dict]) -> str:
+def pick_projects(repos: list[dict]) -> list[dict]:
     pool = sorted((r for r in repos if not r["isArchived"]), key=lambda r: r["pushedAt"], reverse=True)
     feat = [r for name in FEATURED for r in pool if r["name"] == name]
     rest = [r for r in pool if r not in feat]
-    pick = (feat + rest)[:PROJECT_COUNT]
+    return (feat + rest)[:PROJECT_COUNT]
+
+
+def _wrap(text: str, width: int, lines: int) -> list[str]:
+    words, out, cur = text.split(), [], ""
+    for w in words:
+        if len(cur) + len(w) + (1 if cur else 0) <= width:
+            cur = f"{cur} {w}" if cur else w
+        else:
+            out.append(cur)
+            cur = w
+            if len(out) == lines:
+                break
+    if len(out) < lines and cur:
+        out.append(cur)
+    if len(out) == lines and " ".join(out) != " ".join(words):
+        out[-1] = out[-1][:width - 1].rstrip() + "…"
+    return out
+
+
+def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
+    """Compact animated HUD card for one repository: status LED, brief, language, and a
+    16-week commit sparkline that draws itself."""
+    W, H = 440, 176
+    ac = [NEON[0], NEON[2], NEON[3], NEON[4], NEON[1], NEON[5]][i % 6]
+    featured = r["name"] in FEATURED
+    pushed = dt.datetime.fromisoformat(r["pushedAt"].replace("Z", "+00:00"))
+    active = (NOW - pushed).days <= 14
+    led = NEON[3] if active else C["amber"]
+    # weekly commits, last 16 weeks
+    nodes = (((r.get("defaultBranchRef") or {}).get("target") or {}).get("history") or {}).get("nodes", [])
+    weeks = [0] * 16
+    for c in nodes:
+        t = dt.datetime.fromisoformat(c["authoredDate"].replace("Z", "+00:00"))
+        k = (NOW - t).days // 7
+        if 0 <= k < 16:
+            weeks[15 - k] += 1
+    sx0, sx1, sy0, sy1 = 262, W - 56, 130, 154
+    status = f'{"ACTIVE" if active else "IDLE"} · {ago(r["pushedAt"]).replace(" ago", "")}'
+    led_x = W - 22 - 7.6 * len(status) - 10
+    mx = max(weeks) or 1
+    pts = [(sx0 + (sx1 - sx0) * k / 15, sy1 - (sy1 - sy0) * n / mx) for k, n in enumerate(weeks)]
+    line = _smooth(pts, floor=sy1)
+    length = int(sum(math.dist(pts[k], pts[k + 1]) for k in range(15)) * 1.1) + 10
+    lang = (r.get("primaryLanguage") or {}).get("name")
+    lcol = colors.get(lang or "", OTHER)
+    name = r["name"] if len(r["name"]) <= 30 else r["name"][:29] + "…"
+    desc = _wrap(r["description"] or "Mission brief pending: description coming soon.", 58, 2)
+    b = 12
+    corners = "".join(f'<path d="M{x},{y + sy * b} L{x},{y} L{x + sx * b},{y}"/>'
+                      for x, y, sx, sy in ((8, 8, 1, 1), (W - 8, 8, -1, 1), (8, H - 8, 1, -1), (W - 8, H - 8, -1, -1)))
+    meta = []
+    mx0 = 22
+    meta.append(f'<circle cx="{mx0 + 5}" cy="{H - 26}" r="5" fill="{lcol}"/><text x="{mx0 + 15}" y="{H - 22}" class="m">{esc(lang or "—")}</text>')
+    mx0 += 24 + 7.2 * len(lang or "—")
+    for sym, val in (("★", r["stargazerCount"]), ("⑂", r["forkCount"]), ("◆", f"{len(nodes)} commits")):
+        meta.append(f'<text x="{mx0}" y="{H - 22}" class="m"><tspan style="fill:{ac}">{sym}</tspan> {val}</text>')
+        mx0 += 22 + 7.2 * len(str(val))
+    tag = "★ FEATURED" if featured else "◉ LATEST"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(r['name'])}: {esc(r['description'] or '')}">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C['bg0']}"/><stop offset="1" stop-color="{mix_hex(C['bg1'], ac, .08)}"/></linearGradient>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
+  <linearGradient id="spark" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{ac}" stop-opacity=".3"/><stop offset="1" stop-color="{ac}"/></linearGradient>
+  <linearGradient id="sfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{ac}" stop-opacity=".3"/><stop offset="1" stop-color="{ac}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{ac}" stop-opacity="0"/><stop offset=".5" stop-color="{ac}" stop-opacity=".16"/><stop offset="1" stop-color="{ac}" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="card"><rect width="{W}" height="{H}" rx="14"/></clipPath>
+</defs>
+<style>
+  text {{ font-family: {FONT}; }}
+  .tag {{ font: 600 10.5px {MONO}; letter-spacing: 1.6px; fill: {ac}; }}
+  .st {{ font: 10.5px {MONO}; letter-spacing: 1.2px; fill: {C['muted']}; }}
+  .nm {{ font-size: 19px; font-weight: 700; fill: {C['text']}; letter-spacing: -.2px; }}
+  .ds {{ font-size: 12.5px; fill: {C['soft']}; }}
+  .m {{ font: 11.5px {MONO}; fill: {C['soft']}; }}
+  .sweep {{ animation: sweep 5s cubic-bezier(.5,0,.5,1) {i * .6:.1f}s infinite; }}
+  @keyframes sweep {{ from {{ transform: translateX(-160px); }} to {{ transform: translateX({W + 40}px); }} }}
+  .led {{ animation: led 1.8s ease-in-out infinite; }} @keyframes led {{ 50% {{ opacity: .25; }} }}
+  .ring {{ transform-box: fill-box; transform-origin: center; animation: ring 2.4s ease-out infinite; }}
+  @keyframes ring {{ from {{ transform: scale(.6); opacity: .9; }} to {{ transform: scale(2.6); opacity: 0; }} }}
+  .draw {{ stroke-dasharray: {length}; animation: draw 2.2s cubic-bezier(.5,0,.2,1) .3s both; }}
+  @keyframes draw {{ from {{ stroke-dashoffset: {length}; }} }}
+  .in {{ animation: in .8s cubic-bezier(.2,.8,.2,1) both; }} @keyframes in {{ from {{ opacity: 0; transform: translateY(6px); }} }}
+  .d1 {{ animation-delay: .15s; }} .d2 {{ animation-delay: .3s; }} .d3 {{ animation-delay: .45s; }}
+  .fade {{ animation: fade 1s ease 1.8s both; }} @keyframes fade {{ from {{ opacity: 0; }} }}
+  .spin {{ transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; }} @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
+  @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .sweep {{ display: none; }} }}
+</style>
+<g clip-path="url(#card)">
+  <rect width="{W}" height="{H}" fill="url(#bg)"/>
+  <rect width="{W}" height="{H}" fill="url(#grid)"/>
+  <rect x="0" y="0" width="140" height="{H}" fill="url(#scan)" class="sweep"/>
+  <rect x="0" y="0" width="{W}" height="3" fill="{ac}" opacity=".85"/>
+</g>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="13.5" fill="none" stroke="{ac}" stroke-opacity=".35"/>
+<g fill="none" stroke="{ac}" stroke-width="1.5" stroke-opacity=".85">{corners}</g>
+<g class="in">
+  <text x="22" y="34" class="tag">P-{i + 1:02d} · {tag}</text>
+  <circle cx="{led_x:.1f}" cy="30" r="4" fill="{led}" class="led"/>
+  <circle cx="{led_x:.1f}" cy="30" r="4" fill="none" stroke="{led}" class="ring"/>
+  <text x="{W - 22}" y="34" class="st" text-anchor="end">{esc(status)}</text>
+</g>
+<text x="22" y="66" class="nm in d1">{esc(name)}</text>
+<g class="in d2">{''.join(f'<text x="22" y="{88 + k * 17}" class="ds">{esc(t)}</text>' for k, t in enumerate(desc))}</g>
+<g class="in d3">{''.join(meta)}</g>
+<text x="{sx1}" y="{sy0 - 6}" class="st" text-anchor="end" style="font-size:9.5px">COMMITS · 16 WK</text>
+<line x1="{sx0}" y1="{sy1}" x2="{sx1}" y2="{sy1}" stroke="{C['line']}"/>
+<path d="{line} L{sx1},{sy1} L{sx0},{sy1} Z" fill="url(#sfill)" class="fade"/>
+<path d="{line}" fill="none" stroke="url(#spark)" stroke-width="2" stroke-linecap="round" class="draw" filter="url(#glow)"/>
+<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3" fill="#FFFFFF" class="fade"/>
+<circle cx="{W - 30}" cy="{H - 26}" r="9" fill="none" stroke="{ac}" stroke-opacity=".6" stroke-dasharray="2 3" class="spin"/>
+<path d="M{W - 33},{H - 30} L{W - 27},{H - 26} L{W - 33},{H - 22}" fill="none" stroke="{ac}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+"""
+
+
+def projects_block(pick: list[dict]) -> str:
+    """Two animated cards per row, each wrapped in a link to its repository."""
     if not pick:
         return "<p><i>Projects appear here automatically once repositories are public.</i></p>"
-    cells = []
-    for r in pick:
-        lang = r["primaryLanguage"]
-        badges = []
-        if lang:
-            badges.append(f'<img alt="{esc(lang["name"])}" src="{shield(lang["name"], lang["color"] or "8A97B4")}"/>')
-        if r["stargazerCount"]:
-            badges.append(f'<img alt="stars" src="{shield("★ " + str(r["stargazerCount"]), "FBBF24")}"/>')
-        if r["forkCount"]:
-            badges.append(f'<img alt="forks" src="{shield("⑂ " + str(r["forkCount"]), "A78BFA")}"/>')
-        desc = f'<br/><sub>{esc(r["description"])}</sub>' if r["description"] else ""
-        demo = f' · <a href="{esc(r["homepageUrl"])}">live demo</a>' if r.get("homepageUrl") else ""
-        cells.append(
-            f'<td width="50%" valign="top">\n<a href="{r["url"]}"><b>{esc(r["name"])}</b></a>{desc}\n'
-            f'<br/><br/>{" ".join(badges)} <sub>updated {ago(r["pushedAt"])}{demo}</sub>\n</td>'
-        )
-    rows = ["<tr>\n" + "\n".join(cells[i:i + 2]) + "\n</tr>" for i in range(0, len(cells), 2)]
-    return "<table>\n" + "\n".join(rows) + "\n</table>"
+    rows = []
+    for k in range(0, len(pick), 2):
+        cells = []
+        for j, r in enumerate(pick[k:k + 2], start=k):
+            alt = esc(f"{r['name']}: {r['description'] or 'no description yet'}")
+            cells.append(f'<a href="{r["url"]}"><img src="./profile/projects/{j + 1:02d}.svg" width="49%" alt="{alt}"/></a>')
+        rows.append("<p>\n" + "\n".join(cells) + "\n</p>")
+    return "\n".join(rows)
 
 
 def activity_block(events: list[dict]) -> str | None:
@@ -997,12 +1100,19 @@ def main() -> None:
     }
     for name, svg in cards.items():
         (OUT / name).write_text(svg, encoding="utf-8")
+    pick = pick_projects(repos)
+    pdir = OUT / "projects"
+    pdir.mkdir(exist_ok=True)
+    for old in pdir.glob("*.svg"):
+        old.unlink()
+    for j, r in enumerate(pick):
+        (pdir / f"{j + 1:02d}.svg").write_text(render_project_card(r, j, colors), encoding="utf-8")
     for stale in ("overview.svg",):  # cards from the previous layout
         (OUT / stale).unlink(missing_ok=True)
 
     if README.exists():
         doc = README.read_text(encoding="utf-8")
-        doc = replace_block(doc, "PROJECTS", projects_block(repos))
+        doc = replace_block(doc, "PROJECTS", projects_block(pick))
         feed = activity_block(fetch_events())
         if feed:
             doc = replace_block(doc, "ACTIVITY", feed)
