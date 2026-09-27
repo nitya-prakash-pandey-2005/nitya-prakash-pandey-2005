@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="GitHub overview">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
+</defs>
+<style>
+  text { font-family: -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
+  .h { font-size: 17px; font-weight: 650; fill: #E8EEF9; }
+  .stamp { font-size: 11.5px; fill: #4A5A7E; }
+  .lbl { font-size: 13px; fill: #8A97B4; }
+  .val { font-size: 21px; font-weight: 700; fill: #E8EEF9; font-variant-numeric: tabular-nums; }
+  .small { font-size: 11.5px; fill: #4A5A7E; font-variant-numeric: tabular-nums; }
+  .note { font-size: 13px; fill: #B9C5DD; }
+  .grow { transform-box: fill-box; transform-origin: left; animation: grow 1.4s cubic-bezier(.2,.7,.2,1) .2s both; } @keyframes grow { from { transform: scaleX(0); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="900" height="330" rx="16" fill="url(#bg)"/>
+<rect width="900" height="330" rx="16" fill="url(#grid)"/>
+<rect x=".5" y=".5" width="899" height="329" rx="15.5" fill="none" stroke="#1C2A48"/>
+<text x="28" y="40" class="h">GitHub overview</text>
+<text x="872" y="40" class="stamp" text-anchor="end">refreshed 28 Sep 2026</text>
+<g transform="translate(28,78)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#38BDF8"/>
+  <text x="20" y="14" class="lbl">Contributions, last 12 months</text>
+  <text x="400" y="16" class="val" text-anchor="end">200</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="235.2" height="5" rx="2.5" fill="#38BDF8" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 250</text>
+</g>
+<g transform="translate(28,138)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#A78BFA"/>
+  <text x="20" y="14" class="lbl">Commits, last 12 months</text>
+  <text x="400" y="16" class="val" text-anchor="end">187</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="219.9" height="5" rx="2.5" fill="#A78BFA" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 250</text>
+</g>
+<g transform="translate(28,198)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#E879F9"/>
+  <text x="20" y="14" class="lbl">Pull requests, all time</text>
+  <text x="400" y="16" class="val" text-anchor="end">0</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="4.4" height="5" rx="2.5" fill="#E879F9" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 5</text>
+</g>
+<g transform="translate(28,258)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#FB7185"/>
+  <text x="20" y="14" class="lbl">Issues, all time</text>
+  <text x="400" y="16" class="val" text-anchor="end">0</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="4.4" height="5" rx="2.5" fill="#FB7185" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 5</text>
+</g>
+<g transform="translate(472,78)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#A3E635"/>
+  <text x="20" y="14" class="lbl">Public repositories</text>
+  <text x="400" y="16" class="val" text-anchor="end">11</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="129.4" height="5" rx="2.5" fill="#A3E635" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 25</text>
+</g>
+<g transform="translate(472,138)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#FBBF24"/>
+  <text x="20" y="14" class="lbl">Stars earned</text>
+  <text x="400" y="16" class="val" text-anchor="end">0</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="4.4" height="5" rx="2.5" fill="#FBBF24" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 5</text>
+</g>
+<g transform="translate(472,198)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#2DD4BF"/>
+  <text x="20" y="14" class="lbl">Current streak, days</text>
+  <text x="400" y="16" class="val" text-anchor="end">1</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="58.8" height="5" rx="2.5" fill="#2DD4BF" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 5</text>
+</g>
+<g transform="translate(472,258)">
+  <rect x="0" y="4" width="10" height="10" rx="2.5" fill="#FB923C"/>
+  <text x="20" y="14" class="lbl">Longest streak, days</text>
+  <text x="400" y="16" class="val" text-anchor="end">4</text>
+  <rect x="20" y="31" width="294" height="5" rx="2.5" fill="#1C2A48"/>
+  <rect x="20" y="31" width="235.2" height="5" rx="2.5" fill="#FB923C" class="grow"/>
+  <text x="400" y="37.5" class="small" text-anchor="end">next 5</text>
+</g>
+<line x1="450" y1="74" x2="450" y2="306" stroke="#1C2A48"/>
+</svg>

@@ -80,7 +80,38 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## 🚀 Latest work
 
 <!-- AUTO:PROJECTS:START -->
-<p><i>Filled in automatically on the first workflow run.</i></p>
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/TyreMind"><b>TyreMind</b></a><br/><sub>AI-powered tyre intelligence that separates true tyre degradation from fuel, traffic, driver, weather, and track effects using physics-informed ML, latent-state estimation, uncertainty modeling, counterfactual simulation, and race strategy optimization.</sub>
+<br/><br/><img alt="Python" src="https://img.shields.io/badge/Python-3572A5?style=flat-square"/> <sub>updated 2 weeks ago</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/SAGE"><b>SAGE</b></a><br/><sub>SAGE (Safe Agentic Growth Engine): The merchant control plane and trust substrate for autonomous commerce. Merkle Context Seals, Trust-Domain Firewalls, RFC 8785 Proof-of-Intent bundles, UPI Circle &amp; Reserve Pay accounting, and an arXiv:2608.23858 Red Team harness. AI proposes. Policies decide. Razorpay executes.</sub>
+<br/><br/><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square"/> <sub>updated 3 weeks ago</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/fieldpilot-ai"><b>fieldpilot-ai</b></a>
+<br/><br/><img alt="Python" src="https://img.shields.io/badge/Python-3572A5?style=flat-square"/> <sub>updated 1 month ago</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/OpenCV-Basics"><b>OpenCV-Basics</b></a>
+<br/><br/><img alt="Python" src="https://img.shields.io/badge/Python-3572A5?style=flat-square"/> <sub>updated 4 months ago</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/ai-chest-disease-detection-cnn"><b>ai-chest-disease-detection-cnn</b></a><br/><sub>Deep learning models for chest disease detection using DenseNet, ResNet, and EfficientNet.</sub>
+<br/><br/><img alt="Python" src="https://img.shields.io/badge/Python-3572A5?style=flat-square"/> <sub>updated 4 months ago</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://github.com/nitya-prakash-pandey-2005/AgroSkin-AI"><b>AgroSkin-AI</b></a><br/><sub>AI-powered skin disease detection system for rural healthcare using computer vision and deep learning.</sub>
+<br/><br/> <sub>updated 5 months ago</sub>
+</td>
+</tr>
+</table>
 <!-- AUTO:PROJECTS:END -->
 
 ## 📊 By the numbers
@@ -98,13 +129,17 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-- Filled in automatically on the first workflow run.
+- 🔨 Pushed to [mahi028/TyreMind](https://github.com/mahi028/TyreMind) <sub>2 weeks ago</sub>
+- 🔨 Pushed to [mahi028/TyreMind](https://github.com/mahi028/TyreMind) <sub>2 weeks ago</sub>
+- 🔨 Pushed to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind) <sub>2 weeks ago</sub>
+- 🌿 Created branch `nitya/dev` in [mahi028/TyreMind](https://github.com/mahi028/TyreMind) <sub>2 weeks ago</sub>
+- 🔨 Pushed to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind) <sub>2 weeks ago</sub>
 <!-- AUTO:ACTIVITY:END -->
 
 ---
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions</sub>
+<sub>Auto-refreshed by GitHub Actions on 28 Sep 2026, 01:06 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
