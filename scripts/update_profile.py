@@ -27,7 +27,7 @@ from pathlib import Path
 
 # ─────────────────────────── settings you may want to edit ───────────────────────────
 USER = os.environ.get("GH_USER") or os.environ.get("GITHUB_REPOSITORY_OWNER") or "nitya-prakash-pandey-2005"
-FEATURED: list[str] = []          # repo names always shown first in "Latest work", e.g. ["AgriVision-Ensemble-Net"]
+FEATURED: list[str] = ["fieldpilot-ai", "TyreMind", "AgriVision-Ensemble-Net", "AgroSkin-AI"]          # repo names always shown first in "Latest work", e.g. ["AgriVision-Ensemble-Net"]
 EXCLUDE_REPOS = {USER}            # hidden from projects + language stats (the profile repo itself)
 HIDE_LANGUAGES: set[str] = set()  # e.g. {"HTML", "CSS"} to keep them out of the language card
 PROJECT_COUNT = 6                 # cards in the "Latest work" grid (even number looks best)
