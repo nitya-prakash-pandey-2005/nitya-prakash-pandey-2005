@@ -44,7 +44,7 @@
 </g>
 <text x="22" y="66" class="nm in d1">OpenCV-Basics</text>
 <g class="in d2"><text x="22" y="88" class="ds">Mission brief pending: description coming soon.</text></g>
-<g class="in d3"><circle cx="27" cy="150" r="5" fill="#0284C7"/><text x="37" y="154" class="m">Python</text><text x="89.2" y="154" class="m"><tspan style="fill:#FB7185">★</tspan> 0</text><text x="118.4" y="154" class="m"><tspan style="fill:#FB7185">⑂</tspan> 0</text><text x="147.6" y="154" class="m"><tspan style="fill:#FB7185">◆</tspan> 1 commits</text></g>
+<g class="in d3"><circle cx="27" cy="150" r="5" fill="#0284C7"/><text x="37" y="154" class="m">Python</text><text x="89.2" y="154" class="m"><tspan style="fill:#FB7185">★</tspan> 0</text><text x="118.4" y="154" class="m"><tspan style="fill:#FB7185">⑂</tspan> 0</text><text x="147.6" y="154" class="m"><tspan style="fill:#FB7185">◆</tspan> 1 commit</text></g>
 <text x="384" y="124" class="st" text-anchor="end" style="font-size:9.5px">COMMITS · 16 WK</text>
 <line x1="262" y1="154" x2="384" y2="154" stroke="#1C2A48"/>
 <path d="M262.0,154.0 C263.4,154.0 267.4,154.0 270.1,154.0 C272.8,154.0 275.6,154.0 278.3,154.0 C281.0,154.0 283.7,154.0 286.4,154.0 C289.1,154.0 291.8,154.0 294.5,154.0 C297.2,154.0 300.0,154.0 302.7,154.0 C305.4,154.0 308.1,154.0 310.8,154.0 C313.5,154.0 316.2,154.0 318.9,154.0 C321.6,154.0 324.4,154.0 327.1,154.0 C329.8,154.0 332.5,154.0 335.2,154.0 C337.9,154.0 340.6,154.0 343.3,154.0 C346.0,154.0 348.8,154.0 351.5,154.0 C354.2,154.0 356.9,154.0 359.6,154.0 C362.3,154.0 365.0,154.0 367.7,154.0 C370.4,154.0 373.2,154.0 375.9,154.0 C378.6,154.0 382.6,154.0 384.0,154.0 L384,154 L262,154 Z" fill="url(#sfill)" class="fade"/>
