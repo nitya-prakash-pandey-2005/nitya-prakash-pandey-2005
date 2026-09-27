@@ -1238,9 +1238,17 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
                       for x, y, sx, sy in ((8, 8, 1, 1), (W - 8, 8, -1, 1), (8, H - 8, 1, -1), (W - 8, H - 8, -1, -1)))
     meta = []
     mx0 = 22
-    meta.append(f'<circle cx="{mx0 + 5}" cy="{H - 26}" r="5" fill="{lcol}"/><text x="{mx0 + 15}" y="{H - 22}" class="m">{esc(lang or "—")}</text>')
+    meta.append(f'<circle cx="{mx0 + 5}" cy="{H - 26}" r="5" fill="{lcol}"/><circle cx="{mx0 + 5}" cy="{H - 26}" r="5" fill="none" stroke="{lcol}" class="lping"/>'
+                f'<text x="{mx0 + 15}" y="{H - 22}" class="m">{esc(lang or "—")}</text>')
     mx0 += 24 + 7.2 * len(lang or "—")
+    cdefs = ""
     for sym, val in (("★", r["stargazerCount"]), ("⑂", r["forkCount"]), ("◆", f"{len(nodes)} commit{'' if len(nodes) == 1 else 's'}")):
+        if sym == "◆":  # commit count rolls up from zero
+            meta.append(f'<text x="{mx0}" y="{H - 22}" class="m"><tspan style="fill:{ac}">{sym}</tspan></text>')
+            cdefs, mark = count_up("cc", mx0 + 14, H - 22, len(nodes), cls="m", delay=.8, size=11.5, width=110,
+                                   suffix=f" commit{'' if len(nodes) == 1 else 's'}")
+            meta.append(mark)
+            continue
         meta.append(f'<text x="{mx0}" y="{H - 22}" class="m"><tspan style="fill:{ac}">{sym}</tspan> {val}</text>')
         mx0 += 22 + 7.2 * len(str(val))
     tag = "★ FEATURED" if featured else "◉ LATEST"
@@ -1253,6 +1261,7 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
   <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{ac}" stop-opacity="0"/><stop offset=".5" stop-color="{ac}" stop-opacity=".16"/><stop offset="1" stop-color="{ac}" stop-opacity="0"/></linearGradient>
   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   <clipPath id="card"><rect width="{W}" height="{H}" rx="14"/></clipPath>
+  {cdefs}
 </defs>
 <style>
   text {{ font-family: {FONT}; }}
@@ -1272,6 +1281,16 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
   .d1 {{ animation-delay: .15s; }} .d2 {{ animation-delay: .3s; }} .d3 {{ animation-delay: .45s; }}
   .fade {{ animation: fade 1s ease 1.8s both; }} @keyframes fade {{ from {{ opacity: 0; }} }}
   .spin {{ transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; }} @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
+  .cup {{ animation: cup 1.8s cubic-bezier(.3,.7,.2,1) both; }} @keyframes cup {{ from {{ transform: translateY(var(--h)); }} }}
+  .run {{ stroke-dasharray: 9 41; animation: run 7s linear infinite; }} @keyframes run {{ from {{ stroke-dashoffset: 50; }} to {{ stroke-dashoffset: 0; }} }}
+  .star {{ opacity: .12; animation: star 4s ease-in-out infinite; }} @keyframes star {{ 50% {{ opacity: .7; }} }}
+  .comet {{ stroke-dasharray: 10 {length + 30}; opacity: 0; animation: comet 3.2s linear 2.6s infinite both; }}
+  @keyframes comet {{ 0% {{ stroke-dashoffset: 10; opacity: 1; }} 100% {{ stroke-dashoffset: -{length}; opacity: 1; }} }}
+  .eping {{ transform-box: fill-box; transform-origin: center; opacity: 0; animation: eping 2.2s ease-out 2.6s infinite; }}
+  @keyframes eping {{ 0% {{ transform: scale(1); opacity: .9; }} 100% {{ transform: scale(3.2); opacity: 0; }} }}
+  .lping {{ transform-box: fill-box; transform-origin: center; opacity: 0; animation: eping 2.6s ease-out 1.5s infinite; }}
+  .glitch {{ animation: in .8s cubic-bezier(.2,.8,.2,1) .15s both, glitch 8s steps(1, end) {2 + i * .9:.1f}s infinite; }}
+  @keyframes glitch {{ 0%, 95%, 100% {{ opacity: 1; transform: none; }} 96% {{ opacity: .35; transform: translateX(3px); }} 97% {{ opacity: 1; transform: translateX(-2px); }} 98% {{ opacity: .6; transform: none; }} }}
   @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .sweep {{ display: none; }} }}
 </style>
 <g clip-path="url(#card)">
@@ -1281,6 +1300,9 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
   <rect x="0" y="0" width="{W}" height="3" fill="{ac}" opacity=".85"/>
 </g>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="13.5" fill="none" stroke="{ac}" stroke-opacity=".35"/>
+<g>{''.join(f'<circle cx="{(k * 97.3 + i * 31) % (W - 30) + 15:.1f}" cy="{(k * 41.9 + i * 17) % (H - 30) + 15:.1f}" r="{.6 + (k % 3) * .3:.1f}" fill="#FFFFFF" class="star" style="animation-delay:{(k * .7 + i * .3) % 4:.1f}s"/>' for k in range(14))}</g>
+<rect x="1.5" y="1.5" width="{W - 3}" height="{H - 3}" rx="13" fill="none" stroke="{ac}" stroke-width="2.2" pathLength="100" class="run"{GLOW}/>
+<rect x="1.5" y="1.5" width="{W - 3}" height="{H - 3}" rx="13" fill="none" stroke="#FFFFFF" stroke-width="1.6" pathLength="100" class="run" style="animation-delay:-3.5s"/>
 <g fill="none" stroke="{ac}" stroke-width="1.5" stroke-opacity=".85">{corners}</g>
 <g class="in">
   <text x="22" y="34" class="tag">P-{i + 1:02d} · {tag}</text>
@@ -1288,14 +1310,16 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
   <circle cx="{led_x:.1f}" cy="30" r="4" fill="none" stroke="{led}" class="ring"/>
   <text x="{W - 22}" y="34" class="st" text-anchor="end">{esc(status)}</text>
 </g>
-<text x="22" y="66" class="nm in d1">{esc(name)}</text>
+<text x="22" y="66" class="nm glitch">{esc(name)}</text>
 <g class="in d2">{''.join(f'<text x="22" y="{88 + k * 17}" class="ds">{esc(t)}</text>' for k, t in enumerate(desc))}</g>
 <g class="in d3">{''.join(meta)}</g>
 <text x="{sx1}" y="{sy0 - 6}" class="st" text-anchor="end" style="font-size:9.5px">COMMITS · 16 WK</text>
 <line x1="{sx0}" y1="{sy1}" x2="{sx1}" y2="{sy1}" stroke="{C['line']}"/>
 <path d="{line} L{sx1},{sy1} L{sx0},{sy1} Z" fill="url(#sfill)" class="fade"/>
 <path d="{line}" fill="none" stroke="url(#spark)" stroke-width="2" stroke-linecap="round" class="draw" filter="url(#glow)"/>
+<path d="{line}" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" class="comet" filter="url(#glow)"/>
 <circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3" fill="#FFFFFF" class="fade"/>
+<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3.5" fill="none" stroke="{ac}" stroke-width="1.5" class="eping"/>
 <circle cx="{W - 30}" cy="{H - 26}" r="9" fill="none" stroke="{ac}" stroke-opacity=".6" stroke-dasharray="2 3" class="spin"/>
 <path d="M{W - 33},{H - 30} L{W - 27},{H - 26} L{W - 33},{H - 22}" fill="none" stroke="{ac}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
