@@ -932,7 +932,7 @@ def render_project_card(r: dict, i: int, colors: dict[str, str]) -> str:
     mx0 = 22
     meta.append(f'<circle cx="{mx0 + 5}" cy="{H - 26}" r="5" fill="{lcol}"/><text x="{mx0 + 15}" y="{H - 22}" class="m">{esc(lang or "—")}</text>')
     mx0 += 24 + 7.2 * len(lang or "—")
-    for sym, val in (("★", r["stargazerCount"]), ("⑂", r["forkCount"]), ("◆", f"{len(nodes)} commits")):
+    for sym, val in (("★", r["stargazerCount"]), ("⑂", r["forkCount"]), ("◆", f"{len(nodes)} commit{'' if len(nodes) == 1 else 's'}")):
         meta.append(f'<text x="{mx0}" y="{H - 22}" class="m"><tspan style="fill:{ac}">{sym}</tspan> {val}</text>')
         mx0 += 22 + 7.2 * len(str(val))
     tag = "★ FEATURED" if featured else "◉ LATEST"
