@@ -67,7 +67,7 @@
   <text x="450.0" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">10</text>
   <text x="450.0" y="218" class="note strong" text-anchor="middle">TrackShift</text>
   <text x="450.0" y="235" class="note" text-anchor="middle">Innovation Challenge</text>
-  <text x="450.0" y="253" class="small" text-anchor="middle" style="fill:#38BDF8"></text>
+  <text x="450.0" y="253" class="small" text-anchor="middle" style="fill:#38BDF8">TYREMIND</text>
 </g>
 <g class="pop" style="animation-delay:0.65s">
   <circle cx="618.8" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin"/>
