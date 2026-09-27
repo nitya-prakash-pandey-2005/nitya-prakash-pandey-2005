@@ -180,16 +180,18 @@
 <path d="M150.0,306.0 L180.0,306.0 L188.0,302.0 L196.0,306.0 L204.0,306.0 L208.0,311.0 L214.0,286.0 L220.0,317.0 L225.0,306.0 L236.0,306.0 L246.0,300.0 L256.0,306.0 L268.0,306.0 L268.0,306.0 L298.0,306.0 L306.0,302.0 L314.0,306.0 L322.0,306.0 L326.0,311.0 L332.0,286.0 L338.0,317.0 L343.0,306.0 L354.0,306.0 L364.0,300.0 L374.0,306.0 L386.0,306.0 L386.0,306.0 L416.0,306.0 L424.0,302.0 L432.0,306.0 L440.0,306.0 L444.0,311.0 L450.0,286.0 L456.0,317.0 L461.0,306.0 L472.0,306.0 L482.0,300.0 L492.0,306.0 L504.0,306.0 L504.0,306.0 L534.0,306.0 L542.0,302.0 L550.0,306.0 L558.0,306.0 L562.0,311.0 L568.0,286.0 L574.0,317.0 L579.0,306.0 L590.0,306.0 L600.0,300.0 L610.0,306.0 L622.0,306.0 L622.0,306.0 L652.0,306.0 L660.0,302.0 L668.0,306.0 L676.0,306.0 L680.0,311.0 L686.0,286.0 L692.0,317.0 L697.0,306.0 L708.0,306.0 L718.0,300.0 L728.0,306.0 L740.0,306.0 L740.0,306.0" fill="none" stroke="#1C2A48" stroke-width="1.4"/>
 <path d="M150.0,306.0 L180.0,306.0 L188.0,302.0 L196.0,306.0 L204.0,306.0 L208.0,311.0 L214.0,286.0 L220.0,317.0 L225.0,306.0 L236.0,306.0 L246.0,300.0 L256.0,306.0 L268.0,306.0 L268.0,306.0 L298.0,306.0 L306.0,302.0 L314.0,306.0 L322.0,306.0 L326.0,311.0 L332.0,286.0 L338.0,317.0 L343.0,306.0 L354.0,306.0 L364.0,300.0 L374.0,306.0 L386.0,306.0 L386.0,306.0 L416.0,306.0 L424.0,302.0 L432.0,306.0 L440.0,306.0 L444.0,311.0 L450.0,286.0 L456.0,317.0 L461.0,306.0 L472.0,306.0 L482.0,300.0 L492.0,306.0 L504.0,306.0 L504.0,306.0 L534.0,306.0 L542.0,302.0 L550.0,306.0 L558.0,306.0 L562.0,311.0 L568.0,286.0 L574.0,317.0 L579.0,306.0 L590.0,306.0 L600.0,300.0 L610.0,306.0 L622.0,306.0 L622.0,306.0 L652.0,306.0 L660.0,302.0 L668.0,306.0 L676.0,306.0 L680.0,311.0 L686.0,286.0 L692.0,317.0 L697.0,306.0 L708.0,306.0 L718.0,300.0 L728.0,306.0 L740.0,306.0 L740.0,306.0" fill="none" stroke="url(#vital)" stroke-width="2.2" stroke-linejoin="round" class="ekg" filter="url(#glow)"/>
 <rect x="28" y="328" width="844" height="30" rx="6" fill="#0E1730" stroke="#1C2A48"/>
-<text x="98.3" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.20s">PULL REQUESTS <tspan class="strong" style="fill:#38BDF8">0</tspan></text>
-<line x1="168.7" y1="334" x2="168.7" y2="352" stroke="#1C2A48"/>
-<text x="239.0" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.35s">ISSUES <tspan class="strong" style="fill:#A78BFA">0</tspan></text>
-<line x1="309.3" y1="334" x2="309.3" y2="352" stroke="#1C2A48"/>
-<text x="379.7" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.50s">STARS <tspan class="strong" style="fill:#E879F9">0</tspan></text>
-<line x1="450.0" y1="334" x2="450.0" y2="352" stroke="#1C2A48"/>
-<text x="520.3" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.65s">FOLLOWERS <tspan class="strong" style="fill:#A3E635">0</tspan></text>
-<line x1="590.7" y1="334" x2="590.7" y2="352" stroke="#1C2A48"/>
-<text x="661.0" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.80s">CONTRIBUTED TO <tspan class="strong" style="fill:#FBBF24">1</tspan></text>
-<line x1="731.3" y1="334" x2="731.3" y2="352" stroke="#1C2A48"/>
-<text x="801.7" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.95s">ONLINE SINCE <tspan class="strong" style="fill:#FB7185">SEP 2025</tspan></text>
+<text x="88.3" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.20s">PULL REQUESTS <tspan class="strong" style="fill:#38BDF8">0</tspan></text>
+<line x1="148.6" y1="334" x2="148.6" y2="352" stroke="#1C2A48"/>
+<text x="208.9" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.35s">ISSUES <tspan class="strong" style="fill:#A78BFA">0</tspan></text>
+<line x1="269.1" y1="334" x2="269.1" y2="352" stroke="#1C2A48"/>
+<text x="329.4" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.50s">STARS <tspan class="strong" style="fill:#E879F9">0</tspan></text>
+<line x1="389.7" y1="334" x2="389.7" y2="352" stroke="#1C2A48"/>
+<text x="450.0" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.65s">FORKS <tspan class="strong" style="fill:#A3E635">0</tspan></text>
+<line x1="510.3" y1="334" x2="510.3" y2="352" stroke="#1C2A48"/>
+<text x="570.6" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.80s">FOLLOWERS <tspan class="strong" style="fill:#FBBF24">0</tspan></text>
+<line x1="630.9" y1="334" x2="630.9" y2="352" stroke="#1C2A48"/>
+<text x="691.1" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.95s">CONTRIBUTED TO <tspan class="strong" style="fill:#FB7185">1</tspan></text>
+<line x1="751.4" y1="334" x2="751.4" y2="352" stroke="#1C2A48"/>
+<text x="811.7" y="347" class="small boot" text-anchor="middle" style="animation-delay:2.10s">SINCE <tspan class="strong" style="fill:#2DD4BF">SEP 2025</tspan></text>
 <g clip-path="url(#strip)"><rect x="28" y="328" width="160" height="30" fill="url(#sbeam)" class="sbeam"/></g>
 </svg>
