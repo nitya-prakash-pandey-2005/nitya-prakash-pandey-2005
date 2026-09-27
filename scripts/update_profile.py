@@ -281,11 +281,11 @@ def count_up(uid: str, x: float, y: float, value: int, cls: str = "val", anchor:
              size: float = 24, width: float = 110, suffix: str = "", style: str = "") -> tuple[str, str]:
     """Number that rolls up from 0 to `value` (the real value is the resting frame, so it shows
     even with motion disabled). Returns (clipPath def, markup)."""
-    steps, gap = 7, size * 1.25
+    steps, gap = 7, size * 1.7
     texts = "".join(f'<text x="{x:.1f}" y="{y - gap * k:.1f}" class="{cls}" text-anchor="{anchor}" style="{style}">'
                     f'{fmt(round(value * (1 - k / (steps - 1))))}{suffix}</text>' for k in range(steps))
     x0 = x if anchor == "start" else x - width / 2 if anchor == "middle" else x - width
-    clip = f'<clipPath id="{uid}"><rect x="{x0:.1f}" y="{y - size:.1f}" width="{width}" height="{size * 1.3:.1f}"/></clipPath>'
+    clip = f'<clipPath id="{uid}"><rect x="{x0:.1f}" y="{y - size * .95:.1f}" width="{width}" height="{size * 1.25:.1f}"/></clipPath>'
     return clip, (f'<g clip-path="url(#{uid})"><g class="cup" style="--h:{gap * (steps - 1):.0f}px;animation-delay:{delay:.2f}s">'
                   f'{texts}</g></g>')
 
@@ -634,30 +634,39 @@ def render_about() -> str:
 
 
 def render_toolkit() -> str:
-    """Tech arsenal: one colour-coded lane per domain, a data pulse running along each circuit trace,
-    tools as glowing chips with their logos, and a scan beam sweeping every lane."""
+    """Tech arsenal: one colour-coded lane per domain on a twinkling starfield. Each lane has a data
+    pulse along its circuit trace, a packet that hops chip to chip, and a scan beam; chips cascade in,
+    then fire in a rippling sequence while their logos float; lane markers ping and labels glitch."""
     icons = json.loads((ROOT / "scripts" / "toolkit_icons.json").read_text(encoding="utf-8"))
     lane_cols = [NEON[4], NEON[1], NEON[2], NEON[0], NEON[3], NEON[5]]
     W, lane_h, top = 900, 56, 76
     H = top + lane_h * len(TOOLKIT) + 22
     tx0, tx1 = 204, W - 28
     n_tools = sum(len(t) for _, t in TOOLKIT)
-    out = [f'<line x1="44" y1="{top + 22}" x2="44" y2="{top + 22 + lane_h * (len(TOOLKIT) - 1)}" stroke="{C["line"]}" stroke-width="2"/>',
+    stars = "".join(
+        f'<circle cx="{(k * 137.508) % (W - 40) + 20:.1f}" cy="{60 + (k * 53.7) % (H - 80):.1f}" r="{.7 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .61) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(56))
+    out = [f'<g>{stars}</g>',
+           f'<line x1="44" y1="{top + 22}" x2="44" y2="{top + 22 + lane_h * (len(TOOLKIT) - 1)}" stroke="{C["line"]}" stroke-width="2"/>',
            f'<line x1="44" y1="{top + 22}" x2="44" y2="{top + 22 + lane_h * (len(TOOLKIT) - 1)}" stroke="url(#bus)" stroke-width="2" class="bus"/>']
     defs = [f'<linearGradient id="bus" x1="0" y1="0" x2="0" y2="1">'
             + "".join(f'<stop offset="{i / (len(TOOLKIT) - 1):.2f}" stop-color="{c}"/>' for i, c in enumerate(lane_cols)) + "</linearGradient>"]
+    hop_css = []
     for i, (lane, tools) in enumerate(TOOLKIT):
         col = lane_cols[i % len(lane_cols)]
         cy = top + 22 + i * lane_h
         defs.append(f'<linearGradient id="sh{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
                     f'<stop offset=".5" stop-color="{col}" stop-opacity=".22"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient>')
         hexp = " ".join(f"{polar(44, cy, 13, a)[0]:.1f},{polar(44, cy, 13, a)[1]:.1f}" for a in range(30, 390, 60))
+        cclip, cmark = count_up(f"tc{i}", 74, cy + 14, len(tools), cls="small", delay=.6 + i * .12, size=11, width=70, suffix=" tools")
+        defs.append(cclip)
         out.append(f"""<g class="chip" style="animation-delay:{.15 + i * .1:.2f}s">
   <circle cx="44" cy="{cy}" r="20" fill="none" stroke="{col}" stroke-opacity=".5" stroke-dasharray="2 5" class="{'spin' if i % 2 else 'spin-r'}"/>
   <polygon points="{hexp}" fill="{C['bg0']}" stroke="{col}" stroke-width="1.6"{GLOW}/>
+  <circle cx="44" cy="{cy}" r="13" fill="none" stroke="{col}" stroke-width="1.5" class="hping" style="animation-delay:{1 + i * .5:.1f}s"/>
   <text x="44" y="{cy + 4}" text-anchor="middle" class="hexn" style="fill:{col}">{i + 1:02d}</text>
-  <text x="74" y="{cy - 2}" class="lbl" style="fill:{C['text']}">{esc(lane.upper())}</text>
-  <text x="74" y="{cy + 14}" class="small">{len(tools)} tools</text>
+  <text x="74" y="{cy - 2}" class="lbl glitch" style="fill:{C['text']};animation-delay:{2 + i * 1.1:.1f}s">{esc(lane.upper())}</text>
+  {cmark}
 </g>""")
         out.append(f'<line x1="{tx0 - 12}" y1="{cy}" x2="{tx1}" y2="{cy}" stroke="{col}" stroke-opacity=".22"/>')
         out.append(f'<line x1="{tx0 - 12}" y1="{cy}" x2="{tx1}" y2="{cy}" stroke="{col}" stroke-width="2.4" stroke-linecap="round"'
@@ -665,6 +674,7 @@ def render_toolkit() -> str:
         widths = [36 + 7.5 * len(name) for name, _ in tools]
         gap = min(10.0, (tx1 - tx0 - sum(widths)) / max(1, len(tools) - 1))
         x = float(tx0)
+        stops = [tx0 - 8]
         for j, ((name, slug), w) in enumerate(zip(tools, widths)):
             if slug and slug in icons:
                 glyph = (f'<g transform="translate({x + 10:.1f},{cy - 8}) scale(.6667)" class="ico" style="animation-delay:{(i * 7 + j) * .37 % 4:.2f}s">'
@@ -674,8 +684,23 @@ def render_toolkit() -> str:
                          f'<circle cx="{x + 18:.1f}" cy="{cy}" r="2" fill="{col}"/></g>')
             out.append(f'<g class="chip" style="animation-delay:{.35 + i * .1 + j * .06:.2f}s">'
                        f'<rect x="{x:.1f}" y="{cy - 15}" width="{w:.1f}" height="30" rx="8" fill="{C["panel"]}" stroke="{col}" stroke-opacity=".55"/>'
-                       f'{glyph}<text x="{x + 32:.1f}" y="{cy + 4.5}" style="font-size:12.5px;fill:{C["text"]}">{esc(name)}</text></g>')
+                       f'<g class="bob" style="animation-delay:{(i * 5 + j * 3) * .29 % 3:.2f}s">{glyph}</g>'
+                       f'<text x="{x + 32:.1f}" y="{cy + 4.5}" style="font-size:12.5px;fill:{C["text"]}">{esc(name)}</text>'
+                       f'<rect x="{x:.1f}" y="{cy - 15}" width="{w:.1f}" height="30" rx="8" fill="{col}" fill-opacity=".08" stroke="{col}" stroke-width="2"'
+                       f' class="fire" style="animation-delay:{2.4 + i * .22 + j * .3:.2f}s"{GLOW}/></g>')
             x += w + gap
+            stops.append(x - gap / 2)
+        # packet that hops through the gaps between chips: hold at each gap, dash to the next
+        seg = 100 / (len(stops) - 1)
+        frames = []
+        for k, sx in enumerate(stops):
+            t = k * seg
+            frames.append(f"{t:.1f}% {{ transform: translateX({sx - stops[0]:.1f}px); }}")
+            if k < len(stops) - 1:
+                frames.append(f"{t + .55 * seg:.1f}% {{ transform: translateX({sx - stops[0]:.1f}px); }}")
+        hop_css.append(f" @keyframes hop{i} {{ {' '.join(frames)} }}"
+                       f" .hop{i} {{ animation: hop{i} {1.1 * (len(stops) - 1):.1f}s cubic-bezier(.6,0,.3,1) {2.2 + i * .45:.2f}s infinite both; }}")
+        out.append(f'<circle cx="{stops[0]:.1f}" cy="{cy}" r="3.4" fill="#FFFFFF" class="hop{i}"{GLOW}/>')
         out.append(f'<rect x="{tx0 - 12}" y="{cy - 17}" width="130" height="34" fill="url(#sh{i})" class="beam" style="animation-delay:{i * .8:.1f}s"/>')
     css = (f".hexn {{ font: 700 10.5px {MONO}; }}"
            " .chip { animation: chipin .7s cubic-bezier(.2,.8,.2,1) both; }"
@@ -685,7 +710,17 @@ def render_toolkit() -> str:
            " .beam { animation: beam 6s cubic-bezier(.5,0,.5,1) infinite; opacity: 0; }"
            f" @keyframes beam {{ 0% {{ transform: translateX(0); opacity: 0; }} 15% {{ opacity: 1; }} 85% {{ opacity: 1; }} 100% {{ transform: translateX({tx1 - tx0 - 100}px); opacity: 0; }} }}"
            " .ico { animation: ico 4s ease-in-out infinite; } @keyframes ico { 50% { opacity: .55; } }"
-           " .bus { stroke-dasharray: 30 300; animation: busf 3s linear infinite; } @keyframes busf { from { stroke-dashoffset: 30; } to { stroke-dashoffset: -300; } }")
+           " .bob { animation: bob 3s ease-in-out infinite; } @keyframes bob { 50% { transform: translateY(-2px); } }"
+           " .fire { opacity: 0; animation: fire 5.5s ease-out infinite; }"
+           " @keyframes fire { 0%, 14%, 100% { opacity: 0; } 4% { opacity: 1; } }"
+           " .hping { transform-box: fill-box; transform-origin: center; opacity: 0; animation: hping 3s ease-out infinite; }"
+           " @keyframes hping { 0% { transform: scale(1); opacity: .9; } 60%, 100% { transform: scale(2.3); opacity: 0; } }"
+           " .glitch { animation: glitch 7s steps(1, end) infinite; }"
+           " @keyframes glitch { 0%, 95%, 100% { opacity: 1; transform: none; } 96% { opacity: .35; transform: translateX(3px); }"
+           " 97% { opacity: 1; transform: translateX(-2px); } 98% { opacity: .6; transform: none; } }"
+           " .star { animation: star 4s ease-in-out infinite; opacity: .15; } @keyframes star { 50% { opacity: .75; } }"
+           " .bus { stroke-dasharray: 30 300; animation: busf 3s linear infinite; } @keyframes busf { from { stroke-dashoffset: 30; } to { stroke-dashoffset: -300; } }"
+           + "".join(hop_css))
     body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
     label = "Toolkit: " + "; ".join(f"{lane}: " + ", ".join(n for n, _ in tools) for lane, tools in TOOLKIT)
     return frame(W, H, "03", f"Arsenal · {n_tools} tools · {len(TOOLKIT)} domains", body, css, label, NEON[7])
@@ -778,13 +813,14 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
 <g fill="{C['tile']}" stroke="{C['line']}" stroke-width=".6">{''.join(floor)}</g>
 <polygon points="{beam}" fill="url(#beam)" class="beam"/>
 {''.join(towers)}
-{''.join(fx)}
+<g class="late">{''.join(fx)}</g>
 {''.join(months)}
 <line x1="720" y1="74" x2="720" y2="{H - 30}" stroke="{C['line']}"/>
 {''.join(side)}"""
     css = (".rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }"
            " @keyframes rise { from { opacity: 0; transform: translateY(18px); } }"
            f" .beam {{ animation: beam 6s linear infinite; }} @keyframes beam {{ from {{ transform: translate(0,0); }} to {{ transform: translate({ex:.1f}px,{ey:.1f}px); }} }}"
+           " .late { animation: fade .8s ease 2.4s both; }"
            " .twk { opacity: 0; animation: twk 5s ease-in-out infinite; } @keyframes twk { 0%, 80%, 100% { opacity: 0; } 88% { opacity: .55; } }"
            " .beacon { transform-box: fill-box; transform-origin: bottom; animation: beacon 2.4s ease-in-out 1.6s infinite both; }"
            " @keyframes beacon { 0%, 100% { opacity: .35; transform: scaleY(.8); } 50% { opacity: 1; transform: scaleY(1); } }"
