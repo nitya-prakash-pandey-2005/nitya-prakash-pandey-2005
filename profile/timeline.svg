@@ -132,10 +132,10 @@
   <text x="769.7" y="154" class="repo">TyreMind</text>
 </g>
 <g class="pop" style="animation-delay:1.50s"><title>SAGE · created 05 Sep 2026 · TypeScript</title>
-  <line x1="766.3" y1="191" x2="766.3" y2="218" stroke="#D946EF" stroke-opacity=".55"/>
-  <circle cx="766.3" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
-  <rect x="756.3" y="217" width="46.0" height="21" rx="4" fill="#0E1730" stroke="#D946EF" stroke-opacity=".6"/>
-  <circle cx="765.3" cy="227.5" r="3" fill="#D946EF"/>
-  <text x="773.3" y="232" class="repo">SAGE</text>
+  <line x1="766.2" y1="191" x2="766.2" y2="218" stroke="#D946EF" stroke-opacity=".55"/>
+  <circle cx="766.2" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
+  <rect x="756.2" y="217" width="46.0" height="21" rx="4" fill="#0E1730" stroke="#D946EF" stroke-opacity=".6"/>
+  <circle cx="765.2" cy="227.5" r="3" fill="#D946EF"/>
+  <text x="773.2" y="232" class="repo">SAGE</text>
 </g><rect x="44" y="326" width="10" height="10" rx="2.5" fill="#0284C7"/><text x="60" y="335" class="small">Python</text><rect x="124" y="326" width="10" height="10" rx="2.5" fill="#D946EF"/><text x="140" y="335" class="small">TypeScript</text><rect x="232" y="326" width="10" height="10" rx="2.5" fill="#65A30D"/><text x="248" y="335" class="small">Jupyter Notebook</text><rect x="382" y="326" width="10" height="10" rx="2.5" fill="#8B5CF6"/><text x="398" y="335" class="small">CSS</text><rect x="441" y="326" width="10" height="10" rx="2.5" fill="#F43F5E"/><text x="457" y="335" class="small">HTML</text><rect x="507" y="326" width="10" height="10" rx="2.5" fill="#4A5A7E"/><text x="523" y="335" class="small">Other / none</text>
 </svg>
