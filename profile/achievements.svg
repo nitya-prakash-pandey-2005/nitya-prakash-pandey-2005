@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="270" viewBox="0 0 900 270" role="img" aria-label="Results: rank 5, Kaya AI IIT Hackathon 2026; rank 9, Kaggle Agri Image Super-Resolution; top 10, TrackShift Innovation Challenge; top 40, IIT Delhi Innov8 Challenge; top 1.5K, Amazon ML Challenge">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Results: rank 5, Kaya AI IIT Hackathon 2026; rank 9, Kaggle Agri Image Super-Resolution; top 10, TrackShift Innovation Challenge; top 40, IIT Delhi Innov8 Challenge; top 1.5K, Amazon ML Challenge">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
   <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FBBF24" stop-opacity=".8"/><stop offset=".45" stop-color="#FBBF24" stop-opacity=".15"/><stop offset="1" stop-color="#FBBF24" stop-opacity="0"/></linearGradient>
   <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBBF24" stop-opacity="0"/><stop offset="1" stop-color="#FBBF24" stop-opacity=".09"/></linearGradient>
   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  <clipPath id="card"><rect width="900" height="270" rx="16"/></clipPath>
+  <clipPath id="card"><rect width="900" height="300" rx="16"/></clipPath>
 </defs>
 <style>
   text { font-family: -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
@@ -18,75 +18,113 @@
   .note { font-size: 13px; fill: #B9C5DD; }
   .strong { fill: #E8EEF9; font-weight: 650; }
   .scan { animation: scan 7s linear infinite; }
-  @keyframes scan { from { transform: translateY(-80px); } to { transform: translateY(270px); } }
+  @keyframes scan { from { transform: translateY(-80px); } to { transform: translateY(300px); } }
   .blink { animation: blink 1.6s steps(2, start) infinite; }
   @keyframes blink { to { opacity: .15; } }
   .spin { transform-box: fill-box; transform-origin: center; animation: spin 60s linear infinite; }
   .spin-r { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fade { from { opacity: 0; } }
-  .pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; } @keyframes pop { from { opacity: 0; transform: scale(.85); } }
+  .rk { font-weight: 800; fill: #E8EEF9; font-variant-numeric: tabular-nums; } .pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; } @keyframes pop { from { opacity: 0; transform: scale(.8); } } .draw { stroke-dasharray: 300; animation: draw 1.4s cubic-bezier(.6,0,.2,1) both; } @keyframes draw { from { stroke-dashoffset: 300; fill-opacity: 0; } } .pulse { animation: pulse 2.6s ease-in-out infinite both; } @keyframes pulse { 0%, 100% { opacity: 0; } 50% { opacity: 1; } } .reel { animation: reel 1.6s cubic-bezier(.15,.6,.2,1) both; } @keyframes reel { from { transform: translateY(var(--h)); } } .glint { animation: glint 5s ease-in-out infinite; } @keyframes glint { 0% { transform: skewX(-18deg) translateX(0); } 30%, 100% { transform: skewX(-18deg) translateX(190px); } } .spark { opacity: 0; animation: spark 3.3s ease-out infinite; } @keyframes spark { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-46px); } } .orb { animation: spin 8s linear infinite; } .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes rise { from { opacity: 0; transform: translateY(8px); } } .link { stroke-dasharray: 60 900; animation: link 3.5s linear infinite; } @keyframes link { from { stroke-dashoffset: 60; } to { stroke-dashoffset: -900; } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .scan { display: none; } }
 </style>
 <g clip-path="url(#card)">
-  <rect width="900" height="270" fill="url(#bg)"/>
-  <rect width="900" height="270" fill="url(#grid)"/>
+  <rect width="900" height="300" fill="url(#bg)"/>
+  <rect width="900" height="300" fill="url(#grid)"/>
   <rect class="scan" x="0" y="0" width="900" height="80" fill="url(#scanline)"/>
 </g>
-<rect x=".5" y=".5" width="899" height="269" rx="15.5" fill="none" stroke="#1C2A48"/>
-<g fill="none" stroke="#FBBF24" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,244 L10,260 L26,260"/><path d="M890,244 L890,260 L874,260"/></g>
+<rect x=".5" y=".5" width="899" height="299" rx="15.5" fill="none" stroke="#1C2A48"/>
+<g fill="none" stroke="#FBBF24" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,274 L10,290 L26,290"/><path d="M890,274 L890,290 L874,290"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#FBBF24" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">02 //</tspan> MISSION RECORD</text>
 <text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
+<defs><linearGradient id="link" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#FBBF24"/><stop offset="0.25" stop-color="#38BDF8"/><stop offset="0.50" stop-color="#E879F9"/><stop offset="0.75" stop-color="#A3E635"/><stop offset="1.00" stop-color="#A78BFA"/></linearGradient><linearGradient id="glint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".35"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient><clipPath id="hx0"><polygon points="112.4,78.0 155.7,103.0 155.7,153.0 112.4,178.0 69.1,153.0 69.1,103.0"/></clipPath><clipPath id="slot0"><rect x="68.4" y="120" width="88" height="36"/></clipPath><clipPath id="hx1"><polygon points="281.2,78.0 324.5,103.0 324.5,153.0 281.2,178.0 237.9,153.0 237.9,103.0"/></clipPath><clipPath id="slot1"><rect x="237.2" y="120" width="88" height="36"/></clipPath><clipPath id="hx2"><polygon points="450.0,78.0 493.3,103.0 493.3,153.0 450.0,178.0 406.7,153.0 406.7,103.0"/></clipPath><clipPath id="slot2"><rect x="406.0" y="120" width="88" height="36"/></clipPath><clipPath id="hx3"><polygon points="618.8,78.0 662.1,103.0 662.1,153.0 618.8,178.0 575.5,153.0 575.5,103.0"/></clipPath><clipPath id="slot3"><rect x="574.8" y="120" width="88" height="36"/></clipPath><clipPath id="hx4"><polygon points="787.6,78.0 830.9,103.0 830.9,153.0 787.6,178.0 744.3,153.0 744.3,103.0"/></clipPath><clipPath id="slot4"><rect x="743.6" y="120" width="88" height="36"/></clipPath></defs>
+<line x1="112.4" y1="128" x2="787.6" y2="128" stroke="#1C2A48" stroke-width="2"/>
+<line x1="112.4" y1="128" x2="787.6" y2="128" stroke="url(#link)" stroke-width="2.4" class="link" filter="url(#glow)"/>
 <g class="pop" style="animation-delay:0.20s">
-  <circle cx="112.4" cy="124" r="70" fill="none" stroke="#FBBF24" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
-  <polygon points="112.4,65.0 163.5,94.5 163.5,153.5 112.4,183.0 61.3,153.5 61.3,94.5" fill="none" stroke="#FBBF24" stroke-opacity=".25"/>
-  <polygon points="112.4,74.0 155.7,99.0 155.7,149.0 112.4,174.0 69.1,149.0 69.1,99.0" fill="#FBBF24" fill-opacity=".1" stroke="#FBBF24" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="112.4" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">RANK</text>
-  <text x="112.4" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">#5</text>
-  <text x="112.4" y="218" class="note strong" text-anchor="middle">Kaya AI IIT</text>
-  <text x="112.4" y="235" class="note" text-anchor="middle">Hackathon 2026</text>
-  <text x="112.4" y="253" class="small" text-anchor="middle" style="fill:#FBBF24">FIELDPILOT AI</text>
+  <circle cx="112.4" cy="128" r="72" fill="none" stroke="#FBBF24" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
+  <g class="orb" style="transform-origin:112.4px 128px;animation-duration:8.0s"><circle cx="112.4" cy="56" r="3" fill="#FBBF24" filter="url(#glow)"/></g>
+  <polygon points="112.4,69.0 163.5,98.5 163.5,157.5 112.4,187.0 61.3,157.5 61.3,98.5" fill="none" stroke="#FBBF24" stroke-opacity=".25"/>
+  <polygon points="112.4,78.0 155.7,103.0 155.7,153.0 112.4,178.0 69.1,153.0 69.1,103.0" fill="#060B18"/>
+  <polygon points="112.4,78.0 155.7,103.0 155.7,153.0 112.4,178.0 69.1,153.0 69.1,103.0" fill="#FBBF24" fill-opacity=".1" stroke="#FBBF24" stroke-width="2" class="draw" style="animation-delay:0.20s" filter="url(#glow)"/>
+  <polygon points="112.4,78.0 155.7,103.0 155.7,153.0 112.4,178.0 69.1,153.0 69.1,103.0" fill="none" stroke="#FBBF24" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:1.80s"/>
+  <g clip-path="url(#hx0)"><rect x="2.4" y="78" width="40" height="100" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:2.20s"/></g>
+  <text x="112.4" y="112" class="small" text-anchor="middle" style="letter-spacing:2px;fill:#FBBF24">RANK</text>
+  <g clip-path="url(#slot0)"><g class="reel" style="--h:252px;animation-delay:0.50s"><text x="112.4" y="146" text-anchor="middle" class="rk" style="font-size:30px">#5</text><text x="112.4" y="110" text-anchor="middle" class="rk" style="font-size:30px">#8</text><text x="112.4" y="74" text-anchor="middle" class="rk" style="font-size:30px">#1</text><text x="112.4" y="38" text-anchor="middle" class="rk" style="font-size:30px">#4</text><text x="112.4" y="2" text-anchor="middle" class="rk" style="font-size:30px">#7</text><text x="112.4" y="-34" text-anchor="middle" class="rk" style="font-size:30px">#0</text><text x="112.4" y="-70" text-anchor="middle" class="rk" style="font-size:30px">#3</text><text x="112.4" y="-106" text-anchor="middle" class="rk" style="font-size:30px">#6</text></g></g>
+  <circle cx="90.4" cy="84" r="1.6" fill="#FBBF24" class="spark" style="animation-delay:1.40s"/><circle cx="104.4" cy="84" r="2.1" fill="#FBBF24" class="spark" style="animation-delay:1.95s"/><circle cx="118.4" cy="84" r="2.6" fill="#FBBF24" class="spark" style="animation-delay:2.50s"/><circle cx="130.4" cy="84" r="1.6" fill="#FBBF24" class="spark" style="animation-delay:3.05s"/><circle cx="140.4" cy="84" r="2.1" fill="#FBBF24" class="spark" style="animation-delay:3.60s"/><circle cx="82.4" cy="84" r="2.6" fill="#FBBF24" class="spark" style="animation-delay:4.15s"/>
 </g>
-<g class="pop" style="animation-delay:0.35s">
-  <circle cx="281.2" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".45" stroke-dasharray="1 7" class="spin"/>
-  <polygon points="281.2,65.0 332.3,94.5 332.3,153.5 281.2,183.0 230.1,153.5 230.1,94.5" fill="none" stroke="#38BDF8" stroke-opacity=".25"/>
-  <polygon points="281.2,74.0 324.5,99.0 324.5,149.0 281.2,174.0 237.9,149.0 237.9,99.0" fill="#38BDF8" fill-opacity=".1" stroke="#38BDF8" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="281.2" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">RANK</text>
-  <text x="281.2" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">#9</text>
-  <text x="281.2" y="218" class="note strong" text-anchor="middle">Kaggle Agri Image</text>
-  <text x="281.2" y="235" class="note" text-anchor="middle">Super-Resolution</text>
-  <text x="281.2" y="253" class="small" text-anchor="middle" style="fill:#38BDF8">30-BLOCK RCAN</text>
+<g class="rise" style="animation-delay:0.70s">
+  <text x="112.4" y="226" class="note strong" text-anchor="middle">Kaya AI IIT</text>
+  <text x="112.4" y="244" class="note" text-anchor="middle">Hackathon 2026</text>
+  <text x="112.4" y="264" class="small" text-anchor="middle" style="fill:#FBBF24">FIELDPILOT AI</text>
 </g>
-<g class="pop" style="animation-delay:0.50s">
-  <circle cx="450.0" cy="124" r="70" fill="none" stroke="#E879F9" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
-  <polygon points="450.0,65.0 501.1,94.5 501.1,153.5 450.0,183.0 398.9,153.5 398.9,94.5" fill="none" stroke="#E879F9" stroke-opacity=".25"/>
-  <polygon points="450.0,74.0 493.3,99.0 493.3,149.0 450.0,174.0 406.7,149.0 406.7,99.0" fill="#E879F9" fill-opacity=".1" stroke="#E879F9" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="450.0" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
-  <text x="450.0" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">10</text>
-  <text x="450.0" y="218" class="note strong" text-anchor="middle">TrackShift</text>
-  <text x="450.0" y="235" class="note" text-anchor="middle">Innovation Challenge</text>
-  <text x="450.0" y="253" class="small" text-anchor="middle" style="fill:#E879F9">TYREMIND</text>
+<g class="pop" style="animation-delay:0.38s">
+  <circle cx="281.2" cy="128" r="72" fill="none" stroke="#38BDF8" stroke-opacity=".45" stroke-dasharray="1 7" class="spin"/>
+  <g class="orb" style="transform-origin:281.2px 128px;animation-duration:9.5s"><circle cx="281.2" cy="56" r="3" fill="#38BDF8" filter="url(#glow)"/></g>
+  <polygon points="281.2,69.0 332.3,98.5 332.3,157.5 281.2,187.0 230.1,157.5 230.1,98.5" fill="none" stroke="#38BDF8" stroke-opacity=".25"/>
+  <polygon points="281.2,78.0 324.5,103.0 324.5,153.0 281.2,178.0 237.9,153.0 237.9,103.0" fill="#060B18"/>
+  <polygon points="281.2,78.0 324.5,103.0 324.5,153.0 281.2,178.0 237.9,153.0 237.9,103.0" fill="#38BDF8" fill-opacity=".1" stroke="#38BDF8" stroke-width="2" class="draw" style="animation-delay:0.38s" filter="url(#glow)"/>
+  <polygon points="281.2,78.0 324.5,103.0 324.5,153.0 281.2,178.0 237.9,153.0 237.9,103.0" fill="none" stroke="#38BDF8" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:1.98s"/>
+  <g clip-path="url(#hx1)"><rect x="171.2" y="78" width="40" height="100" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:2.78s"/></g>
+  <text x="281.2" y="112" class="small" text-anchor="middle" style="letter-spacing:2px;fill:#38BDF8">RANK</text>
+  <g clip-path="url(#slot1)"><g class="reel" style="--h:252px;animation-delay:0.68s"><text x="281.2" y="146" text-anchor="middle" class="rk" style="font-size:30px">#9</text><text x="281.2" y="110" text-anchor="middle" class="rk" style="font-size:30px">#5</text><text x="281.2" y="74" text-anchor="middle" class="rk" style="font-size:30px">#8</text><text x="281.2" y="38" text-anchor="middle" class="rk" style="font-size:30px">#1</text><text x="281.2" y="2" text-anchor="middle" class="rk" style="font-size:30px">#4</text><text x="281.2" y="-34" text-anchor="middle" class="rk" style="font-size:30px">#7</text><text x="281.2" y="-70" text-anchor="middle" class="rk" style="font-size:30px">#0</text><text x="281.2" y="-106" text-anchor="middle" class="rk" style="font-size:30px">#3</text></g></g>
+  <circle cx="259.2" cy="84" r="1.6" fill="#38BDF8" class="spark" style="animation-delay:1.58s"/><circle cx="273.2" cy="84" r="2.1" fill="#38BDF8" class="spark" style="animation-delay:2.13s"/><circle cx="287.2" cy="84" r="2.6" fill="#38BDF8" class="spark" style="animation-delay:2.68s"/><circle cx="299.2" cy="84" r="1.6" fill="#38BDF8" class="spark" style="animation-delay:3.23s"/><circle cx="309.2" cy="84" r="2.1" fill="#38BDF8" class="spark" style="animation-delay:3.78s"/><circle cx="251.2" cy="84" r="2.6" fill="#38BDF8" class="spark" style="animation-delay:4.33s"/>
 </g>
-<g class="pop" style="animation-delay:0.65s">
-  <circle cx="618.8" cy="124" r="70" fill="none" stroke="#A3E635" stroke-opacity=".45" stroke-dasharray="1 7" class="spin"/>
-  <polygon points="618.8,65.0 669.9,94.5 669.9,153.5 618.8,183.0 567.7,153.5 567.7,94.5" fill="none" stroke="#A3E635" stroke-opacity=".25"/>
-  <polygon points="618.8,74.0 662.1,99.0 662.1,149.0 618.8,174.0 575.5,149.0 575.5,99.0" fill="#A3E635" fill-opacity=".1" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="618.8" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
-  <text x="618.8" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">40</text>
-  <text x="618.8" y="218" class="note strong" text-anchor="middle">IIT Delhi</text>
-  <text x="618.8" y="235" class="note" text-anchor="middle">Innov8 Challenge</text>
-  <text x="618.8" y="253" class="small" text-anchor="middle" style="fill:#A3E635"></text>
+<g class="rise" style="animation-delay:0.88s">
+  <text x="281.2" y="226" class="note strong" text-anchor="middle">Kaggle Agri Image</text>
+  <text x="281.2" y="244" class="note" text-anchor="middle">Super-Resolution</text>
+  <text x="281.2" y="264" class="small" text-anchor="middle" style="fill:#38BDF8">30-BLOCK RCAN</text>
 </g>
-<g class="pop" style="animation-delay:0.80s">
-  <circle cx="787.6" cy="124" r="70" fill="none" stroke="#A78BFA" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
-  <polygon points="787.6,65.0 838.7,94.5 838.7,153.5 787.6,183.0 736.5,153.5 736.5,94.5" fill="none" stroke="#A78BFA" stroke-opacity=".25"/>
-  <polygon points="787.6,74.0 830.9,99.0 830.9,149.0 787.6,174.0 744.3,149.0 744.3,99.0" fill="#A78BFA" fill-opacity=".1" stroke="#A78BFA" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="787.6" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
-  <text x="787.6" y="142" text-anchor="middle" style="font-size:24px;font-weight:750;fill:#E8EEF9">1.5K</text>
-  <text x="787.6" y="218" class="note strong" text-anchor="middle">Amazon</text>
-  <text x="787.6" y="235" class="note" text-anchor="middle">ML Challenge</text>
-  <text x="787.6" y="253" class="small" text-anchor="middle" style="fill:#A78BFA"></text>
+<g class="pop" style="animation-delay:0.56s">
+  <circle cx="450.0" cy="128" r="72" fill="none" stroke="#E879F9" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
+  <g class="orb" style="transform-origin:450.0px 128px;animation-duration:11.0s"><circle cx="450.0" cy="56" r="3" fill="#E879F9" filter="url(#glow)"/></g>
+  <polygon points="450.0,69.0 501.1,98.5 501.1,157.5 450.0,187.0 398.9,157.5 398.9,98.5" fill="none" stroke="#E879F9" stroke-opacity=".25"/>
+  <polygon points="450.0,78.0 493.3,103.0 493.3,153.0 450.0,178.0 406.7,153.0 406.7,103.0" fill="#060B18"/>
+  <polygon points="450.0,78.0 493.3,103.0 493.3,153.0 450.0,178.0 406.7,153.0 406.7,103.0" fill="#E879F9" fill-opacity=".1" stroke="#E879F9" stroke-width="2" class="draw" style="animation-delay:0.56s" filter="url(#glow)"/>
+  <polygon points="450.0,78.0 493.3,103.0 493.3,153.0 450.0,178.0 406.7,153.0 406.7,103.0" fill="none" stroke="#E879F9" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:2.16s"/>
+  <g clip-path="url(#hx2)"><rect x="340.0" y="78" width="40" height="100" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:3.36s"/></g>
+  <text x="450.0" y="112" class="small" text-anchor="middle" style="letter-spacing:2px;fill:#E879F9">TOP</text>
+  <g clip-path="url(#slot2)"><g class="reel" style="--h:252px;animation-delay:0.86s"><text x="450.0" y="146" text-anchor="middle" class="rk" style="font-size:30px">10</text><text x="450.0" y="110" text-anchor="middle" class="rk" style="font-size:30px">72</text><text x="450.0" y="74" text-anchor="middle" class="rk" style="font-size:30px">05</text><text x="450.0" y="38" text-anchor="middle" class="rk" style="font-size:30px">38</text><text x="450.0" y="2" text-anchor="middle" class="rk" style="font-size:30px">61</text><text x="450.0" y="-34" text-anchor="middle" class="rk" style="font-size:30px">94</text><text x="450.0" y="-70" text-anchor="middle" class="rk" style="font-size:30px">27</text><text x="450.0" y="-106" text-anchor="middle" class="rk" style="font-size:30px">50</text></g></g>
+  <circle cx="428.0" cy="84" r="1.6" fill="#E879F9" class="spark" style="animation-delay:1.76s"/><circle cx="442.0" cy="84" r="2.1" fill="#E879F9" class="spark" style="animation-delay:2.31s"/><circle cx="456.0" cy="84" r="2.6" fill="#E879F9" class="spark" style="animation-delay:2.86s"/><circle cx="468.0" cy="84" r="1.6" fill="#E879F9" class="spark" style="animation-delay:3.41s"/><circle cx="478.0" cy="84" r="2.1" fill="#E879F9" class="spark" style="animation-delay:3.96s"/><circle cx="420.0" cy="84" r="2.6" fill="#E879F9" class="spark" style="animation-delay:4.51s"/>
+</g>
+<g class="rise" style="animation-delay:1.06s">
+  <text x="450.0" y="226" class="note strong" text-anchor="middle">TrackShift</text>
+  <text x="450.0" y="244" class="note" text-anchor="middle">Innovation Challenge</text>
+  <text x="450.0" y="264" class="small" text-anchor="middle" style="fill:#E879F9">TYREMIND</text>
+</g>
+<g class="pop" style="animation-delay:0.74s">
+  <circle cx="618.8" cy="128" r="72" fill="none" stroke="#A3E635" stroke-opacity=".45" stroke-dasharray="1 7" class="spin"/>
+  <g class="orb" style="transform-origin:618.8px 128px;animation-duration:12.5s"><circle cx="618.8" cy="56" r="3" fill="#A3E635" filter="url(#glow)"/></g>
+  <polygon points="618.8,69.0 669.9,98.5 669.9,157.5 618.8,187.0 567.7,157.5 567.7,98.5" fill="none" stroke="#A3E635" stroke-opacity=".25"/>
+  <polygon points="618.8,78.0 662.1,103.0 662.1,153.0 618.8,178.0 575.5,153.0 575.5,103.0" fill="#060B18"/>
+  <polygon points="618.8,78.0 662.1,103.0 662.1,153.0 618.8,178.0 575.5,153.0 575.5,103.0" fill="#A3E635" fill-opacity=".1" stroke="#A3E635" stroke-width="2" class="draw" style="animation-delay:0.74s" filter="url(#glow)"/>
+  <polygon points="618.8,78.0 662.1,103.0 662.1,153.0 618.8,178.0 575.5,153.0 575.5,103.0" fill="none" stroke="#A3E635" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:2.34s"/>
+  <g clip-path="url(#hx3)"><rect x="508.8" y="78" width="40" height="100" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:3.94s"/></g>
+  <text x="618.8" y="112" class="small" text-anchor="middle" style="letter-spacing:2px;fill:#A3E635">TOP</text>
+  <g clip-path="url(#slot3)"><g class="reel" style="--h:252px;animation-delay:1.04s"><text x="618.8" y="146" text-anchor="middle" class="rk" style="font-size:30px">40</text><text x="618.8" y="110" text-anchor="middle" class="rk" style="font-size:30px">49</text><text x="618.8" y="74" text-anchor="middle" class="rk" style="font-size:30px">72</text><text x="618.8" y="38" text-anchor="middle" class="rk" style="font-size:30px">05</text><text x="618.8" y="2" text-anchor="middle" class="rk" style="font-size:30px">38</text><text x="618.8" y="-34" text-anchor="middle" class="rk" style="font-size:30px">61</text><text x="618.8" y="-70" text-anchor="middle" class="rk" style="font-size:30px">94</text><text x="618.8" y="-106" text-anchor="middle" class="rk" style="font-size:30px">27</text></g></g>
+  <circle cx="596.8" cy="84" r="1.6" fill="#A3E635" class="spark" style="animation-delay:1.94s"/><circle cx="610.8" cy="84" r="2.1" fill="#A3E635" class="spark" style="animation-delay:2.49s"/><circle cx="624.8" cy="84" r="2.6" fill="#A3E635" class="spark" style="animation-delay:3.04s"/><circle cx="636.8" cy="84" r="1.6" fill="#A3E635" class="spark" style="animation-delay:3.59s"/><circle cx="646.8" cy="84" r="2.1" fill="#A3E635" class="spark" style="animation-delay:4.14s"/><circle cx="588.8" cy="84" r="2.6" fill="#A3E635" class="spark" style="animation-delay:4.69s"/>
+</g>
+<g class="rise" style="animation-delay:1.24s">
+  <text x="618.8" y="226" class="note strong" text-anchor="middle">IIT Delhi</text>
+  <text x="618.8" y="244" class="note" text-anchor="middle">Innov8 Challenge</text>
+  <text x="618.8" y="264" class="small" text-anchor="middle" style="fill:#A3E635"></text>
+</g>
+<g class="pop" style="animation-delay:0.92s">
+  <circle cx="787.6" cy="128" r="72" fill="none" stroke="#A78BFA" stroke-opacity=".45" stroke-dasharray="1 7" class="spin-r"/>
+  <g class="orb" style="transform-origin:787.6px 128px;animation-duration:14.0s"><circle cx="787.6" cy="56" r="3" fill="#A78BFA" filter="url(#glow)"/></g>
+  <polygon points="787.6,69.0 838.7,98.5 838.7,157.5 787.6,187.0 736.5,157.5 736.5,98.5" fill="none" stroke="#A78BFA" stroke-opacity=".25"/>
+  <polygon points="787.6,78.0 830.9,103.0 830.9,153.0 787.6,178.0 744.3,153.0 744.3,103.0" fill="#060B18"/>
+  <polygon points="787.6,78.0 830.9,103.0 830.9,153.0 787.6,178.0 744.3,153.0 744.3,103.0" fill="#A78BFA" fill-opacity=".1" stroke="#A78BFA" stroke-width="2" class="draw" style="animation-delay:0.92s" filter="url(#glow)"/>
+  <polygon points="787.6,78.0 830.9,103.0 830.9,153.0 787.6,178.0 744.3,153.0 744.3,103.0" fill="none" stroke="#A78BFA" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:2.52s"/>
+  <g clip-path="url(#hx4)"><rect x="677.6" y="78" width="40" height="100" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:4.52s"/></g>
+  <text x="787.6" y="112" class="small" text-anchor="middle" style="letter-spacing:2px;fill:#A78BFA">TOP</text>
+  <g clip-path="url(#slot4)"><g class="reel" style="--h:252px;animation-delay:1.22s"><text x="787.6" y="146" text-anchor="middle" class="rk" style="font-size:24px">1.5K</text><text x="787.6" y="110" text-anchor="middle" class="rk" style="font-size:24px">1.1K</text><text x="787.6" y="74" text-anchor="middle" class="rk" style="font-size:24px">4.4K</text><text x="787.6" y="38" text-anchor="middle" class="rk" style="font-size:24px">7.7K</text><text x="787.6" y="2" text-anchor="middle" class="rk" style="font-size:24px">0.0K</text><text x="787.6" y="-34" text-anchor="middle" class="rk" style="font-size:24px">3.3K</text><text x="787.6" y="-70" text-anchor="middle" class="rk" style="font-size:24px">6.6K</text><text x="787.6" y="-106" text-anchor="middle" class="rk" style="font-size:24px">9.9K</text></g></g>
+  <circle cx="765.6" cy="84" r="1.6" fill="#A78BFA" class="spark" style="animation-delay:2.12s"/><circle cx="779.6" cy="84" r="2.1" fill="#A78BFA" class="spark" style="animation-delay:2.67s"/><circle cx="793.6" cy="84" r="2.6" fill="#A78BFA" class="spark" style="animation-delay:3.22s"/><circle cx="805.6" cy="84" r="1.6" fill="#A78BFA" class="spark" style="animation-delay:3.77s"/><circle cx="815.6" cy="84" r="2.1" fill="#A78BFA" class="spark" style="animation-delay:4.32s"/><circle cx="757.6" cy="84" r="2.6" fill="#A78BFA" class="spark" style="animation-delay:4.87s"/>
+</g>
+<g class="rise" style="animation-delay:1.42s">
+  <text x="787.6" y="226" class="note strong" text-anchor="middle">Amazon</text>
+  <text x="787.6" y="244" class="note" text-anchor="middle">ML Challenge</text>
+  <text x="787.6" y="264" class="small" text-anchor="middle" style="fill:#A78BFA"></text>
 </g>
 </svg>
