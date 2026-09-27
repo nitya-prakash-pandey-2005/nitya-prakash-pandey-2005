@@ -40,7 +40,7 @@ TIMEZONE = dt.timezone(dt.timedelta(hours=5, minutes=30), "IST")
 ACHIEVEMENTS = [
     ("RANK", "5", "Kaya AI IIT", "Hackathon 2026", "FieldPilot AI"),
     ("RANK", "9", "Kaggle Agri Image", "Super-Resolution", "30-block RCAN"),
-    ("TOP", "10", "TrackShift", "Innovation Challenge", ""),
+    ("TOP", "10", "TrackShift", "Innovation Challenge", "TyreMind"),
     ("TOP", "40", "IIT Delhi", "Innov8 Challenge", ""),
     ("TOP", "1.5K", "Amazon", "ML Challenge", ""),
 ]

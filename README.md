@@ -39,7 +39,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 |:--|:--|
 | 🏆 **Rank 5** | **Kaya AI IIT Hackathon 2026.** FieldPilot AI: hands-free construction-site inspection on smart glasses, a 10-agent system with YOLO, Qwen2.5-VL, Whisper and a Qdrant RAG pipeline, built in a 20-hour sprint |
 | 🥇 **Rank 9** | **Kaggle, Agricultural Image Super-Resolution.** 30-block RCAN model |
-| 🚀 **Top 10** | **TrackShift Innovation Challenge** |
+| 🚀 **Top 10** | **TrackShift Innovation Challenge.** TyreMind: physics-informed ML that separates true tyre degradation from fuel, traffic, driver, weather and track effects, with race-strategy optimization |
 | ⭐ **Top 40** | **IIT Delhi Innov8 Challenge** |
 | 📦 **Top 1,500** | **Amazon ML Challenge** |
 
