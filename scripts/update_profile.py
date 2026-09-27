@@ -1453,16 +1453,21 @@ def activity_block(items: list[dict]) -> str:
 
 
 def render_feed(items: list[dict]) -> str:
-    """Event log: glowing spine with a travelling pulse, colour-coded nodes, rows that type
-    themselves in one after another, a live ping on the newest event and a terminal cursor."""
+    """Event log on a starfield: glowing spine with a travelling pulse, colour-coded nodes with
+    spinning rings, packets flowing into each row, rows that type themselves in, a highlight bar
+    stepping through the log, commit-intensity meters, and a live terminal footer."""
     W = 900
     row, top = 50, 92
     n = len(items)
     H = top + max(1, n) * row + 44
     sx = 150
     tx = 178
-    out, defs = [], []
-    if n:
+    stars = "".join(
+        f'<circle cx="{(k * 131.7) % (W - 40) + 20:.1f}" cy="{58 + (k * 47.3) % (H - 76):.1f}" r="{.6 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .53) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(44))
+    out, defs = [f"<g>{stars}</g>"], []
+    if n:  # highlight bar that steps down the log, one entry at a time
+        out.append(f'<rect x="{tx - 14}" y="{top - 22}" width="{W - tx - 14}" height="44" rx="8" fill="url(#hl)" class="scanrow"/>')
         y_end = top + (n - 1) * row + 26
         out.append(f'<line x1="{sx}" y1="{top - 18}" x2="{sx}" y2="{y_end}" stroke="{C["line"]}" stroke-width="2"/>')
         out.append(f'<line x1="{sx}" y1="{top - 18}" x2="{sx}" y2="{y_end}" stroke="url(#spine)" stroke-width="2.4" class="flow"{GLOW}/>')
@@ -1482,22 +1487,39 @@ def render_feed(items: list[dict]) -> str:
         when = ago(it["ts"]).replace(" ago", "")
         out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
   <text x="{sx - 26}" y="{y + 4}" class="small" text-anchor="end">{esc(when)}</text>
+  <circle cx="{sx}" cy="{y}" r="17" fill="none" stroke="{col}" stroke-opacity=".55" stroke-dasharray="3 4" class="{'spin' if i % 2 else 'spin-r'}"/>
   <circle cx="{sx}" cy="{y}" r="12" fill="{C['bg0']}" stroke="{col}" stroke-width="1.8"{GLOW}/>
   <text x="{sx}" y="{y + 4.5}" text-anchor="middle" class="gl" style="fill:{col}">{glyph}</text>
 </g>""")
+        out.append(f'<line x1="{sx + 18}" y1="{y}" x2="{tx - 8}" y2="{y}" stroke="{col}" stroke-opacity=".35"/>'
+                   f'<circle cx="{sx + 18}" cy="{y}" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:{d + .8 + i * .2:.2f}s"/>')
         if i == 0:
             out.append(f'<circle cx="{sx}" cy="{y}" r="12" fill="none" stroke="{col}" class="ping"/>')
+        live = f'<tspan dx="12" class="live glitch" style="fill:{col}">● LATEST</tspan>' if i == 0 else ""
         out.append(f"""<g class="type" style="animation-delay:{d:.2f}s">
-  <text x="{tx}" y="{y - 1}"><tspan class="tg" style="fill:{col}">{tag}</tspan><tspan dx="10" class="rp">{esc(name)}</tspan>{f'<tspan dx="10" class="small" style="fill:{C["soft"]}">{esc(head)}</tspan>' if head else ''}{'<tspan dx="12" class="live" style="fill:' + col + '">● LATEST</tspan>' if i == 0 else ''}</text>
+  <text x="{tx}" y="{y - 1}"><tspan class="tg" style="fill:{col}">{tag}</tspan><tspan dx="10" class="rp">{esc(name)}</tspan>{f'<tspan dx="10" class="small" style="fill:{C["soft"]}">{esc(head)}</tspan>' if head else ''}{live}</text>
   <text x="{tx}" y="{y + 17}" class="dt">{esc(detail)}</text>
 </g>""")
+        if it["kind"] == "commit":  # intensity meter: one lit bar per commit, up to ten
+            lit = min(10, it["n"])
+            bars = ""
+            for k in range(10):
+                anim = f' class="lit" style="animation-delay:{d + .9 + k * .07:.2f}s"' if k < lit else ""
+                bars += (f'<rect x="{W - 118 + k * 9}" y="{y - 6 - k * 1.2:.1f}" width="6" height="{10 + k * 1.2:.1f}" rx="1.5"'
+                         f' fill="{col if k < lit else C["line"]}"{anim}/>')
+            out.append(f'<g class="type" style="animation-delay:{d + .5:.2f}s">{bars}</g>')
     if not n:
         out.append(f'<text x="{tx}" y="{top + 4}" class="note">No public activity in the last 90 days.</text>')
     ty = H - 30
-    out.append(f'<text x="{tx - 32}" y="{ty}" class="term"><tspan style="fill:{NEON[3]}">&gt;</tspan> listening for new signals</text>')
-    out.append(f'<rect x="{tx - 32 + 7.9 * 27 + 4}" y="{ty - 12}" width="8" height="15" fill="{NEON[3]}" class="cur"/>')
+    msg = "listening for new signals"
+    out.append(f'<g class="type" style="animation-delay:{.6 + n * .32:.2f}s"><text x="{tx - 32}" y="{ty}" class="term">'
+               f'<tspan style="fill:{NEON[3]}">&gt;</tspan> {msg}<tspan class="d1">.</tspan><tspan class="d2">.</tspan><tspan class="d3">.</tspan></text>'
+               f'<rect x="{tx - 32 + 7.9 * (len(msg) + 5) + 4:.1f}" y="{ty - 12}" width="8" height="15" fill="{NEON[3]}" class="cur"/></g>')
+    out.append(f'<text x="{W - 28}" y="{ty}" class="small" text-anchor="end">NEXT SYNC <tspan style="fill:{NEON[3]}">≤ 60 MIN</tspan></text>')
     defs.append(f'<linearGradient id="spine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[0]}"/>'
                 f'<stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient>')
+    defs.append(f'<linearGradient id="hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[2]}" stop-opacity=".16"/>'
+                f'<stop offset=".6" stop-color="{NEON[1]}" stop-opacity=".06"/><stop offset="1" stop-color="{NEON[1]}" stop-opacity="0"/></linearGradient>')
     css = (f".gl {{ font: 700 12px {MONO}; }} .tg {{ font: 700 10.5px {MONO}; letter-spacing: 1.6px; }}"
            f" .rp {{ font-size: 14.5px; font-weight: 650; fill: {C['text']}; }} .dt {{ font-size: 12.5px; fill: {C['soft']}; }}"
            f" .live {{ font: 700 9.5px {MONO}; letter-spacing: 1.4px; }} .term {{ font: 13px {MONO}; fill: {C['soft']}; }}"
@@ -1509,7 +1531,17 @@ def render_feed(items: list[dict]) -> str:
            " @keyframes flow { from { stroke-dashoffset: 40; } to { stroke-dashoffset: -400; } }"
            " .cur { animation: blink 1.1s steps(2, start) infinite; }"
            " .type { animation: type 1s cubic-bezier(.3,0,.2,1) both; }"
-           " @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }")
+           " @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }"
+           " .star { opacity: .12; animation: star 4s ease-in-out infinite; } @keyframes star { 50% { opacity: .7; } }"
+           f" .scanrow {{ animation: scanrow {max(1, n) * 1.2:.1f}s steps({max(1, n)}, end) 3s infinite both; }}"
+           f" @keyframes scanrow {{ from {{ transform: translateY(0); }} to {{ transform: translateY({max(1, n) * row}px); }} }}"
+           f" .pkt {{ opacity: 0; animation: pkt 2.4s ease-in infinite; }}"
+           f" @keyframes pkt {{ 0% {{ opacity: 0; transform: translateX(0); }} 15% {{ opacity: 1; }} 70% {{ opacity: 1; transform: translateX({tx - sx - 26}px); }} 100% {{ opacity: 0; transform: translateX({tx - sx - 26}px); }} }}"
+           " .lit { animation: lit .35s ease-out both; } @keyframes lit { from { opacity: 0; transform: translateY(4px); } }"
+           " .glitch { animation: glitch 6s steps(1, end) 2s infinite; }"
+           " @keyframes glitch { 0%, 94%, 100% { opacity: 1; } 95% { opacity: .2; } 96% { opacity: 1; } 97% { opacity: .4; } }"
+           " .d1, .d2, .d3 { animation: dots 1.5s steps(1, end) infinite; } .d2 { animation-delay: .25s; } .d3 { animation-delay: .5s; }"
+           " @keyframes dots { 0%, 100% { opacity: .15; } 30%, 70% { opacity: 1; } }")
     body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
     return frame(W, H, "09", "Signal log · recent activity", body, css,
                  "Recent activity: " + "; ".join(f"{it['kind']} {it['repo']}" for it in items), NEON[2])
