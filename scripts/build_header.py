@@ -9,7 +9,8 @@ cosine keyframe with ease-in-out-sine timing, a per-point amplitude (CSS variabl
 per-point phase (negative animation-delay). Depth fades points at the back; satellites are drawn
 twice (behind and in front of the brain) and switch copies as they cross the far side.
 
-Run after editing PROJECTS or the identity text:  python3 scripts/build_header.py
+update_profile.py rebuilds it on every refresh with the live repository pick for the outer ring.
+Run by hand after editing WORK, REPO_LABELS or the identity text:  python3 scripts/build_header.py
 """
 from __future__ import annotations
 
@@ -23,15 +24,31 @@ W, H = 1200, 380
 
 # Domain colours, shared with the chips on the left.
 MED, AGRI, GENAI, SPACE, RESEARCH = "#38BDF8", "#A3E635", "#E879F9", "#FBBF24", "#A78BFA"
-# (label, colour) — outer ring first, then inner ring.
-PROJECTS_OUTER = [
-    ("FieldPilot AI", GENAI), ("TyreMind", RESEARCH), ("AgriVision", AGRI),
-    ("SAGE", GENAI), ("Lunar Reg · SIH", SPACE), ("AgroSkin AI", MED),
-]
-PROJECTS_INNER = [
-    ("Brain Seg · SGBC", MED), ("Travel RAG", GENAI), ("Chest X-ray CNN", MED),
+# Outer ring: repositories. update_profile.py passes the live pick (pinned + most recently pushed),
+# so new repos join the orbit automatically. Known repos get a short label and a domain colour.
+REPO_LABELS = {
+    "fieldpilot-ai": ("FieldPilot AI", GENAI), "TyreMind": ("TyreMind", RESEARCH), "AgriVision-Ensemble-Net": ("AgriVision", AGRI),
+    "SAGE": ("SAGE", GENAI), "AgroSkin-AI": ("AgroSkin AI", MED), "ai-chest-disease-detection-cnn": ("Chest X-ray CNN", MED),
+    "OpenCV-Basics": ("OpenCV Basics", SPACE), "ai-personalized-learning": ("AI Tutor", RESEARCH),
+}
+DEFAULT_REPOS = ["fieldpilot-ai", "TyreMind", "AgriVision-Ensemble-Net", "AgroSkin-AI", "SAGE", "ai-chest-disease-detection-cnn"]
+# Inner ring: work that is not a public repository.
+WORK = [
+    ("Brain Seg · SGBC", MED), ("Lunar Reg · SIH", SPACE), ("Travel RAG", GENAI),
     ("Reddit · DoMS", RESEARCH), ("Pathology WSI", MED),
 ]
+
+
+def satellite(repo: str) -> tuple[str, str]:
+    if repo in REPO_LABELS:
+        return REPO_LABELS[repo]
+    words = repo.replace("_", " ").replace("-", " ").split()
+    label = " ".join(w if any(c.isupper() for c in w) else w.capitalize() for w in words) or repo
+    label = label if len(label) <= 16 else label[:15].rstrip() + "…"
+    palette = [MED, AGRI, GENAI, SPACE, RESEARCH]
+    return label, palette[sum(map(ord, repo)) % len(palette)]
+
+
 CHIPS = [("Medical imaging", MED, 162), ("Agri vision", AGRI, 128), ("Agentic GenAI", GENAI, 144), ("Remote sensing", SPACE, 153)]
 PHRASES = [
     "segmenting brain MRI :: SynthSeg · BiomedParse · ANTsPy",
@@ -233,13 +250,16 @@ def identity() -> tuple[str, str]:
     return "\n  ".join(clips), body
 
 
-def build() -> str:
+def build(repos: list[str] | None = None) -> str:
+    """repos: repository names for the outer ring (defaults to DEFAULT_REPOS); at most six are used."""
     rng = random.Random(2005)
     clips, left = identity()
-    ob, osb, osf, of = render_ring(PROJECTS_OUTER, 212, 56, -9, T_OUTER, "o", 19, RESEARCH)
-    ib, isb, isf, iff = render_ring(PROJECTS_INNER, 182, 84, 15, T_INNER, "i", -11, MED)
+    outer = [satellite(r) for r in (repos if repos else DEFAULT_REPOS)][:6]
+    inner = [w for w in WORK if w[0] not in {o[0] for o in outer}]
+    ob, osb, osf, of = render_ring(outer, 212, 56, -9, T_OUTER, "o", 19, RESEARCH)
+    ib, isb, isf, iff = render_ring(inner, 182, 84, 15, T_INNER, "i", -11, MED)
     brain = render_brain(rng)
-    n_proj = len(PROJECTS_OUTER) + len(PROJECTS_INNER)
+    n_proj = len(outer) + len(inner)
     ease = "cubic-bezier(.37,0,.63,1)"
     osc = lambda c, t: f".{c} {{ animation: osc {t / 2}s {ease} infinite alternate both; }}"
     vis = lambda c, t, k: f".{c} {{ animation: {k} {t}s linear infinite both; }}"

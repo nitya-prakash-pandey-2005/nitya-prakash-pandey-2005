@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/header.svg" width="100%" alt="Nitya Prakash Pandey. I build vision models for brains, crops and lunar terrain. BS Data Science at IIT Madras. A rotating 3D brain with 11 of my projects in orbit."/>
+<img src="./assets/header.svg" width="100%" alt="Nitya Prakash Pandey. I build vision models for brains, crops and lunar terrain. BS Data Science at IIT Madras. A rotating 3D brain with my projects in orbit."/>
 
 <br/><br/>
 

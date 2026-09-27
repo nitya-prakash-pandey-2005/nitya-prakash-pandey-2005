@@ -424,9 +424,10 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         ("PULL REQUESTS", fmt(user["pullRequests"]["totalCount"])),
         ("ISSUES", fmt(user["issues"]["totalCount"])),
         ("STARS", fmt(sum(r["stargazerCount"] for r in repos))),
+        ("FORKS", fmt(sum(r["forkCount"] for r in repos))),
         ("FOLLOWERS", fmt(user["followers"]["totalCount"])),
         ("CONTRIBUTED TO", fmt(user["repositoriesContributedTo"]["totalCount"])),
-        ("ONLINE SINCE", since),
+        ("SINCE", since),
     ]
     sx = 28
     seg = (W - 56) / len(strip)
@@ -633,11 +634,34 @@ def render_about() -> str:
     return frame(W, H, "00", "Operator profile", body, css, label, NEON[1])
 
 
-def render_toolkit() -> str:
+LANG_SLUG = {
+    "Python": "python", "TypeScript": "typescript", "JavaScript": "javascript", "HTML": "html5", "CSS": "css",
+    "C++": "cplusplus", "C": "c", "Java": "java", "Go": "go", "Rust": "rust", "R": "r", "Kotlin": "kotlin",
+    "Swift": "swift", "PHP": "php", "Ruby": "ruby", "Dart": "dart", "Scala": "scala", "Julia": "julia",
+    "Cuda": "nvidia", "Solidity": "solidity", "Lua": "lua", "Haskell": "haskell",
+}
+LANG_ALIAS = {"shell": "bash", "jupyter notebook": "jupyter", "dockerfile": "docker"}
+
+
+def toolkit_lanes(repo_langs: list[str]) -> list[tuple[str, list[tuple[str, str]]]]:
+    """TOOLKIT plus any language from the repositories that is not listed yet (Languages lane, max 7)."""
+    lanes = [(lane, list(tools)) for lane, tools in TOOLKIT]
+    have = {name.lower() for _, tools in lanes for name, _ in tools}
+    for lang in repo_langs:
+        key = LANG_ALIAS.get(lang.lower(), lang.lower())
+        if key in have or lang == "Other" or len(lanes[0][1]) >= 7:
+            continue
+        lanes[0][1].append((lang, LANG_SLUG.get(lang, "")))
+        have.add(key)
+    return lanes
+
+
+def render_toolkit(repo_langs: list[str] = ()) -> str:
     """Tech arsenal: one colour-coded lane per domain on a twinkling starfield. Each lane has a data
     pulse along its circuit trace, a packet that hops chip to chip, and a scan beam; chips cascade in,
     then fire in a rippling sequence while their logos float; lane markers ping and labels glitch."""
     icons = json.loads((ROOT / "scripts" / "toolkit_icons.json").read_text(encoding="utf-8"))
+    TOOLKIT = toolkit_lanes(list(repo_langs))  # noqa: N806 — shadows the setting with the live lanes
     lane_cols = [NEON[4], NEON[1], NEON[2], NEON[0], NEON[3], NEON[5]]
     W, lane_h, top = 900, 56, 76
     H = top + lane_h * len(TOOLKIT) + 22
@@ -1126,7 +1150,9 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
     taken: dict[int, list[tuple[float, float]]] = {k: [] for k in range(8)}
     for i, (r, t) in enumerate(zip(items, ts)):
         x = X(t)
-        wlab = 7.0 * len(r["name"]) + 18
+        fork = bool(r.get("isFork"))
+        shown = ("⑂ " if fork else "") + r["name"]
+        wlab = 7.0 * len(shown) + 18
         lx0 = min(max(x - 10, 16), W - 16 - wlab)
         best, best_cost = order[0], 1e9
         for k in order:
@@ -1142,13 +1168,13 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
         col = colors.get(lang or "", OTHER)
         d = 0.3 + i * 0.12
         up = ly < ay
-        out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s"><title>{esc(r['name'])} · created {t:%d %b %Y} · {esc(lang or 'no language')}</title>
+        out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s"><title>{esc(r['name'])}{' (fork)' if fork else ''} · created {t:%d %b %Y} · {esc(lang or 'no language')}</title>
   <line x1="{x:.1f}" y1="{ay + (-7 if up else 7)}" x2="{x:.1f}" y2="{ly + (6 if up else -14)}" stroke="{col}" stroke-opacity=".55"/>
-  <circle cx="{x:.1f}" cy="{ay}" r="5.5" fill="{C['bg0']}" stroke="{col}" stroke-width="2.4"/>
+  <circle cx="{x:.1f}" cy="{ay}" r="5.5" fill="{C['bg0']}" stroke="{col}" stroke-width="2.4"{' stroke-dasharray="2 2"' if fork else ''}/>
   <circle cx="{x:.1f}" cy="{ay}" r="5.5" fill="none" stroke="{col}" stroke-width="2" class="nping" style="animation-delay:{(x - x0) / (x1 - x0) * t_comet:.2f}s"/>
   <rect x="{lx0:.1f}" y="{ly - 15}" width="{wlab:.1f}" height="21" rx="4" fill="{C['panel']}" stroke="{col}" stroke-opacity=".6"/>
   <circle cx="{lx0 + 9:.1f}" cy="{ly - 4.5}" r="3" fill="{col}"/>
-  <text x="{lx0 + 17:.1f}" y="{ly}" class="repo">{esc(r['name'])}</text>
+  <text x="{lx0 + 17:.1f}" y="{ly}" class="repo">{esc(shown)}</text>
 </g>""")
     # legend (same language colours as the language matrix)
     lx = 44
@@ -1511,12 +1537,12 @@ def main() -> None:
         "about.svg": render_about(),
         "hud.svg": render_hud(user, repos, days, cur, longest),
         "achievements.svg": render_achievements(),
-        "toolkit.svg": render_toolkit(),
+        "toolkit.svg": render_toolkit([name for name, _, _ in mix]),
         "skyline.svg": render_skyline(days),
         "activity.svg": render_activity(days),
         "clock.svg": render_clock(commit_hours(user)),
         "languages.svg": render_languages(mix),
-        "timeline.svg": render_timeline(repos, colors),
+        "timeline.svg": render_timeline([r for r in user["repositories"]["nodes"] if r["name"] not in EXCLUDE_REPOS], colors),
     }
     for name, svg in cards.items():
         (OUT / name).write_text(svg, encoding="utf-8")
@@ -1529,6 +1555,11 @@ def main() -> None:
         old.unlink()
     for j, r in enumerate(pick):
         (pdir / f"{j + 1:02d}.svg").write_text(render_project_card(r, j, colors), encoding="utf-8")
+    try:  # the 3D header's outer orbit follows the same live pick as "Latest work"
+        import build_header
+        (ROOT / "assets" / "header.svg").write_text(build_header.build([r["name"] for r in pick]), encoding="utf-8")
+    except Exception as err:  # never let the header break the data refresh
+        print(f"warning: header not rebuilt ({err})", file=sys.stderr)
     for stale in ("overview.svg",):  # cards from the previous layout
         (OUT / stale).unlink(missing_ok=True)
 

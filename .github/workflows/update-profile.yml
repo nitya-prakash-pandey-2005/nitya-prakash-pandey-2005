@@ -2,8 +2,11 @@ name: Refresh profile README
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # every 6 hours (odd minute avoids the top-of-hour queue)
+    - cron: "17 * * * *"     # every hour (odd minute avoids the top-of-hour queue)
   workflow_dispatch:          # "Run workflow" button in the Actions tab
+  watch:
+    types: [started]          # someone stars this repo
+  fork:                       # someone forks this repo
   push:
     branches: [main]
     paths-ignore:
@@ -45,7 +48,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile README.md
+          git add profile README.md assets
           if git diff --cached --quiet; then
             echo "Nothing changed."
             exit 0
