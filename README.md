@@ -4,8 +4,8 @@
 
 <br/><br/>
 
+<a href="https://www.linkedin.com/in/nitya-prakash-pandey/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 <!-- TODO: add links once known
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 <a href="https://www.kaggle.com/YOUR-KAGGLE"><img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/></a>
 <a href="mailto:YOUR-EMAIL@example.com"><img src="https://img.shields.io/badge/Email-E879F9?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 -->
