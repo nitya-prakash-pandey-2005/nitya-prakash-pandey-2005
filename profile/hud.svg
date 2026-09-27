@@ -25,6 +25,8 @@
   .spin-r { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fade { from { opacity: 0; } }
+  .cup { animation: cup 1.8s cubic-bezier(.3,.7,.2,1) both; }
+  @keyframes cup { from { transform: translateY(var(--h)); } }
   .arc { animation: arc 1.8s cubic-bezier(.3,.7,.2,1) both; } @keyframes arc { from { stroke-dashoffset: 276.5; } } .tip { animation: fade .4s ease both; } .count { animation: count 1.8s cubic-bezier(.3,.7,.2,1) both; } @keyframes count { from { transform: translateY(var(--h)); } } .radar { animation: spin 3.5s linear infinite; } .sonar { transform-box: fill-box; transform-origin: center; animation: sonar 3s ease-out infinite; opacity: 0; } @keyframes sonar { 0% { transform: scale(.25); opacity: .8; } 100% { transform: scale(1); opacity: 0; } } .ping { transform-box: fill-box; transform-origin: center; animation: ping 2s ease-out infinite; opacity: 0; } @keyframes ping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3); opacity: 0; } } .ekg { stroke-dasharray: 150 909; animation: ekg 4.2s linear infinite; } @keyframes ekg { from { stroke-dashoffset: 150; } to { stroke-dashoffset: -909; } } .boot { animation: bootin .5s steps(3, end) both; } @keyframes bootin { from { opacity: 0; } } .sbeam { animation: sbeam 4s ease-in-out infinite; } @keyframes sbeam { from { transform: translateX(-160px); } to { transform: translateX(872px); } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .scan { display: none; } }
 </style>

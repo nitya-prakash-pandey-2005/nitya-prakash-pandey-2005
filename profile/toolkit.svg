@@ -25,6 +25,8 @@
   .spin-r { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fade { from { opacity: 0; } }
+  .cup { animation: cup 1.8s cubic-bezier(.3,.7,.2,1) both; }
+  @keyframes cup { from { transform: translateY(var(--h)); } }
   .hexn { font: 700 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; } .chip { animation: chipin .7s cubic-bezier(.2,.8,.2,1) both; } @keyframes chipin { from { opacity: 0; transform: translateY(8px); } } .pulse { stroke-dasharray: 46 1400; animation: flow 4.5s linear infinite; } @keyframes flow { from { stroke-dashoffset: 46; } to { stroke-dashoffset: -760; } } .beam { animation: beam 6s cubic-bezier(.5,0,.5,1) infinite; opacity: 0; } @keyframes beam { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(568px); opacity: 0; } } .ico { animation: ico 4s ease-in-out infinite; } @keyframes ico { 50% { opacity: .55; } } .bus { stroke-dasharray: 30 300; animation: busf 3s linear infinite; } @keyframes busf { from { stroke-dashoffset: 30; } to { stroke-dashoffset: -300; } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .scan { display: none; } }
 </style>
