@@ -6,9 +6,7 @@
 
 <a href="https://www.linkedin.com/in/nitya-prakash-pandey/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 <a href="https://www.kaggle.com/nityaprakashpandey"><img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/></a>
-<!-- TODO: add links once known
-<a href="mailto:YOUR-EMAIL@example.com"><img src="https://img.shields.io/badge/Email-E879F9?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
--->
+<a href="mailto:nityaprakashpandey389@gmail.com"><img src="https://img.shields.io/badge/Email-E879F9?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 <img src="https://komarev.com/ghpvc/?username=nitya-prakash-pandey-2005&label=Profile%20views&color=38BDF8&style=for-the-badge" alt="Profile views"/>
 
 </div>
