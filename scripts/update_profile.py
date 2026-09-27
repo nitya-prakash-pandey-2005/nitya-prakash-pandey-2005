@@ -128,7 +128,7 @@ query($login: String!) {
         primaryLanguage { name color }
         languages(first: 12, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name color } } }
         defaultBranchRef { target { ... on Commit {
-          history(first: 100) { nodes { authoredDate author { user { login } } } }
+          history(first: 100) { nodes { oid messageHeadline authoredDate author { user { login } } } }
         } } }
       }
     }
@@ -1008,66 +1008,153 @@ def projects_block(pick: list[dict]) -> str:
     return "\n".join(rows)
 
 
-def activity_block(events: list[dict]) -> str | None:
-    if not events:
-        return None
-    lines: list[tuple[str, str, str]] = []  # (key for merging, text, ts)
-    push_counts: dict[str, int] = {}
+FEED_STYLE = {  # kind: (tag, glyph, colour)
+    "commit": ("COMMIT", "↑", NEON[0]), "create": ("CREATE", "+", NEON[3]), "branch": ("BRANCH", "⑂", NEON[6]),
+    "public": ("LAUNCH", "◉", NEON[3]), "pr": ("PULL REQ", "⇄", NEON[1]), "issue": ("ISSUE", "!", NEON[5]),
+    "release": ("RELEASE", "▲", NEON[4]), "star": ("STAR", "★", NEON[4]), "fork": ("FORK", "⑂", NEON[6]),
+    "comment": ("COMMENT", "✎", NEON[2]), "review": ("REVIEW", "◎", NEON[1]),
+}
 
-    def repo_link(full: str) -> str:
-        owner, _, name = full.partition("/")
-        label = name if owner.lower() == USER.lower() else full
-        return f"[{label}](https://github.com/{full})"
 
+def activity_items(events: list[dict], user: dict) -> list[dict]:
+    """Recent activity: the user's own commits (grouped per repo and day, from GraphQL history)
+    plus public non-push events (repos, branches, PRs, issues, releases, stars...)."""
+    items: list[dict] = []
+    groups: dict[tuple[str, str], dict] = {}
+    for r in user["repositories"]["nodes"]:
+        if r["isFork"] or r["name"] in EXCLUDE_REPOS:
+            continue
+        target = ((r.get("defaultBranchRef") or {}).get("target") or {})
+        for c in (target.get("history") or {}).get("nodes", []):
+            login = ((c.get("author") or {}).get("user") or {}).get("login") or ""
+            if login.lower() != USER.lower() or not c.get("authoredDate"):
+                continue
+            ts = c["authoredDate"]
+            day = dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(TIMEZONE).date().isoformat()
+            g = groups.setdefault((r["name"], day), {"kind": "commit", "repo": f"{USER}/{r['name']}", "ts": ts, "n": 0,
+                                                     "title": c.get("messageHeadline") or "", "oid": c.get("oid") or ""})
+            g["n"] += 1
+            if ts > g["ts"]:
+                g.update(ts=ts, title=c.get("messageHeadline") or "", oid=c.get("oid") or "")
+    items.extend(groups.values())
     for e in events:
         t, p, repo, ts = e.get("type"), e.get("payload", {}) or {}, e.get("repo", {}).get("name", ""), e.get("created_at", "")
-        if repo.split("/")[-1] in EXCLUDE_REPOS:
+        if not ts or repo.split("/")[-1] in EXCLUDE_REPOS:
             continue
-        text = key = None
-        if t == "PushEvent":
-            key = f"push:{repo}:{ts[:10]}"
-            push_counts[key] = push_counts.get(key, 0) + int(p.get("size") or p.get("distinct_size") or 0)
-            text = "🔨 Pushed to {r}"
-        elif t == "CreateEvent" and p.get("ref_type") == "repository":
-            text = "✨ Created {r}"
+        it = None
+        if t == "CreateEvent" and p.get("ref_type") == "repository":
+            it = {"kind": "create", "title": "New repository"}
         elif t == "CreateEvent" and p.get("ref_type") in ("branch", "tag"):
-            text = f"🌿 Created {p['ref_type']} `{esc(p.get('ref') or '')}` in {{r}}"
+            it = {"kind": "branch", "title": f"{p['ref_type'].capitalize()} {p.get('ref') or ''}"}
         elif t == "PublicEvent":
-            text = "🌍 Open-sourced {r}"
+            it = {"kind": "public", "title": "Open-sourced"}
         elif t == "PullRequestEvent":
             pr = p.get("pull_request", {}) or {}
             verb = "Merged" if p.get("action") == "closed" and pr.get("merged") else (p.get("action") or "Updated").capitalize()
-            title = f": {esc(pr['title'])}" if pr.get("title") else ""
-            text = f"🔀 {verb} PR #{pr.get('number', p.get('number', ''))} in {{r}}{title}"
+            it = {"kind": "pr", "title": f"{verb} #{pr.get('number', p.get('number', ''))} {pr.get('title') or ''}".strip()}
         elif t == "IssuesEvent":
             iss = p.get("issue", {}) or {}
-            text = f"🐛 {(p.get('action') or 'Updated').capitalize()} issue #{iss.get('number', '')} in {{r}}"
+            it = {"kind": "issue", "title": f"{(p.get('action') or 'Updated').capitalize()} #{iss.get('number', '')} {iss.get('title') or ''}".strip()}
         elif t == "ReleaseEvent":
-            rel = p.get("release", {}) or {}
-            text = f"🚀 Released {esc(rel.get('tag_name') or '')} of {{r}}"
+            it = {"kind": "release", "title": f"Released {(p.get('release') or {}).get('tag_name') or ''}"}
         elif t == "WatchEvent":
-            text = "⭐ Starred {r}"
+            it = {"kind": "star", "title": "Starred"}
         elif t == "ForkEvent":
-            text = "🍴 Forked {r}"
+            it = {"kind": "fork", "title": "Forked"}
         elif t == "PullRequestReviewEvent":
-            text = "👀 Reviewed a pull request in {r}"
+            it = {"kind": "review", "title": "Reviewed a pull request"}
         elif t == "IssueCommentEvent":
-            text = "💬 Commented in {r}"
-        if not text:
-            continue
-        key = key or f"{t}:{repo}:{ts}"
-        if any(k == key for k, _, _ in lines):
-            continue
-        lines.append((key, text.replace("{r}", repo_link(repo)), ts))
-        if len(lines) >= ACTIVITY_COUNT:
-            break
-    out = []
-    for key, text, ts in lines:
-        n = push_counts.get(key, 0)
-        if key.startswith("push:") and n:
-            text += f" ({n} commit{'s' if n > 1 else ''})"
-        out.append(f"- {text} <sub>{ago(ts)}</sub>")
-    return "\n".join(out) if out else None
+            it = {"kind": "comment", "title": "Commented"}
+        if it:
+            it.update(repo=repo, ts=ts, n=1)
+            items.append(it)
+    items.sort(key=lambda it: it["ts"], reverse=True)
+    return items[:ACTIVITY_COUNT]
+
+
+def activity_block(items: list[dict]) -> str:
+    """Animated feed card plus the same events as a linked list, folded under it."""
+    if not items:
+        return '<img src="./profile/feed.svg" width="100%" alt="No public activity yet"/>'
+    lines = []
+    for it in items:
+        owner, _, name = it["repo"].partition("/")
+        label = name if owner.lower() == USER.lower() else it["repo"]
+        link = f"[{label}](https://github.com/{it['repo']})"
+        tag = FEED_STYLE[it["kind"]][0].capitalize()
+        if it["kind"] == "commit":
+            n = it["n"]
+            sha = f" [`{it['oid'][:7]}`](https://github.com/{it['repo']}/commit/{it['oid']})" if it.get("oid") else ""
+            text = f"**{n} commit{'s' if n > 1 else ''}** to {link}: {esc(it['title'])}{sha}"
+        else:
+            text = f"**{tag}** · {link} · {esc(it['title'])}"
+        lines.append(f"- {text} <sub>{ago(it['ts'])}</sub>")
+    alt = "Recent activity: " + "; ".join(f"{FEED_STYLE[it['kind']][0].lower()} {it['repo'].split('/')[-1]} {ago(it['ts'])}" for it in items)
+    return (f'<img src="./profile/feed.svg" width="100%" alt="{esc(alt)}"/>\n\n'
+            "<details>\n<summary><b>Event log with links</b></summary>\n\n" + "\n".join(lines) + "\n\n</details>")
+
+
+def render_feed(items: list[dict]) -> str:
+    """Event log: glowing spine with a travelling pulse, colour-coded nodes, rows that type
+    themselves in one after another, a live ping on the newest event and a terminal cursor."""
+    W = 900
+    row, top = 50, 92
+    n = len(items)
+    H = top + max(1, n) * row + 44
+    sx = 150
+    tx = 178
+    out, defs = [], []
+    if n:
+        y_end = top + (n - 1) * row + 26
+        out.append(f'<line x1="{sx}" y1="{top - 18}" x2="{sx}" y2="{y_end}" stroke="{C["line"]}" stroke-width="2"/>')
+        out.append(f'<line x1="{sx}" y1="{top - 18}" x2="{sx}" y2="{y_end}" stroke="url(#spine)" stroke-width="2.4" class="flow"{GLOW}/>')
+    for i, it in enumerate(items):
+        tag, glyph, col = FEED_STYLE[it["kind"]]
+        if it["kind"] == "commit":  # commits take a stable per-repository colour
+            col = NEON[sum(map(ord, it["repo"])) % len(NEON)]
+        y = top + i * row
+        d = .35 + i * .32
+        name = it["repo"].split("/")[-1] if it["repo"].split("/")[0].lower() == USER.lower() else it["repo"]
+        if it["kind"] == "commit":
+            head = f'{it["n"]} commit{"s" if it["n"] > 1 else ""}'
+            detail = it["title"] + (f"  ·  {it['oid'][:7]}" if it.get("oid") else "")
+        else:
+            head, detail = "", it["title"]
+        detail = detail if len(detail) <= 84 else detail[:83] + "…"
+        when = ago(it["ts"]).replace(" ago", "")
+        defs.append(f'<clipPath id="ty{i}"><rect x="{tx - 4}" y="{y - 18}" height="44" width="0">'
+                    f'<animate attributeName="width" from="0" to="{W - tx}" begin="{d:.2f}s" dur=".9s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".3 0 .2 1"/></rect></clipPath>')
+        out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
+  <text x="{sx - 26}" y="{y + 4}" class="small" text-anchor="end">{esc(when)}</text>
+  <circle cx="{sx}" cy="{y}" r="12" fill="{C['bg0']}" stroke="{col}" stroke-width="1.8"{GLOW}/>
+  <text x="{sx}" y="{y + 4.5}" text-anchor="middle" class="gl" style="fill:{col}">{glyph}</text>
+</g>""")
+        if i == 0:
+            out.append(f'<circle cx="{sx}" cy="{y}" r="12" fill="none" stroke="{col}" class="ping"/>')
+        out.append(f"""<g clip-path="url(#ty{i})">
+  <text x="{tx}" y="{y - 1}"><tspan class="tg" style="fill:{col}">{tag}</tspan><tspan dx="10" class="rp">{esc(name)}</tspan>{f'<tspan dx="10" class="small" style="fill:{C["soft"]}">{esc(head)}</tspan>' if head else ''}{'<tspan dx="12" class="live" style="fill:' + col + '">● LATEST</tspan>' if i == 0 else ''}</text>
+  <text x="{tx}" y="{y + 17}" class="dt">{esc(detail)}</text>
+</g>""")
+    if not n:
+        out.append(f'<text x="{tx}" y="{top + 4}" class="note">No public activity in the last 90 days.</text>')
+    ty = H - 30
+    out.append(f'<text x="{tx - 32}" y="{ty}" class="term"><tspan style="fill:{NEON[3]}">&gt;</tspan> listening for new signals</text>')
+    out.append(f'<rect x="{tx - 32 + 7.9 * 27 + 4}" y="{ty - 12}" width="8" height="15" fill="{NEON[3]}" class="cur"/>')
+    defs.append(f'<linearGradient id="spine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[0]}"/>'
+                f'<stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient>')
+    css = (f".gl {{ font: 700 12px {MONO}; }} .tg {{ font: 700 10.5px {MONO}; letter-spacing: 1.6px; }}"
+           f" .rp {{ font-size: 14.5px; font-weight: 650; fill: {C['text']}; }} .dt {{ font-size: 12.5px; fill: {C['soft']}; }}"
+           f" .live {{ font: 700 9.5px {MONO}; letter-spacing: 1.4px; }} .term {{ font: 13px {MONO}; fill: {C['soft']}; }}"
+           " .pop { transform-box: fill-box; transform-origin: center; animation: pop .6s cubic-bezier(.2,.9,.3,1.3) both; }"
+           " @keyframes pop { from { opacity: 0; transform: scale(.5); } }"
+           " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2s ease-out 1s infinite both; }"
+           " @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }"
+           " .flow { stroke-dasharray: 40 400; animation: flow 3.2s linear infinite; }"
+           " @keyframes flow { from { stroke-dashoffset: 40; } to { stroke-dashoffset: -400; } }"
+           " .cur { animation: blink 1.1s steps(2, start) infinite; }")
+    body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
+    return frame(W, H, "09", "Signal log · recent activity", body, css,
+                 "Recent activity: " + "; ".join(f"{it['kind']} {it['repo']}" for it in items), NEON[2])
 
 
 def replace_block(doc: str, name: str, content: str) -> str:
@@ -1100,6 +1187,8 @@ def main() -> None:
     }
     for name, svg in cards.items():
         (OUT / name).write_text(svg, encoding="utf-8")
+    items = activity_items(fetch_events(), user)
+    (OUT / "feed.svg").write_text(render_feed(items), encoding="utf-8")
     pick = pick_projects(repos)
     pdir = OUT / "projects"
     pdir.mkdir(exist_ok=True)
@@ -1113,9 +1202,7 @@ def main() -> None:
     if README.exists():
         doc = README.read_text(encoding="utf-8")
         doc = replace_block(doc, "PROJECTS", projects_block(pick))
-        feed = activity_block(fetch_events())
-        if feed:
-            doc = replace_block(doc, "ACTIVITY", feed)
+        doc = replace_block(doc, "ACTIVITY", activity_block(items))
         stamp = NOW.astimezone(TIMEZONE).strftime("%d %b %Y, %H:%M %Z")
         doc = replace_block(doc, "UPDATED", f"<sub>Auto-refreshed by GitHub Actions on {stamp}</sub>")
         README.write_text(doc, encoding="utf-8")
