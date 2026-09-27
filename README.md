@@ -131,7 +131,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 - 🔨 Pushed to [mahi028/TyreMind](https://github.com/mahi028/TyreMind) <sub>2 weeks ago</sub>
 - 🔨 Pushed to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind) <sub>2 weeks ago</sub>
 - 🌿 Created branch `nitya/dev` in [mahi028/TyreMind](https://github.com/mahi028/TyreMind) <sub>2 weeks ago</sub>
-- 🔨 Pushed to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind) <sub>2 weeks ago</sub>
 <!-- AUTO:ACTIVITY:END -->
 
 ---
