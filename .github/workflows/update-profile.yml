@@ -1,0 +1,55 @@
+name: Refresh profile README
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours (odd minute avoids the top-of-hour queue)
+  workflow_dispatch:          # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths-ignore:
+      - "profile/**"          # the bot's own output never re-triggers a run
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@v5
+
+      - name: Build metric cards and README sections
+        run: python3 scripts/update_profile.py
+        env:
+          # Optional: add a PAT as the METRICS_TOKEN secret to lift rate limits.
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+
+      - name: Build contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            profile/snake-dark.svg?color_snake=#E879F9&color_dots=#111A33,#0E4F6E,#1782B5,#38BDF8,#A5F3FC
+            profile/snake-light.svg?color_snake=#7C3AED&color_dots=#EBEDF0,#DDD6FE,#A78BFA,#7C3AED,#4C1D95
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile README.md
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -m "chore: refresh profile metrics"
+          git pull --rebase --autostash
+          git push
