@@ -421,6 +421,110 @@ def render_achievements() -> str:
     return frame(W, H, "02", "Mission record", "\n".join(out), css, label, NEON[4])
 
 
+def render_about() -> str:
+    """Operator dossier: holographic ID emblem with typed ID fields, bio lines fading in, active
+    missions with live status bars, and a ticker of other builds."""
+    W, H = 900, 452
+    out, defs = [], []
+    # ── left: emblem ──
+    ex, ey = 168, 152
+    hexp = lambda r: " ".join(f"{polar(ex, ey, r, a)[0]:.1f},{polar(ex, ey, r, a)[1]:.1f}" for a in range(0, 360, 60))
+    defs.append('<linearGradient id="holo" x1="0" y1="0" x2="1" y2="1">'
+                + "".join(f'<stop offset="{k / 4:.2f}" stop-color="{c}"/>' for k, c in enumerate([NEON[0], NEON[1], NEON[2], NEON[4], NEON[3]]))
+                + "</linearGradient>")
+    defs.append(f'<clipPath id="hexclip"><polygon points="{hexp(58)}"/></clipPath>')
+    defs.append(f'<linearGradient id="hscan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[0]}" stop-opacity="0"/>'
+                f'<stop offset="1" stop-color="{NEON[0]}" stop-opacity=".45"/></linearGradient>')
+    out.append(f'<circle cx="{ex}" cy="{ey}" r="96" fill="url(#holo)" opacity=".07" class="breathe"/>')
+    out.append(f'<circle cx="{ex}" cy="{ey}" r="86" fill="none" stroke="url(#holo)" stroke-width="1.2" stroke-dasharray="2 8" class="spin"/>')
+    out.append(f'<circle cx="{ex}" cy="{ey}" r="76" fill="none" stroke="{NEON[1]}" stroke-opacity=".5" stroke-dasharray="30 14 4 14" class="spin-r"/>')
+    out.append(tick_ring(ex, ey, 66, 48, 4, 3, "spin", NEON[0]))
+    out.append(f'<polygon points="{hexp(58)}" fill="{C["bg0"]}" stroke="url(#holo)" stroke-width="2.4"{GLOW}/>')
+    out.append(f'<g clip-path="url(#hexclip)"><rect x="{ex - 60}" y="{ey - 100}" width="120" height="40" fill="url(#hscan)" class="hsweep"/>'
+               f'<polygon points="{hexp(44)}" fill="none" stroke="{NEON[0]}" stroke-opacity=".25"/></g>')
+    out.append(f'<text x="{ex}" y="{ey + 11}" text-anchor="middle" class="ini">NPP</text>')
+    for k, (col, dur) in enumerate(((NEON[2], 7), (NEON[4], 11), (NEON[3], 15))):
+        out.append(f'<g class="orb" style="animation-duration:{dur}s;animation-delay:-{k * 2.3:.1f}s">'
+                   f'<circle cx="{ex}" cy="{ey - 86 + (k * 10 if k else 0)}" r="3.4" fill="{col}"{GLOW}/></g>')
+    fields = [("NAME", "Nitya Prakash Pandey"), ("BASE", "IIT Madras · BS Data Science"), ("ROLE", "Vision & ML engineer"),
+              ("FOCUS", "Medical imaging · Agentic AI"), ("MODE", "Hackathons · Kaggle")]
+    for k, (key, val) in enumerate(fields):
+        y = 272 + k * 25
+        out.append(f'<g class="type" style="animation-delay:{.5 + k * .25:.2f}s"><text x="40" y="{y}" class="fk">{key}</text>'
+                   f'<text x="100" y="{y}" class="fv">{esc(val)}</text></g>')
+        out.append(f'<line x1="40" y1="{y + 8}" x2="318" y2="{y + 8}" stroke="{C["line"]}"/>')
+    out.append(f'<line x1="344" y1="72" x2="344" y2="{H - 70}" stroke="{C["line"]}"/>')
+    # ── right: bio + missions ──
+    rx = 368
+    bio = ("BS Data Science student at IIT Madras who likes taking ML from a notebook to a working system. "
+           "Most of my time goes into medical imaging: at SGBC Brain Centre I integrate and benchmark "
+           "brain-segmentation tools and score them with Dice. The rest goes into hackathons and Kaggle, "
+           "where I build vision and agentic systems against tight deadlines.")
+    out.append(f'<text x="{rx}" y="80" class="lbl">BRIEF</text>')
+    for k, ln in enumerate(_wrap(bio, 72, 5)):
+        out.append(f'<text x="{rx}" y="{104 + k * 19}" class="bio rise" style="animation-delay:{.3 + k * .18:.2f}s">{esc(ln)}</text>')
+    missions = [
+        ("Brain MRI segmentation benchmarks", "SGBC Brain Centre · SynthSeg · BiomedParse · ANTsPy", NEON[0]),
+        ("Reddit credibility & network research", "Research internship · DoMS", NEON[1]),
+        ("Chandrayaan-2 lunar image registration", "Smart India Hackathon 2026", NEON[4]),
+        ("Kaggle & hackathons", "Agriculture · health · climate", NEON[3]),
+    ]
+    out.append(f'<text x="{rx}" y="214" class="lbl">ACTIVE MISSIONS · {len(missions)}</text>')
+    bx0, bx1 = 712, W - 30
+    defs.append('<pattern id="stripes" width="14" height="8" patternUnits="userSpaceOnUse" patternTransform="skewX(-40)">'
+                '<rect width="7" height="8" fill="#FFFFFF" fill-opacity=".35"/></pattern>')
+    for k, (title, ctx, col) in enumerate(missions):
+        y = 242 + k * 40
+        d = .9 + k * .2
+        defs.append(f'<clipPath id="bar{k}"><rect x="{bx0}" y="{y + 1}" width="{bx1 - bx0}" height="7" rx="3.5"/></clipPath>')
+        out.append(f"""<g class="rise" style="animation-delay:{d:.2f}s">
+  <circle cx="{rx + 5}" cy="{y}" r="4.5" fill="{col}" class="led" style="animation-delay:{k * .4:.1f}s"/>
+  <circle cx="{rx + 5}" cy="{y}" r="4.5" fill="none" stroke="{col}" class="ping" style="animation-delay:{k * .6:.1f}s"/>
+  <text x="{rx + 20}" y="{y + 4}" class="mt">{esc(title)}</text>
+  <text x="{rx + 20}" y="{y + 20}" class="small">{esc(ctx)}</text>
+  <text x="{bx1}" y="{y - 6}" class="small" text-anchor="end" style="fill:{col}">IN PROGRESS</text>
+  <rect x="{bx0}" y="{y + 1}" width="{bx1 - bx0}" height="7" rx="3.5" fill="{col}" fill-opacity=".85"/>
+  <g clip-path="url(#bar{k})"><rect x="{bx0 - 28}" y="{y + 1}" width="{bx1 - bx0 + 56}" height="7" fill="url(#stripes)" class="stripe"/></g>
+</g>""")
+    # ── ticker ──
+    built = ["Travel RAG agent · LangGraph · Qdrant · Cohere", "Whole-slide pathology pipeline · PyTorch foundation models",
+             "AgroSkin · AI skin-disease detector", "FieldPilot AI · 10-agent smart-glasses inspector",
+             "TyreMind · physics-informed race ML", "SAGE · agentic commerce control plane"]
+    ty = H - 40
+    items, x = [], 0.0
+    seq_cols = [NEON[0], NEON[2], NEON[3], NEON[4], NEON[1], NEON[5]]
+    for rep in range(2):
+        for k, b in enumerate(built):
+            items.append(f'<text x="{x:.1f}" y="{ty}" class="tk"><tspan style="fill:{seq_cols[k]}">◆</tspan> {esc(b)}</text>')
+            x += 7.6 * len(b) + 56
+        if rep == 0:
+            loop = x
+    out.append(f'<rect x="28" y="{ty - 20}" width="{W - 56}" height="30" rx="6" fill="{C["panel"]}" stroke="{C["line"]}"/>')
+    out.append(f'<text x="44" y="{ty}" class="lbl" style="fill:{NEON[4]}">ALSO BUILT ▸</text>')
+    defs.append(f'<clipPath id="tickm"><rect x="160" y="{ty - 20}" width="{W - 188}" height="30"/></clipPath>')
+    out.append(f'<g clip-path="url(#tickm)"><g transform="translate(160,0)"><g class="marq">{"".join(items)}</g></g></g>')
+    css = (f".ini {{ font: 800 30px {FONT}; letter-spacing: 2px; fill: url(#holo); }}"
+           f" .fk {{ font: 700 10.5px {MONO}; letter-spacing: 1.6px; fill: {NEON[0]}; }} .fv {{ font-size: 13px; fill: {C['text']}; }}"
+           f" .bio {{ font-size: 13.5px; fill: {C['soft']}; }} .mt {{ font-size: 14px; font-weight: 650; fill: {C['text']}; }}"
+           f" .tk {{ font: 12px {MONO}; fill: {C['soft']}; }}"
+           " .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 4s ease-in-out infinite; }"
+           " @keyframes breathe { 50% { transform: scale(1.12); opacity: .02; } }"
+           f" .orb {{ transform-origin: {ex}px {ey}px; animation: spin 9s linear infinite; }}"
+           " .hsweep { animation: hsweep 3.2s linear infinite; } @keyframes hsweep { from { transform: translateY(0); } to { transform: translateY(170px); } }"
+           " .type { animation: type 1s cubic-bezier(.3,0,.2,1) both; }"
+           " @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }"
+           " .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes rise { from { opacity: 0; transform: translateY(6px); } }"
+           " .led { animation: blink 1.6s ease-in-out infinite; }"
+           " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.4s ease-out infinite; }"
+           " @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.8); opacity: 0; } }"
+           " .stripe { animation: stripe 1s linear infinite; } @keyframes stripe { to { transform: translateX(14px); } }"
+           f" .marq {{ animation: marq {loop / 45:.1f}s linear infinite; }} @keyframes marq {{ to {{ transform: translateX(-{loop:.1f}px); }} }}")
+    body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
+    label = ("Operator profile: Nitya Prakash Pandey, BS Data Science at IIT Madras, vision and ML engineer. "
+             + bio + " Active missions: " + "; ".join(f"{t} ({c})" for t, c, _ in missions) + ". Also built: " + "; ".join(built))
+    return frame(W, H, "00", "Operator profile", body, css, label, NEON[1])
+
+
 def render_toolkit() -> str:
     """Tech arsenal: one colour-coded lane per domain, a data pulse running along each circuit trace,
     tools as glowing chips with their logos, and a scan beam sweeping every lane."""
@@ -1176,6 +1280,7 @@ def main() -> None:
 
     OUT.mkdir(exist_ok=True)
     cards = {
+        "about.svg": render_about(),
         "hud.svg": render_hud(user, repos, days, cur, longest),
         "achievements.svg": render_achievements(),
         "toolkit.svg": render_toolkit(),

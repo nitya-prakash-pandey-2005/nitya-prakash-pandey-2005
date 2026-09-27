@@ -13,6 +13,11 @@
 
 ## 👋 About me
 
+<img src="./profile/about.svg" width="100%" alt="Operator profile: BS Data Science at IIT Madras. Medical imaging at SGBC Brain Centre, research internship at DoMS, Chandrayaan-2 lunar image registration for SIH 2026, Kaggle and hackathons."/>
+
+<details>
+<summary><b>Read as text</b></summary>
+
 I'm a BS Data Science student at **IIT Madras** who likes taking ML from a notebook to a working system. Most of my time goes into **medical imaging**: at SGBC Brain Centre I integrate and benchmark brain-segmentation tools (SynthSeg, BiomedParse, ANTsPy) and score them with Dice. The rest goes into **hackathons and Kaggle**, where I build vision and agentic systems against tight deadlines.
 
 **Right now**
@@ -23,6 +28,8 @@ I'm a BS Data Science student at **IIT Madras** who likes taking ML from a noteb
 - 🏁 Competing on Kaggle and at hackathons, usually with agriculture, health or climate problems
 
 Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Cohere reranking, FastAPI, Next.js), a whole-slide digital pathology pipeline on PyTorch foundation models, and **AgroSkin**, an AI skin-disease detector.
+
+</details>
 
 ## 🛰️ Mission control
 
