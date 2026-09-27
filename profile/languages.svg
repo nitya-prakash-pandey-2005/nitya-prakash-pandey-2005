@@ -36,7 +36,7 @@
 <rect x=".5" y=".5" width="899" height="319" rx="15.5" fill="none" stroke="#1C2A48"/>
 <g fill="none" stroke="#FB7185" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,294 L10,310 L26,310"/><path d="M890,294 L890,310 L874,310"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#FB7185" class="blink"/>
-<text x="44" y="38.5" class="t"><tspan class="code">06 //</tspan> LANGUAGE MATRIX</text>
+<text x="44" y="38.5" class="t"><tspan class="code">07 //</tspan> LANGUAGE MATRIX</text>
 <text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs><mask id="reveal"><circle cx="196" cy="192" r="81.0" fill="none" stroke="#fff" stroke-width="32" stroke-dasharray="508.9" transform="rotate(-90 196 192)" class="wipe"/></mask></defs><text x="400" y="72" class="lbl">SHARE OF CODE · BYTES × REPOS</text><circle cx="196" cy="192" r="118" fill="none" stroke="#FB7185" stroke-opacity=".45" stroke-dasharray="1 6" class="spin"/>

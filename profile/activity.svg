@@ -36,7 +36,7 @@
 <rect x=".5" y=".5" width="899" height="309" rx="15.5" fill="none" stroke="#1C2A48"/>
 <g fill="none" stroke="#A78BFA" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,284 L10,300 L26,300"/><path d="M890,284 L890,300 L874,300"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#A78BFA" class="blink"/>
-<text x="44" y="38.5" class="t"><tspan class="code">04 //</tspan> SIGNAL ACTIVITY</text>
+<text x="44" y="38.5" class="t"><tspan class="code">05 //</tspan> SIGNAL ACTIVITY</text>
 <text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs>

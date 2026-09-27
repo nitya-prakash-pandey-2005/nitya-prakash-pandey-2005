@@ -36,7 +36,7 @@
 <rect x=".5" y=".5" width="899" height="359" rx="15.5" fill="none" stroke="#1C2A48"/>
 <g fill="none" stroke="#2DD4BF" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,334 L10,350 L26,350"/><path d="M890,334 L890,350 L874,350"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#2DD4BF" class="blink"/>
-<text x="44" y="38.5" class="t"><tspan class="code">07 //</tspan> MISSION LOG · REPOSITORY LAUNCHES</text>
+<text x="44" y="38.5" class="t"><tspan class="code">08 //</tspan> MISSION LOG · REPOSITORY LAUNCHES</text>
 <text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs><linearGradient id="axis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2DD4BF" stop-opacity=".15"/><stop offset=".5" stop-color="#A78BFA"/><stop offset="1" stop-color="#E879F9"/></linearGradient></defs><line x1="44" y1="184" x2="830" y2="184" stroke="url(#axis)" stroke-width="2"/>
@@ -55,8 +55,8 @@
 <text x="400.2" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">May</text>
 <line x1="489.1" y1="180" x2="489.1" y2="188" stroke="#4A5A7E"/>
 <text x="489.1" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jun</text>
-<line x1="575.2" y1="180" x2="575.2" y2="188" stroke="#4A5A7E"/>
-<text x="575.2" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jul</text>
+<line x1="575.1" y1="180" x2="575.1" y2="188" stroke="#4A5A7E"/>
+<text x="575.1" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jul</text>
 <line x1="664.1" y1="180" x2="664.1" y2="188" stroke="#4A5A7E"/>
 <text x="664.1" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Aug</text>
 <line x1="753.0" y1="180" x2="753.0" y2="188" stroke="#4A5A7E"/>
