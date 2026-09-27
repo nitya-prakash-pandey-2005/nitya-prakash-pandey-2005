@@ -394,31 +394,72 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
 
 
 def render_achievements() -> str:
-    W, H = 900, 270
-    out = []
+    """Mission record: hex badges whose outlines draw themselves, ranks that roll in like a slot
+    machine and land on the real value, a glint sweeping each badge, rising sparks, an orbiting
+    marker, and a circuit linking every result with a travelling pulse."""
+    W, H = 900, 300
     n = len(ACHIEVEMENTS)
     step = (W - 56) / n
+    cy, r = 128, 50
+    cols = [NEON[4], NEON[0], NEON[2], NEON[3], NEON[1]]
+    per = 6 * r  # hexagon perimeter
+    out, defs = [], []
+    xs = [28 + step * (i + .5) for i in range(n)]
+    defs.append(f'<linearGradient id="link" x1="0" y1="0" x2="1" y2="0">'
+                + "".join(f'<stop offset="{k / max(1, n - 1):.2f}" stop-color="{cols[k % len(cols)]}"/>' for k in range(n)) + "</linearGradient>")
+    defs.append('<linearGradient id="glint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>'
+                '<stop offset=".5" stop-color="#FFFFFF" stop-opacity=".35"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>')
+    out.append(f'<line x1="{xs[0]:.1f}" y1="{cy}" x2="{xs[-1]:.1f}" y2="{cy}" stroke="{C["line"]}" stroke-width="2"/>')
+    out.append(f'<line x1="{xs[0]:.1f}" y1="{cy}" x2="{xs[-1]:.1f}" y2="{cy}" stroke="url(#link)" stroke-width="2.4" class="link"{GLOW}/>')
+    digits = "0123456789"
     for i, (pre, rank, l1, l2, proj) in enumerate(ACHIEVEMENTS):
-        cx, cy, r = 28 + step * (i + .5), 124, 50
-        col = [NEON[4], NEON[0], NEON[2], NEON[3], NEON[1]][i % 5]
+        cx, col = xs[i], cols[i % len(cols)]
         hexp = " ".join(f"{polar(cx, cy, r, a)[0]:.1f},{polar(cx, cy, r, a)[1]:.1f}" for a in range(0, 360, 60))
         hexo = " ".join(f"{polar(cx, cy, r + 9, a)[0]:.1f},{polar(cx, cy, r + 9, a)[1]:.1f}" for a in range(0, 360, 60))
-        d = 0.2 + i * 0.15
+        d = 0.2 + i * 0.18
         big = 30 if len(rank) <= 2 else 24
+        shown = ("#" if pre == "RANK" else "") + rank
+        defs.append(f'<clipPath id="hx{i}"><polygon points="{hexp}"/></clipPath>')
+        defs.append(f'<clipPath id="slot{i}"><rect x="{cx - 44:.1f}" y="{cy - 8}" width="88" height="36"/></clipPath>')
+        # slot-machine reel: the real rank sits at the resting position, decoys stacked above it
+        reel = [shown] + ["".join(digits[(i * 7 + k * 3 + j * 5) % 10] if ch.isdigit() else ch for j, ch in enumerate(shown)) for k in range(1, 8)]
+        reel_txt = "".join(f'<text x="{cx:.1f}" y="{cy + 18 - 36 * k}" text-anchor="middle" class="rk" style="font-size:{big}px">{esc(t)}</text>'
+                           for k, t in enumerate(reel))
+        sparks = "".join(
+            f'<circle cx="{cx + dx:.1f}" cy="{cy - r + 6}" r="{1.6 + (k % 3) * .5:.1f}" fill="{col}" class="spark" style="animation-delay:{d + 1.2 + k * .55:.2f}s"/>'
+            for k, dx in enumerate((-22, -8, 6, 18, 28, -30)))
         out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
-  <circle cx="{cx:.1f}" cy="{cy}" r="{r + 20}" fill="none" stroke="{col}" stroke-opacity=".45" stroke-dasharray="1 7" class="{'spin' if i % 2 else 'spin-r'}"/>
+  <circle cx="{cx:.1f}" cy="{cy}" r="{r + 22}" fill="none" stroke="{col}" stroke-opacity=".45" stroke-dasharray="1 7" class="{'spin' if i % 2 else 'spin-r'}"/>
+  <g class="orb" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{8 + i * 1.5:.1f}s"><circle cx="{cx:.1f}" cy="{cy - r - 22}" r="3" fill="{col}"{GLOW}/></g>
   <polygon points="{hexo}" fill="none" stroke="{col}" stroke-opacity=".25"/>
-  <polygon points="{hexp}" fill="{col}" fill-opacity=".1" stroke="{col}" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="{cx:.1f}" y="{cy - 14}" class="small" text-anchor="middle" style="letter-spacing:2px">{pre}</text>
-  <text x="{cx:.1f}" y="{cy + 18}" text-anchor="middle" style="font-size:{big}px;font-weight:750;fill:{C['text']}">{'#' if pre == 'RANK' else ''}{esc(rank)}</text>
-  <text x="{cx:.1f}" y="{cy + 94}" class="note strong" text-anchor="middle">{esc(l1)}</text>
-  <text x="{cx:.1f}" y="{cy + 111}" class="note" text-anchor="middle">{esc(l2)}</text>
-  <text x="{cx:.1f}" y="{cy + 129}" class="small" text-anchor="middle" style="fill:{col}">{esc(proj.upper())}</text>
+  <polygon points="{hexp}" fill="{C['bg0']}"/>
+  <polygon points="{hexp}" fill="{col}" fill-opacity=".1" stroke="{col}" stroke-width="2" class="draw" style="animation-delay:{d:.2f}s"{GLOW}/>
+  <polygon points="{hexp}" fill="none" stroke="{col}" stroke-width="5" stroke-opacity=".35" class="pulse" style="animation-delay:{d + 1.6:.2f}s"/>
+  <g clip-path="url(#hx{i})"><rect x="{cx - r - 60:.1f}" y="{cy - r}" width="40" height="{2 * r}" fill="url(#glint)" transform="skewX(-18)" class="glint" style="animation-delay:{d + 2 + i * .4:.2f}s"/></g>
+  <text x="{cx:.1f}" y="{cy - 16}" class="small" text-anchor="middle" style="letter-spacing:2px;fill:{col}">{pre}</text>
+  <g clip-path="url(#slot{i})"><g class="reel" style="--h:{36 * (len(reel) - 1)}px;animation-delay:{d + .3:.2f}s">{reel_txt}</g></g>
+  {sparks}
+</g>
+<g class="rise" style="animation-delay:{d + .5:.2f}s">
+  <text x="{cx:.1f}" y="{cy + 98}" class="note strong" text-anchor="middle">{esc(l1)}</text>
+  <text x="{cx:.1f}" y="{cy + 116}" class="note" text-anchor="middle">{esc(l2)}</text>
+  <text x="{cx:.1f}" y="{cy + 136}" class="small" text-anchor="middle" style="fill:{col}">{esc(proj.upper())}</text>
 </g>""")
-    css = (".pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; }"
-           " @keyframes pop { from { opacity: 0; transform: scale(.85); } }")
+    css = (f".rk {{ font-weight: 800; fill: {C['text']}; font-variant-numeric: tabular-nums; }}"
+           " .pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; }"
+           " @keyframes pop { from { opacity: 0; transform: scale(.8); } }"
+           f" .draw {{ stroke-dasharray: {per}; animation: draw 1.4s cubic-bezier(.6,0,.2,1) both; }}"
+           f" @keyframes draw {{ from {{ stroke-dashoffset: {per}; fill-opacity: 0; }} }}"
+           " .pulse { animation: pulse 2.6s ease-in-out infinite both; } @keyframes pulse { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }"
+           " .reel { animation: reel 1.6s cubic-bezier(.15,.6,.2,1) both; } @keyframes reel { from { transform: translateY(var(--h)); } }"
+           " .glint { animation: glint 5s ease-in-out infinite; } @keyframes glint { 0% { transform: skewX(-18deg) translateX(0); } 30%, 100% { transform: skewX(-18deg) translateX(190px); } }"
+           " .spark { opacity: 0; animation: spark 3.3s ease-out infinite; }"
+           " @keyframes spark { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-46px); } }"
+           " .orb { animation: spin 8s linear infinite; }"
+           " .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes rise { from { opacity: 0; transform: translateY(8px); } }"
+           " .link { stroke-dasharray: 60 900; animation: link 3.5s linear infinite; } @keyframes link { from { stroke-dashoffset: 60; } to { stroke-dashoffset: -900; } }")
     label = "Results: " + "; ".join(f"{p.lower()} {r}, {a} {b}" for p, r, a, b, _ in ACHIEVEMENTS)
-    return frame(W, H, "02", "Mission record", "\n".join(out), css, label, NEON[4])
+    return frame(W, H, "02", "Mission record", "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out), css, label, NEON[4])
 
 
 def render_about() -> str:
