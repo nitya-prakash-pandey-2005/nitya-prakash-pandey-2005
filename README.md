@@ -24,7 +24,16 @@ I'm a BS Data Science student at **IIT Madras** who likes taking ML from a noteb
 
 Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Cohere reranking, FastAPI, Next.js), a whole-slide digital pathology pipeline on PyTorch foundation models, and **AgroSkin**, an AI skin-disease detector.
 
+## 🛰️ Mission control
+
+<img src="./profile/hud.svg" width="100%" alt="GitHub telemetry gauges: contributions, commits, active days, repositories and streaks, refreshed every 6 hours"/>
+
 ## 🏆 Results
+
+<img src="./profile/achievements.svg" width="100%" alt="Results: Rank 5 Kaya AI IIT Hackathon 2026, Rank 9 Kaggle Agricultural Image Super-Resolution, Top 10 TrackShift, Top 40 IIT Delhi Innov8, Top 1,500 Amazon ML Challenge"/>
+
+<details>
+<summary><b>Mission details</b></summary>
 
 | Result | Competition and what I built |
 |:--|:--|
@@ -33,6 +42,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 | 🚀 **Top 10** | **TrackShift Innovation Challenge** |
 | ⭐ **Top 40** | **IIT Delhi Innov8 Challenge** |
 | 📦 **Top 1,500** | **Amazon ML Challenge** |
+
+</details>
 
 ## 🧰 Toolkit
 
@@ -112,11 +123,13 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 </table>
 <!-- AUTO:PROJECTS:END -->
 
-## 📊 By the numbers
+## 📡 Telemetry
 
-<img src="./profile/overview.svg" width="100%" alt="GitHub overview: contributions, commits, pull requests, issues, repositories, stars and streaks"/>
-<img src="./profile/activity.svg" width="100%" alt="Weekly contributions over the last 12 months and weekday rhythm"/>
-<img src="./profile/languages.svg" width="100%" alt="Languages across my repositories"/>
+<img src="./profile/skyline.svg" width="100%" alt="Isometric 3D skyline of my contribution calendar over the last 12 months"/>
+<img src="./profile/activity.svg" width="100%" alt="Weekly contributions over the last 12 months and contributions by weekday"/>
+<img src="./profile/clock.svg" width="100%" alt="24-hour commit clock in IST with a time-of-day breakdown"/>
+<img src="./profile/languages.svg" width="100%" alt="Language matrix: share of code across my repositories"/>
+<img src="./profile/timeline.svg" width="100%" alt="Mission log: timeline of when each repository was launched"/>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/nitya-prakash-pandey-2005/nitya-prakash-pandey-2005/main/profile/snake-dark.svg"/>
