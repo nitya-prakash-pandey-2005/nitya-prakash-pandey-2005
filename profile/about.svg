@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="452" viewBox="0 0 900 452" role="img" aria-label="Operator profile: Nitya Prakash Pandey, BS Data Science at IIT Madras, vision and ML engineer. BS Data Science student at IIT Madras who likes taking ML from a notebook to a working system. Most of my time goes into medical imaging: at SGBC Brain Centre I integrate and benchmark brain-segmentation tools and score them with Dice. The rest goes into hackathons and Kaggle, where I build vision and agentic systems against tight deadlines. Active missions: Brain MRI segmentation benchmarks (SGBC Brain Centre · SynthSeg · BiomedParse · ANTsPy); Reddit credibility &amp; network research (Research internship · DoMS); Chandrayaan-2 lunar image registration (Smart India Hackathon 2026); Kaggle &amp; hackathons (Agriculture · health · climate). Also built: Travel RAG agent · LangGraph · Qdrant · Cohere; Whole-slide pathology pipeline · PyTorch foundation models; AgroSkin · AI skin-disease detector; FieldPilot AI · 10-agent smart-glasses inspector; TyreMind · physics-informed race ML; SAGE · agentic commerce control plane">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
+  <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A78BFA" stop-opacity=".8"/><stop offset=".45" stop-color="#A78BFA" stop-opacity=".15"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
+  <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A78BFA" stop-opacity="0"/><stop offset="1" stop-color="#A78BFA" stop-opacity=".09"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="card"><rect width="900" height="452" rx="16"/></clipPath>
+</defs>
+<style>
+  text { font-family: -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
+  .t { font: 600 13px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 2.6px; fill: #E8EEF9; }
+  .code { fill: #A78BFA; }
+  .stamp { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.6px; fill: #8A97B4; }
+  .lbl { font: 11px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.4px; fill: #8A97B4; }
+  .val { font-size: 24px; font-weight: 700; fill: #E8EEF9; font-variant-numeric: tabular-nums; }
+  .small { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; fill: #8A97B4; }
+  .note { font-size: 13px; fill: #B9C5DD; }
+  .strong { fill: #E8EEF9; font-weight: 650; }
+  .scan { animation: scan 7s linear infinite; }
+  @keyframes scan { from { transform: translateY(-80px); } to { transform: translateY(452px); } }
+  .blink { animation: blink 1.6s steps(2, start) infinite; }
+  @keyframes blink { to { opacity: .15; } }
+  .spin { transform-box: fill-box; transform-origin: center; animation: spin 60s linear infinite; }
+  .spin-r { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fade { from { opacity: 0; } }
+  .ini { font: 800 30px -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; letter-spacing: 2px; fill: url(#holo); } .fk { font: 700 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.6px; fill: #38BDF8; } .fv { font-size: 13px; fill: #E8EEF9; } .bio { font-size: 13.5px; fill: #B9C5DD; } .mt { font-size: 14px; font-weight: 650; fill: #E8EEF9; } .tk { font: 12px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; fill: #B9C5DD; } .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 4s ease-in-out infinite; } @keyframes breathe { 50% { transform: scale(1.12); opacity: .02; } } .orb { transform-origin: 168px 152px; animation: spin 9s linear infinite; } .hsweep { animation: hsweep 3.2s linear infinite; } @keyframes hsweep { from { transform: translateY(0); } to { transform: translateY(170px); } } .type { animation: type 1s cubic-bezier(.3,0,.2,1) both; } @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } } .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes rise { from { opacity: 0; transform: translateY(6px); } } .led { animation: blink 1.6s ease-in-out infinite; } .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.4s ease-out infinite; } @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.8); opacity: 0; } } .stripe { animation: stripe 1s linear infinite; } @keyframes stripe { to { transform: translateX(14px); } } .marq { animation: marq 51.2s linear infinite; } @keyframes marq { to { transform: translateX(-2304.4px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .scan { display: none; } }
+</style>
+<g clip-path="url(#card)">
+  <rect width="900" height="452" fill="url(#bg)"/>
+  <rect width="900" height="452" fill="url(#grid)"/>
+  <rect class="scan" x="0" y="0" width="900" height="80" fill="url(#scanline)"/>
+</g>
+<rect x=".5" y=".5" width="899" height="451" rx="15.5" fill="none" stroke="#1C2A48"/>
+<g fill="none" stroke="#A78BFA" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,426 L10,442 L26,442"/><path d="M890,426 L890,442 L874,442"/></g>
+<circle cx="31" cy="34" r="3.5" fill="#A78BFA" class="blink"/>
+<text x="44" y="38.5" class="t"><tspan class="code">00 //</tspan> OPERATOR PROFILE</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
+<rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
+<defs><linearGradient id="holo" x1="0" y1="0" x2="1" y2="1"><stop offset="0.00" stop-color="#38BDF8"/><stop offset="0.25" stop-color="#A78BFA"/><stop offset="0.50" stop-color="#E879F9"/><stop offset="0.75" stop-color="#FBBF24"/><stop offset="1.00" stop-color="#A3E635"/></linearGradient><clipPath id="hexclip"><polygon points="168.0,94.0 218.2,123.0 218.2,181.0 168.0,210.0 117.8,181.0 117.8,123.0"/></clipPath><linearGradient id="hscan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8" stop-opacity="0"/><stop offset="1" stop-color="#38BDF8" stop-opacity=".45"/></linearGradient><pattern id="stripes" width="14" height="8" patternUnits="userSpaceOnUse" patternTransform="skewX(-40)"><rect width="7" height="8" fill="#FFFFFF" fill-opacity=".35"/></pattern><clipPath id="bar0"><rect x="712" y="243" width="158" height="7" rx="3.5"/></clipPath><clipPath id="bar1"><rect x="712" y="283" width="158" height="7" rx="3.5"/></clipPath><clipPath id="bar2"><rect x="712" y="323" width="158" height="7" rx="3.5"/></clipPath><clipPath id="bar3"><rect x="712" y="363" width="158" height="7" rx="3.5"/></clipPath><clipPath id="tickm"><rect x="160" y="392" width="712" height="30"/></clipPath></defs>
+<circle cx="168" cy="152" r="96" fill="url(#holo)" opacity=".07" class="breathe"/>
+<circle cx="168" cy="152" r="86" fill="none" stroke="url(#holo)" stroke-width="1.2" stroke-dasharray="2 8" class="spin"/>
+<circle cx="168" cy="152" r="76" fill="none" stroke="#A78BFA" stroke-opacity=".5" stroke-dasharray="30 14 4 14" class="spin-r"/>
+<path d="M168.0,86.0L168.0,80.6M176.6,86.6L177.0,83.6M185.1,88.2L185.9,85.4M193.3,91.0L194.4,88.3M201.0,94.8L203.7,90.2M208.2,99.6L210.0,97.3M214.7,105.3L216.8,103.2M220.4,111.8L222.7,110.0M225.2,119.0L229.8,116.3M229.0,126.7L231.7,125.6M231.8,134.9L234.6,134.1M233.4,143.4L236.4,143.0M234.0,152.0L239.4,152.0M233.4,160.6L236.4,161.0M231.8,169.1L234.6,169.9M229.0,177.3L231.7,178.4M225.2,185.0L229.8,187.7M220.4,192.2L222.7,194.0M214.7,198.7L216.8,200.8M208.2,204.4L210.0,206.7M201.0,209.2L203.7,213.8M193.3,213.0L194.4,215.7M185.1,215.8L185.9,218.6M176.6,217.4L177.0,220.4M168.0,218.0L168.0,223.4M159.4,217.4L159.0,220.4M150.9,215.8L150.1,218.6M142.7,213.0L141.6,215.7M135.0,209.2L132.3,213.8M127.8,204.4L126.0,206.7M121.3,198.7L119.2,200.8M115.6,192.2L113.3,194.0M110.8,185.0L106.2,187.7M107.0,177.3L104.3,178.4M104.2,169.1L101.4,169.9M102.6,160.6L99.6,161.0M102.0,152.0L96.6,152.0M102.6,143.4L99.6,143.0M104.2,134.9L101.4,134.1M107.0,126.7L104.3,125.6M110.8,119.0L106.2,116.3M115.6,111.8L113.3,110.0M121.3,105.3L119.2,103.2M127.8,99.6L126.0,97.3M135.0,94.8L132.3,90.2M142.7,91.0L141.6,88.3M150.9,88.2L150.1,85.4M159.4,86.6L159.0,83.6" stroke="#38BDF8" stroke-opacity="0.55" stroke-width="1" class="spin"/>
+<polygon points="168.0,94.0 218.2,123.0 218.2,181.0 168.0,210.0 117.8,181.0 117.8,123.0" fill="#060B18" stroke="url(#holo)" stroke-width="2.4" filter="url(#glow)"/>
+<g clip-path="url(#hexclip)"><rect x="108" y="52" width="120" height="40" fill="url(#hscan)" class="hsweep"/><polygon points="168.0,108.0 206.1,130.0 206.1,174.0 168.0,196.0 129.9,174.0 129.9,130.0" fill="none" stroke="#38BDF8" stroke-opacity=".25"/></g>
+<text x="168" y="163" text-anchor="middle" class="ini">NPP</text>
+<g class="orb" style="animation-duration:7s;animation-delay:-0.0s"><circle cx="168" cy="66" r="3.4" fill="#E879F9" filter="url(#glow)"/></g>
+<g class="orb" style="animation-duration:11s;animation-delay:-2.3s"><circle cx="168" cy="76" r="3.4" fill="#FBBF24" filter="url(#glow)"/></g>
+<g class="orb" style="animation-duration:15s;animation-delay:-4.6s"><circle cx="168" cy="86" r="3.4" fill="#A3E635" filter="url(#glow)"/></g>
+<g class="type" style="animation-delay:0.50s"><text x="40" y="272" class="fk">NAME</text><text x="100" y="272" class="fv">Nitya Prakash Pandey</text></g>
+<line x1="40" y1="280" x2="318" y2="280" stroke="#1C2A48"/>
+<g class="type" style="animation-delay:0.75s"><text x="40" y="297" class="fk">BASE</text><text x="100" y="297" class="fv">IIT Madras · BS Data Science</text></g>
+<line x1="40" y1="305" x2="318" y2="305" stroke="#1C2A48"/>
+<g class="type" style="animation-delay:1.00s"><text x="40" y="322" class="fk">ROLE</text><text x="100" y="322" class="fv">Vision &amp; ML engineer</text></g>
+<line x1="40" y1="330" x2="318" y2="330" stroke="#1C2A48"/>
+<g class="type" style="animation-delay:1.25s"><text x="40" y="347" class="fk">FOCUS</text><text x="100" y="347" class="fv">Medical imaging · Agentic AI</text></g>
+<line x1="40" y1="355" x2="318" y2="355" stroke="#1C2A48"/>
+<g class="type" style="animation-delay:1.50s"><text x="40" y="372" class="fk">MODE</text><text x="100" y="372" class="fv">Hackathons · Kaggle</text></g>
+<line x1="40" y1="380" x2="318" y2="380" stroke="#1C2A48"/>
+<line x1="344" y1="72" x2="344" y2="382" stroke="#1C2A48"/>
+<text x="368" y="80" class="lbl">BRIEF</text>
+<text x="368" y="104" class="bio rise" style="animation-delay:0.30s">BS Data Science student at IIT Madras who likes taking ML from a</text>
+<text x="368" y="123" class="bio rise" style="animation-delay:0.48s">notebook to a working system. Most of my time goes into medical imaging:</text>
+<text x="368" y="142" class="bio rise" style="animation-delay:0.66s">at SGBC Brain Centre I integrate and benchmark brain-segmentation tools</text>
+<text x="368" y="161" class="bio rise" style="animation-delay:0.84s">and score them with Dice. The rest goes into hackathons and Kaggle,</text>
+<text x="368" y="180" class="bio rise" style="animation-delay:1.02s">where I build vision and agentic systems against tight deadlines.</text>
+<text x="368" y="214" class="lbl">ACTIVE MISSIONS · 4</text>
+<g class="rise" style="animation-delay:0.90s">
+  <circle cx="373" cy="242" r="4.5" fill="#38BDF8" class="led" style="animation-delay:0.0s"/>
+  <circle cx="373" cy="242" r="4.5" fill="none" stroke="#38BDF8" class="ping" style="animation-delay:0.0s"/>
+  <text x="388" y="246" class="mt">Brain MRI segmentation benchmarks</text>
+  <text x="388" y="262" class="small">SGBC Brain Centre · SynthSeg · BiomedParse · ANTsPy</text>
+  <text x="870" y="236" class="small" text-anchor="end" style="fill:#38BDF8">IN PROGRESS</text>
+  <rect x="712" y="243" width="158" height="7" rx="3.5" fill="#38BDF8" fill-opacity=".85"/>
+  <g clip-path="url(#bar0)"><rect x="684" y="243" width="214" height="7" fill="url(#stripes)" class="stripe"/></g>
+</g>
+<g class="rise" style="animation-delay:1.10s">
+  <circle cx="373" cy="282" r="4.5" fill="#A78BFA" class="led" style="animation-delay:0.4s"/>
+  <circle cx="373" cy="282" r="4.5" fill="none" stroke="#A78BFA" class="ping" style="animation-delay:0.6s"/>
+  <text x="388" y="286" class="mt">Reddit credibility &amp; network research</text>
+  <text x="388" y="302" class="small">Research internship · DoMS</text>
+  <text x="870" y="276" class="small" text-anchor="end" style="fill:#A78BFA">IN PROGRESS</text>
+  <rect x="712" y="283" width="158" height="7" rx="3.5" fill="#A78BFA" fill-opacity=".85"/>
+  <g clip-path="url(#bar1)"><rect x="684" y="283" width="214" height="7" fill="url(#stripes)" class="stripe"/></g>
+</g>
+<g class="rise" style="animation-delay:1.30s">
+  <circle cx="373" cy="322" r="4.5" fill="#FBBF24" class="led" style="animation-delay:0.8s"/>
+  <circle cx="373" cy="322" r="4.5" fill="none" stroke="#FBBF24" class="ping" style="animation-delay:1.2s"/>
+  <text x="388" y="326" class="mt">Chandrayaan-2 lunar image registration</text>
+  <text x="388" y="342" class="small">Smart India Hackathon 2026</text>
+  <text x="870" y="316" class="small" text-anchor="end" style="fill:#FBBF24">IN PROGRESS</text>
+  <rect x="712" y="323" width="158" height="7" rx="3.5" fill="#FBBF24" fill-opacity=".85"/>
+  <g clip-path="url(#bar2)"><rect x="684" y="323" width="214" height="7" fill="url(#stripes)" class="stripe"/></g>
+</g>
+<g class="rise" style="animation-delay:1.50s">
+  <circle cx="373" cy="362" r="4.5" fill="#A3E635" class="led" style="animation-delay:1.2s"/>
+  <circle cx="373" cy="362" r="4.5" fill="none" stroke="#A3E635" class="ping" style="animation-delay:1.8s"/>
+  <text x="388" y="366" class="mt">Kaggle &amp; hackathons</text>
+  <text x="388" y="382" class="small">Agriculture · health · climate</text>
+  <text x="870" y="356" class="small" text-anchor="end" style="fill:#A3E635">IN PROGRESS</text>
+  <rect x="712" y="363" width="158" height="7" rx="3.5" fill="#A3E635" fill-opacity=".85"/>
+  <g clip-path="url(#bar3)"><rect x="684" y="363" width="214" height="7" fill="url(#stripes)" class="stripe"/></g>
+</g>
+<rect x="28" y="392" width="844" height="30" rx="6" fill="#0E1730" stroke="#1C2A48"/>
+<text x="44" y="412" class="lbl" style="fill:#FBBF24">ALSO BUILT ▸</text>
+<g clip-path="url(#tickm)"><g transform="translate(160,0)"><g class="marq"><text x="0.0" y="412" class="tk"><tspan style="fill:#38BDF8">◆</tspan> Travel RAG agent · LangGraph · Qdrant · Cohere</text><text x="405.6" y="412" class="tk"><tspan style="fill:#E879F9">◆</tspan> Whole-slide pathology pipeline · PyTorch foundation models</text><text x="902.4" y="412" class="tk"><tspan style="fill:#A3E635">◆</tspan> AgroSkin · AI skin-disease detector</text><text x="1224.4" y="412" class="tk"><tspan style="fill:#FBBF24">◆</tspan> FieldPilot AI · 10-agent smart-glasses inspector</text><text x="1645.2" y="412" class="tk"><tspan style="fill:#A78BFA">◆</tspan> TyreMind · physics-informed race ML</text><text x="1967.2" y="412" class="tk"><tspan style="fill:#FB7185">◆</tspan> SAGE · agentic commerce control plane</text><text x="2304.4" y="412" class="tk"><tspan style="fill:#38BDF8">◆</tspan> Travel RAG agent · LangGraph · Qdrant · Cohere</text><text x="2710.0" y="412" class="tk"><tspan style="fill:#E879F9">◆</tspan> Whole-slide pathology pipeline · PyTorch foundation models</text><text x="3206.8" y="412" class="tk"><tspan style="fill:#A3E635">◆</tspan> AgroSkin · AI skin-disease detector</text><text x="3528.8" y="412" class="tk"><tspan style="fill:#FBBF24">◆</tspan> FieldPilot AI · 10-agent smart-glasses inspector</text><text x="3949.6" y="412" class="tk"><tspan style="fill:#A78BFA">◆</tspan> TyreMind · physics-informed race ML</text><text x="4271.6" y="412" class="tk"><tspan style="fill:#FB7185">◆</tspan> SAGE · agentic commerce control plane</text></g></g></g>
+</svg>
