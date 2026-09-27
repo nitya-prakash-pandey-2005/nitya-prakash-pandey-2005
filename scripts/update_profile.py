@@ -334,6 +334,8 @@ def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "",
 
 # ═══════════════════════════════════ cards ═══════════════════════════════════
 def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], cur: int, longest: int) -> str:
+    """Six milestone gauges (arc fills, numbers count up from zero, radar sweeps, sonar pulses,
+    tip pings), a heartbeat vitals trace, and a stats strip that boots up under a scan beam."""
     cc = user["contributionsCollection"]
     active = sum(1 for _, n in days if n)
     gauges = [
@@ -344,10 +346,11 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         ("STREAK", "days, current", cur),
         ("BEST STREAK", "days, longest", longest),
     ]
-    W, H = 900, 342
+    W, H = 900, 378
     R = 44
     circ = 2 * math.pi * R
-    out = []
+    out, defs = [], []
+    steps = 7
     for i, (label, sub, value) in enumerate(gauges):
         cx, cy = 83 + i * 146.8, 148
         col = NEON[i]
@@ -355,19 +358,52 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         frac = min(1.0, value / goal) if goal else 0
         ex, ey = polar(cx, cy, R, 360 * frac)
         delay = 0.25 + i * 0.12
+        # count-up reel: the real value rests in place, smaller values stacked above roll past it
+        reel = "".join(f'<text x="{cx:.1f}" y="{cy + 8 - 30 * k}" class="val" text-anchor="middle">{fmt(round(value * (1 - k / (steps - 1))))}</text>'
+                       for k in range(steps))
+        defs.append(f'<clipPath id="cnt{i}"><rect x="{cx - 44:.1f}" y="{cy - 16}" width="88" height="32"/></clipPath>')
+        defs.append(f'<linearGradient id="rad{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
+                    f'<stop offset="1" stop-color="{col}" stop-opacity=".28"/></linearGradient>')
+        lx, ly = polar(cx, cy, R - 7, 60)
         out.append(f"""<g>
   {tick_ring(cx, cy, R + 12, 60, 5, 3.5, "spin" if i % 2 == 0 else "spin-r", col)}
   <circle cx="{cx:.1f}" cy="{cy}" r="{R + 8}" fill="none" stroke="{C['line']}" stroke-dasharray="2 5"/>
   <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="none" stroke="{C['line']}" stroke-width="5"/>
+  <g class="radar" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{3.2 + i * .35:.2f}s">
+    <path d="{sector(cx, cy, 0, R - 7, 0, 60)}" fill="url(#rad{i})"/>
+    <line x1="{cx:.1f}" y1="{cy}" x2="{lx:.1f}" y2="{ly:.1f}" stroke="{col}" stroke-opacity=".6"/>
+  </g>
+  <circle cx="{cx:.1f}" cy="{cy}" r="{R - 8}" fill="none" stroke="{col}" stroke-width="1.2" class="sonar" style="animation-delay:{i * .45:.2f}s"/>
   <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="{col}" fill-opacity=".05" stroke="{col}" stroke-width="5" stroke-linecap="round"
           stroke-dasharray="{circ:.1f}" style="stroke-dashoffset:{circ * (1 - frac):.1f}; animation-delay:{delay:.2f}s"
           transform="rotate(-90 {cx:.1f} {cy})" class="arc" filter="url(#glow)" opacity="{1 if frac else 0}"/>
-  <circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:{delay + 1.3:.2f}s" opacity="{1 if frac else 0}"/>
-  <text x="{cx:.1f}" y="{cy + 8}" class="val" text-anchor="middle">{fmt(value)}</text>
+  <g opacity="{1 if frac else 0}">
+    <circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:{delay + 1.3:.2f}s"/>
+    <circle cx="{ex:.1f}" cy="{ey:.1f}" r="4" fill="none" stroke="{col}" stroke-width="1.5" class="ping" style="animation-delay:{delay + 1.6:.2f}s"/>
+  </g>
+  <circle cx="{cx:.1f}" cy="{cy}" r="21" fill="{C['bg0']}" fill-opacity=".75"/>
+  <g clip-path="url(#cnt{i})"><g class="count" style="--h:{30 * (steps - 1)}px;animation-delay:{delay:.2f}s">{reel}</g></g>
   <text x="{cx:.1f}" y="{cy + 86}" class="lbl" text-anchor="middle" style="fill:{C['text']}">{label}</text>
   <text x="{cx:.1f}" y="{cy + 103}" class="small" text-anchor="middle">{sub}</text>
   <text x="{cx:.1f}" y="{cy + 119}" class="small" text-anchor="middle">next <tspan style="fill:{col}">▸</tspan> {fmt(goal)}</text>
 </g>""")
+    # ── heartbeat vitals trace ──
+    by, x0, x1 = 306, 150, W - 150
+    beat, pts, x = 118, [], float(x0)
+    while x < x1 - 1:
+        seg = [(0, 0), (30, 0), (38, -4), (46, 0), (54, 0), (58, 5), (64, -20), (70, 11), (75, 0), (86, 0), (96, -6), (106, 0), (beat, 0)]
+        pts.extend((min(x + dx, x1), by + dy) for dx, dy in seg if x + dx <= x1)
+        x += beat
+    ekg = "M" + " L".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+    elen = int(sum(math.dist(pts[k], pts[k + 1]) for k in range(len(pts) - 1))) + 20
+    defs.append('<linearGradient id="vital" x1="0" y1="0" x2="1" y2="0">'
+                + "".join(f'<stop offset="{k / 5:.2f}" stop-color="{NEON[k]}"/>' for k in range(6)) + "</linearGradient>")
+    out.append(f'<circle cx="44" cy="{by - 4}" r="4" fill="{NEON[3]}" class="blink"/>')
+    out.append(f'<text x="56" y="{by}" class="small" style="fill:{C["text"]}">VITALS</text>')
+    out.append(f'<text x="{W - 28}" y="{by}" class="small" text-anchor="end">NOMINAL <tspan style="fill:{NEON[3]}">●</tspan></text>')
+    out.append(f'<path d="{ekg}" fill="none" stroke="{C["line"]}" stroke-width="1.4"/>')
+    out.append(f'<path d="{ekg}" fill="none" stroke="url(#vital)" stroke-width="2.2" stroke-linejoin="round" class="ekg"{GLOW}/>')
+    # ── stats strip ──
     since = dt.datetime.fromisoformat(user["createdAt"].replace("Z", "+00:00")).strftime("%b %Y").upper()
     strip = [
         ("PULL REQUESTS", fmt(user["pullRequests"]["totalCount"])),
@@ -379,17 +415,33 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
     ]
     sx = 28
     seg = (W - 56) / len(strip)
-    out.append(f'<rect x="28" y="{H - 52}" width="{W - 56}" height="30" rx="6" fill="{C["panel"]}" stroke="{C["line"]}"/>')
+    sy = H - 50
+    defs.append(f'<clipPath id="strip"><rect x="28" y="{sy}" width="{W - 56}" height="30" rx="6"/></clipPath>')
+    defs.append(f'<linearGradient id="sbeam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[0]}" stop-opacity="0"/>'
+                f'<stop offset=".5" stop-color="{NEON[0]}" stop-opacity=".22"/><stop offset="1" stop-color="{NEON[0]}" stop-opacity="0"/></linearGradient>')
+    out.append(f'<rect x="28" y="{sy}" width="{W - 56}" height="30" rx="6" fill="{C["panel"]}" stroke="{C["line"]}"/>')
     for i, (k, v) in enumerate(strip):
         x = sx + i * seg
         if i:
-            out.append(f'<line x1="{x:.1f}" y1="{H - 46}" x2="{x:.1f}" y2="{H - 28}" stroke="{C["line"]}"/>')
-        out.append(f'<text x="{x + seg / 2:.1f}" y="{H - 33}" class="small" text-anchor="middle">{k} <tspan class="strong">{esc(v)}</tspan></text>')
+            out.append(f'<line x1="{x:.1f}" y1="{sy + 6}" x2="{x:.1f}" y2="{sy + 24}" stroke="{C["line"]}"/>')
+        out.append(f'<text x="{x + seg / 2:.1f}" y="{sy + 19}" class="small boot" text-anchor="middle" style="animation-delay:{1.2 + i * .15:.2f}s">'
+                   f'{k} <tspan class="strong" style="fill:{NEON[i]}">{esc(v)}</tspan></text>')
+    out.append(f'<g clip-path="url(#strip)"><rect x="28" y="{sy}" width="160" height="30" fill="url(#sbeam)" class="sbeam"/></g>')
     css = (
         f".arc {{ animation: arc 1.8s cubic-bezier(.3,.7,.2,1) both; }} @keyframes arc {{ from {{ stroke-dashoffset: {circ:.1f}; }} }}"
         " .tip { animation: fade .4s ease both; }"
+        " .count { animation: count 1.8s cubic-bezier(.3,.7,.2,1) both; } @keyframes count { from { transform: translateY(var(--h)); } }"
+        " .radar { animation: spin 3.5s linear infinite; }"
+        " .sonar { transform-box: fill-box; transform-origin: center; animation: sonar 3s ease-out infinite; opacity: 0; }"
+        " @keyframes sonar { 0% { transform: scale(.25); opacity: .8; } 100% { transform: scale(1); opacity: 0; } }"
+        " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2s ease-out infinite; opacity: 0; }"
+        " @keyframes ping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3); opacity: 0; } }"
+        f" .ekg {{ stroke-dasharray: 150 {elen}; animation: ekg 4.2s linear infinite; }}"
+        f" @keyframes ekg {{ from {{ stroke-dashoffset: 150; }} to {{ stroke-dashoffset: -{elen}; }} }}"
+        " .boot { animation: bootin .5s steps(3, end) both; } @keyframes bootin { from { opacity: 0; } }"
+        f" .sbeam {{ animation: sbeam 4s ease-in-out infinite; }} @keyframes sbeam {{ from {{ transform: translateX(-160px); }} to {{ transform: translateX({W - 28}px); }} }}"
     )
-    return frame(W, H, "01", "System telemetry", "\n".join(out), css,
+    return frame(W, H, "01", "System telemetry", "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out), css,
                  "GitHub telemetry: " + ", ".join(f"{g[0].lower()} {g[2]}" for g in gauges), NEON[0])
 
 
