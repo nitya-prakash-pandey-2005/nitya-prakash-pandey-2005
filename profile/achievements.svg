@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="270" viewBox="0 0 900 270" role="img" aria-label="Results: rank 5, Kaya AI IIT Hackathon 2026; rank 9, Kaggle Agri Image Super-Resolution; top 10, TrackShift Innovation Challenge; top 40, IIT Delhi Innov8 Challenge; top 1.5K, Amazon ML Challenge">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
+  <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38BDF8" stop-opacity=".7"/><stop offset=".45" stop-color="#38BDF8" stop-opacity=".12"/><stop offset="1" stop-color="#38BDF8" stop-opacity="0"/></linearGradient>
+  <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8" stop-opacity="0"/><stop offset="1" stop-color="#38BDF8" stop-opacity=".08"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="card"><rect width="900" height="270" rx="16"/></clipPath>
+</defs>
+<style>
+  text { font-family: -apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
+  .t { font: 600 13px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 2.6px; fill: #E8EEF9; }
+  .code { fill: #38BDF8; }
+  .stamp { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.6px; fill: #8A97B4; }
+  .lbl { font: 11px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 1.4px; fill: #8A97B4; }
+  .val { font-size: 24px; font-weight: 700; fill: #E8EEF9; font-variant-numeric: tabular-nums; }
+  .small { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; fill: #8A97B4; }
+  .note { font-size: 13px; fill: #B9C5DD; }
+  .strong { fill: #E8EEF9; font-weight: 650; }
+  .scan { animation: scan 7s linear infinite; }
+  @keyframes scan { from { transform: translateY(-80px); } to { transform: translateY(270px); } }
+  .blink { animation: blink 1.6s steps(2, start) infinite; }
+  @keyframes blink { to { opacity: .15; } }
+  .spin { transform-box: fill-box; transform-origin: center; animation: spin 60s linear infinite; }
+  .spin-r { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fade { from { opacity: 0; } }
+  .pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; } @keyframes pop { from { opacity: 0; transform: scale(.85); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .scan { display: none; } }
+</style>
+<g clip-path="url(#card)">
+  <rect width="900" height="270" fill="url(#bg)"/>
+  <rect width="900" height="270" fill="url(#grid)"/>
+  <rect class="scan" x="0" y="0" width="900" height="80" fill="url(#scanline)"/>
+</g>
+<rect x=".5" y=".5" width="899" height="269" rx="15.5" fill="none" stroke="#1C2A48"/>
+<g fill="none" stroke="#38BDF8" stroke-opacity=".75" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,244 L10,260 L26,260"/><path d="M890,244 L890,260 L874,260"/></g>
+<circle cx="31" cy="34" r="3.5" fill="#38BDF8" class="blink"/>
+<text x="44" y="38.5" class="t"><tspan class="code">02 //</tspan> MISSION RECORD</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 28 SEP 2026 · IST</text>
+<rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
+<g class="pop" style="animation-delay:0.20s">
+  <circle cx="112.4" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin-r"/>
+  <polygon points="112.4,65.0 163.5,94.5 163.5,153.5 112.4,183.0 61.3,153.5 61.3,94.5" fill="none" stroke="#1C2A48"/>
+  <polygon points="112.4,74.0 155.7,99.0 155.7,149.0 112.4,174.0 69.1,149.0 69.1,99.0" fill="#38BDF8" fill-opacity=".07" stroke="#38BDF8" stroke-width="1.6" filter="url(#glow)"/>
+  <text x="112.4" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">RANK</text>
+  <text x="112.4" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">#5</text>
+  <text x="112.4" y="218" class="note strong" text-anchor="middle">Kaya AI IIT</text>
+  <text x="112.4" y="235" class="note" text-anchor="middle">Hackathon 2026</text>
+  <text x="112.4" y="253" class="small" text-anchor="middle" style="fill:#38BDF8">FIELDPILOT AI</text>
+</g>
+<g class="pop" style="animation-delay:0.35s">
+  <circle cx="281.2" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin"/>
+  <polygon points="281.2,65.0 332.3,94.5 332.3,153.5 281.2,183.0 230.1,153.5 230.1,94.5" fill="none" stroke="#1C2A48"/>
+  <polygon points="281.2,74.0 324.5,99.0 324.5,149.0 281.2,174.0 237.9,149.0 237.9,99.0" fill="#38BDF8" fill-opacity=".07" stroke="#38BDF8" stroke-width="1.6" filter="url(#glow)"/>
+  <text x="281.2" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">RANK</text>
+  <text x="281.2" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">#9</text>
+  <text x="281.2" y="218" class="note strong" text-anchor="middle">Kaggle Agri Image</text>
+  <text x="281.2" y="235" class="note" text-anchor="middle">Super-Resolution</text>
+  <text x="281.2" y="253" class="small" text-anchor="middle" style="fill:#38BDF8">30-BLOCK RCAN</text>
+</g>
+<g class="pop" style="animation-delay:0.50s">
+  <circle cx="450.0" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin-r"/>
+  <polygon points="450.0,65.0 501.1,94.5 501.1,153.5 450.0,183.0 398.9,153.5 398.9,94.5" fill="none" stroke="#1C2A48"/>
+  <polygon points="450.0,74.0 493.3,99.0 493.3,149.0 450.0,174.0 406.7,149.0 406.7,99.0" fill="#38BDF8" fill-opacity=".07" stroke="#38BDF8" stroke-width="1.6" filter="url(#glow)"/>
+  <text x="450.0" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
+  <text x="450.0" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">10</text>
+  <text x="450.0" y="218" class="note strong" text-anchor="middle">TrackShift</text>
+  <text x="450.0" y="235" class="note" text-anchor="middle">Innovation Challenge</text>
+  <text x="450.0" y="253" class="small" text-anchor="middle" style="fill:#38BDF8"></text>
+</g>
+<g class="pop" style="animation-delay:0.65s">
+  <circle cx="618.8" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin"/>
+  <polygon points="618.8,65.0 669.9,94.5 669.9,153.5 618.8,183.0 567.7,153.5 567.7,94.5" fill="none" stroke="#1C2A48"/>
+  <polygon points="618.8,74.0 662.1,99.0 662.1,149.0 618.8,174.0 575.5,149.0 575.5,99.0" fill="#38BDF8" fill-opacity=".07" stroke="#38BDF8" stroke-width="1.6" filter="url(#glow)"/>
+  <text x="618.8" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
+  <text x="618.8" y="142" text-anchor="middle" style="font-size:30px;font-weight:750;fill:#E8EEF9">40</text>
+  <text x="618.8" y="218" class="note strong" text-anchor="middle">IIT Delhi</text>
+  <text x="618.8" y="235" class="note" text-anchor="middle">Innov8 Challenge</text>
+  <text x="618.8" y="253" class="small" text-anchor="middle" style="fill:#38BDF8"></text>
+</g>
+<g class="pop" style="animation-delay:0.80s">
+  <circle cx="787.6" cy="124" r="70" fill="none" stroke="#38BDF8" stroke-opacity=".35" stroke-dasharray="1 7" class="spin-r"/>
+  <polygon points="787.6,65.0 838.7,94.5 838.7,153.5 787.6,183.0 736.5,153.5 736.5,94.5" fill="none" stroke="#1C2A48"/>
+  <polygon points="787.6,74.0 830.9,99.0 830.9,149.0 787.6,174.0 744.3,149.0 744.3,99.0" fill="#38BDF8" fill-opacity=".07" stroke="#38BDF8" stroke-width="1.6" filter="url(#glow)"/>
+  <text x="787.6" y="110" class="small" text-anchor="middle" style="letter-spacing:2px">TOP</text>
+  <text x="787.6" y="142" text-anchor="middle" style="font-size:24px;font-weight:750;fill:#E8EEF9">1.5K</text>
+  <text x="787.6" y="218" class="note strong" text-anchor="middle">Amazon</text>
+  <text x="787.6" y="235" class="note" text-anchor="middle">ML Challenge</text>
+  <text x="787.6" y="253" class="small" text-anchor="middle" style="fill:#38BDF8"></text>
+</g>
+</svg>
