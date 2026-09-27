@@ -65,8 +65,13 @@ C = {
 # normal-vision and contrast all pass. "Other" folds everything past slot 5 into gray.
 CAT = ["#0284C7", "#D946EF", "#65A30D", "#8B5CF6", "#F43F5E"]
 OTHER = "#4A5A7E"
-# Sequential cyan ramp for magnitude (skyline levels 1-4), validated as an ordinal ramp on dark.
-SEQ = ["#075985", "#0284C7", "#38BDF8", "#BAE6FD"]
+# Heat ramp for magnitude (skyline levels 1-4): violet → magenta → coral → gold, lightness rising
+# monotonically (validated on dark; multi-hue is the "semantic heat" exception, always with a legend).
+SEQ = ["#6D28D9", "#C026D3", "#FB7185", "#FDE68A"]
+# Neon accents: one per card, and for gauges / badges / weekdays that are labelled individually.
+NEON = ["#38BDF8", "#A78BFA", "#E879F9", "#A3E635", "#FBBF24", "#FB7185", "#2DD4BF", "#FB923C"]
+# Time-of-day bands for the commit clock (colour = band, shared by dial and bars).
+BAND = {"NIGHT": "#A78BFA", "MORNING": "#FBBF24", "AFTERNOON": "#A3E635", "EVENING": "#E879F9"}
 FONT = '-apple-system, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif'
 MONO = 'ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace'
 GLOW = ' filter="url(#glow)"'
@@ -250,18 +255,19 @@ def sector(cx: float, cy: float, r0: float, r1: float, a0: float, a1: float) -> 
             f"L{x2:.1f},{y2:.1f} A{r0},{r0} 0 {large} 0 {x3:.1f},{y3:.1f} Z")
 
 
-def tick_ring(cx: float, cy: float, r: float, n: int, major: int, length: float = 5, cls: str = "") -> str:
+def tick_ring(cx: float, cy: float, r: float, n: int, major: int, length: float = 5, cls: str = "", color: str = "") -> str:
     ticks = []
     for i in range(n):
         ln = length * (1.8 if i % major == 0 else 1)
         (x0, y0), (x1, y1) = polar(cx, cy, r, 360 * i / n), polar(cx, cy, r + ln, 360 * i / n)
         ticks.append(f"M{x0:.1f},{y0:.1f}L{x1:.1f},{y1:.1f}")
-    return f'<path d="{"".join(ticks)}" stroke="{C["dim"]}" stroke-width="1" class="{cls}"/>'
+    return f'<path d="{"".join(ticks)}" stroke="{color or C["dim"]}" stroke-opacity="{.55 if color else 1}" stroke-width="1" class="{cls}"/>'
 
 
-def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "", label: str = "") -> str:
+def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "", label: str = "", accent: str = "") -> str:
     """Shared HUD panel: navy glass, faint grid, corner brackets, a slow scan line and a header rule."""
     stamp = NOW.astimezone(TIMEZONE).strftime("%d %b %Y").upper()
+    ac = accent or C["cyan"]
     b = 16  # corner bracket arm
     corners = "".join(
         f'<path d="M{x},{y + sy * b} L{x},{y} L{x + sx * b},{y}"/>'
@@ -271,15 +277,15 @@ def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "",
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C['bg0']}"/><stop offset="1" stop-color="{C['bg1']}"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
-  <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C['cyan']}" stop-opacity=".7"/><stop offset=".45" stop-color="{C['cyan']}" stop-opacity=".12"/><stop offset="1" stop-color="{C['cyan']}" stop-opacity="0"/></linearGradient>
-  <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{C['cyan']}" stop-opacity="0"/><stop offset="1" stop-color="{C['cyan']}" stop-opacity=".08"/></linearGradient>
+  <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{ac}" stop-opacity=".8"/><stop offset=".45" stop-color="{ac}" stop-opacity=".15"/><stop offset="1" stop-color="{ac}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{ac}" stop-opacity="0"/><stop offset="1" stop-color="{ac}" stop-opacity=".09"/></linearGradient>
   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   <clipPath id="card"><rect width="{w}" height="{h}" rx="16"/></clipPath>
 </defs>
 <style>
   text {{ font-family: {FONT}; }}
   .t {{ font: 600 13px {MONO}; letter-spacing: 2.6px; fill: {C['text']}; }}
-  .code {{ fill: {C['cyan']}; }}
+  .code {{ fill: {ac}; }}
   .stamp {{ font: 10.5px {MONO}; letter-spacing: 1.6px; fill: {C['muted']}; }}
   .lbl {{ font: 11px {MONO}; letter-spacing: 1.4px; fill: {C['muted']}; }}
   .val {{ font-size: 24px; font-weight: 700; fill: {C['text']}; font-variant-numeric: tabular-nums; }}
@@ -303,8 +309,8 @@ def frame(w: int, h: int, code: str, title: str, body: str, extra_css: str = "",
   <rect class="scan" x="0" y="0" width="{w}" height="80" fill="url(#scanline)"/>
 </g>
 <rect x=".5" y=".5" width="{w-1}" height="{h-1}" rx="15.5" fill="none" stroke="{C['line']}"/>
-<g fill="none" stroke="{C['cyan']}" stroke-opacity=".75" stroke-width="1.5">{corners}</g>
-<circle cx="31" cy="34" r="3.5" fill="{C['cyan']}" class="blink"/>
+<g fill="none" stroke="{ac}" stroke-opacity=".8" stroke-width="1.5">{corners}</g>
+<circle cx="31" cy="34" r="3.5" fill="{ac}" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">{esc(code)} //</tspan> {esc(title.upper())}</text>
 <text x="{w-28}" y="38.5" class="stamp" text-anchor="end">SYNC {stamp} · IST</text>
 <rect x="28" y="52" width="{w-56}" height="1" fill="url(#rule)"/>
@@ -331,22 +337,23 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
     out = []
     for i, (label, sub, value) in enumerate(gauges):
         cx, cy = 83 + i * 146.8, 148
+        col = NEON[i]
         goal = next_milestone(value)
         frac = min(1.0, value / goal) if goal else 0
         ex, ey = polar(cx, cy, R, 360 * frac)
         delay = 0.25 + i * 0.12
         out.append(f"""<g>
-  {tick_ring(cx, cy, R + 12, 60, 5, 3.5, "spin" if i % 2 == 0 else "spin-r")}
+  {tick_ring(cx, cy, R + 12, 60, 5, 3.5, "spin" if i % 2 == 0 else "spin-r", col)}
   <circle cx="{cx:.1f}" cy="{cy}" r="{R + 8}" fill="none" stroke="{C['line']}" stroke-dasharray="2 5"/>
   <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="none" stroke="{C['line']}" stroke-width="5"/>
-  <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="none" stroke="{C['cyan']}" stroke-width="5" stroke-linecap="round"
+  <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="{col}" fill-opacity=".05" stroke="{col}" stroke-width="5" stroke-linecap="round"
           stroke-dasharray="{circ:.1f}" style="stroke-dashoffset:{circ * (1 - frac):.1f}; animation-delay:{delay:.2f}s"
           transform="rotate(-90 {cx:.1f} {cy})" class="arc" filter="url(#glow)" opacity="{1 if frac else 0}"/>
-  <circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.2" fill="{C['text']}" class="tip" style="animation-delay:{delay + 1.3:.2f}s" opacity="{1 if frac else 0}"/>
+  <circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:{delay + 1.3:.2f}s" opacity="{1 if frac else 0}"/>
   <text x="{cx:.1f}" y="{cy + 8}" class="val" text-anchor="middle">{fmt(value)}</text>
   <text x="{cx:.1f}" y="{cy + 86}" class="lbl" text-anchor="middle" style="fill:{C['text']}">{label}</text>
   <text x="{cx:.1f}" y="{cy + 103}" class="small" text-anchor="middle">{sub}</text>
-  <text x="{cx:.1f}" y="{cy + 119}" class="small" text-anchor="middle" style="fill:{C['dim']}">next ▸ {fmt(goal)}</text>
+  <text x="{cx:.1f}" y="{cy + 119}" class="small" text-anchor="middle">next <tspan style="fill:{col}">▸</tspan> {fmt(goal)}</text>
 </g>""")
     since = dt.datetime.fromisoformat(user["createdAt"].replace("Z", "+00:00")).strftime("%b %Y").upper()
     strip = [
@@ -370,7 +377,7 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         " .tip { animation: fade .4s ease both; }"
     )
     return frame(W, H, "01", "System telemetry", "\n".join(out), css,
-                 "GitHub telemetry: " + ", ".join(f"{g[0].lower()} {g[2]}" for g in gauges))
+                 "GitHub telemetry: " + ", ".join(f"{g[0].lower()} {g[2]}" for g in gauges), NEON[0])
 
 
 def render_achievements() -> str:
@@ -380,24 +387,25 @@ def render_achievements() -> str:
     step = (W - 56) / n
     for i, (pre, rank, l1, l2, proj) in enumerate(ACHIEVEMENTS):
         cx, cy, r = 28 + step * (i + .5), 124, 50
+        col = [NEON[4], NEON[0], NEON[2], NEON[3], NEON[1]][i % 5]
         hexp = " ".join(f"{polar(cx, cy, r, a)[0]:.1f},{polar(cx, cy, r, a)[1]:.1f}" for a in range(0, 360, 60))
         hexo = " ".join(f"{polar(cx, cy, r + 9, a)[0]:.1f},{polar(cx, cy, r + 9, a)[1]:.1f}" for a in range(0, 360, 60))
         d = 0.2 + i * 0.15
         big = 30 if len(rank) <= 2 else 24
         out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
-  <circle cx="{cx:.1f}" cy="{cy}" r="{r + 20}" fill="none" stroke="{C['cyan']}" stroke-opacity=".35" stroke-dasharray="1 7" class="{'spin' if i % 2 else 'spin-r'}"/>
-  <polygon points="{hexo}" fill="none" stroke="{C['line']}"/>
-  <polygon points="{hexp}" fill="{C['cyan']}" fill-opacity=".07" stroke="{C['cyan']}" stroke-width="1.6" filter="url(#glow)"/>
+  <circle cx="{cx:.1f}" cy="{cy}" r="{r + 20}" fill="none" stroke="{col}" stroke-opacity=".45" stroke-dasharray="1 7" class="{'spin' if i % 2 else 'spin-r'}"/>
+  <polygon points="{hexo}" fill="none" stroke="{col}" stroke-opacity=".25"/>
+  <polygon points="{hexp}" fill="{col}" fill-opacity=".1" stroke="{col}" stroke-width="1.8" filter="url(#glow)"/>
   <text x="{cx:.1f}" y="{cy - 14}" class="small" text-anchor="middle" style="letter-spacing:2px">{pre}</text>
   <text x="{cx:.1f}" y="{cy + 18}" text-anchor="middle" style="font-size:{big}px;font-weight:750;fill:{C['text']}">{'#' if pre == 'RANK' else ''}{esc(rank)}</text>
   <text x="{cx:.1f}" y="{cy + 94}" class="note strong" text-anchor="middle">{esc(l1)}</text>
   <text x="{cx:.1f}" y="{cy + 111}" class="note" text-anchor="middle">{esc(l2)}</text>
-  <text x="{cx:.1f}" y="{cy + 129}" class="small" text-anchor="middle" style="fill:{C['cyan']}">{esc(proj.upper())}</text>
+  <text x="{cx:.1f}" y="{cy + 129}" class="small" text-anchor="middle" style="fill:{col}">{esc(proj.upper())}</text>
 </g>""")
     css = (".pop { animation: pop .8s cubic-bezier(.2,.8,.2,1.2) both; transform-box: fill-box; transform-origin: center; }"
            " @keyframes pop { from { opacity: 0; transform: scale(.85); } }")
     label = "Results: " + "; ".join(f"{p.lower()} {r}, {a} {b}" for p, r, a, b, _ in ACHIEVEMENTS)
-    return frame(W, H, "02", "Mission record", "\n".join(out), css, label)
+    return frame(W, H, "02", "Mission record", "\n".join(out), css, label, NEON[4])
 
 
 def render_skyline(days: list[tuple[dt.date, int]]) -> str:
@@ -472,7 +480,7 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
     side.append(f'<text x="{lx + 34 + 4 * 18 + 4}" y="{ly}" class="small">more</text>')
     side.append(f'<text x="{lx}" y="{ly + 22}" class="small" style="fill:{C["dim"]}">height = √ contributions</text>')
 
-    body = f"""<defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C['cyan']}" stop-opacity="0"/><stop offset="1" stop-color="{C['cyan']}" stop-opacity=".35"/></linearGradient></defs>
+    body = f"""<defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[2]}" stop-opacity="0"/><stop offset="1" stop-color="{NEON[2]}" stop-opacity=".4"/></linearGradient></defs>
 <g fill="{C['tile']}" stroke="{C['line']}" stroke-width=".6">{''.join(floor)}</g>
 <polygon points="{beam}" fill="url(#beam)" class="beam"/>
 {''.join(towers)}
@@ -483,7 +491,7 @@ def render_skyline(days: list[tuple[dt.date, int]]) -> str:
            " @keyframes rise { from { opacity: 0; transform: translateY(18px); } }"
            f" .beam {{ animation: beam 6s linear infinite; }} @keyframes beam {{ from {{ transform: translate(0,0); }} to {{ transform: translate({ex:.1f}px,{ey:.1f}px); }} }}")
     return frame(W, H, "03", "Contribution skyline · 12 months", body, css,
-                 f"Isometric contribution calendar: {total} contributions over {active} active days")
+                 f"Isometric contribution calendar: {total} contributions over {active} active days", NEON[2])
 
 
 def _smooth(pts: list[tuple[float, float]], floor: float | None = None) -> str:
@@ -535,8 +543,8 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
         px, py = pts[pi]
         anchor = "end" if px > gx1 - 170 else "start"
         dx = -12 if anchor == "end" else 12
-        g.append(f'<line x1="{px:.1f}" y1="{py:.1f}" x2="{px:.1f}" y2="{gy1}" stroke="{C["cyan"]}" stroke-opacity=".35" class="pop"/>')
-        g.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="9" fill="none" stroke="{C["cyan"]}" stroke-opacity=".5" class="ping"/>')
+        g.append(f'<line x1="{px:.1f}" y1="{py:.1f}" x2="{px:.1f}" y2="{gy1}" stroke="{NEON[2]}" stroke-opacity=".45" class="pop"/>')
+        g.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="9" fill="none" stroke="{NEON[2]}" stroke-opacity=".6" class="ping"/>')
         g.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.5" fill="{C["bg0"]}" stroke="{C["text"]}" stroke-width="2.5" class="pop"/>')
         g.append(f'<text x="{px+dx:.1f}" y="{py-6:.1f}" class="note pop" text-anchor="{anchor}"><tspan class="strong">{peak}</tspan> in week of {weeks[pi][0]:%d %b}</text>')
 
@@ -554,7 +562,8 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
         x = bx0 + i * (bw + gap)
         hot = n == mx and n
         bars.append(f'<rect x="{x}" y="{by1 - bh}" width="{bw}" height="{bh}" rx="4" fill="{C["panel"]}"/>')
-        bars.append(f'<rect x="{x}" y="{by1 - h:.1f}" width="{bw}" height="{h:.1f}" rx="4" fill="{C["cyan"] if hot else "#33466E"}" class="grow"/>')
+        wd_col = [NEON[0], NEON[6], NEON[3], NEON[4], NEON[7], NEON[5], NEON[2]][i]
+        bars.append(f'<rect x="{x}" y="{by1 - h:.1f}" width="{bw}" height="{h:.1f}" rx="4" fill="{wd_col}" fill-opacity="{1 if hot else .72}" class="grow"{GLOW if hot else ""}/>')
         if hot:
             bars.append(f'<text x="{x + bw/2}" y="{by1 - h - 8:.1f}" class="small" text-anchor="middle" style="fill:{C["text"]}">{fmt(n)}</text>')
         bars.append(f'<text x="{x + bw/2}" y="{by1+22}" class="small" text-anchor="middle">{names[i]}</text>')
@@ -575,8 +584,8 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
         " @keyframes grow { from { transform: scaleY(0); } }"
     )
     body = f"""<defs>
-  <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C['cyan']}" stop-opacity=".55"/><stop offset="1" stop-color="{C['cyan']}"/></linearGradient>
-  <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{C['cyan']}" stop-opacity=".28"/><stop offset="1" stop-color="{C['cyan']}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[0]}"/><stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient>
+  <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[1]}" stop-opacity=".35"/><stop offset="1" stop-color="{NEON[0]}" stop-opacity="0"/></linearGradient>
 </defs>
 <text x="{gx0}" y="72" class="lbl">WEEKLY CONTRIBUTIONS</text>
 <text x="{bx0}" y="72" class="lbl">BY WEEKDAY</text>
@@ -587,7 +596,7 @@ def render_activity(days: list[tuple[dt.date, int]]) -> str:
 {''.join(bars)}
 {''.join(notes)}"""
     return frame(W, H, "04", "Signal activity", body, css,
-                 f"Weekly contributions over 12 months, peak {peak}; most active on {best or 'no day yet'}")
+                 f"Weekly contributions over 12 months, peak {peak}; most active on {best or 'no day yet'}", NEON[1])
 
 
 def render_clock(hours: list[int]) -> str:
@@ -611,12 +620,13 @@ def render_clock(hours: list[int]) -> str:
     out.append(f'<g class="radar"><path d="{wedge}" fill="url(#sweep)"/>'
                f'<line x1="{cx}" y1="{cy}" x2="{polar(cx, cy, r1, 40)[0]:.1f}" y2="{polar(cx, cy, r1, 40)[1]:.1f}" stroke="{C["cyan"]}" stroke-opacity=".7"/></g>')
     peak_h = hours.index(mx) if total else -1
+    band_of = lambda h: BAND[("NIGHT", "MORNING", "AFTERNOON", "EVENING")[h // 6]]
     for h, n in enumerate(hours):
         if not n:
             continue
         rr = r0 + 4 + (r1 - r0 - 4) * math.sqrt(n / mx)
         hot = h == peak_h
-        out.append(f'<path d="{sector(cx, cy, r0 + 2, rr, h * 15 + 1.6, h * 15 + 13.4)}" fill="{C["cyan"] if hot else "#1E7FB8"}"'
+        out.append(f'<path d="{sector(cx, cy, r0 + 2, rr, h * 15 + 1.6, h * 15 + 13.4)}" fill="{band_of(h)}" fill-opacity="{1 if hot else .8}"'
                    f' class="bloom" style="animation-delay:{0.2 + h * 0.04:.2f}s"{GLOW if hot else ""}><title>{h:02d}:00–{h:02d}:59 · {n} commits</title></path>')
     out.append(f'<circle cx="{cx}" cy="{cy}" r="{r0 - 4}" fill="{C["bg0"]}" stroke="{C["line"]}"/>')
     out.append(f'<text x="{cx}" y="{cy + 2}" class="val" text-anchor="middle" style="font-size:20px">{fmt(total)}</text>')
@@ -632,10 +642,11 @@ def render_clock(hours: list[int]) -> str:
         y = 104 + i * 50
         pct = 100 * n / total if total else 0
         hot = n == bmx and n
-        out.append(f'<text x="{x0}" y="{y}" class="lbl" style="fill:{C["text"] if hot else C["muted"]}">{name} <tspan style="fill:{C["dim"]}">{span}</tspan></text>')
+        out.append(f'<rect x="{x0}" y="{y - 9}" width="9" height="9" rx="2" fill="{BAND[name]}"/>')
+        out.append(f'<text x="{x0 + 16}" y="{y}" class="lbl" style="fill:{C["text"] if hot else C["muted"]}">{name} <tspan style="fill:{C["dim"]}">{span}</tspan></text>')
         out.append(f'<text x="{W - 40}" y="{y}" class="small" text-anchor="end" style="fill:{C["text"]}">{pct:.0f}%  <tspan style="fill:{C["muted"]}">{n}</tspan></text>')
         out.append(f'<rect x="{x0}" y="{y + 10}" width="{W - 40 - x0}" height="8" rx="4" fill="{C["panel"]}" stroke="{C["line"]}" stroke-width=".6"/>')
-        out.append(f'<rect x="{x0}" y="{y + 10}" width="{max(4, (W - 40 - x0) * n / bmx):.1f}" height="8" rx="4" fill="{C["cyan"] if hot else "#33466E"}" class="grow" style="animation-delay:{.5 + i * .12:.2f}s"/>')
+        out.append(f'<rect x="{x0}" y="{y + 10}" width="{max(4, (W - 40 - x0) * n / bmx):.1f}" height="8" rx="4" fill="{BAND[name]}" fill-opacity="{1 if hot else .8}" class="grow" style="animation-delay:{.5 + i * .12:.2f}s"{GLOW if hot else ""}/>')
     if total:
         kind = {"NIGHT": "a night owl", "MORNING": "an early bird", "AFTERNOON": "an afternoon builder", "EVENING": "an evening coder"}[bands[counts.index(bmx)][0]]
         msg = f'Busiest hour <tspan class="strong">{peak_h:02d}:00 IST</tspan> · verdict: <tspan class="strong">{kind}</tspan>'
@@ -653,17 +664,17 @@ def render_clock(hours: list[int]) -> str:
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
            " @keyframes growx { from { transform: scaleX(0); } }")
     return frame(W, H, "05", "Commit clock", body, css,
-                 f"Commits by hour of day (IST): {total} commits, busiest hour {peak_h:02d}:00" if total else "Commit clock")
+                 f"Commits by hour of day (IST): {total} commits, busiest hour {peak_h:02d}:00" if total else "Commit clock", NEON[3])
 
 
 def render_languages(mix: list[tuple[str, str, float]]) -> str:
     W, H = 900, 320
     cx, cy, ro, ri = 196, 192, 94, 68
     out = [
-        f'<circle cx="{cx}" cy="{cy}" r="{ro + 24}" fill="none" stroke="{C["cyan"]}" stroke-opacity=".35" stroke-dasharray="1 6" class="spin"/>',
+        f'<circle cx="{cx}" cy="{cy}" r="{ro + 24}" fill="none" stroke="{NEON[5]}" stroke-opacity=".45" stroke-dasharray="1 6" class="spin"/>',
         tick_ring(cx, cy, ro + 8, 72, 6, 3, "spin-r"),
         f'<circle cx="{cx}" cy="{cy}" r="{(ro + ri) / 2}" fill="none" stroke="{C["panel"]}" stroke-width="{ro - ri}"/>',
-        f'<g class="orbit"><circle cx="{cx}" cy="{cy - ro - 24}" r="3" fill="{C["cyan"]}" filter="url(#glow)"/></g>',
+        f'<g class="orbit"><circle cx="{cx}" cy="{cy - ro - 24}" r="3.5" fill="{NEON[5]}" filter="url(#glow)"/></g>',
     ]
     a = 0.0
     gap = 1.6  # degrees ≈ 2-3px surface gap between segments
@@ -699,7 +710,7 @@ def render_languages(mix: list[tuple[str, str, float]]) -> str:
            " .grow { transform-box: fill-box; transform-origin: left; animation: growx 1.1s cubic-bezier(.2,.7,.2,1) both; }"
            " @keyframes growx { from { transform: scaleX(0); } }")
     return frame(W, H, "06", "Language matrix", body, css,
-                 "Languages: " + ", ".join(f"{n} {p:.1f}%" for n, _, p in mix))
+                 "Languages: " + ", ".join(f"{n} {p:.1f}%" for n, _, p in mix), NEON[5])
 
 
 def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
@@ -771,13 +782,13 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
     for name, col in list(colors.items()) + [("Other / none", OTHER)]:
         leg.append(f'<rect x="{lx}" y="{H - 34}" width="10" height="10" rx="2.5" fill="{col}"/><text x="{lx + 16}" y="{H - 25}" class="small">{esc(name)}</text>')
         lx += 16 + 7 * len(name) + 22
-    body = (f'<defs><linearGradient id="axis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{C["cyan"]}" stop-opacity=".1"/>'
-            f'<stop offset="1" stop-color="{C["cyan"]}"/></linearGradient></defs>' + "\n".join(out) + "".join(leg))
+    body = (f'<defs><linearGradient id="axis" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[6]}" stop-opacity=".15"/>'
+            f'<stop offset=".5" stop-color="{NEON[1]}"/><stop offset="1" stop-color="{NEON[2]}"/></linearGradient></defs>' + "\n".join(out) + "".join(leg))
     css = (f".repo {{ font: 12px {MONO}; fill: {C['text']}; }} .pop {{ animation: fade .6s ease both; }}"
            " .ping { transform-box: fill-box; transform-origin: center; animation: ping 2.2s ease-out infinite; }"
            " @keyframes ping { from { transform: scale(.5); opacity: .9; } to { transform: scale(2.2); opacity: 0; } }")
     return frame(W, H, "07", "Mission log · repository launches", body, css,
-                 "Timeline of repository creation: " + ", ".join(f"{r['name']} {t:%b %Y}" for r, t in zip(items, ts)))
+                 "Timeline of repository creation: " + ", ".join(f"{r['name']} {t:%b %Y}" for r, t in zip(items, ts)), NEON[6])
 
 
 # ═══════════════════════════════ README blocks ═══════════════════════════════
