@@ -1122,8 +1122,6 @@ def render_feed(items: list[dict]) -> str:
             head, detail = "", it["title"]
         detail = detail if len(detail) <= 84 else detail[:83] + "…"
         when = ago(it["ts"]).replace(" ago", "")
-        defs.append(f'<clipPath id="ty{i}"><rect x="{tx - 4}" y="{y - 18}" height="44" width="0">'
-                    f'<animate attributeName="width" from="0" to="{W - tx}" begin="{d:.2f}s" dur=".9s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".3 0 .2 1"/></rect></clipPath>')
         out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
   <text x="{sx - 26}" y="{y + 4}" class="small" text-anchor="end">{esc(when)}</text>
   <circle cx="{sx}" cy="{y}" r="12" fill="{C['bg0']}" stroke="{col}" stroke-width="1.8"{GLOW}/>
@@ -1131,7 +1129,7 @@ def render_feed(items: list[dict]) -> str:
 </g>""")
         if i == 0:
             out.append(f'<circle cx="{sx}" cy="{y}" r="12" fill="none" stroke="{col}" class="ping"/>')
-        out.append(f"""<g clip-path="url(#ty{i})">
+        out.append(f"""<g class="type" style="animation-delay:{d:.2f}s">
   <text x="{tx}" y="{y - 1}"><tspan class="tg" style="fill:{col}">{tag}</tspan><tspan dx="10" class="rp">{esc(name)}</tspan>{f'<tspan dx="10" class="small" style="fill:{C["soft"]}">{esc(head)}</tspan>' if head else ''}{'<tspan dx="12" class="live" style="fill:' + col + '">● LATEST</tspan>' if i == 0 else ''}</text>
   <text x="{tx}" y="{y + 17}" class="dt">{esc(detail)}</text>
 </g>""")
@@ -1151,7 +1149,9 @@ def render_feed(items: list[dict]) -> str:
            " @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }"
            " .flow { stroke-dasharray: 40 400; animation: flow 3.2s linear infinite; }"
            " @keyframes flow { from { stroke-dashoffset: 40; } to { stroke-dashoffset: -400; } }"
-           " .cur { animation: blink 1.1s steps(2, start) infinite; }")
+           " .cur { animation: blink 1.1s steps(2, start) infinite; }"
+           " .type { animation: type 1s cubic-bezier(.3,0,.2,1) both; }"
+           " @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }")
     body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
     return frame(W, H, "09", "Signal log · recent activity", body, css,
                  "Recent activity: " + "; ".join(f"{it['kind']} {it['repo']}" for it in items), NEON[2])
