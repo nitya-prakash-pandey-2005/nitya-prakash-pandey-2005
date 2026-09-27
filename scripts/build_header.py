@@ -221,8 +221,10 @@ def identity() -> tuple[str, str]:
     bars = [(64, 64, MED), (132, 38, RESEARCH), (174, 52, GENAI), (230, 30, AGRI), (264, 44, SPACE), (312, 22, "#FB7185")]
     chips, x = [], 64
     for name, col, w in CHIPS:
+        k = len(chips)
         chips.append(f'<g transform="translate({x},292)"><rect width="{w}" height="30" rx="15" fill="{col}" fill-opacity=".10" stroke="{col}" stroke-opacity=".55"/>'
-                     f'<rect x="12" y="11" width="8" height="8" rx="2" fill="{col}"/><text x="27" y="20" class="chip">{esc(name)}</text></g>')
+                     f'<rect width="{w}" height="30" rx="15" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="2" class="fire" style="animation-delay:{1.5 + k * .45:.2f}s" filter="url(#glow)"/>'
+                     f'<rect x="12" y="11" width="8" height="8" rx="2" fill="{col}" class="dot" style="animation-delay:{k * .3:.1f}s"/><text x="27" y="20" class="chip">{esc(name)}</text></g>')
         x += w + 10
     n, x0, cw = len(PHRASES), 88, 8.2
     dur = 4.2 * n
@@ -241,8 +243,11 @@ def identity() -> tuple[str, str]:
     <circle cx="68" cy="82" r="4" fill="{AGRI}" class="blink"/>
     <text x="84" y="86.5" class="mono status">VISION · ML ENGINEER <tspan fill="#4A5A7E">//</tspan> IIT MADRAS <tspan fill="#4A5A7E">//</tspan> STATUS <tspan fill="{AGRI}">ONLINE</tspan></text>
   </g>
+  <text x="62" y="152" class="name g1" style="fill:{MED}">Nitya Prakash Pandey</text>
+  <text x="62" y="152" class="name g2" style="fill:{GENAI}">Nitya Prakash Pandey</text>
   <text x="62" y="152" class="name">Nitya Prakash Pandey</text>
-  {''.join(f'<rect x="{x}" y="176" width="{w}" height="4" rx="2" fill="{c}"/>' for x, w, c in bars)}
+  <g clip-path="url(#namec)"><rect x="-40" y="96" width="70" height="70" fill="url(#glint)" class="nshine" transform="skewX(-20)"/></g>
+  {''.join(f'<rect x="{x}" y="176" width="{w}" height="4" rx="2" fill="{c}" class="wave" style="animation-delay:{k * .18:.2f}s"/>' for k, (x, w, c) in enumerate(bars))}
   <text x="64" y="224" class="lead">I build vision models for brains, crops and lunar terrain.</text>
   <text x="64" y="256" class="sub">BS Data Science at IIT Madras. Research intern in medical image segmentation.</text>
   {''.join(chips)}
@@ -265,6 +270,16 @@ def build(repos: list[str] | None = None) -> str:
     vis = lambda c, t, k: f".{c} {{ animation: {k} {t}s linear infinite both; }}"
     brackets = "".join(f'<path d="M{x},{y + sy * 16} L{x},{y} L{x + sx * 16},{y}"/>'
                        for x, y, sx, sy in ((712, 22, 1, 1), (1178, 22, -1, 1), (712, 358, 1, -1), (1178, 358, -1, -1)))
+    stars = "".join(
+        f'<circle cx="{(k * 127.9) % (W - 20) + 10:.1f}" cy="{(k * 61.3) % (H - 20) + 10:.1f}" r="{.6 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .47) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(70))
+    # glowing data streams from the identity column into the brain
+    streams = [("M690,307 C760,300 770,240 822,222", MED, 0), ("M676,150 C730,146 760,150 812,168", GENAI, 1.3),
+               ("M612,82 C700,70 760,86 850,98", AGRI, 2.6)]
+    stream_svg = "".join(
+        f'<path d="{d}" fill="none" stroke="{c}" stroke-opacity=".16" stroke-width="1.2"/>'
+        f'<path d="{d}" fill="none" stroke="{c}" stroke-width="2.4" stroke-linecap="round" pathLength="100" class="stream" style="animation-delay:{dl}s" filter="url(#glow)"/>'
+        for d, c, dl in streams)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
 <title id="t">Nitya Prakash Pandey</title>
 <desc id="d">I build vision models for brains, crops and lunar terrain. BS Data Science at IIT Madras. A rotating 3D brain with {n_proj} projects in orbit.</desc>
@@ -276,6 +291,9 @@ def build(repos: list[str] | None = None) -> str:
   <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   <clipPath id="card"><rect width="{W}" height="{H}" rx="18"/></clipPath>
   <clipPath id="scanclip"><ellipse cx="{CX}" cy="{CY + 10}" rx="150" ry="130"/></clipPath>
+  <clipPath id="namec"><text x="62" y="152" class="name">Nitya Prakash Pandey</text></clipPath>
+  <linearGradient id="glint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".85"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+  <linearGradient id="runner" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{MED}"/><stop offset=".5" stop-color="{RESEARCH}"/><stop offset="1" stop-color="{GENAI}"/></linearGradient>
   {clips}
 </defs>
 <style>
@@ -312,13 +330,27 @@ def build(repos: list[str] | None = None) -> str:
   .spin {{ transform-origin: {CX}px {CY + 6}px; animation: spin 60s linear infinite; }}
   @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
   .boot {{ animation: boot 1s ease-out; }}
+  .star {{ opacity: .12; animation: star 4s ease-in-out infinite; }} @keyframes star {{ 50% {{ opacity: .75; }} }}
+  .nshine {{ animation: nshine 6s ease-in-out 1s infinite; }}
+  @keyframes nshine {{ 0% {{ transform: skewX(-20deg) translateX(0); }} 35%, 100% {{ transform: skewX(-20deg) translateX(760px); }} }}
+  .g1, .g2 {{ opacity: 0; animation: gl 7s steps(1, end) 3s infinite; }} .g2 {{ animation-name: gl2; }}
+  @keyframes gl {{ 0%, 94%, 100% {{ opacity: 0; transform: none; }} 95% {{ opacity: .7; transform: translate(-4px, 1px); }} 96.5% {{ opacity: .5; transform: translate(3px, -1px); }} }}
+  @keyframes gl2 {{ 0%, 94%, 100% {{ opacity: 0; transform: none; }} 95% {{ opacity: .7; transform: translate(4px, -1px); }} 96.5% {{ opacity: .5; transform: translate(-3px, 1px); }} }}
+  .wave {{ animation: wave 2.4s ease-in-out infinite; }} @keyframes wave {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: .3; }} }}
+  .fire {{ opacity: 0; animation: fire 4.5s ease-out infinite; }} @keyframes fire {{ 0%, 18%, 100% {{ opacity: 0; }} 6% {{ opacity: 1; }} }}
+  .dot {{ animation: blink 1.6s ease-in-out infinite; }}
+  .stream {{ stroke-dasharray: 14 86; animation: stream 3.9s linear infinite; }} @keyframes stream {{ from {{ stroke-dashoffset: 100; }} to {{ stroke-dashoffset: 0; }} }}
+  .run {{ stroke-dasharray: 7 43; animation: run 9s linear infinite; }} @keyframes run {{ from {{ stroke-dashoffset: 50; }} to {{ stroke-dashoffset: 0; }} }}
+  .hud {{ animation: hudf 8s steps(1, end) infinite; }} @keyframes hudf {{ 0%, 96%, 100% {{ opacity: 1; }} 97% {{ opacity: .2; }} 98% {{ opacity: .8; }} 99% {{ opacity: .3; }} }}
   @keyframes boot {{ from {{ opacity: 0; }} }}
   @media (prefers-reduced-motion: reduce) {{ * {{ animation-play-state: paused !important; }} }}
 </style>
 <g clip-path="url(#card)">
   <rect width="{W}" height="{H}" fill="url(#bg)"/>
   <rect width="{W}" height="{H}" fill="url(#grid)"/>
+  <g>{stars}</g>
   <circle cx="{CX}" cy="{CY}" r="210" fill="url(#core)" class="pulse"/>
+  {stream_svg}
 
   <!-- HUD frame -->
   <g fill="none" stroke="#8A97B4" stroke-opacity=".55" stroke-width="1.2">{brackets}</g>
@@ -347,6 +379,8 @@ def build(repos: list[str] | None = None) -> str:
   <!-- identity -->
   {left}
 </g>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="17" fill="none" stroke="url(#runner)" stroke-width="2" pathLength="100" class="run" filter="url(#glow)"/>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="17" fill="none" stroke="#FFFFFF" stroke-width="1.4" pathLength="100" class="run" style="animation-delay:-4.5s"/>
 </svg>
 """
 
