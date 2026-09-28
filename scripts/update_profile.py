@@ -567,7 +567,9 @@ def render_about() -> str:
     """Operator dossier: holographic ID emblem with typed ID fields, bio lines fading in, active
     missions with live status bars, and a ticker of other builds."""
     W, H = 900, 452
-    out, defs = [], []
+    out, defs = ["<g>" + "".join(
+        f'<circle cx="{(k * 113.9) % (W - 40) + 20:.1f}" cy="{58 + (k * 51.1) % (H - 76):.1f}" r="{.6 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .61) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(46)) + "</g>"], []
     # ── left: emblem ──
     ex, ey = 168, 152
     hexp = lambda r: " ".join(f"{polar(ex, ey, r, a)[0]:.1f},{polar(ex, ey, r, a)[1]:.1f}" for a in range(0, 360, 60))
@@ -581,9 +583,15 @@ def render_about() -> str:
     out.append(f'<circle cx="{ex}" cy="{ey}" r="86" fill="none" stroke="url(#holo)" stroke-width="1.2" stroke-dasharray="2 8" class="spin"/>')
     out.append(f'<circle cx="{ex}" cy="{ey}" r="76" fill="none" stroke="{NEON[1]}" stroke-opacity=".5" stroke-dasharray="30 14 4 14" class="spin-r"/>')
     out.append(tick_ring(ex, ey, 66, 48, 4, 3, "spin", NEON[0]))
+    for k, (rot, col) in enumerate(((-28, NEON[0]), (34, NEON[2]))):  # gyroscope rings flipping in 3D
+        out.append(f'<g transform="rotate({rot} {ex} {ey})"><ellipse cx="{ex}" cy="{ey}" rx="94" ry="26" fill="none" stroke="{col}"'
+                   f' stroke-opacity=".55" stroke-width="1.3" class="gyro" style="animation-delay:-{k * 2.5:.1f}s;animation-duration:{5 + k * 1.5:.1f}s"/></g>')
     out.append(f'<polygon points="{hexp(58)}" fill="{C["bg0"]}" stroke="url(#holo)" stroke-width="2.4"{GLOW}/>')
     out.append(f'<g clip-path="url(#hexclip)"><rect x="{ex - 60}" y="{ey - 100}" width="120" height="40" fill="url(#hscan)" class="hsweep"/>'
                f'<polygon points="{hexp(44)}" fill="none" stroke="{NEON[0]}" stroke-opacity=".25"/></g>')
+    out.append(f'<polygon points="{hexp(58)}" fill="none" stroke="#FFFFFF" stroke-width="2" pathLength="100" class="hrun"{GLOW}/>')
+    out.append(f'<text x="{ex}" y="{ey + 11}" text-anchor="middle" class="ini g1" style="fill:{NEON[0]}">NPP</text>'
+               f'<text x="{ex}" y="{ey + 11}" text-anchor="middle" class="ini g2" style="fill:{NEON[2]}">NPP</text>')
     out.append(f'<text x="{ex}" y="{ey + 11}" text-anchor="middle" class="ini">NPP</text>')
     for k, (col, dur) in enumerate(((NEON[2], 7), (NEON[4], 11), (NEON[3], 15))):
         out.append(f'<g class="orb" style="animation-duration:{dur}s;animation-delay:-{k * 2.3:.1f}s">'
@@ -595,7 +603,9 @@ def render_about() -> str:
         out.append(f'<g class="type" style="animation-delay:{.5 + k * .25:.2f}s"><text x="40" y="{y}" class="fk">{key}</text>'
                    f'<text x="100" y="{y}" class="fv">{esc(val)}</text></g>')
         out.append(f'<line x1="40" y1="{y + 8}" x2="318" y2="{y + 8}" stroke="{C["line"]}"/>')
+        out.append(f'<text x="318" y="{y}" text-anchor="end" class="ok" style="animation-delay:{1.5 + k * .25:.2f}s">✓</text>')
     out.append(f'<line x1="344" y1="72" x2="344" y2="{H - 70}" stroke="{C["line"]}"/>')
+    out.append(f'<line x1="344" y1="72" x2="344" y2="{H - 70}" stroke="url(#holo)" stroke-width="2" class="vflow"{GLOW}/>')
     # ── right: bio + missions ──
     rx = 368
     bio = ("BS Data Science student at IIT Madras who likes taking ML from a notebook to a working system. "
@@ -611,6 +621,10 @@ def render_about() -> str:
         ("Chandrayaan-2 lunar image registration", "Smart India Hackathon 2026", NEON[4]),
         ("Kaggle & hackathons", "Agriculture · health · climate", NEON[3]),
     ]
+    out.append(f'<rect x="{rx - 8}" y="90" width="{W - 30 - rx + 8}" height="20" rx="4" fill="url(#readb)" class="read"/>')
+    out.append(f'<rect x="{rx - 8}" y="{242 - 18}" width="{W - 30 - rx + 8}" height="38" rx="6" fill="url(#readb)" class="mscan"/>')
+    defs.append(f'<linearGradient id="readb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NEON[1]}" stop-opacity=".22"/>'
+                f'<stop offset=".7" stop-color="{NEON[0]}" stop-opacity=".07"/><stop offset="1" stop-color="{NEON[0]}" stop-opacity="0"/></linearGradient>')
     out.append(f'<text x="{rx}" y="214" class="lbl">ACTIVE MISSIONS · {len(missions)}</text>')
     bx0, bx1 = 712, W - 30
     defs.append('<pattern id="stripes" width="14" height="8" patternUnits="userSpaceOnUse" patternTransform="skewX(-40)">'
@@ -661,6 +675,23 @@ def render_about() -> str:
            " @keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.8); opacity: 0; } }"
            " .stripe { animation: stripe 1s linear infinite; } @keyframes stripe { to { transform: translateX(14px); } }"
            f" .marq {{ animation: marq {loop / 45:.1f}s linear infinite; }} @keyframes marq {{ to {{ transform: translateX(-{loop:.1f}px); }} }}")
+    css += (" .star { opacity: .12; animation: star 4s ease-in-out infinite; } @keyframes star { 50% { opacity: .75; } }"
+            " .gyro { transform-box: fill-box; transform-origin: center; animation: gyro 5s cubic-bezier(.37,0,.63,1) infinite alternate; }"
+            " @keyframes gyro { from { transform: scaleY(1); } to { transform: scaleY(-1); } }"
+            " .hrun { stroke-dasharray: 12 88; animation: hrun 4s linear infinite; } @keyframes hrun { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }"
+            " .g1, .g2 { opacity: 0; animation: gl 6s steps(1, end) 2.5s infinite; } .g2 { animation-name: gl2; }"
+            " @keyframes gl { 0%, 93%, 100% { opacity: 0; transform: none; } 94% { opacity: .8; transform: translate(-3px, 1px); } 96% { opacity: .5; transform: translate(2px, -1px); } }"
+            " @keyframes gl2 { 0%, 93%, 100% { opacity: 0; transform: none; } 94% { opacity: .8; transform: translate(3px, -1px); } 96% { opacity: .5; transform: translate(-2px, 1px); } }"
+            f" .ok {{ font: 700 13px {MONO}; fill: {NEON[3]}; animation: okp .5s cubic-bezier(.2,.9,.3,1.4) both; transform-box: fill-box; transform-origin: center; }}"
+            " @keyframes okp { from { opacity: 0; transform: scale(2.2); } }"
+            " .vflow { stroke-dasharray: 36 400; animation: vflow 3.4s linear infinite; } @keyframes vflow { from { stroke-dashoffset: 36; } to { stroke-dashoffset: -400; } }"
+            " .read { opacity: 0; animation: read 6s ease-in-out 2.2s infinite; }"
+            " @keyframes read { 0% { opacity: 0; transform: translateY(0); } 8% { opacity: 1; } 80% { opacity: 1; transform: translateY(76px); } 100% { opacity: 0; transform: translateY(76px); } }"
+            f" .mscan {{ opacity: 0; animation: mscan {len(missions) * 1.3:.1f}s steps({len(missions)}, end) 3s infinite; }}"
+            f" @keyframes mscan {{ from {{ opacity: 1; transform: translateY(0); }} to {{ opacity: 1; transform: translateY({len(missions) * 40}px); }} }}"
+            " .arun { stroke-dasharray: 8 42; animation: arun 9s linear infinite; } @keyframes arun { from { stroke-dashoffset: 50; } to { stroke-dashoffset: 0; } }")
+    out.append(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="url(#holo)" stroke-width="2" pathLength="100" class="arun"{GLOW}/>'
+               f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="#FFFFFF" stroke-width="1.3" pathLength="100" class="arun" style="animation-delay:-4.5s"/>')
     body = "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out)
     label = ("Operator profile: Nitya Prakash Pandey, BS Data Science at IIT Madras, vision and ML engineer. "
              + bio + " Active missions: " + "; ".join(f"{t} ({c})" for t, c, _ in missions) + ". Also built: " + "; ".join(built))
