@@ -477,6 +477,9 @@ def render_achievements() -> str:
                 + "".join(f'<stop offset="{k / max(1, n - 1):.2f}" stop-color="{cols[k % len(cols)]}"/>' for k in range(n)) + "</linearGradient>")
     defs.append('<linearGradient id="glint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>'
                 '<stop offset=".5" stop-color="#FFFFFF" stop-opacity=".35"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>')
+    out.append("<g>" + "".join(
+        f'<circle cx="{(k * 119.3) % (W - 40) + 20:.1f}" cy="{58 + (k * 43.7) % (H - 76):.1f}" r="{.6 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .57) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(40)) + "</g>")
     out.append(f'<line x1="{xs[0]:.1f}" y1="{cy}" x2="{xs[-1]:.1f}" y2="{cy}" stroke="{C["line"]}" stroke-width="2"/>')
     out.append(f'<line x1="{xs[0]:.1f}" y1="{cy}" x2="{xs[-1]:.1f}" y2="{cy}" stroke="url(#link)" stroke-width="2.4" class="link"{GLOW}/>')
     digits = "0123456789"
@@ -496,7 +499,24 @@ def render_achievements() -> str:
         sparks = "".join(
             f'<circle cx="{cx + dx:.1f}" cy="{cy - r + 6}" r="{1.6 + (k % 3) * .5:.1f}" fill="{col}" class="spark" style="animation-delay:{d + 1.2 + k * .55:.2f}s"/>'
             for k, dx in enumerate((-22, -8, 6, 18, 28, -30)))
-        out.append(f"""<g class="pop" style="animation-delay:{d:.2f}s">
+        rays = "".join(f'<path d="{sector(cx, cy, r + 8, r + 40, a0, a0 + 7)}" fill="{col}"/>' for a0 in range(0, 360, 30))
+        confetti = ""
+        for k in range(10):
+            ang = math.radians(k * 36 + i * 11)
+            dist = 70 + (k * 13 + i * 7) % 26
+            ccol = NEON[(k + i) % len(NEON)]
+            confetti += (f'<rect x="{cx - 2.5:.1f}" y="{cy - 1.2:.1f}" width="5" height="2.4" rx="1" fill="{ccol}" class="conf"'
+                         f' style="--dx:{dist * math.sin(ang):.0f}px;--dy:{-dist * math.cos(ang):.0f}px;animation-delay:{d + 1.9 + k * .03:.2f}s"/>')
+        ped_y = cy + r + 16
+        defs.append(f'<linearGradient id="beam{i}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{col}" stop-opacity=".45"/>'
+                    f'<stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient>')
+        out.append(f"""<g class="rays" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{26 + i * 3}s">{rays}</g>
+<g class="holo" style="animation-delay:{d + 1:.2f}s">
+  <polygon points="{cx - 38:.1f},{ped_y} {cx + 38:.1f},{ped_y} {cx + 20:.1f},{cy} {cx - 20:.1f},{cy}" fill="url(#beam{i})" class="flick" style="animation-delay:{i * .7:.1f}s"/>
+  <ellipse cx="{cx:.1f}" cy="{ped_y}" rx="40" ry="7" fill="{col}" fill-opacity=".12" stroke="{col}" stroke-width="1.4"{GLOW}/>
+  <ellipse cx="{cx:.1f}" cy="{ped_y}" rx="40" ry="7" fill="none" stroke="{col}" class="pedping" style="animation-delay:{d + 1.4 + i * .3:.2f}s"/>
+</g>
+<g class="pop" style="animation-delay:{d:.2f}s">
   <circle cx="{cx:.1f}" cy="{cy}" r="{r + 22}" fill="none" stroke="{col}" stroke-opacity=".45" stroke-dasharray="1 7" class="{'spin' if i % 2 else 'spin-r'}"/>
   <g class="orb" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{8 + i * 1.5:.1f}s"><circle cx="{cx:.1f}" cy="{cy - r - 22}" r="3" fill="{col}"{GLOW}/></g>
   <polygon points="{hexo}" fill="none" stroke="{col}" stroke-opacity=".25"/>
@@ -507,6 +527,7 @@ def render_achievements() -> str:
   <text x="{cx:.1f}" y="{cy - 16}" class="small" text-anchor="middle" style="letter-spacing:2px;fill:{col}">{pre}</text>
   <g clip-path="url(#slot{i})"><g class="reel" style="--h:{36 * (len(reel) - 1)}px;animation-delay:{d + .3:.2f}s">{reel_txt}</g></g>
   {sparks}
+  {confetti}
 </g>
 <g class="rise" style="animation-delay:{d + .5:.2f}s">
   <text x="{cx:.1f}" y="{cy + 98}" class="note strong" text-anchor="middle">{esc(l1)}</text>
@@ -525,7 +546,19 @@ def render_achievements() -> str:
            " @keyframes spark { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-46px); } }"
            " .orb { animation: spin 8s linear infinite; }"
            " .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; } @keyframes rise { from { opacity: 0; transform: translateY(8px); } }"
-           " .link { stroke-dasharray: 60 900; animation: link 3.5s linear infinite; } @keyframes link { from { stroke-dashoffset: 60; } to { stroke-dashoffset: -900; } }")
+           " .link { stroke-dasharray: 60 900; animation: link 3.5s linear infinite; } @keyframes link { from { stroke-dashoffset: 60; } to { stroke-dashoffset: -900; } }"
+           " .star { opacity: .12; animation: star 4s ease-in-out infinite; } @keyframes star { 50% { opacity: .75; } }"
+           " .rays { opacity: .09; animation: spin 30s linear infinite; }"
+           " .holo { animation: fade .8s ease both; }"
+           " .flick { animation: flick 3s ease-in-out infinite; } @keyframes flick { 0%, 100% { opacity: .8; } 45% { opacity: .35; } 50% { opacity: .9; } 55% { opacity: .5; } }"
+           " .pedping { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pedping 2.8s ease-out infinite; }"
+           " @keyframes pedping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.6); opacity: 0; } }"
+           " .conf { transform-box: fill-box; transform-origin: center; opacity: 0; animation: conf 6s cubic-bezier(.1,.7,.3,1) infinite; }"
+           " @keyframes conf { 0% { opacity: 0; transform: translate(0, 0) rotate(0); } 2% { opacity: 1; }"
+           " 28% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(220deg); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(220deg); } }"
+           " .runa { stroke-dasharray: 8 42; animation: runa 8s linear infinite; } @keyframes runa { from { stroke-dashoffset: 50; } to { stroke-dashoffset: 0; } }")
+    out.append(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="url(#link)" stroke-width="2" pathLength="100" class="runa"{GLOW}/>'
+               f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="#FFFFFF" stroke-width="1.3" pathLength="100" class="runa" style="animation-delay:-4s"/>')
     label = "Results: " + "; ".join(f"{p.lower()} {r}, {a} {b}" for p, r, a, b, _ in ACHIEVEMENTS)
     return frame(W, H, "02", "Mission record", "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out), css, label, NEON[4])
 
