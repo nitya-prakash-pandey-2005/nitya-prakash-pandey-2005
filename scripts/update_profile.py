@@ -1286,6 +1286,154 @@ def render_timeline(repos: list[dict], colors: dict[str, str]) -> str:
                  "Timeline of repository creation: " + ", ".join(f"{r['name']} {t:%b %Y}" for r, t in zip(items, ts)), NEON[6])
 
 
+# ═══════════════════════════ comms buttons, quote, footer ═══════════════════════════
+SOCIALS = [  # (label, simple-icons slug, url, subtitle)
+    ("LinkedIn", "linkedin", "https://www.linkedin.com/in/nitya-prakash-pandey/", "connect · network ↗"),
+    ("Kaggle", "kaggle", "https://www.kaggle.com/nityaprakashpandey", "notebooks · competitions ↗"),
+    ("Email", "gmail", "mailto:nityaprakashpandey389@gmail.com", "open a channel ↗"),
+    ("GitHub", "github", "https://github.com/nitya-prakash-pandey-2005", "{followers} followers · follow ↗"),
+]
+QUOTES = [
+    ("We can only see a short distance ahead, but we can see plenty there that needs to be done.", "Alan Turing"),
+    ("The best way to predict the future is to invent it.", "Alan Kay"),
+    ("Any sufficiently advanced technology is indistinguishable from magic.", "Arthur C. Clarke"),
+    ("Talk is cheap. Show me the code.", "Linus Torvalds"),
+    ("Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"),
+    ("Premature optimization is the root of all evil.", "Donald Knuth"),
+    ("All models are wrong, but some are useful.", "George E. P. Box"),
+    ("AI is the new electricity.", "Andrew Ng"),
+    ("Programs must be written for people to read, and only incidentally for machines to execute.", "Harold Abelson"),
+    ("Make it work, make it right, make it fast.", "Kent Beck"),
+    ("The only way to go fast, is to go well.", "Robert C. Martin"),
+    ("Imagination is more important than knowledge.", "Albert Einstein"),
+    ("The science of today is the technology of tomorrow.", "Edward Teller"),
+    ("Software is eating the world.", "Marc Andreessen"),
+    ("The goal is to turn data into information, and information into insight.", "Carly Fiorina"),
+    ("Earth is the cradle of humanity, but one cannot live in the cradle forever.", "Konstantin Tsiolkovsky"),
+    ("Machine intelligence is the last invention that humanity will ever need to make.", "Nick Bostrom"),
+    ("Code is like humor. When you have to explain it, it's bad.", "Cory House"),
+]
+
+
+def render_comms(label: str, slug: str, sub: str, col: str, k: int) -> str:
+    """Holographic contact button: logo in a spinning ring, border runner, glint and glitch."""
+    icons = json.loads((ROOT / "scripts" / "toolkit_icons.json").read_text(encoding="utf-8"))
+    W, H = 216, 64
+    path = icons.get(slug, "")
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(label)}: {esc(sub)}">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C['bg0']}"/><stop offset="1" stop-color="{mix_hex(C['bg1'], col, .14)}"/></linearGradient>
+  <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".22"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="c"><rect width="{W}" height="{H}" rx="14"/></clipPath>
+</defs>
+<style>
+  .lb {{ font: 700 13px {MONO}; letter-spacing: 2.4px; fill: {C['text']}; }}
+  .sb {{ font: 10.5px {MONO}; fill: {C['muted']}; }}
+  .run {{ stroke-dasharray: 16 84; animation: run 4.5s linear infinite; }} @keyframes run {{ from {{ stroke-dashoffset: 100; }} to {{ stroke-dashoffset: 0; }} }}
+  .sp {{ transform-box: fill-box; transform-origin: center; animation: sp 8s linear infinite; }} @keyframes sp {{ to {{ transform: rotate(360deg); }} }}
+  .gl {{ animation: gls 4s ease-in-out {k * .6:.1f}s infinite; }} @keyframes gls {{ 0% {{ transform: translateX(-80px) skewX(-20deg); }} 40%, 100% {{ transform: translateX({W + 40}px) skewX(-20deg); }} }}
+  .pl {{ animation: pl 2.4s ease-in-out infinite; }} @keyframes pl {{ 50% {{ opacity: .55; }} }}
+  .gt {{ animation: gt 7s steps(1, end) {1.5 + k:.1f}s infinite; }} @keyframes gt {{ 0%, 95%, 100% {{ opacity: 1; transform: none; }} 96% {{ opacity: .3; transform: translateX(2px); }} 97% {{ opacity: 1; transform: translateX(-2px); }} }}
+  @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} .gl {{ display: none; }} }}
+</style>
+<g clip-path="url(#c)">
+  <rect width="{W}" height="{H}" fill="url(#bg)"/>
+  <rect x="0" y="0" width="50" height="{H}" fill="url(#gl)" class="gl"/>
+</g>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="13" fill="none" stroke="{col}" stroke-opacity=".45"/>
+<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="13" fill="none" stroke="{col}" stroke-width="2" pathLength="100" class="run" filter="url(#glow)"/>
+<circle cx="32" cy="32" r="19" fill="none" stroke="{col}" stroke-opacity=".6" stroke-dasharray="3 4" class="sp"/>
+<circle cx="32" cy="32" r="14" fill="{col}" fill-opacity=".14" class="pl"/>
+<g transform="translate(23,23) scale(.75)"><path d="{path}" fill="{col}" filter="url(#glow)"/></g>
+<text x="62" y="29" class="lb gt">{esc(label.upper())}</text>
+<text x="62" y="46" class="sb">{esc(sub)}</text>
+</svg>
+"""
+
+
+def render_quote() -> str:
+    """Quote of the day in a CRT terminal: rotates daily, types itself in, scanlines and flicker."""
+    W, H = 900, 204
+    day = NOW.astimezone(TIMEZONE).date()
+    text, who = QUOTES[day.toordinal() % len(QUOTES)]
+    lines = _wrap(f"“{text}”", 70, 2)
+    out = []
+    out.append(f'<rect x="28" y="66" width="{W - 56}" height="{H - 88}" rx="10" fill="{C["bg0"]}" stroke="{C["line"]}"/>')
+    out.append(f'<rect x="28" y="66" width="{W - 56}" height="22" rx="10" fill="{C["panel"]}"/>'
+               f'<rect x="28" y="78" width="{W - 56}" height="10" fill="{C["panel"]}"/>')
+    for k, c in enumerate(("#FB7185", "#FBBF24", "#A3E635")):
+        out.append(f'<circle cx="{46 + k * 16}" cy="77" r="4.5" fill="{c}"/>')
+    out.append(f'<text x="{W / 2}" y="81" class="small" text-anchor="middle">transmission://quote-of-the-day · {day:%d %b %Y}</text>')
+    out.append(f'<g class="type" style="animation-delay:.3s"><text x="46" y="110" class="cmd"><tspan style="fill:{NEON[3]}">$</tspan> fortune --sci-fi --daily</text></g>')
+    for k, ln in enumerate(lines):
+        out.append(f'<g class="type" style="animation-delay:{1 + k * .9:.1f}s"><text x="46" y="{136 + k * 24}" class="qt">{esc(ln)}</text></g>')
+    ay = 136 + len(lines) * 24 - 24
+    out.append(f'<g class="type" style="animation-delay:{1 + len(lines) * .9:.1f}s"><text x="{W - 46}" y="{ay}" class="au" text-anchor="end">— {esc(who)}</text></g>')
+    out.append(f'<rect x="{W - 44}" y="{ay - 13}" width="8" height="16" fill="{NEON[3]}" class="cur"/>')
+    out.append(f'<rect x="28" y="88" width="{W - 56}" height="{H - 110}" fill="url(#scan)" pointer-events="none"/>')
+    out.append(f'<rect x="28" y="88" width="{W - 56}" height="30" fill="url(#crt)" class="crt"/>')
+    defs = (f'<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#FFFFFF" fill-opacity=".035"/></pattern>'
+            f'<linearGradient id="crt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{NEON[3]}" stop-opacity="0"/>'
+            f'<stop offset="1" stop-color="{NEON[3]}" stop-opacity=".1"/></linearGradient>')
+    css = (f".cmd {{ font: 13px {MONO}; fill: {C['soft']}; }} .qt {{ font-size: 19px; font-weight: 600; fill: {C['text']}; font-style: italic; }}"
+           f" .au {{ font: 700 13px {MONO}; fill: {NEON[3]}; letter-spacing: 1px; }}"
+           " .type { animation: type 1.1s cubic-bezier(.3,0,.2,1) both; }"
+           " @keyframes type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }"
+           " .cur { animation: blink 1s steps(2, start) infinite; }"
+           f" .crt {{ animation: crt 3.5s linear infinite; }} @keyframes crt {{ from {{ transform: translateY(0); }} to {{ transform: translateY({H - 120}px); }} }}")
+    return frame(W, H, "10", "Transmission of the day", "<defs>" + defs + "</defs>\n" + "\n".join(out), css,
+                 f"Quote of the day: {text} — {who}", NEON[3])
+
+
+def render_footer() -> str:
+    """Sign-off: layered neon waves, Matrix-style digital rain, and an END OF TRANSMISSION banner."""
+    W, H = 900, 210
+    out, defs = [], []
+    glyphs = "01ΔΣΛΞΠΦΨΩλμπ0123456789ABCDEF<>/*+=#"
+    cols = 30
+    for c in range(cols):
+        x = 16 + c * (W - 32) / (cols - 1)
+        chars = "".join(glyphs[(c * 7 + j * 13) % len(glyphs)] for j in range(12))
+        tsp = "".join(f'<tspan x="{x:.1f}" dy="15">{esc(ch)}</tspan>' for ch in chars)
+        col = NEON[c % len(NEON)]
+        out.append(f'<text x="{x:.1f}" y="-190" class="rain" style="fill:{col};animation-duration:{4 + (c * 37) % 50 / 10:.1f}s;'
+                   f'animation-delay:-{(c * 53) % 60 / 10:.1f}s">{tsp}</text>')
+    rain = f'<g mask="url(#fadem)">{"".join(out)}</g>'
+    rain += f'<ellipse cx="{W / 2}" cy="100" rx="380" ry="44" fill="url(#backd)"/>'
+    defs.append(f'<radialGradient id="backd"><stop offset="0" stop-color="{C["bg0"]}" stop-opacity=".92"/><stop offset="1" stop-color="{C["bg0"]}" stop-opacity="0"/></radialGradient>')
+    defs.append('<linearGradient id="fadeg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                '<stop offset=".35" stop-color="#fff" stop-opacity=".55"/><stop offset=".75" stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+                f'<mask id="fadem"><rect y="58" width="{W}" height="{H - 58}" fill="url(#fadeg)"/></mask>')
+
+    def wave(amp: float, wl: float, y0: float) -> str:
+        pts = []
+        x = -wl
+        while x <= W + wl * 2:
+            pts.append(f"{x:.1f},{y0 + amp * math.sin(2 * math.pi * x / wl):.1f}")
+            x += wl / 16
+        return f"M{pts[0]} L" + " L".join(pts[1:]) + f" L{W + wl * 2},{H} L{-wl},{H} Z"
+    waves = []
+    for k, (amp, wl, y0, col, op, dur) in enumerate(((10, 300, 150, NEON[0], .25, 9), (13, 380, 160, NEON[1], .3, 12), (8, 240, 172, NEON[2], .45, 7))):
+        defs.append(f'<linearGradient id="wv{k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{col}" stop-opacity="{op}"/>'
+                    f'<stop offset="1" stop-color="{col}" stop-opacity="0"/></linearGradient>')
+        waves.append(f'<path d="{wave(amp, wl, y0)}" fill="url(#wv{k})" class="wave" style="--wl:{wl}px;animation-duration:{dur}s"/>')
+        waves.append(f'<path d="{wave(amp, wl, y0).split(" Z")[0].rsplit(" L", 2)[0]}" fill="none" stroke="{col}" stroke-width="1.4" stroke-opacity=".8"'
+                     f' class="wave" style="--wl:{wl}px;animation-duration:{dur}s"/>')
+    txt = (f'<text x="{W / 2}" y="92" text-anchor="middle" class="end g1" style="fill:{NEON[0]}">END OF TRANSMISSION</text>'
+           f'<text x="{W / 2}" y="92" text-anchor="middle" class="end g2" style="fill:{NEON[2]}">END OF TRANSMISSION</text>'
+           f'<text x="{W / 2}" y="92" text-anchor="middle" class="end">END OF TRANSMISSION</text>'
+           f'<text x="{W / 2}" y="118" text-anchor="middle" class="bye">thanks for visiting · auto-synced every hour · see you in orbit</text>'
+           f'<circle cx="{W / 2 - 172}" cy="114" r="3.5" fill="{NEON[3]}" class="blink"/>')
+    css = (f".rain {{ font: 13px {MONO}; animation: rain 6s linear infinite; }} @keyframes rain {{ to {{ transform: translateY({H + 200}px); }} }}"
+           " .wave { animation: wave 9s linear infinite; } @keyframes wave { to { transform: translateX(calc(-1 * var(--wl))); } }"
+           f" .end {{ font: 800 28px {MONO}; letter-spacing: 6px; fill: {C['text']}; }} .bye {{ font: 12px {MONO}; fill: {C['soft']}; letter-spacing: 1px; }}"
+           " .g1, .g2 { opacity: 0; animation: gl 5s steps(1, end) 1s infinite; } .g2 { animation-name: gl2; }"
+           " @keyframes gl { 0%, 90%, 100% { opacity: 0; transform: none; } 91% { opacity: .8; transform: translate(-4px, 1px); } 94% { opacity: .5; transform: translate(3px, -1px); } }"
+           " @keyframes gl2 { 0%, 90%, 100% { opacity: 0; transform: none; } 91% { opacity: .8; transform: translate(4px, -1px); } 94% { opacity: .5; transform: translate(-3px, 1px); } }")
+    body = "<defs>" + "".join(defs) + "</defs>\n" + rain + "\n" + "\n".join(waves) + "\n" + txt
+    return frame(W, H, "∞", "Signing off", body, css, "End of transmission. Thanks for visiting.", NEON[1])
+
 # ═══════════════════════════════ README blocks ═══════════════════════════════
 def ago(ts: str) -> str:
     t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
@@ -1668,6 +1816,13 @@ def main() -> None:
     }
     for name, svg in cards.items():
         (OUT / name).write_text(svg, encoding="utf-8")
+    cdir = OUT / "comms"
+    cdir.mkdir(exist_ok=True)
+    for k, (label, slug, _, sub) in enumerate(SOCIALS):
+        sub = sub.format(followers=fmt(user["followers"]["totalCount"]))
+        (cdir / f"{slug}.svg").write_text(render_comms(label, slug, sub, [NEON[0], NEON[6], NEON[2], NEON[1]][k % 4], k), encoding="utf-8")
+    (OUT / "quote.svg").write_text(render_quote(), encoding="utf-8")
+    (OUT / "footer.svg").write_text(render_footer(), encoding="utf-8")
     items = activity_items(fetch_events(), user)
     (OUT / "feed.svg").write_text(render_feed(items), encoding="utf-8")
     pick = pick_projects(repos)

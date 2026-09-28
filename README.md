@@ -4,9 +4,12 @@
 
 <br/><br/>
 
-<a href="https://www.linkedin.com/in/nitya-prakash-pandey/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://www.kaggle.com/nityaprakashpandey"><img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/></a>
-<a href="mailto:nityaprakashpandey389@gmail.com"><img src="https://img.shields.io/badge/Email-E879F9?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+<a href="https://www.linkedin.com/in/nitya-prakash-pandey/"><img src="./profile/comms/linkedin.svg" width="24%" alt="LinkedIn"/></a>
+<a href="https://www.kaggle.com/nityaprakashpandey"><img src="./profile/comms/kaggle.svg" width="24%" alt="Kaggle"/></a>
+<a href="mailto:nityaprakashpandey389@gmail.com"><img src="./profile/comms/gmail.svg" width="24%" alt="Email"/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005"><img src="./profile/comms/github.svg" width="24%" alt="GitHub"/></a>
+
+<br/>
 <img src="https://komarev.com/ghpvc/?username=nitya-prakash-pandey-2005&label=Profile%20views&color=38BDF8&style=for-the-badge" alt="Profile views"/>
 
 </div>
@@ -107,7 +110,11 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 </details>
 <!-- AUTO:ACTIVITY:END -->
 
----
+## 💬 Transmission of the day
+
+<img src="./profile/quote.svg" width="100%" alt="A famous computer science or AI quote, rotating daily"/>
+
+<img src="./profile/footer.svg" width="100%" alt="End of transmission. Thanks for visiting."/>
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
