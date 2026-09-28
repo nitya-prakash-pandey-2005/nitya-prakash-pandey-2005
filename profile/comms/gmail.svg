@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="216" height="64" viewBox="0 0 216 64" role="img" aria-label="Email: open a channel ↗">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#2B244C"/></linearGradient>
+  <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".22"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="c"><rect width="216" height="64" rx="14"/></clipPath>
+</defs>
+<style>
+  .lb { font: 700 13px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; letter-spacing: 2.4px; fill: #E8EEF9; }
+  .sb { font: 10.5px ui-monospace, SFMono-Regular, "JetBrains Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace; fill: #8A97B4; }
+  .run { stroke-dasharray: 16 84; animation: run 4.5s linear infinite; } @keyframes run { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+  .sp { transform-box: fill-box; transform-origin: center; animation: sp 8s linear infinite; } @keyframes sp { to { transform: rotate(360deg); } }
+  .gl { animation: gls 4s ease-in-out 1.2s infinite; } @keyframes gls { 0% { transform: translateX(-80px) skewX(-20deg); } 40%, 100% { transform: translateX(256px) skewX(-20deg); } }
+  .pl { animation: pl 2.4s ease-in-out infinite; } @keyframes pl { 50% { opacity: .55; } }
+  .gt { animation: gt 7s steps(1, end) 3.5s infinite; } @keyframes gt { 0%, 95%, 100% { opacity: 1; transform: none; } 96% { opacity: .3; transform: translateX(2px); } 97% { opacity: 1; transform: translateX(-2px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .gl { display: none; } }
+</style>
+<g clip-path="url(#c)">
+  <rect width="216" height="64" fill="url(#bg)"/>
+  <rect x="0" y="0" width="50" height="64" fill="url(#gl)" class="gl"/>
+</g>
+<rect x="1" y="1" width="214" height="62" rx="13" fill="none" stroke="#E879F9" stroke-opacity=".45"/>
+<rect x="1" y="1" width="214" height="62" rx="13" fill="none" stroke="#E879F9" stroke-width="2" pathLength="100" class="run" filter="url(#glow)"/>
+<circle cx="32" cy="32" r="19" fill="none" stroke="#E879F9" stroke-opacity=".6" stroke-dasharray="3 4" class="sp"/>
+<circle cx="32" cy="32" r="14" fill="#E879F9" fill-opacity=".14" class="pl"/>
+<g transform="translate(23,23) scale(.75)"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#E879F9" filter="url(#glow)"/></g>
+<text x="62" y="29" class="lb gt">EMAIL</text>
+<text x="62" y="46" class="sb">open a channel ↗</text>
+</svg>
