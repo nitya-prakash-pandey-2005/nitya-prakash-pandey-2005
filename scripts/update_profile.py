@@ -364,7 +364,9 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
     W, H = 900, 378
     R = 44
     circ = 2 * math.pi * R
-    out, defs = [], []
+    out, defs = ["<g>" + "".join(
+        f'<circle cx="{(k * 109.7) % (W - 40) + 20:.1f}" cy="{58 + (k * 47.9) % (H - 76):.1f}" r="{.6 + (k % 3) * .35:.2f}" fill="#FFFFFF" class="star"'
+        f' style="animation-delay:{(k * .59) % 5:.2f}s;animation-duration:{3 + (k % 4)}s"/>' for k in range(44)) + "</g>"], []
     steps = 7
     for i, (label, sub, value) in enumerate(gauges):
         cx, cy = 83 + i * 146.8, 148
@@ -380,9 +382,21 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         defs.append(f'<linearGradient id="rad{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
                     f'<stop offset="1" stop-color="{col}" stop-opacity=".28"/></linearGradient>')
         lx, ly = polar(cx, cy, R - 7, 60)
+        # charge streak along the filled arc, orbiting marker, target-lock brackets
+        end = min(359.5, 360 * frac)
+        (ax0, ay0), (ax1, ay1) = polar(cx, cy, R, 0), polar(cx, cy, R, end)
+        arc_d = f"M{ax0:.1f},{ay0:.1f} A{R},{R} 0 {1 if end > 180 else 0} 1 {ax1:.1f},{ay1:.1f}"
+        charge = (f'<path d="{arc_d}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100"'
+                  f' class="charge" style="animation-delay:{delay + 2 + i * .35:.2f}s"{GLOW}/>') if end > 8 else ""
+        b, g_ = R + 20, 9
+        lock = "".join(f'<path d="M{cx + sx * b:.1f},{cy + sy * (b - g_):.1f} L{cx + sx * b:.1f},{cy + sy * b:.1f} L{cx + sx * (b - g_):.1f},{cy + sy * b:.1f}"/>'
+                       for sx, sy in ((-1, -1), (1, -1), (-1, 1), (1, 1)))
         out.append(f"""<g>
   {tick_ring(cx, cy, R + 12, 60, 5, 3.5, "spin" if i % 2 == 0 else "spin-r", col)}
   <circle cx="{cx:.1f}" cy="{cy}" r="{R + 8}" fill="none" stroke="{C['line']}" stroke-dasharray="2 5"/>
+  <g class="orbd" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{6 + i * .8:.1f}s;animation-direction:{'normal' if i % 2 == 0 else 'reverse'}">
+    <circle cx="{cx:.1f}" cy="{cy - R - 8}" r="2.6" fill="{col}"{GLOW}/></g>
+  <g fill="none" stroke="{col}" stroke-width="1.6" class="lock" style="animation-delay:{2.4 + i * .7:.2f}s">{lock}</g>
   <circle cx="{cx:.1f}" cy="{cy}" r="{R}" fill="none" stroke="{C['line']}" stroke-width="5"/>
   <g class="radar" style="transform-origin:{cx:.1f}px {cy}px;animation-duration:{3.2 + i * .35:.2f}s">
     <path d="{sector(cx, cy, 0, R - 7, 0, 60)}" fill="url(#rad{i})"/>
@@ -398,7 +412,8 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
   </g>
   <circle cx="{cx:.1f}" cy="{cy}" r="21" fill="{C['bg0']}" fill-opacity=".75"/>
   <g clip-path="url(#cnt{i})"><g class="count" style="--h:{30 * (steps - 1)}px;animation-delay:{delay:.2f}s">{reel}</g></g>
-  <text x="{cx:.1f}" y="{cy + 86}" class="lbl" text-anchor="middle" style="fill:{C['text']}">{label}</text>
+  {charge}
+  <text x="{cx:.1f}" y="{cy + 86}" class="lbl glitch" text-anchor="middle" style="fill:{C['text']};animation-delay:{3 + i * 1.3:.1f}s">{label}</text>
   <text x="{cx:.1f}" y="{cy + 103}" class="small" text-anchor="middle">{sub}</text>
   <text x="{cx:.1f}" y="{cy + 119}" class="small" text-anchor="middle">next <tspan style="fill:{col}">▸</tspan> {fmt(goal)}</text>
 </g>""")
@@ -456,7 +471,18 @@ def render_hud(user: dict, repos: list[dict], days: list[tuple[dt.date, int]], c
         f" @keyframes ekg {{ from {{ stroke-dashoffset: 150; }} to {{ stroke-dashoffset: -{elen}; }} }}"
         " .boot { animation: bootin .5s steps(3, end) both; } @keyframes bootin { from { opacity: 0; } }"
         f" .sbeam {{ animation: sbeam 4s ease-in-out infinite; }} @keyframes sbeam {{ from {{ transform: translateX(-160px); }} to {{ transform: translateX({W - 28}px); }} }}"
+        " .star { opacity: .12; animation: star 4s ease-in-out infinite; } @keyframes star { 50% { opacity: .75; } }"
+        " .charge { stroke-dasharray: 10 90; opacity: 0; animation: charge 3.6s cubic-bezier(.4,0,.2,1) infinite; }"
+        " @keyframes charge { 0% { stroke-dashoffset: 10; opacity: 0; } 8% { opacity: 1; } 60% { stroke-dashoffset: -90; opacity: 1; } 70%, 100% { stroke-dashoffset: -90; opacity: 0; } }"
+        " .orbd { animation: spin 6s linear infinite; }"
+        " .lock { transform-box: fill-box; transform-origin: center; opacity: 0; animation: lock 4.2s cubic-bezier(.2,.8,.2,1) infinite; }"
+        " @keyframes lock { 0% { opacity: 0; transform: scale(1.35); } 12% { opacity: 1; transform: scale(1); } 30% { opacity: 1; } 42%, 100% { opacity: 0; transform: scale(1); } }"
+        " .glitch { animation: glitch 8s steps(1, end) infinite; }"
+        " @keyframes glitch { 0%, 95%, 100% { opacity: 1; transform: none; } 96% { opacity: .3; transform: translateX(3px); } 97% { opacity: 1; transform: translateX(-2px); } 98% { opacity: .6; transform: none; } }"
+        " .hrun { stroke-dasharray: 8 42; animation: hrun 9s linear infinite; } @keyframes hrun { from { stroke-dashoffset: 50; } to { stroke-dashoffset: 0; } }"
     )
+    out.append(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="url(#vital)" stroke-width="2" pathLength="100" class="hrun"{GLOW}/>'
+               f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="15" fill="none" stroke="#FFFFFF" stroke-width="1.3" pathLength="100" class="hrun" style="animation-delay:-4.5s"/>')
     return frame(W, H, "01", "System telemetry", "<defs>" + "".join(defs) + "</defs>\n" + "\n".join(out), css,
                  "GitHub telemetry: " + ", ".join(f"{g[0].lower()} {g[2]}" for g in gauges), NEON[0])
 
