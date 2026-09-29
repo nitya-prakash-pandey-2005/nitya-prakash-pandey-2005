@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 256, commits 242, active days 28, repositories 13, streak 3, best streak 4">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 283, commits 269, active days 28, repositories 13, streak 3, best streak 4">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -56,15 +56,15 @@
   </g>
   <circle cx="83.0" cy="148" r="36" fill="none" stroke="#38BDF8" stroke-width="1.2" class="sonar" style="animation-delay:0.00s"/>
   <circle cx="83.0" cy="148" r="44" fill="#38BDF8" fill-opacity=".05" stroke="#38BDF8" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:134.9; animation-delay:0.25s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:120.0; animation-delay:0.25s"
           transform="rotate(-90 83.0 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="79.7" cy="191.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
-    <circle cx="79.7" cy="191.9" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
+    <circle cx="65.3" cy="188.3" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
+    <circle cx="65.3" cy="188.3" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
   </g>
   <circle cx="83.0" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">256</text><text x="83.0" y="126" class="val" text-anchor="middle">213</text><text x="83.0" y="96" class="val" text-anchor="middle">171</text><text x="83.0" y="66" class="val" text-anchor="middle">128</text><text x="83.0" y="36" class="val" text-anchor="middle">85</text><text x="83.0" y="6" class="val" text-anchor="middle">43</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M83.0,104.0 A44,44 0 1 1 79.7,191.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">283</text><text x="83.0" y="126" class="val" text-anchor="middle">236</text><text x="83.0" y="96" class="val" text-anchor="middle">189</text><text x="83.0" y="66" class="val" text-anchor="middle">142</text><text x="83.0" y="36" class="val" text-anchor="middle">94</text><text x="83.0" y="6" class="val" text-anchor="middle">47</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M83.0,104.0 A44,44 0 1 1 65.3,188.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
   <text x="83.0" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:3.0s">CONTRIBUTIONS</text>
   <text x="83.0" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="83.0" y="267" class="small" text-anchor="middle">next <tspan style="fill:#38BDF8">▸</tspan> 500</text>
@@ -82,18 +82,18 @@
   </g>
   <circle cx="229.8" cy="148" r="36" fill="none" stroke="#A78BFA" stroke-width="1.2" class="sonar" style="animation-delay:0.45s"/>
   <circle cx="229.8" cy="148" r="44" fill="#A78BFA" fill-opacity=".05" stroke="#A78BFA" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:8.8; animation-delay:0.37s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:127.7; animation-delay:0.37s"
           transform="rotate(-90 229.8 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="221.0" cy="104.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
-    <circle cx="221.0" cy="104.9" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
+    <circle cx="219.4" cy="190.8" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
+    <circle cx="219.4" cy="190.8" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
   </g>
   <circle cx="229.8" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">242</text><text x="229.8" y="126" class="val" text-anchor="middle">202</text><text x="229.8" y="96" class="val" text-anchor="middle">161</text><text x="229.8" y="66" class="val" text-anchor="middle">121</text><text x="229.8" y="36" class="val" text-anchor="middle">81</text><text x="229.8" y="6" class="val" text-anchor="middle">40</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M229.8,104.0 A44,44 0 1 1 221.0,104.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">269</text><text x="229.8" y="126" class="val" text-anchor="middle">224</text><text x="229.8" y="96" class="val" text-anchor="middle">179</text><text x="229.8" y="66" class="val" text-anchor="middle">134</text><text x="229.8" y="36" class="val" text-anchor="middle">90</text><text x="229.8" y="6" class="val" text-anchor="middle">45</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M229.8,104.0 A44,44 0 1 1 219.4,190.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
   <text x="229.8" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:4.3s">COMMITS</text>
   <text x="229.8" y="251" class="small" text-anchor="middle">last 12 months</text>
-  <text x="229.8" y="267" class="small" text-anchor="middle">next <tspan style="fill:#A78BFA">▸</tspan> 250</text>
+  <text x="229.8" y="267" class="small" text-anchor="middle">next <tspan style="fill:#A78BFA">▸</tspan> 500</text>
 </g>
 <g>
   <path d="M376.6,92.0L376.6,85.7M382.5,92.3L382.8,88.8M388.2,93.2L389.0,89.8M393.9,94.7L395.0,91.4M399.4,96.8L400.8,93.6M404.6,99.5L407.8,94.0M409.5,102.7L411.6,99.9M414.1,106.4L416.4,103.8M418.2,110.5L420.8,108.2M421.9,115.1L424.7,113.0M425.1,120.0L430.6,116.8M427.8,125.2L431.0,123.8M429.9,130.7L433.2,129.6M431.4,136.4L434.8,135.6M432.3,142.1L435.8,141.8M432.6,148.0L438.9,148.0M432.3,153.9L435.8,154.2M431.4,159.6L434.8,160.4M429.9,165.3L433.2,166.4M427.8,170.8L431.0,172.2M425.1,176.0L430.6,179.1M421.9,180.9L424.7,183.0M418.2,185.5L420.8,187.8M414.1,189.6L416.4,192.2M409.5,193.3L411.6,196.1M404.6,196.5L407.8,202.0M399.4,199.2L400.8,202.4M393.9,201.3L395.0,204.6M388.2,202.8L389.0,206.2M382.5,203.7L382.8,207.2M376.6,204.0L376.6,210.3M370.7,203.7L370.4,207.2M365.0,202.8L364.2,206.2M359.3,201.3L358.2,204.6M353.8,199.2L352.4,202.4M348.6,196.5L345.5,202.0M343.7,193.3L341.6,196.1M339.1,189.6L336.8,192.2M335.0,185.5L332.4,187.8M331.3,180.9L328.5,183.0M328.1,176.0L322.6,179.2M325.4,170.8L322.2,172.2M323.3,165.3L320.0,166.4M321.8,159.6L318.4,160.4M320.9,153.9L317.4,154.2M320.6,148.0L314.3,148.0M320.9,142.1L317.4,141.8M321.8,136.4L318.4,135.6M323.3,130.7L320.0,129.6M325.4,125.2L322.2,123.8M328.1,120.0L322.6,116.8M331.3,115.1L328.5,113.0M335.0,110.5L332.4,108.2M339.1,106.4L336.8,103.8M343.7,102.7L341.6,99.9M348.6,99.5L345.4,94.0M353.8,96.8L352.4,93.6M359.3,94.7L358.2,91.4M365.0,93.2L364.2,89.8M370.7,92.3L370.4,88.8" stroke="#E879F9" stroke-opacity="0.55" stroke-width="1" class="spin"/>
