@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 244, commits 231, active days 28, repositories 12, streak 3, best streak 4">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 256, commits 242, active days 28, repositories 13, streak 3, best streak 4">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -56,18 +56,18 @@
   </g>
   <circle cx="83.0" cy="148" r="36" fill="none" stroke="#38BDF8" stroke-width="1.2" class="sonar" style="animation-delay:0.00s"/>
   <circle cx="83.0" cy="148" r="44" fill="#38BDF8" fill-opacity=".05" stroke="#38BDF8" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:6.6; animation-delay:0.25s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:134.9; animation-delay:0.25s"
           transform="rotate(-90 83.0 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="76.4" cy="104.5" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
-    <circle cx="76.4" cy="104.5" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
+    <circle cx="79.7" cy="191.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
+    <circle cx="79.7" cy="191.9" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
   </g>
   <circle cx="83.0" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">244</text><text x="83.0" y="126" class="val" text-anchor="middle">203</text><text x="83.0" y="96" class="val" text-anchor="middle">163</text><text x="83.0" y="66" class="val" text-anchor="middle">122</text><text x="83.0" y="36" class="val" text-anchor="middle">81</text><text x="83.0" y="6" class="val" text-anchor="middle">41</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M83.0,104.0 A44,44 0 1 1 76.4,104.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">256</text><text x="83.0" y="126" class="val" text-anchor="middle">213</text><text x="83.0" y="96" class="val" text-anchor="middle">171</text><text x="83.0" y="66" class="val" text-anchor="middle">128</text><text x="83.0" y="36" class="val" text-anchor="middle">85</text><text x="83.0" y="6" class="val" text-anchor="middle">43</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M83.0,104.0 A44,44 0 1 1 79.7,191.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
   <text x="83.0" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:3.0s">CONTRIBUTIONS</text>
   <text x="83.0" y="251" class="small" text-anchor="middle">last 12 months</text>
-  <text x="83.0" y="267" class="small" text-anchor="middle">next <tspan style="fill:#38BDF8">▸</tspan> 250</text>
+  <text x="83.0" y="267" class="small" text-anchor="middle">next <tspan style="fill:#38BDF8">▸</tspan> 500</text>
 </g>
 <g>
   <path d="M229.8,92.0L229.8,85.7M235.7,92.3L236.0,88.8M241.4,93.2L242.2,89.8M247.1,94.7L248.2,91.4M252.6,96.8L254.0,93.6M257.8,99.5L260.9,94.0M262.7,102.7L264.8,99.9M267.3,106.4L269.6,103.8M271.4,110.5L274.0,108.2M275.1,115.1L277.9,113.0M278.3,120.0L283.8,116.8M281.0,125.2L284.2,123.8M283.1,130.7L286.4,129.6M284.6,136.4L288.0,135.6M285.5,142.1L289.0,141.8M285.8,148.0L292.1,148.0M285.5,153.9L289.0,154.2M284.6,159.6L288.0,160.4M283.1,165.3L286.4,166.4M281.0,170.8L284.2,172.2M278.3,176.0L283.8,179.1M275.1,180.9L277.9,183.0M271.4,185.5L274.0,187.8M267.3,189.6L269.6,192.2M262.7,193.3L264.8,196.1M257.8,196.5L260.9,202.0M252.6,199.2L254.0,202.4M247.1,201.3L248.2,204.6M241.4,202.8L242.2,206.2M235.7,203.7L236.0,207.2M229.8,204.0L229.8,210.3M223.9,203.7L223.6,207.2M218.2,202.8L217.4,206.2M212.5,201.3L211.4,204.6M207.0,199.2L205.6,202.4M201.8,196.5L198.7,202.0M196.9,193.3L194.8,196.1M192.3,189.6L190.0,192.2M188.2,185.5L185.6,187.8M184.5,180.9L181.7,183.0M181.3,176.0L175.8,179.2M178.6,170.8L175.4,172.2M176.5,165.3L173.2,166.4M175.0,159.6L171.6,160.4M174.1,153.9L170.6,154.2M173.8,148.0L167.5,148.0M174.1,142.1L170.6,141.8M175.0,136.4L171.6,135.6M176.5,130.7L173.2,129.6M178.6,125.2L175.4,123.8M181.3,120.0L175.8,116.8M184.5,115.1L181.7,113.0M188.2,110.5L185.6,108.2M192.3,106.4L190.0,103.8M196.9,102.7L194.8,99.9M201.8,99.5L198.6,94.0M207.0,96.8L205.6,93.6M212.5,94.7L211.4,91.4M218.2,93.2L217.4,89.8M223.9,92.3L223.6,88.8" stroke="#A78BFA" stroke-opacity="0.55" stroke-width="1" class="spin-r"/>
@@ -82,15 +82,15 @@
   </g>
   <circle cx="229.8" cy="148" r="36" fill="none" stroke="#A78BFA" stroke-width="1.2" class="sonar" style="animation-delay:0.45s"/>
   <circle cx="229.8" cy="148" r="44" fill="#A78BFA" fill-opacity=".05" stroke="#A78BFA" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:21.0; animation-delay:0.37s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:8.8; animation-delay:0.37s"
           transform="rotate(-90 229.8 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="209.6" cy="108.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
-    <circle cx="209.6" cy="108.9" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
+    <circle cx="221.0" cy="104.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
+    <circle cx="221.0" cy="104.9" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
   </g>
   <circle cx="229.8" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">231</text><text x="229.8" y="126" class="val" text-anchor="middle">192</text><text x="229.8" y="96" class="val" text-anchor="middle">154</text><text x="229.8" y="66" class="val" text-anchor="middle">116</text><text x="229.8" y="36" class="val" text-anchor="middle">77</text><text x="229.8" y="6" class="val" text-anchor="middle">38</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M229.8,104.0 A44,44 0 1 1 209.6,108.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">242</text><text x="229.8" y="126" class="val" text-anchor="middle">202</text><text x="229.8" y="96" class="val" text-anchor="middle">161</text><text x="229.8" y="66" class="val" text-anchor="middle">121</text><text x="229.8" y="36" class="val" text-anchor="middle">81</text><text x="229.8" y="6" class="val" text-anchor="middle">40</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M229.8,104.0 A44,44 0 1 1 221.0,104.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
   <text x="229.8" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:4.3s">COMMITS</text>
   <text x="229.8" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="229.8" y="267" class="small" text-anchor="middle">next <tspan style="fill:#A78BFA">▸</tspan> 250</text>
@@ -134,15 +134,15 @@
   </g>
   <circle cx="523.4" cy="148" r="36" fill="none" stroke="#A3E635" stroke-width="1.2" class="sonar" style="animation-delay:1.35s"/>
   <circle cx="523.4" cy="148" r="44" fill="#A3E635" fill-opacity=".05" stroke="#A3E635" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:143.8; animation-delay:0.61s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:132.7; animation-delay:0.61s"
           transform="rotate(-90 523.4 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="528.9" cy="191.7" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.91s"/>
-    <circle cx="528.9" cy="191.7" r="4" fill="none" stroke="#A3E635" stroke-width="1.5" class="ping" style="animation-delay:2.21s"/>
+    <circle cx="517.9" cy="191.7" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.91s"/>
+    <circle cx="517.9" cy="191.7" r="4" fill="none" stroke="#A3E635" stroke-width="1.5" class="ping" style="animation-delay:2.21s"/>
   </g>
   <circle cx="523.4" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt3)"><g class="count" style="--h:180px;animation-delay:0.61s"><text x="523.4" y="156" class="val" text-anchor="middle">12</text><text x="523.4" y="126" class="val" text-anchor="middle">10</text><text x="523.4" y="96" class="val" text-anchor="middle">8</text><text x="523.4" y="66" class="val" text-anchor="middle">6</text><text x="523.4" y="36" class="val" text-anchor="middle">4</text><text x="523.4" y="6" class="val" text-anchor="middle">2</text><text x="523.4" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M523.4,104.0 A44,44 0 0 1 528.9,191.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:3.66s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt3)"><g class="count" style="--h:180px;animation-delay:0.61s"><text x="523.4" y="156" class="val" text-anchor="middle">13</text><text x="523.4" y="126" class="val" text-anchor="middle">11</text><text x="523.4" y="96" class="val" text-anchor="middle">9</text><text x="523.4" y="66" class="val" text-anchor="middle">6</text><text x="523.4" y="36" class="val" text-anchor="middle">4</text><text x="523.4" y="6" class="val" text-anchor="middle">2</text><text x="523.4" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M523.4,104.0 A44,44 0 1 1 517.9,191.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:3.66s" filter="url(#glow)"/>
   <text x="523.4" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:6.9s">REPOSITORIES</text>
   <text x="523.4" y="251" class="small" text-anchor="middle">public</text>
   <text x="523.4" y="267" class="small" text-anchor="middle">next <tspan style="fill:#A3E635">▸</tspan> 25</text>

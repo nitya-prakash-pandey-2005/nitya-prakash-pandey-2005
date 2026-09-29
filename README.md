@@ -72,7 +72,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 </p>
 <p>
 <a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/05.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
-<a href="https://github.com/nitya-prakash-pandey-2005/SAGE"><img src="./profile/projects/06.svg" width="49%" alt="SAGE: SAGE (Safe Agentic Growth Engine): The merchant control plane and trust substrate for autonomous commerce. Merkle Context Seals, Trust-Domain Firewalls, RFC 8785 Proof-of-Intent bundles, UPI Circle &amp; Reserve Pay accounting, and an arXiv:2608.23858 Red Team harness. AI proposes. Policies decide. Razorpay executes."/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/travelmind"><img src="./profile/projects/06.svg" width="49%" alt="travelmind: AI copilot for travel agencies and corporate travel: quotes from live supplier inventory, AI answers with every price checked against live offers, fare intelligence, travel policy and approvals, GST invoicing and CO₂ reports. Sci-fi mission-control UI."/></a>
 </p>
 <!-- AUTO:PROJECTS:END -->
 
@@ -93,19 +93,19 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit Agri-Shield 38 minutes ago; branch Agri-Shield 1 hour ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 3 weeks ago; commit TyreMind 3 weeks ago; commit SAGE 3 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit Agri-Shield 4 hours ago; branch travelmind 6 hours ago; branch Agri-Shield 7 hours ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 3 weeks ago; commit TyreMind 3 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **17 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Remove Anthropic LLM provider option and add MIT license [`04094ca`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/04094cafb965b5af88bdbbf18c45f9867400221a) <sub>38 minutes ago</sub>
-- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>1 hour ago</sub>
+- **28 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Update README for the multi-tenant SaaS platform [`a7ac329`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/a7ac32931f995d514114990aa7abacf129d14886) <sub>4 hours ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>6 hours ago</sub>
+- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>7 hours ago</sub>
 - **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Refresh to four seasons, and walk back three claims that did not survive [`273c63c`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/273c63cdc09e5702fb34adf8e3ceeba2110a4e92) <sub>2 weeks ago</sub>
 - **14 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Count the standard method&#x27;s failures on 56 races instead of four [`ccc42a4`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/ccc42a43d672f88412dd5e2c35590f0950581b30) <sub>2 weeks ago</sub>
 - **8 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Correct every document to the numbers that actually replicated [`69a5e91`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/69a5e914e696fb8825baa2d6489d96d108b4ae50) <sub>2 weeks ago</sub>
 - **3 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Point at what the caption is describing, and render the demo to MP4 [`aa0cc57`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/aa0cc570cb25042b40b958e10f8bdf0628907bce) <sub>3 weeks ago</sub>
 - **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Reconcile the bug register: nine bugs, counted correctly in all four … [`9a03cfd`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/9a03cfd803368cfdf21f62a7fdd40b692ecd5dd3) <sub>3 weeks ago</sub>
-- **8 commits** to [SAGE](https://github.com/nitya-prakash-pandey-2005/SAGE): feat(sage-v2): N4 ReserveRail protocol + N7 net-of-returns growth eng… [`b9d95fb`](https://github.com/nitya-prakash-pandey-2005/SAGE/commit/b9d95fb58d67e9150a698797709977861e765b86) <sub>3 weeks ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 29 Sep 2026, 07:29 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 29 Sep 2026, 14:02 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>

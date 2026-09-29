@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="Timeline of repository creation: ai-personalized-learning Jan 2026, linux-system-health-monitor Jan 2026, linux-user-management Jan 2026, linux-log-monitoring-and-alerting Jan 2026, ai-chest-disease-detection-cnn Apr 2026, AgriVision-Ensemble-Net Apr 2026, AgroSkin-AI Apr 2026, OpenCV-Basics May 2026, fieldpilot-ai Jul 2026, TyreMind Sep 2026, SAGE Sep 2026, Agri-Shield Sep 2026">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="Timeline of repository creation: ai-personalized-learning Jan 2026, linux-system-health-monitor Jan 2026, linux-user-management Jan 2026, linux-log-monitoring-and-alerting Jan 2026, ai-chest-disease-detection-cnn Apr 2026, AgriVision-Ensemble-Net Apr 2026, AgroSkin-AI Apr 2026, OpenCV-Basics May 2026, fieldpilot-ai Jul 2026, TyreMind Sep 2026, SAGE Sep 2026, Agri-Shield Sep 2026, travelmind Sep 2026">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -48,116 +48,124 @@
 <g class="comet"><rect x="-46" y="182.5" width="90" height="3" rx="1.5" fill="url(#trail)"/><circle cx="44" cy="184" r="4.5" fill="#FFFFFF" filter="url(#glow)"/></g>
 <line x1="55.9" y1="180" x2="55.9" y2="188" stroke="#4A5A7E"/>
 <text x="55.9" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jan 26</text>
-<line x1="144.4" y1="180" x2="144.4" y2="188" stroke="#4A5A7E"/>
-<text x="144.4" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Feb</text>
-<line x1="224.4" y1="180" x2="224.4" y2="188" stroke="#4A5A7E"/>
-<text x="224.4" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Mar</text>
-<line x1="312.9" y1="180" x2="312.9" y2="188" stroke="#4A5A7E"/>
-<text x="312.9" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Apr</text>
-<line x1="398.6" y1="180" x2="398.6" y2="188" stroke="#4A5A7E"/>
-<text x="398.6" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">May</text>
-<line x1="487.1" y1="180" x2="487.1" y2="188" stroke="#4A5A7E"/>
-<text x="487.1" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jun</text>
-<line x1="572.8" y1="180" x2="572.8" y2="188" stroke="#4A5A7E"/>
-<text x="572.8" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jul</text>
-<line x1="661.3" y1="180" x2="661.3" y2="188" stroke="#4A5A7E"/>
-<text x="661.3" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Aug</text>
-<line x1="749.8" y1="180" x2="749.8" y2="188" stroke="#4A5A7E"/>
-<text x="749.8" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Sep</text>
+<line x1="144.3" y1="180" x2="144.3" y2="188" stroke="#4A5A7E"/>
+<text x="144.3" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Feb</text>
+<line x1="224.2" y1="180" x2="224.2" y2="188" stroke="#4A5A7E"/>
+<text x="224.2" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Mar</text>
+<line x1="312.6" y1="180" x2="312.6" y2="188" stroke="#4A5A7E"/>
+<text x="312.6" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Apr</text>
+<line x1="398.2" y1="180" x2="398.2" y2="188" stroke="#4A5A7E"/>
+<text x="398.2" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">May</text>
+<line x1="486.7" y1="180" x2="486.7" y2="188" stroke="#4A5A7E"/>
+<text x="486.7" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jun</text>
+<line x1="572.2" y1="180" x2="572.2" y2="188" stroke="#4A5A7E"/>
+<text x="572.2" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Jul</text>
+<line x1="660.7" y1="180" x2="660.7" y2="188" stroke="#4A5A7E"/>
+<text x="660.7" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Aug</text>
+<line x1="749.1" y1="180" x2="749.1" y2="188" stroke="#4A5A7E"/>
+<text x="749.1" y="204" class="small" text-anchor="middle" style="fill:#4A5A7E">Sep</text>
 <g class="pop" style="animation-delay:0.30s"><title>ai-personalized-learning · created 08 Jan 2026 · Jupyter Notebook</title>
-  <line x1="78.3" y1="177" x2="78.3" y2="160" stroke="#65A30D" stroke-opacity=".55"/>
-  <circle cx="78.3" cy="184" r="5.5" fill="#060B18" stroke="#65A30D" stroke-width="2.4"/>
-  <circle cx="78.3" cy="184" r="5.5" fill="none" stroke="#65A30D" stroke-width="2" class="nping" style="animation-delay:0.31s"/>
-  <rect x="68.3" y="139" width="186.0" height="21" rx="4" fill="#0E1730" stroke="#65A30D" stroke-opacity=".6"/>
-  <circle cx="77.3" cy="149.5" r="3" fill="#65A30D"/>
-  <text x="85.3" y="154" class="repo">ai-personalized-learning</text>
+  <line x1="78.2" y1="177" x2="78.2" y2="160" stroke="#65A30D" stroke-opacity=".55"/>
+  <circle cx="78.2" cy="184" r="5.5" fill="#060B18" stroke="#65A30D" stroke-width="2.4"/>
+  <circle cx="78.2" cy="184" r="5.5" fill="none" stroke="#65A30D" stroke-width="2" class="nping" style="animation-delay:0.30s"/>
+  <rect x="68.2" y="139" width="186.0" height="21" rx="4" fill="#0E1730" stroke="#65A30D" stroke-opacity=".6"/>
+  <circle cx="77.2" cy="149.5" r="3" fill="#65A30D"/>
+  <text x="85.2" y="154" class="repo">ai-personalized-learning</text>
 </g>
 <g class="pop" style="animation-delay:0.42s"><title>linux-system-health-monitor · created 29 Jan 2026 · Python</title>
-  <line x1="138.1" y1="191" x2="138.1" y2="218" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="138.1" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="138.1" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
-  <rect x="128.1" y="217" width="207.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="137.1" cy="227.5" r="3" fill="#0284C7"/>
-  <text x="145.1" y="232" class="repo">linux-system-health-monitor</text>
+  <line x1="138.0" y1="191" x2="138.0" y2="218" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="138.0" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="138.0" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
+  <rect x="128.0" y="217" width="207.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="137.0" cy="227.5" r="3" fill="#0284C7"/>
+  <text x="145.0" y="232" class="repo">linux-system-health-monitor</text>
 </g>
 <g class="pop" style="animation-delay:0.54s"><title>linux-user-management · created 29 Jan 2026 · Shell</title>
-  <line x1="138.2" y1="177" x2="138.2" y2="132" stroke="#4A5A7E" stroke-opacity=".55"/>
-  <circle cx="138.2" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
-  <circle cx="138.2" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
-  <rect x="128.2" y="111" width="165.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
-  <circle cx="137.2" cy="121.5" r="3" fill="#4A5A7E"/>
-  <text x="145.2" y="126" class="repo">linux-user-management</text>
+  <line x1="138.1" y1="177" x2="138.1" y2="132" stroke="#4A5A7E" stroke-opacity=".55"/>
+  <circle cx="138.1" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
+  <circle cx="138.1" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
+  <rect x="128.1" y="111" width="165.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
+  <circle cx="137.1" cy="121.5" r="3" fill="#4A5A7E"/>
+  <text x="145.1" y="126" class="repo">linux-user-management</text>
 </g>
 <g class="pop" style="animation-delay:0.66s"><title>linux-log-monitoring-and-alerting · created 29 Jan 2026 · Python</title>
-  <line x1="138.2" y1="191" x2="138.2" y2="246" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="138.2" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="138.2" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
-  <rect x="128.2" y="245" width="249.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="137.2" cy="255.5" r="3" fill="#0284C7"/>
-  <text x="145.2" y="260" class="repo">linux-log-monitoring-and-alerting</text>
+  <line x1="138.1" y1="191" x2="138.1" y2="246" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="138.1" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="138.1" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:0.84s"/>
+  <rect x="128.1" y="245" width="249.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="137.1" cy="255.5" r="3" fill="#0284C7"/>
+  <text x="145.1" y="260" class="repo">linux-log-monitoring-and-alerting</text>
 </g>
 <g class="pop" style="animation-delay:0.78s"><title>ai-chest-disease-detection-cnn · created 20 Apr 2026 · Python</title>
-  <line x1="368.9" y1="177" x2="368.9" y2="160" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="368.9" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="368.9" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:2.89s"/>
-  <rect x="358.9" y="139" width="228.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="367.9" cy="149.5" r="3" fill="#0284C7"/>
-  <text x="375.9" y="154" class="repo">ai-chest-disease-detection-cnn</text>
+  <line x1="368.6" y1="177" x2="368.6" y2="160" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="368.6" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="368.6" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:2.89s"/>
+  <rect x="358.6" y="139" width="228.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="367.6" cy="149.5" r="3" fill="#0284C7"/>
+  <text x="375.6" y="154" class="repo">ai-chest-disease-detection-cnn</text>
 </g>
 <g class="pop" style="animation-delay:0.90s"><title>AgriVision-Ensemble-Net · created 21 Apr 2026 · no language</title>
-  <line x1="370.8" y1="191" x2="370.8" y2="218" stroke="#4A5A7E" stroke-opacity=".55"/>
-  <circle cx="370.8" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
-  <circle cx="370.8" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:2.91s"/>
-  <rect x="360.8" y="217" width="179.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
-  <circle cx="369.8" cy="227.5" r="3" fill="#4A5A7E"/>
-  <text x="377.8" y="232" class="repo">AgriVision-Ensemble-Net</text>
+  <line x1="370.5" y1="191" x2="370.5" y2="218" stroke="#4A5A7E" stroke-opacity=".55"/>
+  <circle cx="370.5" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
+  <circle cx="370.5" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:2.91s"/>
+  <rect x="360.5" y="217" width="179.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
+  <circle cx="369.5" cy="227.5" r="3" fill="#4A5A7E"/>
+  <text x="377.5" y="232" class="repo">AgriVision-Ensemble-Net</text>
 </g>
 <g class="pop" style="animation-delay:1.02s"><title>AgroSkin-AI · created 21 Apr 2026 · no language</title>
-  <line x1="370.9" y1="177" x2="370.9" y2="132" stroke="#4A5A7E" stroke-opacity=".55"/>
-  <circle cx="370.9" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
-  <circle cx="370.9" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:2.91s"/>
-  <rect x="360.9" y="111" width="95.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
-  <circle cx="369.9" cy="121.5" r="3" fill="#4A5A7E"/>
-  <text x="377.9" y="126" class="repo">AgroSkin-AI</text>
+  <line x1="370.6" y1="177" x2="370.6" y2="132" stroke="#4A5A7E" stroke-opacity=".55"/>
+  <circle cx="370.6" cy="184" r="5.5" fill="#060B18" stroke="#4A5A7E" stroke-width="2.4"/>
+  <circle cx="370.6" cy="184" r="5.5" fill="none" stroke="#4A5A7E" stroke-width="2" class="nping" style="animation-delay:2.91s"/>
+  <rect x="360.6" y="111" width="95.0" height="21" rx="4" fill="#0E1730" stroke="#4A5A7E" stroke-opacity=".6"/>
+  <circle cx="369.6" cy="121.5" r="3" fill="#4A5A7E"/>
+  <text x="377.6" y="126" class="repo">AgroSkin-AI</text>
 </g>
 <g class="pop" style="animation-delay:1.14s"><title>OpenCV-Basics · created 05 May 2026 · Python</title>
-  <line x1="410.6" y1="191" x2="410.6" y2="246" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="410.6" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="410.6" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:3.26s"/>
-  <rect x="400.6" y="245" width="109.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="409.6" cy="255.5" r="3" fill="#0284C7"/>
-  <text x="417.6" y="260" class="repo">OpenCV-Basics</text>
+  <line x1="410.2" y1="191" x2="410.2" y2="246" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="410.2" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="410.2" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:3.26s"/>
+  <rect x="400.2" y="245" width="109.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="409.2" cy="255.5" r="3" fill="#0284C7"/>
+  <text x="417.2" y="260" class="repo">OpenCV-Basics</text>
 </g>
 <g class="pop" style="animation-delay:1.26s"><title>fieldpilot-ai · created 10 Jul 2026 · Python</title>
-  <line x1="600.7" y1="191" x2="600.7" y2="218" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="600.7" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="600.7" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:4.96s"/>
-  <rect x="590.7" y="217" width="109.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="599.7" cy="227.5" r="3" fill="#0284C7"/>
-  <text x="607.7" y="232" class="repo">fieldpilot-ai</text>
+  <line x1="600.1" y1="191" x2="600.1" y2="218" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="600.1" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="600.1" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:4.95s"/>
+  <rect x="590.1" y="217" width="109.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="599.1" cy="227.5" r="3" fill="#0284C7"/>
+  <text x="607.1" y="232" class="repo">fieldpilot-ai</text>
 </g>
 <g class="pop" style="animation-delay:1.38s"><title>TyreMind · created 04 Sep 2026 · Python</title>
-  <line x1="759.5" y1="177" x2="759.5" y2="160" stroke="#0284C7" stroke-opacity=".55"/>
-  <circle cx="759.5" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
-  <circle cx="759.5" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:6.37s"/>
-  <rect x="749.5" y="139" width="74.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
-  <circle cx="758.5" cy="149.5" r="3" fill="#0284C7"/>
-  <text x="766.5" y="154" class="repo">TyreMind</text>
+  <line x1="758.7" y1="177" x2="758.7" y2="160" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="758.7" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="758.7" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:6.37s"/>
+  <rect x="748.7" y="139" width="74.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="757.7" cy="149.5" r="3" fill="#0284C7"/>
+  <text x="765.7" y="154" class="repo">TyreMind</text>
 </g>
 <g class="pop" style="animation-delay:1.50s"><title>SAGE · created 05 Sep 2026 · TypeScript</title>
-  <line x1="763.0" y1="191" x2="763.0" y2="218" stroke="#D946EF" stroke-opacity=".55"/>
-  <circle cx="763.0" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
-  <circle cx="763.0" cy="184" r="5.5" fill="none" stroke="#D946EF" stroke-width="2" class="nping" style="animation-delay:6.40s"/>
-  <rect x="753.0" y="217" width="46.0" height="21" rx="4" fill="#0E1730" stroke="#D946EF" stroke-opacity=".6"/>
-  <circle cx="762.0" cy="227.5" r="3" fill="#D946EF"/>
-  <text x="770.0" y="232" class="repo">SAGE</text>
+  <line x1="762.3" y1="191" x2="762.3" y2="218" stroke="#D946EF" stroke-opacity=".55"/>
+  <circle cx="762.3" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
+  <circle cx="762.3" cy="184" r="5.5" fill="none" stroke="#D946EF" stroke-width="2" class="nping" style="animation-delay:6.40s"/>
+  <rect x="752.3" y="217" width="46.0" height="21" rx="4" fill="#0E1730" stroke="#D946EF" stroke-opacity=".6"/>
+  <circle cx="761.3" cy="227.5" r="3" fill="#D946EF"/>
+  <text x="769.3" y="232" class="repo">SAGE</text>
 </g>
 <g class="pop" style="animation-delay:1.62s"><title>Agri-Shield · created 28 Sep 2026 · TypeScript</title>
-  <line x1="829.7" y1="177" x2="829.7" y2="132" stroke="#D946EF" stroke-opacity=".55"/>
-  <circle cx="829.7" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
-  <circle cx="829.7" cy="184" r="5.5" fill="none" stroke="#D946EF" stroke-width="2" class="nping" style="animation-delay:7.00s"/>
+  <line x1="828.9" y1="177" x2="828.9" y2="132" stroke="#D946EF" stroke-opacity=".55"/>
+  <circle cx="828.9" cy="184" r="5.5" fill="#060B18" stroke="#D946EF" stroke-width="2.4"/>
+  <circle cx="828.9" cy="184" r="5.5" fill="none" stroke="#D946EF" stroke-width="2" class="nping" style="animation-delay:6.99s"/>
   <rect x="789.0" y="111" width="95.0" height="21" rx="4" fill="#0E1730" stroke="#D946EF" stroke-opacity=".6"/>
   <circle cx="798.0" cy="121.5" r="3" fill="#D946EF"/>
   <text x="806.0" y="126" class="repo">Agri-Shield</text>
+</g>
+<g class="pop" style="animation-delay:1.74s"><title>travelmind · created 29 Sep 2026 · Python</title>
+  <line x1="829.3" y1="191" x2="829.3" y2="246" stroke="#0284C7" stroke-opacity=".55"/>
+  <circle cx="829.3" cy="184" r="5.5" fill="#060B18" stroke="#0284C7" stroke-width="2.4"/>
+  <circle cx="829.3" cy="184" r="5.5" fill="none" stroke="#0284C7" stroke-width="2" class="nping" style="animation-delay:6.99s"/>
+  <rect x="796.0" y="245" width="88.0" height="21" rx="4" fill="#0E1730" stroke="#0284C7" stroke-opacity=".6"/>
+  <circle cx="805.0" cy="255.5" r="3" fill="#0284C7"/>
+  <text x="813.0" y="260" class="repo">travelmind</text>
 </g><rect x="44" y="326" width="10" height="10" rx="2.5" fill="#0284C7"/><text x="60" y="335" class="small">Python</text><rect x="124" y="326" width="10" height="10" rx="2.5" fill="#D946EF"/><text x="140" y="335" class="small">TypeScript</text><rect x="232" y="326" width="10" height="10" rx="2.5" fill="#65A30D"/><text x="248" y="335" class="small">Jupyter Notebook</text><rect x="382" y="326" width="10" height="10" rx="2.5" fill="#8B5CF6"/><text x="398" y="335" class="small">CSS</text><rect x="441" y="326" width="10" height="10" rx="2.5" fill="#F43F5E"/><text x="457" y="335" class="small">JavaScript</text><rect x="549" y="326" width="10" height="10" rx="2.5" fill="#4A5A7E"/><text x="565" y="335" class="small">Other / none</text>
 </svg>
