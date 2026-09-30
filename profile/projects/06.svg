@@ -52,9 +52,9 @@
 <g fill="none" stroke="#FB7185" stroke-width="1.5" stroke-opacity=".85"><path d="M8,20 L8,8 L20,8"/><path d="M432,20 L432,8 L420,8"/><path d="M8,156 L8,168 L20,168"/><path d="M432,156 L432,168 L420,168"/></g>
 <g class="in">
   <text x="22" y="34" class="tag">P-06 · ◉ LATEST</text>
-  <circle cx="278.8" cy="30" r="4" fill="#A3E635" class="led"/>
-  <circle cx="278.8" cy="30" r="4" fill="none" stroke="#A3E635" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 20 hours</text>
+  <circle cx="301.6" cy="30" r="4" fill="#A3E635" class="led"/>
+  <circle cx="301.6" cy="30" r="4" fill="none" stroke="#A3E635" class="ring"/>
+  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 1 day</text>
 </g>
 <text x="22" y="66" class="nm glitch">Agri-Shield</text>
 <g class="in d2"><text x="22" y="88" class="ds">Mission brief pending: description coming soon.</text></g>
