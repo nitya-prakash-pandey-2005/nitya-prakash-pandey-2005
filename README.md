@@ -93,14 +93,14 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 28 minutes ago; commit travelmind 12 hours ago; commit Agri-Shield 13 hours ago; branch travelmind 1 day ago; branch Agri-Shield 1 day ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 7 hours ago; commit travelmind 19 hours ago; commit Agri-Shield 20 hours ago; branch travelmind 1 day ago; branch Agri-Shield 1 day ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **15 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge M1 Plan 3: offers engine [`623fd3e`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/623fd3e69f1929cecad92055817238f23520197c) <sub>28 minutes ago</sub>
-- **46 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(fareintel): search log, append-only fare snapshots, route baseli… [`e40344b`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e40344bbc4a31bee7f4b48681b5f126aaf9771b6) <sub>12 hours ago</sub>
-- **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>13 hours ago</sub>
+- **15 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge M1 Plan 3: offers engine [`623fd3e`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/623fd3e69f1929cecad92055817238f23520197c) <sub>7 hours ago</sub>
+- **46 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(fareintel): search log, append-only fare snapshots, route baseli… [`e40344b`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e40344bbc4a31bee7f4b48681b5f126aaf9771b6) <sub>19 hours ago</sub>
+- **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>20 hours ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>1 day ago</sub>
 - **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>1 day ago</sub>
 - **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Refresh to four seasons, and walk back three claims that did not survive [`273c63c`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/273c63cdc09e5702fb34adf8e3ceeba2110a4e92) <sub>2 weeks ago</sub>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 30 Sep 2026, 12:14 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 30 Sep 2026, 19:15 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
