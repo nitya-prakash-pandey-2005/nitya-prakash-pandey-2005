@@ -93,13 +93,13 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 4 hours ago; branch travelmind 4 hours ago; commit travelmind 1 day ago; commit Agri-Shield 1 day ago; branch travelmind 1 day ago; branch Agri-Shield 1 day ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 8 hours ago; branch travelmind 9 hours ago; commit travelmind 1 day ago; commit Agri-Shield 1 day ago; branch travelmind 1 day ago; branch Agri-Shield 1 day ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **42 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): fix(frontend): satisfy React lint rules in the shell and donut chart [`e88bc61`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e88bc618591db8b73d3d778a5e8b6745935f65fe) <sub>4 hours ago</sub>
-- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan4-workspace <sub>4 hours ago</sub>
+- **42 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): fix(frontend): satisfy React lint rules in the shell and donut chart [`e88bc61`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e88bc618591db8b73d3d778a5e8b6745935f65fe) <sub>8 hours ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan4-workspace <sub>9 hours ago</sub>
 - **46 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(fareintel): search log, append-only fare snapshots, route baseli… [`e40344b`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e40344bbc4a31bee7f4b48681b5f126aaf9771b6) <sub>1 day ago</sub>
 - **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>1 day ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>1 day ago</sub>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 01 Oct 2026, 00:51 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 01 Oct 2026, 05:21 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>

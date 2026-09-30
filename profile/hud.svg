@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 332, commits 318, active days 29, repositories 13, streak 4, best streak 4">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 358, commits 344, active days 29, repositories 13, streak 4, best streak 4">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -56,15 +56,15 @@
   </g>
   <circle cx="83.0" cy="148" r="36" fill="none" stroke="#38BDF8" stroke-width="1.2" class="sonar" style="animation-delay:0.00s"/>
   <circle cx="83.0" cy="148" r="44" fill="#38BDF8" fill-opacity=".05" stroke="#38BDF8" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:92.9; animation-delay:0.25s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:78.5; animation-delay:0.25s"
           transform="rotate(-90 83.0 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="45.3" cy="170.6" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
-    <circle cx="45.3" cy="170.6" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
+    <circle cx="40.0" cy="157.3" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
+    <circle cx="40.0" cy="157.3" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
   </g>
   <circle cx="83.0" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">332</text><text x="83.0" y="126" class="val" text-anchor="middle">277</text><text x="83.0" y="96" class="val" text-anchor="middle">221</text><text x="83.0" y="66" class="val" text-anchor="middle">166</text><text x="83.0" y="36" class="val" text-anchor="middle">111</text><text x="83.0" y="6" class="val" text-anchor="middle">55</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M83.0,104.0 A44,44 0 1 1 45.3,170.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">358</text><text x="83.0" y="126" class="val" text-anchor="middle">298</text><text x="83.0" y="96" class="val" text-anchor="middle">239</text><text x="83.0" y="66" class="val" text-anchor="middle">179</text><text x="83.0" y="36" class="val" text-anchor="middle">119</text><text x="83.0" y="6" class="val" text-anchor="middle">60</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M83.0,104.0 A44,44 0 1 1 40.0,157.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
   <text x="83.0" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:3.0s">CONTRIBUTIONS</text>
   <text x="83.0" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="83.0" y="267" class="small" text-anchor="middle">next <tspan style="fill:#38BDF8">▸</tspan> 500</text>
@@ -82,15 +82,15 @@
   </g>
   <circle cx="229.8" cy="148" r="36" fill="none" stroke="#A78BFA" stroke-width="1.2" class="sonar" style="animation-delay:0.45s"/>
   <circle cx="229.8" cy="148" r="44" fill="#A78BFA" fill-opacity=".05" stroke="#A78BFA" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:100.6; animation-delay:0.37s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:86.3; animation-delay:0.37s"
           transform="rotate(-90 229.8 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="196.6" cy="176.9" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
-    <circle cx="196.6" cy="176.9" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
+    <circle cx="189.1" cy="164.7" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.67s"/>
+    <circle cx="189.1" cy="164.7" r="4" fill="none" stroke="#A78BFA" stroke-width="1.5" class="ping" style="animation-delay:1.97s"/>
   </g>
   <circle cx="229.8" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">318</text><text x="229.8" y="126" class="val" text-anchor="middle">265</text><text x="229.8" y="96" class="val" text-anchor="middle">212</text><text x="229.8" y="66" class="val" text-anchor="middle">159</text><text x="229.8" y="36" class="val" text-anchor="middle">106</text><text x="229.8" y="6" class="val" text-anchor="middle">53</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M229.8,104.0 A44,44 0 1 1 196.6,176.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt1)"><g class="count" style="--h:180px;animation-delay:0.37s"><text x="229.8" y="156" class="val" text-anchor="middle">344</text><text x="229.8" y="126" class="val" text-anchor="middle">287</text><text x="229.8" y="96" class="val" text-anchor="middle">229</text><text x="229.8" y="66" class="val" text-anchor="middle">172</text><text x="229.8" y="36" class="val" text-anchor="middle">115</text><text x="229.8" y="6" class="val" text-anchor="middle">57</text><text x="229.8" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M229.8,104.0 A44,44 0 1 1 189.1,164.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.72s" filter="url(#glow)"/>
   <text x="229.8" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:4.3s">COMMITS</text>
   <text x="229.8" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="229.8" y="267" class="small" text-anchor="middle">next <tspan style="fill:#A78BFA">▸</tspan> 500</text>
