@@ -93,15 +93,15 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit Agri-Shield 3 hours ago; commit travelmind 4 hours ago; branch travelmind 18 hours ago; branch Agri-Shield 20 hours ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 3 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit Agri-Shield 7 hours ago; commit travelmind 8 hours ago; branch travelmind 22 hours ago; branch Agri-Shield 23 hours ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago; commit TyreMind 3 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>3 hours ago</sub>
-- **35 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge M1 Plan 2: Mission Control frontend [`5135402`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/51354020ac5cc6cc4b024946e441dececec8f6c6) <sub>4 hours ago</sub>
-- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>18 hours ago</sub>
-- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>20 hours ago</sub>
+- **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>7 hours ago</sub>
+- **35 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge M1 Plan 2: Mission Control frontend [`5135402`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/51354020ac5cc6cc4b024946e441dececec8f6c6) <sub>8 hours ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>22 hours ago</sub>
+- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>23 hours ago</sub>
 - **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Refresh to four seasons, and walk back three claims that did not survive [`273c63c`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/273c63cdc09e5702fb34adf8e3ceeba2110a4e92) <sub>2 weeks ago</sub>
 - **14 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Count the standard method&#x27;s failures on 56 races instead of four [`ccc42a4`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/ccc42a43d672f88412dd5e2c35590f0950581b30) <sub>2 weeks ago</sub>
 - **8 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Correct every document to the numbers that actually replicated [`69a5e91`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/69a5e914e696fb8825baa2d6489d96d108b4ae50) <sub>2 weeks ago</sub>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 30 Sep 2026, 02:18 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 30 Sep 2026, 05:58 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
