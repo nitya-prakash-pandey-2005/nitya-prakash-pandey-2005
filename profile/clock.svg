@@ -39,7 +39,7 @@
 <g fill="none" stroke="#A3E635" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,324 L10,340 L26,340"/><path d="M890,324 L890,340 L874,340"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#A3E635" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">06 //</tspan> COMMIT CLOCK</text>
-<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 01 OCT 2026 · IST</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 02 OCT 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs><linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38BDF8" stop-opacity="0"/><stop offset="1" stop-color="#38BDF8" stop-opacity=".22"/></linearGradient><linearGradient id="bshim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs><text x="470" y="74" class="lbl">TIME OF DAY</text><circle cx="200" cy="206" r="118" fill="#0E1730" stroke="#1C2A48"/>
 <circle cx="200" cy="206" r="40.0" fill="none" stroke="#1C2A48"/>

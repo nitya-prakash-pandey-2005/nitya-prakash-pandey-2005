@@ -39,7 +39,7 @@
 <g fill="none" stroke="#E879F9" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,364 L10,380 L26,380"/><path d="M890,364 L890,380 L874,380"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#E879F9" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">04 //</tspan> CONTRIBUTION SKYLINE · 12 MONTHS</text>
-<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 01 OCT 2026 · IST</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 02 OCT 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E879F9" stop-opacity="0"/><stop offset="1" stop-color="#E879F9" stop-opacity=".4"/></linearGradient>
 <linearGradient id="beacon" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".75"/><stop offset="1" stop-color="#FDE68A" stop-opacity="0"/></linearGradient><clipPath id="sk0"><rect x="742.0" y="99.2" width="130" height="30.0"/></clipPath><clipPath id="sk1"><rect x="742.0" y="151.2" width="130" height="30.0"/></clipPath><clipPath id="sk2"><rect x="742.0" y="203.2" width="130" height="30.0"/></clipPath><clipPath id="sk3"><rect x="742.0" y="255.2" width="130" height="30.0"/></clipPath></defs>
