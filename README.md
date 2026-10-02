@@ -93,7 +93,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 1 day ago; branch travelmind 1 day ago; commit travelmind 2 days ago; commit Agri-Shield 2 days ago; branch travelmind 2 days ago; branch Agri-Shield 2 days ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 1 day ago; branch travelmind 1 day ago; commit travelmind 2 days ago; commit Agri-Shield 2 days ago; branch travelmind 3 days ago; branch Agri-Shield 3 days ago; commit TyreMind 2 weeks ago; commit TyreMind 2 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
@@ -102,8 +102,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan4-workspace <sub>1 day ago</sub>
 - **46 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(fareintel): search log, append-only fare snapshots, route baseli… [`e40344b`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e40344bbc4a31bee7f4b48681b5f126aaf9771b6) <sub>2 days ago</sub>
 - **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>2 days ago</sub>
-- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>2 days ago</sub>
-- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>2 days ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>3 days ago</sub>
+- **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>3 days ago</sub>
 - **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Refresh to four seasons, and walk back three claims that did not survive [`273c63c`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/273c63cdc09e5702fb34adf8e3ceeba2110a4e92) <sub>2 weeks ago</sub>
 - **14 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Count the standard method&#x27;s failures on 56 races instead of four [`ccc42a4`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/ccc42a43d672f88412dd5e2c35590f0950581b30) <sub>2 weeks ago</sub>
 
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 02 Oct 2026, 05:23 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 02 Oct 2026, 11:09 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
