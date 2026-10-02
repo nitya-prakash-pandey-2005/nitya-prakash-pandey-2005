@@ -39,7 +39,7 @@
 <g fill="none" stroke="#A78BFA" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,284 L10,300 L26,300"/><path d="M890,284 L890,300 L874,300"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#A78BFA" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">05 //</tspan> SIGNAL ACTIVITY</text>
-<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 02 OCT 2026 · IST</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 03 OCT 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs>
   <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38BDF8"/><stop offset=".5" stop-color="#A78BFA"/><stop offset="1" stop-color="#E879F9"/></linearGradient>
