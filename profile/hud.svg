@@ -213,7 +213,7 @@
 <line x1="389.7" y1="334" x2="389.7" y2="352" stroke="#1C2A48"/>
 <text x="450.0" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.65s">FORKS <tspan class="strong" style="fill:#A3E635">0</tspan></text>
 <line x1="510.3" y1="334" x2="510.3" y2="352" stroke="#1C2A48"/>
-<text x="570.6" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.80s">FOLLOWERS <tspan class="strong" style="fill:#FBBF24">0</tspan></text>
+<text x="570.6" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.80s">FOLLOWERS <tspan class="strong" style="fill:#FBBF24">1</tspan></text>
 <line x1="630.9" y1="334" x2="630.9" y2="352" stroke="#1C2A48"/>
 <text x="691.1" y="347" class="small boot" text-anchor="middle" style="animation-delay:1.95s">CONTRIBUTED TO <tspan class="strong" style="fill:#FB7185">1</tspan></text>
 <line x1="751.4" y1="334" x2="751.4" y2="352" stroke="#1C2A48"/>
