@@ -93,19 +93,19 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 3 days ago; branch travelmind 3 days ago; commit travelmind 4 days ago; commit Agri-Shield 4 days ago; branch travelmind 5 days ago; branch Agri-Shield 5 days ago; commit TyreMind 3 weeks ago; commit TyreMind 3 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 4 hours ago; branch travelmind 5 hours ago; commit travelmind 20 hours ago; commit travelmind 3 days ago; branch travelmind 3 days ago; commit Agri-Shield 4 days ago; branch travelmind 5 days ago; branch Agri-Shield 5 days ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **42 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): fix(frontend): satisfy React lint rules in the shell and donut chart [`e88bc61`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e88bc618591db8b73d3d778a5e8b6745935f65fe) <sub>3 days ago</sub>
+- **18 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): ci: skip the uv cache in the e2e job [`b3ee975`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/b3ee975e79f5731d595d6e24de8cf693dd7820d0) <sub>4 hours ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan5-quotes <sub>5 hours ago</sub>
+- **35 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): chore(frontend): ignore TypeScript build info and temp scripts [`0ad4cba`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/0ad4cbad3dfd28d01076ae3ff6926bf08688ba02) <sub>20 hours ago</sub>
+- **47 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): fix(ui): KPI strips go seven or eight across on wide screens [`3b71701`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/3b7170176af52c980f08bc12ef1cbaad9c15dc97) <sub>3 days ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan4-workspace <sub>3 days ago</sub>
-- **46 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(fareintel): search log, append-only fare snapshots, route baseli… [`e40344b`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/e40344bbc4a31bee7f4b48681b5f126aaf9771b6) <sub>4 days ago</sub>
 - **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>4 days ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>5 days ago</sub>
 - **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>5 days ago</sub>
-- **20 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Refresh to four seasons, and walk back three claims that did not survive [`273c63c`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/273c63cdc09e5702fb34adf8e3ceeba2110a4e92) <sub>3 weeks ago</sub>
-- **14 commits** to [TyreMind](https://github.com/nitya-prakash-pandey-2005/TyreMind): Count the standard method&#x27;s failures on 56 races instead of four [`ccc42a4`](https://github.com/nitya-prakash-pandey-2005/TyreMind/commit/ccc42a43d672f88412dd5e2c35590f0950581b30) <sub>3 weeks ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 04 Oct 2026, 12:20 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 04 Oct 2026, 18:42 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
