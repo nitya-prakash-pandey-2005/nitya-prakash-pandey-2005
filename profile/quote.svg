@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="204" viewBox="0 0 900 204" role="img" aria-label="Quote of the day: Simplicity is prerequisite for reliability. — Edsger W. Dijkstra">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="204" viewBox="0 0 900 204" role="img" aria-label="Quote of the day: Premature optimization is the root of all evil. — Donald Knuth">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -39,7 +39,7 @@
 <g fill="none" stroke="#A3E635" stroke-opacity=".8" stroke-width="1.5"><path d="M10,26 L10,10 L26,10"/><path d="M890,26 L890,10 L874,10"/><path d="M10,178 L10,194 L26,194"/><path d="M890,178 L890,194 L874,194"/></g>
 <circle cx="31" cy="34" r="3.5" fill="#A3E635" class="blink"/>
 <text x="44" y="38.5" class="t"><tspan class="code">10 //</tspan> TRANSMISSION OF THE DAY</text>
-<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 05 OCT 2026 · IST</text>
+<text x="872" y="38.5" class="stamp" text-anchor="end">SYNC 06 OCT 2026 · IST</text>
 <rect x="28" y="52" width="844" height="1" fill="url(#rule)"/>
 <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#FFFFFF" fill-opacity=".035"/></pattern><linearGradient id="crt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3E635" stop-opacity="0"/><stop offset="1" stop-color="#A3E635" stop-opacity=".1"/></linearGradient></defs>
 <rect x="28" y="66" width="844" height="116" rx="10" fill="#060B18" stroke="#1C2A48"/>
@@ -47,10 +47,10 @@
 <circle cx="46" cy="77" r="4.5" fill="#FB7185"/>
 <circle cx="62" cy="77" r="4.5" fill="#FBBF24"/>
 <circle cx="78" cy="77" r="4.5" fill="#A3E635"/>
-<text x="450.0" y="81" class="small" text-anchor="middle">transmission://quote-of-the-day · 05 Oct 2026</text>
+<text x="450.0" y="81" class="small" text-anchor="middle">transmission://quote-of-the-day · 06 Oct 2026</text>
 <g class="type" style="animation-delay:.3s"><text x="46" y="110" class="cmd"><tspan style="fill:#A3E635">$</tspan> fortune --sci-fi --daily</text></g>
-<g class="type" style="animation-delay:1.0s"><text x="46" y="136" class="qt">“Simplicity is prerequisite for reliability.”</text></g>
-<g class="type" style="animation-delay:1.9s"><text x="854" y="136" class="au" text-anchor="end">— Edsger W. Dijkstra</text></g>
+<g class="type" style="animation-delay:1.0s"><text x="46" y="136" class="qt">“Premature optimization is the root of all evil.”</text></g>
+<g class="type" style="animation-delay:1.9s"><text x="854" y="136" class="au" text-anchor="end">— Donald Knuth</text></g>
 <rect x="856" y="123" width="8" height="16" fill="#A3E635" class="cur"/>
 <rect x="28" y="88" width="844" height="94" fill="url(#scan)" pointer-events="none"/>
 <rect x="28" y="88" width="844" height="30" fill="url(#crt)" class="crt"/>
