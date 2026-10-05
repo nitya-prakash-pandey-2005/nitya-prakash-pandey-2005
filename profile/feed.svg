@@ -47,7 +47,7 @@
 <line x1="150" y1="74" x2="150" y2="468" stroke="#1C2A48" stroke-width="2"/>
 <line x1="150" y1="74" x2="150" y2="468" stroke="url(#spine)" stroke-width="2.4" class="flow" filter="url(#glow)"/>
 <g class="pop" style="animation-delay:0.35s">
-  <text x="124" y="96" class="small" text-anchor="end">3 hours</text>
+  <text x="124" y="96" class="small" text-anchor="end">1 hour</text>
   <circle cx="150" cy="92" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="92" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="96.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
@@ -55,12 +55,12 @@
 <line x1="168" y1="92" x2="170" y2="92" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="92" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:1.15s"/>
 <circle cx="150" cy="92" r="12" fill="none" stroke="#A3E635" class="ping"/>
 <g class="type" style="animation-delay:0.35s">
-  <text x="178" y="91"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">8 commits</tspan><tspan dx="12" class="live glitch" style="fill:#A3E635">● LATEST</tspan></text>
-  <text x="178" y="109" class="dt">Merge v3 steps 3-4: scale foundation, performance and the agent engine  ·  a09ad3a</text>
+  <text x="178" y="91"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">23 commits</tspan><tspan dx="12" class="live glitch" style="fill:#A3E635">● LATEST</tspan></text>
+  <text x="178" y="109" class="dt">Merge the UI kit restyle: aurora theme, kit shell and every page in t…  ·  57072c0</text>
 </g>
-<g class="type" style="animation-delay:0.85s"><rect x="782" y="86.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.25s"/><rect x="791" y="84.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.32s"/><rect x="800" y="83.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.39s"/><rect x="809" y="82.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.46s"/><rect x="818" y="81.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.53s"/><rect x="827" y="80.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.60s"/><rect x="836" y="78.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.67s"/><rect x="845" y="77.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.74s"/><rect x="854" y="76.4" width="6" height="19.6" rx="1.5" fill="#1C2A48"/><rect x="863" y="75.2" width="6" height="20.8" rx="1.5" fill="#1C2A48"/></g>
+<g class="type" style="animation-delay:0.85s"><rect x="782" y="86.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.25s"/><rect x="791" y="84.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.32s"/><rect x="800" y="83.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.39s"/><rect x="809" y="82.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.46s"/><rect x="818" y="81.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.53s"/><rect x="827" y="80.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.60s"/><rect x="836" y="78.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.67s"/><rect x="845" y="77.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.74s"/><rect x="854" y="76.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.81s"/><rect x="863" y="75.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.88s"/></g>
 <g class="pop" style="animation-delay:0.67s">
-  <text x="124" y="146" class="small" text-anchor="end">6 hours</text>
+  <text x="124" y="146" class="small" text-anchor="end">12 hours</text>
   <circle cx="150" cy="142" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
   <circle cx="150" cy="142" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="146.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
@@ -72,7 +72,7 @@
 </g>
 <g class="type" style="animation-delay:1.17s"><rect x="782" y="136.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.57s"/><rect x="791" y="134.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.64s"/><rect x="800" y="133.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.71s"/><rect x="809" y="132.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.78s"/><rect x="818" y="131.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.85s"/><rect x="827" y="130.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.92s"/><rect x="836" y="128.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:1.99s"/><rect x="845" y="127.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.06s"/><rect x="854" y="126.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.13s"/><rect x="863" y="125.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.20s"/></g>
 <g class="pop" style="animation-delay:0.99s">
-  <text x="124" y="196" class="small" text-anchor="end">16 hours</text>
+  <text x="124" y="196" class="small" text-anchor="end">22 hours</text>
   <circle cx="150" cy="192" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="192" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="196.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
@@ -90,7 +90,7 @@
 </g>
 <line x1="168" y1="242" x2="170" y2="242" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="242" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:2.71s"/>
 <g class="type" style="animation-delay:1.31s">
-  <text x="178" y="241"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">31 commits</tspan></text>
+  <text x="178" y="241"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">16 commits</tspan></text>
   <text x="178" y="259" class="dt">chore(frontend): ignore TypeScript build info and temp scripts  ·  0ad4cba</text>
 </g>
 <g class="type" style="animation-delay:1.81s"><rect x="782" y="236.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.21s"/><rect x="791" y="234.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.28s"/><rect x="800" y="233.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.35s"/><rect x="809" y="232.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.42s"/><rect x="818" y="231.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.49s"/><rect x="827" y="230.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.56s"/><rect x="836" y="228.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.63s"/><rect x="845" y="227.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.70s"/><rect x="854" y="226.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.77s"/><rect x="863" y="225.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.84s"/></g>
@@ -118,7 +118,7 @@
 </g>
 <g class="type" style="animation-delay:2.45s"><rect x="782" y="336.0" width="6" height="10.0" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:2.85s"/><rect x="791" y="334.8" width="6" height="11.2" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:2.92s"/><rect x="800" y="333.6" width="6" height="12.4" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:2.99s"/><rect x="809" y="332.4" width="6" height="13.6" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.06s"/><rect x="818" y="331.2" width="6" height="14.8" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.13s"/><rect x="827" y="330.0" width="6" height="16.0" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.20s"/><rect x="836" y="328.8" width="6" height="17.2" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.27s"/><rect x="845" y="327.6" width="6" height="18.4" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.34s"/><rect x="854" y="326.4" width="6" height="19.6" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.41s"/><rect x="863" y="325.2" width="6" height="20.8" rx="1.5" fill="#2DD4BF" class="lit" style="animation-delay:3.48s"/></g>
 <g class="pop" style="animation-delay:2.27s">
-  <text x="124" y="396" class="small" text-anchor="end">5 days</text>
+  <text x="124" y="396" class="small" text-anchor="end">6 days</text>
   <circle cx="150" cy="392" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="392" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="396.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>

@@ -93,18 +93,18 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 3 hours ago; commit travelmind 6 hours ago; branch travelmind 16 hours ago; commit travelmind 1 day ago; branch travelmind 4 days ago; commit Agri-Shield 5 days ago; branch travelmind 5 days ago; branch Agri-Shield 6 days ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit travelmind 1 hour ago; commit travelmind 12 hours ago; branch travelmind 22 hours ago; commit travelmind 1 day ago; branch travelmind 4 days ago; commit Agri-Shield 5 days ago; branch travelmind 6 days ago; branch Agri-Shield 6 days ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **8 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge v3 steps 3-4: scale foundation, performance and the agent engine [`a09ad3a`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/a09ad3a94b89cf451ebd3ba0f84a1460147e0ac5) <sub>3 hours ago</sub>
-- **61 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(agent): demo planner speaks dates plainly and drafts enquiries o… [`ab98d24`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/ab98d24c6461d89919b8e503e3f5ad8a5836e865) <sub>6 hours ago</sub>
-- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan5-quotes <sub>16 hours ago</sub>
-- **31 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): chore(frontend): ignore TypeScript build info and temp scripts [`0ad4cba`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/0ad4cbad3dfd28d01076ae3ff6926bf08688ba02) <sub>1 day ago</sub>
+- **23 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge the UI kit restyle: aurora theme, kit shell and every page in t… [`57072c0`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/57072c06ac3a11e3d6b1333bb9cc9b54ea8becf3) <sub>1 hour ago</sub>
+- **61 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(agent): demo planner speaks dates plainly and drafts enquiries o… [`ab98d24`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/ab98d24c6461d89919b8e503e3f5ad8a5836e865) <sub>12 hours ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan5-quotes <sub>22 hours ago</sub>
+- **16 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): chore(frontend): ignore TypeScript build info and temp scripts [`0ad4cba`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/0ad4cbad3dfd28d01076ae3ff6926bf08688ba02) <sub>1 day ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan4-workspace <sub>4 days ago</sub>
 - **46 commits** to [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield): Durable persistence, Web Push notifications and SoilGrids fallback [`71bee27`](https://github.com/nitya-prakash-pandey-2005/Agri-Shield/commit/71bee270b032cb76cd938790c6e62ae707424b74) <sub>5 days ago</sub>
-- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>5 days ago</sub>
+- **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch main <sub>6 days ago</sub>
 - **Branch** · [Agri-Shield](https://github.com/nitya-prakash-pandey-2005/Agri-Shield) · Branch main <sub>6 days ago</sub>
 
 </details>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 05 Oct 2026, 06:26 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 05 Oct 2026, 12:34 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
