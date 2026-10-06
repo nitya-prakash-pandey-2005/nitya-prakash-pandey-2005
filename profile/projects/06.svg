@@ -54,7 +54,7 @@
   <text x="22" y="34" class="tag">P-06 · ◉ LATEST</text>
   <circle cx="278.8" cy="30" r="4" fill="#A3E635" class="led"/>
   <circle cx="278.8" cy="30" r="4" fill="none" stroke="#A3E635" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 17 hours</text>
+  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 21 hours</text>
 </g>
 <text x="22" y="66" class="nm glitch">travelmind</text>
 <g class="in d2"><text x="22" y="88" class="ds">AI copilot for travel agencies and corporate travel:</text><text x="22" y="105" class="ds">quotes from live supplier inventory, AI answers with ever…</text></g>
