@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="536" viewBox="0 0 900 536" role="img" aria-label="Recent activity: commit nitya-prakash-pandey-2005/sangam; commit nitya-prakash-pandey-2005/sangam; public nitya-prakash-pandey-2005/sangam; commit nitya-prakash-pandey-2005/travelmind; commit nitya-prakash-pandey-2005/travelmind; branch nitya-prakash-pandey-2005/travelmind; commit nitya-prakash-pandey-2005/travelmind; branch nitya-prakash-pandey-2005/travelmind">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="536" viewBox="0 0 900 536" role="img" aria-label="Recent activity: commit nitya-prakash-pandey-2005/sangam; commit nitya-prakash-pandey-2005/sangam; branch nitya-prakash-pandey-2005/sangam; public nitya-prakash-pandey-2005/sangam; commit nitya-prakash-pandey-2005/travelmind; commit nitya-prakash-pandey-2005/travelmind; branch nitya-prakash-pandey-2005/travelmind; commit nitya-prakash-pandey-2005/travelmind">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -47,7 +47,7 @@
 <line x1="150" y1="74" x2="150" y2="468" stroke="#1C2A48" stroke-width="2"/>
 <line x1="150" y1="74" x2="150" y2="468" stroke="url(#spine)" stroke-width="2.4" class="flow" filter="url(#glow)"/>
 <g class="pop" style="animation-delay:0.35s">
-  <text x="124" y="96" class="small" text-anchor="end">15 hours</text>
+  <text x="124" y="96" class="small" text-anchor="end">22 hours</text>
   <circle cx="150" cy="92" r="17" fill="none" stroke="#FBBF24" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="92" r="12" fill="#060B18" stroke="#FBBF24" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="96.5" text-anchor="middle" class="gl" style="fill:#FBBF24">↑</text>
@@ -60,7 +60,7 @@
 </g>
 <g class="type" style="animation-delay:0.85s"><rect x="782" y="86.0" width="6" height="10.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.25s"/><rect x="791" y="84.8" width="6" height="11.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.32s"/><rect x="800" y="83.6" width="6" height="12.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.39s"/><rect x="809" y="82.4" width="6" height="13.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.46s"/><rect x="818" y="81.2" width="6" height="14.8" rx="1.5" fill="#1C2A48"/><rect x="827" y="80.0" width="6" height="16.0" rx="1.5" fill="#1C2A48"/><rect x="836" y="78.8" width="6" height="17.2" rx="1.5" fill="#1C2A48"/><rect x="845" y="77.6" width="6" height="18.4" rx="1.5" fill="#1C2A48"/><rect x="854" y="76.4" width="6" height="19.6" rx="1.5" fill="#1C2A48"/><rect x="863" y="75.2" width="6" height="20.8" rx="1.5" fill="#1C2A48"/></g>
 <g class="pop" style="animation-delay:0.67s">
-  <text x="124" y="146" class="small" text-anchor="end">23 hours</text>
+  <text x="124" y="146" class="small" text-anchor="end">1 day</text>
   <circle cx="150" cy="142" r="17" fill="none" stroke="#FBBF24" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
   <circle cx="150" cy="142" r="12" fill="#060B18" stroke="#FBBF24" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="146.5" text-anchor="middle" class="gl" style="fill:#FBBF24">↑</text>
@@ -73,27 +73,26 @@
 <g class="type" style="animation-delay:1.17s"><rect x="782" y="136.0" width="6" height="10.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.57s"/><rect x="791" y="134.8" width="6" height="11.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.64s"/><rect x="800" y="133.6" width="6" height="12.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.71s"/><rect x="809" y="132.4" width="6" height="13.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.78s"/><rect x="818" y="131.2" width="6" height="14.8" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.85s"/><rect x="827" y="130.0" width="6" height="16.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.92s"/><rect x="836" y="128.8" width="6" height="17.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.99s"/><rect x="845" y="127.6" width="6" height="18.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.06s"/><rect x="854" y="126.4" width="6" height="19.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.13s"/><rect x="863" y="125.2" width="6" height="20.8" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.20s"/></g>
 <g class="pop" style="animation-delay:0.99s">
   <text x="124" y="196" class="small" text-anchor="end">1 day</text>
-  <circle cx="150" cy="192" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
-  <circle cx="150" cy="192" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="150" y="196.5" text-anchor="middle" class="gl" style="fill:#A3E635">◉</text>
+  <circle cx="150" cy="192" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
+  <circle cx="150" cy="192" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
+  <text x="150" y="196.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
 </g>
-<line x1="168" y1="192" x2="170" y2="192" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="192" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:2.19s"/>
+<line x1="168" y1="192" x2="170" y2="192" stroke="#2DD4BF" stroke-opacity=".35"/><circle cx="168" cy="192" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:2.19s"/>
 <g class="type" style="animation-delay:0.99s">
-  <text x="178" y="191"><tspan class="tg" style="fill:#A3E635">LAUNCH</tspan><tspan dx="10" class="rp">sangam</tspan></text>
-  <text x="178" y="209" class="dt">Open-sourced</text>
+  <text x="178" y="191"><tspan class="tg" style="fill:#2DD4BF">BRANCH</tspan><tspan dx="10" class="rp">sangam</tspan></text>
+  <text x="178" y="209" class="dt">Branch main</text>
 </g>
 <g class="pop" style="animation-delay:1.31s">
   <text x="124" y="246" class="small" text-anchor="end">1 day</text>
   <circle cx="150" cy="242" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
   <circle cx="150" cy="242" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="150" y="246.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
+  <text x="150" y="246.5" text-anchor="middle" class="gl" style="fill:#A3E635">◉</text>
 </g>
 <line x1="168" y1="242" x2="170" y2="242" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="242" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:2.71s"/>
 <g class="type" style="animation-delay:1.31s">
-  <text x="178" y="241"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">23 commits</tspan></text>
-  <text x="178" y="259" class="dt">Merge the UI kit restyle: aurora theme, kit shell and every page in t…  ·  57072c0</text>
+  <text x="178" y="241"><tspan class="tg" style="fill:#A3E635">LAUNCH</tspan><tspan dx="10" class="rp">sangam</tspan></text>
+  <text x="178" y="259" class="dt">Open-sourced</text>
 </g>
-<g class="type" style="animation-delay:1.81s"><rect x="782" y="236.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.21s"/><rect x="791" y="234.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.28s"/><rect x="800" y="233.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.35s"/><rect x="809" y="232.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.42s"/><rect x="818" y="231.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.49s"/><rect x="827" y="230.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.56s"/><rect x="836" y="228.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.63s"/><rect x="845" y="227.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.70s"/><rect x="854" y="226.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.77s"/><rect x="863" y="225.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.84s"/></g>
 <g class="pop" style="animation-delay:1.63s">
   <text x="124" y="296" class="small" text-anchor="end">1 day</text>
   <circle cx="150" cy="292" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
@@ -102,44 +101,45 @@
 </g>
 <line x1="168" y1="292" x2="170" y2="292" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="292" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:3.23s"/>
 <g class="type" style="animation-delay:1.63s">
-  <text x="178" y="291"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">61 commits</tspan></text>
-  <text x="178" y="309" class="dt">feat(agent): demo planner speaks dates plainly and drafts enquiries o…  ·  ab98d24</text>
+  <text x="178" y="291"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">23 commits</tspan></text>
+  <text x="178" y="309" class="dt">Merge the UI kit restyle: aurora theme, kit shell and every page in t…  ·  57072c0</text>
 </g>
 <g class="type" style="animation-delay:2.13s"><rect x="782" y="286.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.53s"/><rect x="791" y="284.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.60s"/><rect x="800" y="283.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.67s"/><rect x="809" y="282.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.74s"/><rect x="818" y="281.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.81s"/><rect x="827" y="280.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.88s"/><rect x="836" y="278.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.95s"/><rect x="845" y="277.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.02s"/><rect x="854" y="276.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.09s"/><rect x="863" y="275.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.16s"/></g>
 <g class="pop" style="animation-delay:1.95s">
-  <text x="124" y="346" class="small" text-anchor="end">2 days</text>
-  <circle cx="150" cy="342" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
-  <circle cx="150" cy="342" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="150" y="346.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
+  <text x="124" y="346" class="small" text-anchor="end">1 day</text>
+  <circle cx="150" cy="342" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
+  <circle cx="150" cy="342" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
+  <text x="150" y="346.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
 </g>
-<line x1="168" y1="342" x2="170" y2="342" stroke="#2DD4BF" stroke-opacity=".35"/><circle cx="168" cy="342" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:3.75s"/>
+<line x1="168" y1="342" x2="170" y2="342" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="342" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:3.75s"/>
 <g class="type" style="animation-delay:1.95s">
-  <text x="178" y="341"><tspan class="tg" style="fill:#2DD4BF">BRANCH</tspan><tspan dx="10" class="rp">travelmind</tspan></text>
-  <text x="178" y="359" class="dt">Branch m1-plan5-quotes</text>
+  <text x="178" y="341"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">61 commits</tspan></text>
+  <text x="178" y="359" class="dt">feat(agent): demo planner speaks dates plainly and drafts enquiries o…  ·  ab98d24</text>
 </g>
+<g class="type" style="animation-delay:2.45s"><rect x="782" y="336.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.85s"/><rect x="791" y="334.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.92s"/><rect x="800" y="333.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.99s"/><rect x="809" y="332.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.06s"/><rect x="818" y="331.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.13s"/><rect x="827" y="330.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.20s"/><rect x="836" y="328.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.27s"/><rect x="845" y="327.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.34s"/><rect x="854" y="326.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.41s"/><rect x="863" y="325.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.48s"/></g>
 <g class="pop" style="animation-delay:2.27s">
   <text x="124" y="396" class="small" text-anchor="end">2 days</text>
-  <circle cx="150" cy="392" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
-  <circle cx="150" cy="392" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="150" y="396.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
+  <circle cx="150" cy="392" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
+  <circle cx="150" cy="392" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
+  <text x="150" y="396.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
 </g>
-<line x1="168" y1="392" x2="170" y2="392" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="392" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:4.27s"/>
+<line x1="168" y1="392" x2="170" y2="392" stroke="#2DD4BF" stroke-opacity=".35"/><circle cx="168" cy="392" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:4.27s"/>
 <g class="type" style="animation-delay:2.27s">
-  <text x="178" y="391"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">16 commits</tspan></text>
-  <text x="178" y="409" class="dt">chore(frontend): ignore TypeScript build info and temp scripts  ·  0ad4cba</text>
+  <text x="178" y="391"><tspan class="tg" style="fill:#2DD4BF">BRANCH</tspan><tspan dx="10" class="rp">travelmind</tspan></text>
+  <text x="178" y="409" class="dt">Branch m1-plan5-quotes</text>
 </g>
-<g class="type" style="animation-delay:2.77s"><rect x="782" y="386.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.17s"/><rect x="791" y="384.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.24s"/><rect x="800" y="383.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.31s"/><rect x="809" y="382.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.38s"/><rect x="818" y="381.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.45s"/><rect x="827" y="380.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.52s"/><rect x="836" y="378.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.59s"/><rect x="845" y="377.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.66s"/><rect x="854" y="376.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.73s"/><rect x="863" y="375.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.80s"/></g>
 <g class="pop" style="animation-delay:2.59s">
-  <text x="124" y="446" class="small" text-anchor="end">5 days</text>
-  <circle cx="150" cy="442" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
-  <circle cx="150" cy="442" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
-  <text x="150" y="446.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
+  <text x="124" y="446" class="small" text-anchor="end">3 days</text>
+  <circle cx="150" cy="442" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
+  <circle cx="150" cy="442" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
+  <text x="150" y="446.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
 </g>
-<line x1="168" y1="442" x2="170" y2="442" stroke="#2DD4BF" stroke-opacity=".35"/><circle cx="168" cy="442" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:4.79s"/>
+<line x1="168" y1="442" x2="170" y2="442" stroke="#A3E635" stroke-opacity=".35"/><circle cx="168" cy="442" r="2.2" fill="#FFFFFF" class="pkt" style="animation-delay:4.79s"/>
 <g class="type" style="animation-delay:2.59s">
-  <text x="178" y="441"><tspan class="tg" style="fill:#2DD4BF">BRANCH</tspan><tspan dx="10" class="rp">travelmind</tspan></text>
-  <text x="178" y="459" class="dt">Branch m1-plan4-workspace</text>
+  <text x="178" y="441"><tspan class="tg" style="fill:#A3E635">COMMIT</tspan><tspan dx="10" class="rp">travelmind</tspan><tspan dx="10" class="small" style="fill:#B9C5DD">16 commits</tspan></text>
+  <text x="178" y="459" class="dt">chore(frontend): ignore TypeScript build info and temp scripts  ·  0ad4cba</text>
 </g>
+<g class="type" style="animation-delay:3.09s"><rect x="782" y="436.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.49s"/><rect x="791" y="434.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.56s"/><rect x="800" y="433.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.63s"/><rect x="809" y="432.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.70s"/><rect x="818" y="431.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.77s"/><rect x="827" y="430.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.84s"/><rect x="836" y="428.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.91s"/><rect x="845" y="427.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.98s"/><rect x="854" y="426.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:4.05s"/><rect x="863" y="425.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:4.12s"/></g>
 <g class="type" style="animation-delay:3.16s"><text x="146" y="506" class="term"><tspan style="fill:#A3E635">&gt;</tspan> listening for new signals<tspan class="d1">.</tspan><tspan class="d2">.</tspan><tspan class="d3">.</tspan></text><rect x="387.0" y="494" width="8" height="15" fill="#A3E635" class="cur"/></g>
 <text x="872" y="506" class="small" text-anchor="end">NEXT SYNC <tspan style="fill:#A3E635">≤ 60 MIN</tspan></text>
 </svg>

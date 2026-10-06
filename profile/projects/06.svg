@@ -54,7 +54,7 @@
   <text x="22" y="34" class="tag">P-06 · ◉ LATEST</text>
   <circle cx="278.8" cy="30" r="4" fill="#A3E635" class="led"/>
   <circle cx="278.8" cy="30" r="4" fill="none" stroke="#A3E635" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 15 hours</text>
+  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 22 hours</text>
 </g>
 <text x="22" y="66" class="nm glitch">sangam</text>
 <g class="in d2"><text x="22" y="88" class="ds">Offline, on-device community network for real-world</text><text x="22" y="105" class="ds">events. Phones discover nearby people over Bluetooth and…</text></g>
