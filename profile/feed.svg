@@ -94,7 +94,7 @@
   <text x="178" y="259" class="dt">Open-sourced</text>
 </g>
 <g class="pop" style="animation-delay:1.63s">
-  <text x="124" y="296" class="small" text-anchor="end">2 days</text>
+  <text x="124" y="296" class="small" text-anchor="end">3 days</text>
   <circle cx="150" cy="292" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="292" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="296.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
@@ -118,7 +118,7 @@
 </g>
 <g class="type" style="animation-delay:2.45s"><rect x="782" y="336.0" width="6" height="10.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.85s"/><rect x="791" y="334.8" width="6" height="11.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.92s"/><rect x="800" y="333.6" width="6" height="12.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:2.99s"/><rect x="809" y="332.4" width="6" height="13.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.06s"/><rect x="818" y="331.2" width="6" height="14.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.13s"/><rect x="827" y="330.0" width="6" height="16.0" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.20s"/><rect x="836" y="328.8" width="6" height="17.2" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.27s"/><rect x="845" y="327.6" width="6" height="18.4" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.34s"/><rect x="854" y="326.4" width="6" height="19.6" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.41s"/><rect x="863" y="325.2" width="6" height="20.8" rx="1.5" fill="#A3E635" class="lit" style="animation-delay:3.48s"/></g>
 <g class="pop" style="animation-delay:2.27s">
-  <text x="124" y="396" class="small" text-anchor="end">3 days</text>
+  <text x="124" y="396" class="small" text-anchor="end">4 days</text>
   <circle cx="150" cy="392" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="392" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="396.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
