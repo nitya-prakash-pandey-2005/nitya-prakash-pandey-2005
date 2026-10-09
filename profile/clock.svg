@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="350" viewBox="0 0 900 350" role="img" aria-label="Commits by hour of day (IST): 338 commits, busiest hour 22:00">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="350" viewBox="0 0 900 350" role="img" aria-label="Commits by hour of day (IST): 337 commits, busiest hour 22:00">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -56,7 +56,7 @@
 <text x="66.0" y="210.0" class="small" text-anchor="middle">18h</text>
 <g class="radar"><path d="M200.0,102.0 A104,104 0 0 1 266.8,126.3 L200.0,206.0 A0,0 0 0 0 200.0,206.0 Z" fill="url(#sweep)"/><line x1="200" y1="206" x2="266.8" y2="126.3" stroke="#38BDF8" stroke-opacity=".7"/></g>
 <path d="M202.4,119.0 A87.0644337539164,87.0644337539164 0 0 1 220.2,121.3 L209.7,165.1 A42,42 0 0 0 201.2,164.0 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.20s"><title>00:00–00:59 · 17 commits</title></path>
-<path d="M226.2,118.0 A91.86344211304794,91.86344211304794 0 0 1 243.7,125.2 L220.0,169.1 A42,42 0 0 0 212.0,165.8 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.24s"><title>01:00–01:59 · 21 commits</title></path>
+<path d="M225.9,119.1 A90.70993664969137,90.70993664969137 0 0 1 243.1,126.2 L220.0,169.1 A42,42 0 0 0 212.0,165.8 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.24s"><title>01:00–01:59 · 20 commits</title></path>
 <path d="M249.9,124.9 A95.16817192534651,95.16817192534651 0 0 1 265.4,136.9 L228.9,175.5 A42,42 0 0 0 222.0,170.2 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.28s"><title>02:00–02:59 · 24 commits</title></path>
 <path d="M258.3,150.9 A80.18136134933164,80.18136134933164 0 0 1 268.3,164.0 L235.8,184.0 A42,42 0 0 0 230.5,177.1 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.32s"><title>03:00–03:59 · 12 commits</title></path>
 <path d="M275.5,165.2 A85.77863742936748,85.77863742936748 0 0 1 282.2,181.5 L240.2,194.0 A42,42 0 0 0 236.9,186.0 Z" fill="#A78BFA" fill-opacity="0.8" class="bloom" style="animation-delay:0.36s"><title>04:00–04:59 · 16 commits</title></path>
@@ -80,15 +80,15 @@
 <path d="M145.8,110.3 A110.0,110.0 0 0 1 170.6,100.0 L188.8,165.5 A42,42 0 0 0 179.3,169.4 Z" fill="none" stroke="#E879F9" stroke-width="1.5" class="hotp"/>
 <path d="M176.8,108.5 A100.24621199366553,100.24621199366553 0 0 1 197.2,105.8 L198.8,164.0 A42,42 0 0 0 190.3,165.1 Z" fill="#E879F9" fill-opacity="0.8" class="bloom" style="animation-delay:1.12s"><title>23:00–23:59 · 29 commits</title></path>
 <circle cx="200" cy="206" r="36" fill="#060B18" stroke="#1C2A48"/>
-<defs><clipPath id="ck"><rect x="165.0" y="189.0" width="70" height="25.0"/></clipPath></defs><g clip-path="url(#ck)"><g class="cup" style="--h:204px;animation-delay:0.50s"><text x="200.0" y="208.0" class="val" text-anchor="middle" style="font-size:20px">338</text><text x="200.0" y="174.0" class="val" text-anchor="middle" style="font-size:20px">282</text><text x="200.0" y="140.0" class="val" text-anchor="middle" style="font-size:20px">225</text><text x="200.0" y="106.0" class="val" text-anchor="middle" style="font-size:20px">169</text><text x="200.0" y="72.0" class="val" text-anchor="middle" style="font-size:20px">113</text><text x="200.0" y="38.0" class="val" text-anchor="middle" style="font-size:20px">56</text><text x="200.0" y="4.0" class="val" text-anchor="middle" style="font-size:20px">0</text></g></g>
+<defs><clipPath id="ck"><rect x="165.0" y="189.0" width="70" height="25.0"/></clipPath></defs><g clip-path="url(#ck)"><g class="cup" style="--h:204px;animation-delay:0.50s"><text x="200.0" y="208.0" class="val" text-anchor="middle" style="font-size:20px">337</text><text x="200.0" y="174.0" class="val" text-anchor="middle" style="font-size:20px">281</text><text x="200.0" y="140.0" class="val" text-anchor="middle" style="font-size:20px">225</text><text x="200.0" y="106.0" class="val" text-anchor="middle" style="font-size:20px">168</text><text x="200.0" y="72.0" class="val" text-anchor="middle" style="font-size:20px">112</text><text x="200.0" y="38.0" class="val" text-anchor="middle" style="font-size:20px">56</text><text x="200.0" y="4.0" class="val" text-anchor="middle" style="font-size:20px">0</text></g></g>
 <g class="orbit2"><circle cx="200" cy="88" r="3.5" fill="#A3E635" filter="url(#glow)"/></g>
 <text x="200" y="224" class="small" text-anchor="middle">commits</text>
 <rect x="470" y="95" width="9" height="9" rx="2" fill="#A78BFA"/>
 <text x="486" y="104" class="lbl" style="fill:#8A97B4">NIGHT <tspan style="fill:#4A5A7E">00–06</tspan></text>
-<text x="860" y="104" class="small" text-anchor="end" style="fill:#E8EEF9">33%  <tspan style="fill:#8A97B4">112</tspan></text>
+<text x="860" y="104" class="small" text-anchor="end" style="fill:#E8EEF9">33%  <tspan style="fill:#8A97B4">111</tspan></text>
 <rect x="470" y="114" width="390" height="8" rx="4" fill="#0E1730" stroke="#1C2A48" stroke-width=".6"/>
-<rect x="470" y="114" width="358.0" height="8" rx="4" fill="#A78BFA" fill-opacity="0.8" class="grow" style="animation-delay:0.50s"/>
-<clipPath id="bb0"><rect x="470" y="114" width="358.0" height="8" rx="4"/></clipPath><g clip-path="url(#bb0)"><rect x="410" y="114" width="60" height="8" fill="url(#bshim)" class="bshim" style="--w:418px;animation-delay:1.40s"/></g>
+<rect x="470" y="114" width="354.8" height="8" rx="4" fill="#A78BFA" fill-opacity="0.8" class="grow" style="animation-delay:0.50s"/>
+<clipPath id="bb0"><rect x="470" y="114" width="354.8" height="8" rx="4"/></clipPath><g clip-path="url(#bb0)"><rect x="410" y="114" width="60" height="8" fill="url(#bshim)" class="bshim" style="--w:415px;animation-delay:1.40s"/></g>
 <rect x="470" y="145" width="9" height="9" rx="2" fill="#FBBF24"/>
 <text x="486" y="154" class="lbl" style="fill:#8A97B4">MORNING <tspan style="fill:#4A5A7E">06–12</tspan></text>
 <text x="860" y="154" class="small" text-anchor="end" style="fill:#E8EEF9">9%  <tspan style="fill:#8A97B4">29</tspan></text>
