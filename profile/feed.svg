@@ -60,7 +60,7 @@
 </g>
 <g class="type" style="animation-delay:0.85s"><rect x="782" y="86.0" width="6" height="10.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.25s"/><rect x="791" y="84.8" width="6" height="11.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.32s"/><rect x="800" y="83.6" width="6" height="12.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.39s"/><rect x="809" y="82.4" width="6" height="13.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.46s"/><rect x="818" y="81.2" width="6" height="14.8" rx="1.5" fill="#1C2A48"/><rect x="827" y="80.0" width="6" height="16.0" rx="1.5" fill="#1C2A48"/><rect x="836" y="78.8" width="6" height="17.2" rx="1.5" fill="#1C2A48"/><rect x="845" y="77.6" width="6" height="18.4" rx="1.5" fill="#1C2A48"/><rect x="854" y="76.4" width="6" height="19.6" rx="1.5" fill="#1C2A48"/><rect x="863" y="75.2" width="6" height="20.8" rx="1.5" fill="#1C2A48"/></g>
 <g class="pop" style="animation-delay:0.67s">
-  <text x="124" y="146" class="small" text-anchor="end">3 days</text>
+  <text x="124" y="146" class="small" text-anchor="end">4 days</text>
   <circle cx="150" cy="142" r="17" fill="none" stroke="#FBBF24" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
   <circle cx="150" cy="142" r="12" fill="#060B18" stroke="#FBBF24" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="146.5" text-anchor="middle" class="gl" style="fill:#FBBF24">↑</text>
@@ -72,7 +72,7 @@
 </g>
 <g class="type" style="animation-delay:1.17s"><rect x="782" y="136.0" width="6" height="10.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.57s"/><rect x="791" y="134.8" width="6" height="11.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.64s"/><rect x="800" y="133.6" width="6" height="12.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.71s"/><rect x="809" y="132.4" width="6" height="13.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.78s"/><rect x="818" y="131.2" width="6" height="14.8" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.85s"/><rect x="827" y="130.0" width="6" height="16.0" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.92s"/><rect x="836" y="128.8" width="6" height="17.2" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:1.99s"/><rect x="845" y="127.6" width="6" height="18.4" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.06s"/><rect x="854" y="126.4" width="6" height="19.6" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.13s"/><rect x="863" y="125.2" width="6" height="20.8" rx="1.5" fill="#FBBF24" class="lit" style="animation-delay:2.20s"/></g>
 <g class="pop" style="animation-delay:0.99s">
-  <text x="124" y="196" class="small" text-anchor="end">3 days</text>
+  <text x="124" y="196" class="small" text-anchor="end">4 days</text>
   <circle cx="150" cy="192" r="17" fill="none" stroke="#2DD4BF" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="192" r="12" fill="#060B18" stroke="#2DD4BF" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="196.5" text-anchor="middle" class="gl" style="fill:#2DD4BF">⑂</text>
@@ -83,7 +83,7 @@
   <text x="178" y="209" class="dt">Branch main</text>
 </g>
 <g class="pop" style="animation-delay:1.31s">
-  <text x="124" y="246" class="small" text-anchor="end">3 days</text>
+  <text x="124" y="246" class="small" text-anchor="end">4 days</text>
   <circle cx="150" cy="242" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin"/>
   <circle cx="150" cy="242" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="246.5" text-anchor="middle" class="gl" style="fill:#A3E635">◉</text>
