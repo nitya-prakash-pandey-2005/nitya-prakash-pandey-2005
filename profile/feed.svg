@@ -94,7 +94,7 @@
   <text x="178" y="259" class="dt">Open-sourced</text>
 </g>
 <g class="pop" style="animation-delay:1.63s">
-  <text x="124" y="296" class="small" text-anchor="end">4 days</text>
+  <text x="124" y="296" class="small" text-anchor="end">5 days</text>
   <circle cx="150" cy="292" r="17" fill="none" stroke="#A3E635" stroke-opacity=".55" stroke-dasharray="3 4" class="spin-r"/>
   <circle cx="150" cy="292" r="12" fill="#060B18" stroke="#A3E635" stroke-width="1.8" filter="url(#glow)"/>
   <text x="150" y="296.5" text-anchor="middle" class="gl" style="fill:#A3E635">↑</text>
