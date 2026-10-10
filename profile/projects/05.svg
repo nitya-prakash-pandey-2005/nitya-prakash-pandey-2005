@@ -54,7 +54,7 @@
   <text x="22" y="34" class="tag">P-05 · ◉ LATEST</text>
   <circle cx="294.0" cy="30" r="4" fill="#A3E635" class="led"/>
   <circle cx="294.0" cy="30" r="4" fill="none" stroke="#A3E635" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 3 days</text>
+  <text x="418" y="34" class="st" text-anchor="end">ACTIVE · 4 days</text>
 </g>
 <text x="22" y="66" class="nm glitch">Agri-Shield</text>
 <g class="in d2"><text x="22" y="88" class="ds">Mission brief pending: description coming soon.</text></g>
