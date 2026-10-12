@@ -54,7 +54,7 @@
   <text x="22" y="34" class="tag">P-02 · ★ FEATURED</text>
   <circle cx="301.6" cy="30" r="4" fill="#FBBF24" class="led"/>
   <circle cx="301.6" cy="30" r="4" fill="none" stroke="#FBBF24" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">IDLE · 4 weeks</text>
+  <text x="418" y="34" class="st" text-anchor="end">IDLE · 1 month</text>
 </g>
 <text x="22" y="66" class="nm glitch">TyreMind</text>
 <g class="in d2"><text x="22" y="88" class="ds">AI-powered tyre intelligence that separates true tyre</text><text x="22" y="105" class="ds">degradation from fuel, traffic, driver, weather, and trac…</text></g>
