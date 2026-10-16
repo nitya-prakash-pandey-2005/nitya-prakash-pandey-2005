@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 1033, commits 1018, active days 36, repositories 14, streak 0, best streak 4">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="378" viewBox="0 0 900 378" role="img" aria-label="GitHub telemetry: contributions 1034, commits 1018, active days 37, repositories 14, streak 1, best streak 4">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060B18"/><stop offset="1" stop-color="#0C1630"/></linearGradient>
   <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#FFFFFF" stroke-opacity=".03"/></pattern>
@@ -56,15 +56,15 @@
   </g>
   <circle cx="83.0" cy="148" r="36" fill="none" stroke="#38BDF8" stroke-width="1.2" class="sonar" style="animation-delay:0.00s"/>
   <circle cx="83.0" cy="148" r="44" fill="#38BDF8" fill-opacity=".05" stroke="#38BDF8" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:162.2; animation-delay:0.25s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:162.1; animation-delay:0.25s"
           transform="rotate(-90 83.0 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="105.8" cy="185.6" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
-    <circle cx="105.8" cy="185.6" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
+    <circle cx="105.7" cy="185.7" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.55s"/>
+    <circle cx="105.7" cy="185.7" r="4" fill="none" stroke="#38BDF8" stroke-width="1.5" class="ping" style="animation-delay:1.85s"/>
   </g>
   <circle cx="83.0" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">1,033</text><text x="83.0" y="126" class="val" text-anchor="middle">861</text><text x="83.0" y="96" class="val" text-anchor="middle">689</text><text x="83.0" y="66" class="val" text-anchor="middle">516</text><text x="83.0" y="36" class="val" text-anchor="middle">344</text><text x="83.0" y="6" class="val" text-anchor="middle">172</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M83.0,104.0 A44,44 0 0 1 105.8,185.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt0)"><g class="count" style="--h:180px;animation-delay:0.25s"><text x="83.0" y="156" class="val" text-anchor="middle">1,034</text><text x="83.0" y="126" class="val" text-anchor="middle">862</text><text x="83.0" y="96" class="val" text-anchor="middle">689</text><text x="83.0" y="66" class="val" text-anchor="middle">517</text><text x="83.0" y="36" class="val" text-anchor="middle">345</text><text x="83.0" y="6" class="val" text-anchor="middle">172</text><text x="83.0" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M83.0,104.0 A44,44 0 0 1 105.7,185.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:2.25s" filter="url(#glow)"/>
   <text x="83.0" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:3.0s">CONTRIBUTIONS</text>
   <text x="83.0" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="83.0" y="267" class="small" text-anchor="middle">next <tspan style="fill:#38BDF8">▸</tspan> 2,500</text>
@@ -108,15 +108,15 @@
   </g>
   <circle cx="376.6" cy="148" r="36" fill="none" stroke="#E879F9" stroke-width="1.2" class="sonar" style="animation-delay:0.90s"/>
   <circle cx="376.6" cy="148" r="44" fill="#E879F9" fill-opacity=".05" stroke="#E879F9" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:77.4; animation-delay:0.49s"
+          stroke-dasharray="276.5" style="stroke-dashoffset:71.9; animation-delay:0.49s"
           transform="rotate(-90 376.6 148)" class="arc" filter="url(#glow)" opacity="1"/>
   <g opacity="1">
-    <circle cx="333.4" cy="156.2" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.79s"/>
-    <circle cx="333.4" cy="156.2" r="4" fill="none" stroke="#E879F9" stroke-width="1.5" class="ping" style="animation-delay:2.09s"/>
+    <circle cx="332.7" cy="150.8" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:1.79s"/>
+    <circle cx="332.7" cy="150.8" r="4" fill="none" stroke="#E879F9" stroke-width="1.5" class="ping" style="animation-delay:2.09s"/>
   </g>
   <circle cx="376.6" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt2)"><g class="count" style="--h:180px;animation-delay:0.49s"><text x="376.6" y="156" class="val" text-anchor="middle">36</text><text x="376.6" y="126" class="val" text-anchor="middle">30</text><text x="376.6" y="96" class="val" text-anchor="middle">24</text><text x="376.6" y="66" class="val" text-anchor="middle">18</text><text x="376.6" y="36" class="val" text-anchor="middle">12</text><text x="376.6" y="6" class="val" text-anchor="middle">6</text><text x="376.6" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  <path d="M376.6,104.0 A44,44 0 1 1 333.4,156.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:3.19s" filter="url(#glow)"/>
+  <g clip-path="url(#cnt2)"><g class="count" style="--h:180px;animation-delay:0.49s"><text x="376.6" y="156" class="val" text-anchor="middle">37</text><text x="376.6" y="126" class="val" text-anchor="middle">31</text><text x="376.6" y="96" class="val" text-anchor="middle">25</text><text x="376.6" y="66" class="val" text-anchor="middle">18</text><text x="376.6" y="36" class="val" text-anchor="middle">12</text><text x="376.6" y="6" class="val" text-anchor="middle">6</text><text x="376.6" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M376.6,104.0 A44,44 0 1 1 332.7,150.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:3.19s" filter="url(#glow)"/>
   <text x="376.6" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:5.6s">ACTIVE DAYS</text>
   <text x="376.6" y="251" class="small" text-anchor="middle">last 12 months</text>
   <text x="376.6" y="267" class="small" text-anchor="middle">next <tspan style="fill:#E879F9">▸</tspan> 50</text>
@@ -160,15 +160,15 @@
   </g>
   <circle cx="670.2" cy="148" r="36" fill="none" stroke="#FBBF24" stroke-width="1.2" class="sonar" style="animation-delay:1.80s"/>
   <circle cx="670.2" cy="148" r="44" fill="#FBBF24" fill-opacity=".05" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="276.5" style="stroke-dashoffset:276.5; animation-delay:0.73s"
-          transform="rotate(-90 670.2 148)" class="arc" filter="url(#glow)" opacity="0"/>
-  <g opacity="0">
-    <circle cx="670.2" cy="104.0" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:2.03s"/>
-    <circle cx="670.2" cy="104.0" r="4" fill="none" stroke="#FBBF24" stroke-width="1.5" class="ping" style="animation-delay:2.33s"/>
+          stroke-dasharray="276.5" style="stroke-dashoffset:221.2; animation-delay:0.73s"
+          transform="rotate(-90 670.2 148)" class="arc" filter="url(#glow)" opacity="1"/>
+  <g opacity="1">
+    <circle cx="712.0" cy="134.4" r="3.2" fill="#FFFFFF" class="tip" style="animation-delay:2.03s"/>
+    <circle cx="712.0" cy="134.4" r="4" fill="none" stroke="#FBBF24" stroke-width="1.5" class="ping" style="animation-delay:2.33s"/>
   </g>
   <circle cx="670.2" cy="148" r="21" fill="#060B18" fill-opacity=".75"/>
-  <g clip-path="url(#cnt4)"><g class="count" style="--h:180px;animation-delay:0.73s"><text x="670.2" y="156" class="val" text-anchor="middle">0</text><text x="670.2" y="126" class="val" text-anchor="middle">0</text><text x="670.2" y="96" class="val" text-anchor="middle">0</text><text x="670.2" y="66" class="val" text-anchor="middle">0</text><text x="670.2" y="36" class="val" text-anchor="middle">0</text><text x="670.2" y="6" class="val" text-anchor="middle">0</text><text x="670.2" y="-24" class="val" text-anchor="middle">0</text></g></g>
-  
+  <g clip-path="url(#cnt4)"><g class="count" style="--h:180px;animation-delay:0.73s"><text x="670.2" y="156" class="val" text-anchor="middle">1</text><text x="670.2" y="126" class="val" text-anchor="middle">1</text><text x="670.2" y="96" class="val" text-anchor="middle">1</text><text x="670.2" y="66" class="val" text-anchor="middle">0</text><text x="670.2" y="36" class="val" text-anchor="middle">0</text><text x="670.2" y="6" class="val" text-anchor="middle">0</text><text x="670.2" y="-24" class="val" text-anchor="middle">0</text></g></g>
+  <path d="M670.2,104.0 A44,44 0 0 1 712.0,134.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" pathLength="100" class="charge" style="animation-delay:4.13s" filter="url(#glow)"/>
   <text x="670.2" y="234" class="lbl glitch" text-anchor="middle" style="fill:#E8EEF9;animation-delay:8.2s">STREAK</text>
   <text x="670.2" y="251" class="small" text-anchor="middle">days, current</text>
   <text x="670.2" y="267" class="small" text-anchor="middle">next <tspan style="fill:#FBBF24">▸</tspan> 5</text>
