@@ -93,16 +93,16 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: fork osipy 2 days ago; commit sangam 1 week ago; commit sangam 1 week ago; branch sangam 1 week ago; launch sangam 1 week ago; commit travelmind 2 weeks ago; commit travelmind 2 weeks ago; branch travelmind 2 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: fork osipy 3 days ago; commit sangam 1 week ago; commit sangam 2 weeks ago; branch sangam 2 weeks ago; launch sangam 2 weeks ago; commit travelmind 2 weeks ago; commit travelmind 2 weeks ago; branch travelmind 2 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>2 days ago</sub>
+- **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>3 days ago</sub>
 - **4 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Support Android 10, document the model download and release 1.1.0 [`f6c791f`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/f6c791f5bdc039a9f3d332d7ba0f80c6bb0dec09) <sub>1 week ago</sub>
-- **15 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Write README with screenshots and full documentation [`a0a21e5`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/a0a21e5b58818792114b04480f4a5cae757607b9) <sub>1 week ago</sub>
-- **Branch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Branch main <sub>1 week ago</sub>
-- **Launch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Open-sourced <sub>1 week ago</sub>
+- **15 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Write README with screenshots and full documentation [`a0a21e5`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/a0a21e5b58818792114b04480f4a5cae757607b9) <sub>2 weeks ago</sub>
+- **Branch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Branch main <sub>2 weeks ago</sub>
+- **Launch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Open-sourced <sub>2 weeks ago</sub>
 - **23 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge the UI kit restyle: aurora theme, kit shell and every page in t… [`57072c0`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/57072c06ac3a11e3d6b1333bb9cc9b54ea8becf3) <sub>2 weeks ago</sub>
 - **61 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(agent): demo planner speaks dates plainly and drafts enquiries o… [`ab98d24`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/ab98d24c6461d89919b8e503e3f5ad8a5836e865) <sub>2 weeks ago</sub>
 - **Branch** · [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind) · Branch m1-plan5-quotes <sub>2 weeks ago</sub>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 19 Oct 2026, 13:18 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 19 Oct 2026, 21:07 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
