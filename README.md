@@ -71,8 +71,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 <a href="https://github.com/nitya-prakash-pandey-2005/AgroSkin-AI"><img src="./profile/projects/04.svg" width="49%" alt="AgroSkin-AI: AI-powered skin disease detection system for rural healthcare using computer vision and deep learning."/></a>
 </p>
 <p>
-<a href="https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon"><img src="./profile/projects/05.svg" width="49%" alt="refract-rx-tryon: Prescription-true eyewear + eye-makeup try-on. See your eyes through your real lenses, get the right frame and lens index for your Rx, and eye makeup retuned for your lenses. Built on YouCam AI APIs (Face Analyzer, Skin Analysis, Makeup VTO)."/></a>
-<a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/06.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/05.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon"><img src="./profile/projects/06.svg" width="49%" alt="refract-rx-tryon: Prescription-true eyewear + eye-makeup try-on. See your eyes through your real lenses, get the right frame and lens index for your Rx, and eye makeup retuned for your lenses. Built on YouCam AI APIs (Face Analyzer, Skin Analysis, Makeup VTO)."/></a>
 </p>
 <!-- AUTO:PROJECTS:END -->
 
@@ -93,19 +93,19 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 22 hours ago; fork osipy 2 weeks ago; commit sangam 4 weeks ago; commit sangam 4 weeks ago; branch sangam 4 weeks ago; launch sangam 4 weeks ago; commit travelmind 4 weeks ago; commit travelmind 4 weeks ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 1 day ago; branch refract-rx-tryon 1 day ago; fork osipy 2 weeks ago; commit sangam 4 weeks ago; commit sangam 4 weeks ago; branch sangam 4 weeks ago; launch sangam 4 weeks ago; commit travelmind 4 weeks ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **41 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: regenerated gallery; gallery script removes its temporary captures [`ceb8b4d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/ceb8b4d250a38de2b32171b4bcbddfcbd3b7a036) <sub>22 hours ago</sub>
+- **41 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: regenerated gallery; gallery script removes its temporary captures [`ceb8b4d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/ceb8b4d250a38de2b32171b4bcbddfcbd3b7a036) <sub>1 day ago</sub>
+- **Branch** · [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon) · Branch main <sub>1 day ago</sub>
 - **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>2 weeks ago</sub>
 - **4 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Support Android 10, document the model download and release 1.1.0 [`f6c791f`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/f6c791f5bdc039a9f3d332d7ba0f80c6bb0dec09) <sub>4 weeks ago</sub>
 - **15 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Write README with screenshots and full documentation [`a0a21e5`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/a0a21e5b58818792114b04480f4a5cae757607b9) <sub>4 weeks ago</sub>
 - **Branch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Branch main <sub>4 weeks ago</sub>
 - **Launch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Open-sourced <sub>4 weeks ago</sub>
 - **23 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge the UI kit restyle: aurora theme, kit shell and every page in t… [`57072c0`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/57072c06ac3a11e3d6b1333bb9cc9b54ea8becf3) <sub>4 weeks ago</sub>
-- **61 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): feat(agent): demo planner speaks dates plainly and drafts enquiries o… [`ab98d24`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/ab98d24c6461d89919b8e503e3f5ad8a5836e865) <sub>4 weeks ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 03 Nov 2026, 12:19 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 03 Nov 2026, 20:40 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
