@@ -93,7 +93,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 2 days ago; commit refract-rx-tryon 2 days ago; commit refract-rx-tryon 3 days ago; branch refract-rx-tryon 3 days ago; fork osipy 2 weeks ago; commit sangam 1 month ago; commit sangam 1 month ago; branch sangam 1 month ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 2 days ago; commit refract-rx-tryon 2 days ago; commit refract-rx-tryon 3 days ago; branch refract-rx-tryon 3 days ago; fork osipy 2 weeks ago; commit sangam 1 month ago; commit sangam 1 month ago; commit travelmind 1 month ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
@@ -105,7 +105,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 - **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>2 weeks ago</sub>
 - **4 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Support Android 10, document the model download and release 1.1.0 [`f6c791f`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/f6c791f5bdc039a9f3d332d7ba0f80c6bb0dec09) <sub>1 month ago</sub>
 - **15 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Write README with screenshots and full documentation [`a0a21e5`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/a0a21e5b58818792114b04480f4a5cae757607b9) <sub>1 month ago</sub>
-- **Branch** · [sangam](https://github.com/nitya-prakash-pandey-2005/sangam) · Branch main <sub>1 month ago</sub>
+- **23 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge the UI kit restyle: aurora theme, kit shell and every page in t… [`57072c0`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/57072c06ac3a11e3d6b1333bb9cc9b54ea8becf3) <sub>1 month ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 06 Nov 2026, 03:29 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 06 Nov 2026, 07:58 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
