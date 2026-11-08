@@ -93,13 +93,13 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 4 days ago; commit refract-rx-tryon 4 days ago; commit refract-rx-tryon 6 days ago; branch refract-rx-tryon 6 days ago; fork osipy 3 weeks ago; commit sangam 1 month ago; commit sangam 1 month ago; commit travelmind 1 month ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 4 days ago; commit refract-rx-tryon 5 days ago; commit refract-rx-tryon 6 days ago; branch refract-rx-tryon 6 days ago; fork osipy 3 weeks ago; commit sangam 1 month ago; commit sangam 1 month ago; commit travelmind 1 month ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
 - **1 commit** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: detailed README with a screenshot tour, engine-computed tables,… [`3fdbe35`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/3fdbe35e1f6f62c021c2bdea243e635c7af674f1) <sub>4 days ago</sub>
-- **3 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs(v5): science section in README, constants and sources in EVIDENC… [`4c2c30d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/4c2c30d96c1045f16a96e5881032006c00963cf0) <sub>4 days ago</sub>
+- **3 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs(v5): science section in README, constants and sources in EVIDENC… [`4c2c30d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/4c2c30d96c1045f16a96e5881032006c00963cf0) <sub>5 days ago</sub>
 - **41 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: regenerated gallery; gallery script removes its temporary captures [`ceb8b4d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/ceb8b4d250a38de2b32171b4bcbddfcbd3b7a036) <sub>6 days ago</sub>
 - **Branch** · [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon) · Branch main <sub>6 days ago</sub>
 - **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>3 weeks ago</sub>
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 08 Nov 2026, 20:43 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 09 Nov 2026, 01:13 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
