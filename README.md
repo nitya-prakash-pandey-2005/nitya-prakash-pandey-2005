@@ -71,8 +71,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 <a href="https://github.com/nitya-prakash-pandey-2005/AgroSkin-AI"><img src="./profile/projects/04.svg" width="49%" alt="AgroSkin-AI: AI-powered skin disease detection system for rural healthcare using computer vision and deep learning."/></a>
 </p>
 <p>
-<a href="https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon"><img src="./profile/projects/05.svg" width="49%" alt="refract-rx-tryon: Prescription-true eyewear + eye-makeup try-on. See your eyes through your real lenses, get the right frame and lens index for your Rx, and eye makeup retuned for your lenses. Built on YouCam AI APIs (Face Analyzer, Skin Analysis, Makeup VTO)."/></a>
-<a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/06.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/05.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon"><img src="./profile/projects/06.svg" width="49%" alt="refract-rx-tryon: Prescription-true eyewear + eye-makeup try-on. See your eyes through your real lenses, get the right frame and lens index for your Rx, and eye makeup retuned for your lenses. Built on YouCam AI APIs (Face Analyzer, Skin Analysis, Makeup VTO)."/></a>
 </p>
 <!-- AUTO:PROJECTS:END -->
 
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 10 Nov 2026, 07:03 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 10 Nov 2026, 15:22 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
