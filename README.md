@@ -71,8 +71,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 <a href="https://github.com/nitya-prakash-pandey-2005/AgroSkin-AI"><img src="./profile/projects/04.svg" width="49%" alt="AgroSkin-AI: AI-powered skin disease detection system for rural healthcare using computer vision and deep learning."/></a>
 </p>
 <p>
-<a href="https://github.com/nitya-prakash-pandey-2005/Agri-Shield"><img src="./profile/projects/05.svg" width="49%" alt="Agri-Shield: no description yet"/></a>
-<a href="https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon"><img src="./profile/projects/06.svg" width="49%" alt="refract-rx-tryon: Prescription-true eyewear + eye-makeup try-on. See your eyes through your real lenses, get the right frame and lens index for your Rx, and eye makeup retuned for your lenses. Built on YouCam AI APIs (Face Analyzer, Skin Analysis, Makeup VTO)."/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/apni-awaaz"><img src="./profile/projects/05.svg" width="49%" alt="apni-awaaz: Voice banking for Indians who lost their voice to throat cancer, stroke or ALS. Type or tap in any Indian language and speak in your own cloned voice, with live captions of the other person. Built on Gnani AI voice cloning, Timbre, Prisma and Evon."/></a>
+<a href="https://github.com/nitya-prakash-pandey-2005/pukaar"><img src="./profile/projects/06.svg" width="49%" alt="pukaar: AI disaster helpline that answers every flood or landslide call in the caller&#x27;s language, calms them, triages severity and pins them on a live rescue map for the control room, with a human confirming every dispatch. Built on Gnani AI Prisma, Timbre and Evon."/></a>
 </p>
 <!-- AUTO:PROJECTS:END -->
 
@@ -93,19 +93,19 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit refract-rx-tryon 6 days ago; commit refract-rx-tryon 6 days ago; commit refract-rx-tryon 1 week ago; branch refract-rx-tryon 1 week ago; fork osipy 3 weeks ago; commit sangam 1 month ago; commit sangam 1 month ago; commit travelmind 1 month ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit apni-awaaz 4 minutes ago; commit pukaar 4 minutes ago; commit dadi-vs-scammers 4 minutes ago; commit pukaar 2 days ago; commit apni-awaaz 2 days ago; launch pukaar 2 days ago; launch apni-awaaz 2 days ago; launch dadi-vs-scammers 2 days ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
 
-- **1 commit** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: detailed README with a screenshot tour, engine-computed tables,… [`3fdbe35`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/3fdbe35e1f6f62c021c2bdea243e635c7af674f1) <sub>6 days ago</sub>
-- **3 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs(v5): science section in README, constants and sources in EVIDENC… [`4c2c30d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/4c2c30d96c1045f16a96e5881032006c00963cf0) <sub>6 days ago</sub>
-- **41 commits** to [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon): docs: regenerated gallery; gallery script removes its temporary captures [`ceb8b4d`](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon/commit/ceb8b4d250a38de2b32171b4bcbddfcbd3b7a036) <sub>1 week ago</sub>
-- **Branch** · [refract-rx-tryon](https://github.com/nitya-prakash-pandey-2005/refract-rx-tryon) · Branch main <sub>1 week ago</sub>
-- **Fork** · [OSIPI/osipy](https://github.com/OSIPI/osipy) · Forked <sub>3 weeks ago</sub>
-- **4 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Support Android 10, document the model download and release 1.1.0 [`f6c791f`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/f6c791f5bdc039a9f3d332d7ba0f80c6bb0dec09) <sub>1 month ago</sub>
-- **15 commits** to [sangam](https://github.com/nitya-prakash-pandey-2005/sangam): Write README with screenshots and full documentation [`a0a21e5`](https://github.com/nitya-prakash-pandey-2005/sangam/commit/a0a21e5b58818792114b04480f4a5cae757607b9) <sub>1 month ago</sub>
-- **23 commits** to [travelmind](https://github.com/nitya-prakash-pandey-2005/travelmind): Merge the UI kit restyle: aurora theme, kit shell and every page in t… [`57072c0`](https://github.com/nitya-prakash-pandey-2005/travelmind/commit/57072c06ac3a11e3d6b1333bb9cc9b54ea8becf3) <sub>1 month ago</sub>
+- **78 commits** to [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz): docs: add the three-products one-page PDF and link it [`e347bd8`](https://github.com/nitya-prakash-pandey-2005/apni-awaaz/commit/e347bd8edc00a31805e0e4f1981c405a048d1a95) <sub>4 minutes ago</sub>
+- **82 commits** to [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar): docs: add the three-products one-page PDF and link it [`ff0fbf4`](https://github.com/nitya-prakash-pandey-2005/pukaar/commit/ff0fbf40a1d5db4e857865ffacf7a69455f0e93d) <sub>4 minutes ago</sub>
+- **99 commits** to [dadi-vs-scammers](https://github.com/nitya-prakash-pandey-2005/dadi-vs-scammers): docs: three-products overview as a one-page PDF with current numbers [`1c77e67`](https://github.com/nitya-prakash-pandey-2005/dadi-vs-scammers/commit/1c77e6721a8037e959fb207346167ff03a9a0b64) <sub>4 minutes ago</sub>
+- **8 commits** to [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar): fix: run uvicorn and pytest through python -m (Smart App Control) [`c87afb3`](https://github.com/nitya-prakash-pandey-2005/pukaar/commit/c87afb334cfbf56ce2095ec05b1507f233459501) <sub>2 days ago</sub>
+- **6 commits** to [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz): chore: sync voice-core (Prisma one-locale streaming, ASCII keyterms, … [`317883e`](https://github.com/nitya-prakash-pandey-2005/apni-awaaz/commit/317883e6214bf69a421ae7549213af55745bb263) <sub>2 days ago</sub>
+- **Launch** · [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar) · Open-sourced <sub>2 days ago</sub>
+- **Launch** · [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz) · Open-sourced <sub>2 days ago</sub>
+- **Launch** · [dadi-vs-scammers](https://github.com/nitya-prakash-pandey-2005/dadi-vs-scammers) · Open-sourced <sub>2 days ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 10 Nov 2026, 15:22 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 10 Nov 2026, 23:21 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
