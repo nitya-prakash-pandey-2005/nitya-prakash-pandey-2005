@@ -52,9 +52,9 @@
 <g fill="none" stroke="#E879F9" stroke-width="1.5" stroke-opacity=".85"><path d="M8,20 L8,8 L20,8"/><path d="M432,20 L432,8 L420,8"/><path d="M8,156 L8,168 L20,168"/><path d="M432,156 L432,168 L420,168"/></g>
 <g class="in">
   <text x="22" y="34" class="tag">P-02 · ★ FEATURED</text>
-  <circle cx="301.6" cy="30" r="4" fill="#FBBF24" class="led"/>
-  <circle cx="301.6" cy="30" r="4" fill="none" stroke="#FBBF24" class="ring"/>
-  <text x="418" y="34" class="st" text-anchor="end">IDLE · 1 month</text>
+  <circle cx="294.0" cy="30" r="4" fill="#FBBF24" class="led"/>
+  <circle cx="294.0" cy="30" r="4" fill="none" stroke="#FBBF24" class="ring"/>
+  <text x="418" y="34" class="st" text-anchor="end">IDLE · 2 months</text>
 </g>
 <text x="22" y="66" class="nm glitch">TyreMind</text>
 <g class="in d2"><text x="22" y="88" class="ds">AI-powered tyre intelligence that separates true tyre</text><text x="22" y="105" class="ds">degradation from fuel, traffic, driver, weather, and trac…</text></g>
