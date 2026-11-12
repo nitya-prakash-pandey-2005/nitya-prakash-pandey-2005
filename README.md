@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 12 Nov 2026, 03:29 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 12 Nov 2026, 08:31 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
