@@ -93,7 +93,7 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 ## ⚡ Recent activity
 
 <!-- AUTO:ACTIVITY:START -->
-<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit apni-awaaz 2 days ago; commit pukaar 2 days ago; commit dadi-vs-scammers 2 days ago; commit apni-awaaz 2 days ago; commit pukaar 2 days ago; commit dadi-vs-scammers 2 days ago; commit pukaar 4 days ago; commit apni-awaaz 4 days ago"/>
+<img src="./profile/feed.svg" width="100%" alt="Recent activity: commit apni-awaaz 2 days ago; commit pukaar 2 days ago; commit dadi-vs-scammers 2 days ago; commit apni-awaaz 2 days ago; commit pukaar 2 days ago; commit dadi-vs-scammers 2 days ago; commit pukaar 5 days ago; commit apni-awaaz 5 days ago"/>
 
 <details>
 <summary><b>Event log with links</b></summary>
@@ -104,8 +104,8 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 - **80 commits** to [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz): docs: add the demo videos link (Google Drive) to README, pitch PDFs a… [`956ac5f`](https://github.com/nitya-prakash-pandey-2005/apni-awaaz/commit/956ac5f890c32d5ba23da536759fa1e889bb5e75) <sub>2 days ago</sub>
 - **84 commits** to [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar): docs: add the demo videos link (Google Drive) to README, pitch PDFs a… [`f3bdf16`](https://github.com/nitya-prakash-pandey-2005/pukaar/commit/f3bdf163438f9f0822512c5cdc1cac60060cce04) <sub>2 days ago</sub>
 - **98 commits** to [dadi-vs-scammers](https://github.com/nitya-prakash-pandey-2005/dadi-vs-scammers): docs: add the demo videos link (Google Drive) to README, pitch PDFs a… [`142e339`](https://github.com/nitya-prakash-pandey-2005/dadi-vs-scammers/commit/142e339476c31eeceb3bd282b4764f12693e44b7) <sub>2 days ago</sub>
-- **8 commits** to [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar): fix: run uvicorn and pytest through python -m (Smart App Control) [`c87afb3`](https://github.com/nitya-prakash-pandey-2005/pukaar/commit/c87afb334cfbf56ce2095ec05b1507f233459501) <sub>4 days ago</sub>
-- **5 commits** to [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz): chore: sync voice-core (Prisma one-locale streaming, ASCII keyterms, … [`317883e`](https://github.com/nitya-prakash-pandey-2005/apni-awaaz/commit/317883e6214bf69a421ae7549213af55745bb263) <sub>4 days ago</sub>
+- **8 commits** to [pukaar](https://github.com/nitya-prakash-pandey-2005/pukaar): fix: run uvicorn and pytest through python -m (Smart App Control) [`c87afb3`](https://github.com/nitya-prakash-pandey-2005/pukaar/commit/c87afb334cfbf56ce2095ec05b1507f233459501) <sub>5 days ago</sub>
+- **5 commits** to [apni-awaaz](https://github.com/nitya-prakash-pandey-2005/apni-awaaz): chore: sync voice-core (Prisma one-locale streaming, ASCII keyterms, … [`317883e`](https://github.com/nitya-prakash-pandey-2005/apni-awaaz/commit/317883e6214bf69a421ae7549213af55745bb263) <sub>5 days ago</sub>
 
 </details>
 <!-- AUTO:ACTIVITY:END -->
@@ -118,6 +118,6 @@ Other things I've built: a travel RAG agent (LangGraph, Qdrant hybrid search, Co
 
 <div align="center">
 <!-- AUTO:UPDATED:START -->
-<sub>Auto-refreshed by GitHub Actions on 13 Nov 2026, 13:29 IST</sub>
+<sub>Auto-refreshed by GitHub Actions on 13 Nov 2026, 21:56 IST</sub>
 <!-- AUTO:UPDATED:END -->
 </div>
